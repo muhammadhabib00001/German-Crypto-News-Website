@@ -1,4 +1,4 @@
-﻿---
+---
 import { MARKET_COINS, MARKET_METRICS } from '../data/market';
 ---
 
@@ -8,33 +8,35 @@ import { MARKET_COINS, MARKET_METRICS } from '../data/market';
     <div class="hidden lg:flex items-center gap-5 text-[11px] shrink-0 border-r border-slate-800 pr-5">
       <div class="flex items-center gap-1.5">
         <span class="text-slate-400">Total Cap:</span>
-        <span class="font-bold text-white financial-num">{MARKET_METRICS.totalMarketCap}</span>
-        <span class="text-emerald-400 font-semibold financial-num">+{MARKET_METRICS.totalMarketCapChange24h}%</span>
+        <span id="ticker-total-cap" class="font-bold text-white financial-num">{MARKET_METRICS.totalMarketCap}</span>
+        <span id="ticker-cap-change" class={`font-semibold financial-num ${MARKET_METRICS.totalMarketCapChange24h >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+          {MARKET_METRICS.totalMarketCapChange24h >= 0 ? '+' : ''}{MARKET_METRICS.totalMarketCapChange24h}%
+        </span>
       </div>
       <div class="flex items-center gap-1.5">
         <span class="text-slate-400">24h Vol:</span>
-        <span class="font-bold text-white financial-num">{MARKET_METRICS.volume24h}</span>
+        <span id="ticker-vol" class="font-bold text-white financial-num">{MARKET_METRICS.volume24h}</span>
       </div>
       <div class="flex items-center gap-1.5">
         <span class="text-slate-400">Dominance:</span>
-        <span class="text-white font-medium financial-num">BTC {MARKET_METRICS.btcDominance}%</span>
+        <span id="ticker-btc-dom" class="text-white font-medium financial-num">BTC {MARKET_METRICS.btcDominance}%</span>
         <span class="text-slate-500">|</span>
-        <span class="text-white font-medium financial-num">ETH {MARKET_METRICS.ethDominance}%</span>
+        <span id="ticker-eth-dom" class="text-white font-medium financial-num">ETH {MARKET_METRICS.ethDominance}%</span>
       </div>
       <div class="flex items-center gap-1.5 bg-slate-900/90 px-2 py-0.5 rounded border border-slate-800">
         <span class="text-slate-400">Sentiment:</span>
-        <span class="text-emerald-400 font-bold financial-num">{MARKET_METRICS.fearAndGreedIndex} ({MARKET_METRICS.fearAndGreedSentiment})</span>
+        <span id="ticker-fng" class="text-emerald-400 font-bold financial-num">{MARKET_METRICS.fearAndGreedIndex} ({MARKET_METRICS.fearAndGreedSentiment})</span>
       </div>
     </div>
 
     <!-- Scrolling Ticker Container -->
     <div class="flex-1 overflow-hidden relative">
-      <div class="flex items-center gap-6 overflow-x-auto no-scrollbar py-0.5 whitespace-nowrap">
+      <div id="crypto-ticker-row" class="flex items-center gap-6 overflow-x-auto no-scrollbar py-0.5 whitespace-nowrap">
         {MARKET_COINS.map((coin) => (
-          <div class="inline-flex items-center gap-2 shrink-0 bg-slate-900/40 hover:bg-slate-800/60 transition-colors px-2 py-0.5 rounded border border-slate-800/50">
+          <div data-coin-symbol={coin.symbol} class="inline-flex items-center gap-2 shrink-0 bg-slate-900/40 hover:bg-slate-800/60 transition-colors px-2 py-0.5 rounded border border-slate-800/50">
             <span class="font-bold text-white tracking-wide">{coin.symbol}</span>
-            <span class="text-slate-200 financial-num">${coin.price.toLocaleString(undefined, { minimumFractionDigits: coin.price < 1 ? 4 : 2 })}</span>
-            <span class={`font-semibold financial-num text-[11px] ${coin.change24h >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+            <span class="coin-price text-slate-200 financial-num">${coin.price.toLocaleString(undefined, { minimumFractionDigits: coin.price < 1 ? 4 : 2 })}</span>
+            <span class={`coin-change font-semibold financial-num text-[11px] ${coin.change24h >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
               {coin.change24h >= 0 ? '▲' : '▼'} {Math.abs(coin.change24h)}%
             </span>
           </div>
@@ -48,7 +50,72 @@ import { MARKET_COINS, MARKET_METRICS } from '../data/market';
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
       </span>
-      <span>Live Rates</span>
+      <span id="live-status-text">Live Rates</span>
     </div>
   </div>
 </div>
+
+<!-- Real-time dynamic price updater script -->
+<script is:inline>
+  const COIN_MAP = {
+    'BTC': 'bitcoin',
+    'ETH': 'ethereum',
+    'SOL': 'solana',
+    'BNB': 'binancecoin',
+    'XRP': 'ripple',
+    'ADA': 'cardano',
+    'AVAX': 'avalanche-2',
+    'LINK': 'chainlink'
+  };
+
+  async function updatePrices() {
+    try {
+      const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,binancecoin,ripple,cardano,avalanche-2,chainlink&vs_currencies=usd&include_24hr_change=true');
+      if (!res.ok) return;
+      const data = await res.json();
+
+      Object.entries(COIN_MAP).forEach(([sym, id]) => {
+        const item = data[id];
+        if (!item) return;
+
+        // Update ticker row
+        document.querySelectorAll(`[data-coin-symbol="${sym}"]`).forEach((el) => {
+          const priceEl = el.querySelector('.coin-price');
+          const changeEl = el.querySelector('.coin-change');
+          if (priceEl && item.usd !== undefined) {
+            priceEl.textContent = '$' + item.usd.toLocaleString(undefined, { minimumFractionDigits: item.usd < 1 ? 4 : 2 });
+          }
+          if (changeEl && item.usd_24h_change !== undefined) {
+            const ch = Number(item.usd_24h_change);
+            const isPos = ch >= 0;
+            changeEl.className = `coin-change font-semibold financial-num text-[11px] ${isPos ? 'text-emerald-400' : 'text-rose-400'}`;
+            changeEl.textContent = `${isPos ? '▲' : '▼'} ${Math.abs(ch).toFixed(2)}%`;
+          }
+        });
+
+        // Update homepage Market Movers sidebar widget
+        document.querySelectorAll(`[data-mover-symbol="${sym}"]`).forEach((el) => {
+          const priceEl = el.querySelector('.mover-price');
+          const changeEl = el.querySelector('.mover-change');
+          if (priceEl && item.usd !== undefined) {
+            priceEl.textContent = '$' + item.usd.toLocaleString(undefined, { minimumFractionDigits: item.usd < 1 ? 4 : 2 });
+          }
+          if (changeEl && item.usd_24h_change !== undefined) {
+            const ch = Number(item.usd_24h_change);
+            const isPos = ch >= 0;
+            changeEl.className = `mover-change font-bold financial-num text-[11px] w-14 text-right ${isPos ? 'text-emerald-400' : 'text-rose-400'}`;
+            changeEl.textContent = `${isPos ? '+' : ''}${ch.toFixed(2)}%`;
+          }
+        });
+      });
+    } catch (e) {
+      console.warn('Real-time price update poll failed:', e);
+    }
+  }
+
+  // Update immediately on page load, then poll every 30 seconds
+  if (typeof window !== 'undefined') {
+    updatePrices();
+    setInterval(updatePrices, 30000);
+  }
+</script>
