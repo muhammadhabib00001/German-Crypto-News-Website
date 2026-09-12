@@ -49,8 +49,8 @@ html {
   letter-spacing: -0.025em;
   margin-top: 2.75rem;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #1e293b;
+  padding-bottom: 0.25rem;
+  border-bottom: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -146,7 +146,5 @@ html {
 }
 
 .article-prose hr {
-  border-color: #1e293b;
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  display: none;
 }
