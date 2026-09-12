@@ -4,8 +4,8 @@
   :root {
     --brand-primary: #f59e0b;
     --brand-accent: #10b981;
-    --bg-dark: #090d16;
-    --card-dark: #0f172a;
+    --bg-dark: #0b1120;
+    --card-dark: #131d33;
     --border-dark: #1e293b;
   }
 }
@@ -13,6 +13,12 @@
 html {
   scroll-behavior: smooth;
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #0b1120;
+}
+
+body {
+  background-color: #0b1120;
+  color: #e2e8f0;
 }
 
 /* Financial number tabular styling */
@@ -31,20 +37,21 @@ html {
 
 /* Standard Editorial Typography & Prose Layout */
 .article-prose {
-  color: #cbd5e1; /* text-slate-300 */
-  font-size: 1.0625rem; /* 17px */
-  line-height: 1.85;
+  color: #e2e8f0; /* Crisp slate-200 for optimal reading contrast */
+  font-size: 1.125rem; /* 18px reading font size */
+  line-height: 1.9;
+  letter-spacing: -0.011em;
 }
 
 .article-prose p {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  color: #cbd5e1;
+  color: #e2e8f0;
 }
 
 .article-prose h2 {
   color: #ffffff;
-  font-size: 1.65rem;
+  font-size: 1.75rem;
   font-weight: 800;
   letter-spacing: -0.025em;
   margin-top: 2.75rem;
@@ -57,7 +64,7 @@ html {
 }
 
 .article-prose h3 {
-  color: #f1f5f9;
+  color: #f8fafc;
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.015em;

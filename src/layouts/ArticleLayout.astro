@@ -209,12 +209,12 @@ if (faqSchema) schemas.push(faqSchema);
             {article.data.title}
           </h1>
 
-          <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-6">
+          <p class="text-base sm:text-lg text-slate-200 font-normal leading-relaxed mb-6">
             {article.data.excerpt}
           </p>
 
           <!-- Byline & Verification Bar (E-E-A-T Standard) -->
-          <div class="flex flex-wrap items-center justify-between gap-4 py-3.5 border-y border-slate-800 text-xs text-slate-400">
+          <div class="flex flex-wrap items-center justify-between gap-4 py-3.5 border-y border-slate-800/90 text-xs text-slate-400">
             <div class="flex items-center gap-3">
               <a href={`/author/${article.data.author}`} class="shrink-0">
                 <img
@@ -280,16 +280,16 @@ if (faqSchema) schemas.push(faqSchema);
 
         <!-- Executive Key Takeaways / Highlights Callout Box -->
         {article.data.keyHighlights && article.data.keyHighlights.length > 0 && (
-          <div class="bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border-l-4 border-amber-500 rounded-r-xl p-5 mb-8">
-            <div class="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider mb-3">
-              <span>⚡</span>
-              <span>Key Takeaways & Executive Summary</span>
+          <div class="bg-gradient-to-r from-amber-500/15 via-slate-900/80 to-slate-900/40 border-l-4 border-amber-400 border border-slate-800/80 rounded-r-2xl p-6 mb-8 shadow-lg shadow-black/20">
+            <div class="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider mb-3.5">
+              <span class="text-base">⚡</span>
+              <span class="tracking-widest">Key Takeaways & Executive Summary</span>
             </div>
-            <ul class="space-y-2 text-sm text-slate-200">
+            <ul class="space-y-2.5 text-[15px] text-slate-100">
               {article.data.keyHighlights.map((highlight) => (
-                <li class="flex items-start gap-2.5">
-                  <span class="text-amber-400 font-bold mt-0.5">•</span>
-                  <span class="leading-relaxed">{highlight}</span>
+                <li class="flex items-start gap-3">
+                  <span class="text-amber-400 font-black mt-1 text-sm">▶</span>
+                  <span class="leading-relaxed font-normal">{highlight}</span>
                 </li>
               ))}
             </ul>
@@ -297,7 +297,7 @@ if (faqSchema) schemas.push(faqSchema);
         )}
 
         <!-- Social Share Bar -->
-        <div class="flex items-center justify-between gap-3 p-3 bg-slate-900/50 border border-slate-800 rounded-xl mb-8 text-xs">
+        <div class="flex items-center justify-between gap-3 p-3.5 bg-slate-900/70 border border-slate-800/80 rounded-xl mb-8 text-xs">
           <span class="font-semibold text-slate-400">Share this report:</span>
           <div class="flex items-center gap-2">
             <a
@@ -359,19 +359,19 @@ if (faqSchema) schemas.push(faqSchema);
 
         <!-- FAQ Section with Schema Accordion -->
         {article.data.faqs && article.data.faqs.length > 0 && (
-          <section class="mt-12 pt-8 border-t border-slate-800">
+          <section class="mt-12 pt-8 border-t border-slate-800/80">
             <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
               <span>Frequently Asked Questions</span>
             </h2>
-            <div class="space-y-3">
+            <div class="space-y-3.5">
               {article.data.faqs.map((faq) => (
-                <div class="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 sm:p-5 hover:border-slate-700/80 transition-colors">
-                  <h3 class="text-sm font-semibold text-white mb-1.5 flex items-start gap-2">
-                    <span class="text-amber-400 font-bold text-xs mt-0.5">Q:</span>
+                <div class="bg-slate-900/80 border border-slate-800 hover:border-slate-700 rounded-xl p-5 transition-all shadow-sm">
+                  <h3 class="text-sm font-bold text-white mb-2 flex items-start gap-2">
+                    <span class="text-amber-400 font-black text-xs mt-0.5">Q:</span>
                     <span>{faq.question}</span>
                   </h3>
-                  <p class="text-xs sm:text-sm text-slate-300 leading-relaxed pl-5 font-normal">
+                  <p class="text-xs sm:text-sm text-slate-200 leading-relaxed pl-5 font-normal">
                     {faq.answer}
                   </p>
                 </div>
@@ -381,7 +381,7 @@ if (faqSchema) schemas.push(faqSchema);
         )}
 
         <!-- Article Tag Pills -->
-        <div class="mt-8 pt-6 border-t border-slate-800 flex flex-wrap items-center gap-2">
+        <div class="mt-8 pt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-2">
           <span class="text-xs text-slate-400 font-bold uppercase mr-2">Tags:</span>
           {article.data.tags.map((tag) => {
             const tagSlug = tag
@@ -393,9 +393,9 @@ if (faqSchema) schemas.push(faqSchema);
             return (
               <a
                 href={`/tag/${tagSlug}`}
-                class="px-3 py-1.5 bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-amber-400/50 rounded-lg text-xs font-medium text-slate-300 hover:text-amber-400 transition-all cursor-pointer inline-flex items-center gap-1 group"
+                class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-amber-400/50 rounded-lg text-xs font-medium text-slate-200 hover:text-amber-400 transition-all cursor-pointer inline-flex items-center gap-1.5 group shadow-sm"
               >
-                <span class="text-amber-400/70 group-hover:text-amber-400">#</span>
+                <span class="text-amber-400 font-semibold">#</span>
                 <span>{tag}</span>
               </a>
             );
@@ -403,31 +403,31 @@ if (faqSchema) schemas.push(faqSchema);
         </div>
 
         <!-- Full Author E-E-A-T Bio Box -->
-        <div class="mt-10 p-6 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col sm:flex-row gap-5 items-start">
+        <div class="mt-10 p-6 bg-slate-900/90 border border-slate-800 rounded-2xl flex flex-col sm:flex-row gap-5 items-start shadow-md">
           <img
             src={authorData.avatar}
             alt={authorData.name}
-            class="w-16 h-16 rounded-full object-cover border-2 border-amber-400/40 shrink-0"
+            class="w-16 h-16 rounded-full object-cover border-2 border-amber-400/50 shrink-0"
           />
           <div class="flex-1">
-            <div class="flex items-center justify-between mb-1">
+            <div class="flex items-center justify-between mb-1.5">
               <div>
                 <h3 class="text-base font-bold text-white">{authorData.name}</h3>
                 <p class="text-xs text-amber-400 font-medium">{authorData.role}</p>
               </div>
               <a
                 href={`/author/${article.data.author}`}
-                class="text-xs text-slate-400 hover:text-white underline"
+                class="text-xs text-slate-300 hover:text-white underline font-medium"
               >
                 View Author Dossier →
               </a>
             </div>
-            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed mb-3">
               {authorData.bio}
             </p>
             {authorData.credentials && (
               <div class="text-[11px] text-slate-400">
-                <span class="font-bold text-slate-300">Credentials:</span> {authorData.credentials}
+                <span class="font-bold text-slate-200">Credentials:</span> {authorData.credentials}
               </div>
             )}
           </div>
