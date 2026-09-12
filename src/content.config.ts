@@ -23,7 +23,9 @@ const newsCollection = defineCollection({
   loader: glob({ pattern: '**/*.md', base: 'src/content/news' }),
   schema: z.object({
     title: z.string(),
+    metaTitle: z.string().optional(),
     excerpt: z.string(),
+    metaDescription: z.string().optional(),
     category: z.string(),
     author: z.string(),
     publishedDate: z.string(),

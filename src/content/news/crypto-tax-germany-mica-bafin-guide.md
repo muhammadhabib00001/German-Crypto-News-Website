@@ -1,6 +1,8 @@
 ---
 title: "Crypto Tax in Germany 2026: How the 1-Year Holding Rule & MiCA Impact Global Investors"
+metaTitle: "Crypto Tax Germany: 1-Year Rule & MiCA Guide 2026"
 excerpt: "A comprehensive analysis of German crypto tax legislation under § 23 EStG, tax-free capital gains after 12 months, staking rules, BaFin custody standards, and EU MiCA cross-border compliance."
+metaDescription: "Learn how crypto tax in Germany works under § 23 EStG. Understand the 1-year tax-free holding rule, staking rules, BaFin guidelines, and EU MiCA regulations."
 category: "crypto-regulation"
 author: "julian-hayes"
 publishedDate: "2026-09-12T15:00:00Z"

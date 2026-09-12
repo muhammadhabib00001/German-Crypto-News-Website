@@ -9,7 +9,9 @@ interface Props {
     body: string;
     data: {
       title: string;
+      metaTitle?: string;
       excerpt: string;
+      metaDescription?: string;
       category: string;
       author: string;
       publishedDate: string;
@@ -156,8 +158,9 @@ if (faqSchema) schemas.push(faqSchema);
 ---
 
 <BaseLayout
-  title={article.data.title}
-  description={article.data.excerpt}
+  title={article.data.metaTitle || article.data.title}
+  exactTitle={Boolean(article.data.metaTitle)}
+  description={article.data.metaDescription || article.data.excerpt}
   canonicalUrl={fullCanonical}
   ogImage={article.data.featuredImage}
   ogType="article"
