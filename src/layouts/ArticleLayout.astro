@@ -380,11 +380,23 @@ if (faqSchema) schemas.push(faqSchema);
         <!-- Article Tag Pills -->
         <div class="mt-8 pt-6 border-t border-slate-800 flex flex-wrap items-center gap-2">
           <span class="text-xs text-slate-400 font-bold uppercase mr-2">Tags:</span>
-          {article.data.tags.map((tag) => (
-            <span class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-md text-xs text-slate-300">
-              #{tag}
-            </span>
-          ))}
+          {article.data.tags.map((tag) => {
+            const tagSlug = tag
+              .toLowerCase()
+              .trim()
+              .replace(/[^\w\s-]/g, '')
+              .replace(/[\s_-]+/g, '-')
+              .replace(/^-+|-+$/g, '');
+            return (
+              <a
+                href={`/tag/${tagSlug}`}
+                class="px-3 py-1.5 bg-slate-900/80 hover:bg-slate-800 border border-slate-800 hover:border-amber-400/50 rounded-lg text-xs font-medium text-slate-300 hover:text-amber-400 transition-all cursor-pointer inline-flex items-center gap-1 group"
+              >
+                <span class="text-amber-400/70 group-hover:text-amber-400">#</span>
+                <span>{tag}</span>
+              </a>
+            );
+          })}
         </div>
 
         <!-- Full Author E-E-A-T Bio Box -->
