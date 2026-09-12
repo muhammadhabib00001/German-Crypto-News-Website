@@ -21,13 +21,13 @@ keyHighlights:
   - "Derivatives liquidation heatmaps indicate thin resistance overhead until the $100,000 psychological threshold."
 faqs:
   - question: "What drove Bitcoin's surge to the record $89,000 level?"
-    answer: "A combination of record-breaking spot ETF inflows, drying OTC desk reserves, aggressive corporate treasury accumulation (led by MicroStrategy), and expanding global macroeconomic liquidity drove sustained buy-side market momentum."
+    answer: "Record spot ETF inflows ($3.2B/week), depleting OTC desk reserves, and aggressive corporate treasury buying."
   - question: "How does the 2024 halving compare to current institutional ETF absorption?"
-    answer: "The fourth Bitcoin halving reduced daily block subsidies to 3.125 BTC per block, yielding approximately 450 BTC mined per day globally. In contrast, regulated spot ETFs have averaged daily net absorptions exceeding 2,100 BTC, creating an acute programmatic supply deficit."
+    answer: "Miners produce only ~450 BTC daily, while spot ETFs absorb over 2,100 BTC daily—creating a 4:1 supply deficit."
   - question: "Is this rally driven by excessive futures leverage?"
-    answer: "While aggregate open interest across derivatives exchanges reached $41.8 billion, perpetual funding rates remain healthy and moderate between +0.010% and +0.018%, confirming that the price advance is predominantly spot-driven rather than an over-leveraged speculative bubble."
+    answer: "No. Funding rates remain modest (+0.010% to +0.018%), indicating a spot-driven advance rather than speculative leverage."
   - question: "Where is the primary technical support in case of market pullbacks?"
-    answer: "Key technical confluence resides at the 20-day exponential moving average ($84,200) and the previous multi-month consolidation breakout ceiling between $73,800 and $75,000."
+    answer: "Immediate support sits at the 20-day EMA ($84,200), with macro breakout support between $73,800 and $75,000."
 sources:
   - name: "Farside Investors ETF Flow Intelligence"
     url: "https://farside.co.uk"
