@@ -5,7 +5,7 @@ const mainCategories = CATEGORY_LIST.slice(0, 8);
 const moreCategories = CATEGORY_LIST.slice(8);
 ---
 
-<header class="sticky top-0 z-40 bg-black/95 backdrop-blur-md border-b border-zinc-800">
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 gap-4">
       
@@ -16,21 +16,21 @@ const moreCategories = CATEGORY_LIST.slice(8);
             ⚡
           </div>
           <div class="flex flex-col">
-            <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">
-              Crypto<span class="text-amber-400">Pulse</span>
+            <span class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-1">
+              Crypto<span class="text-amber-600">Pulse</span>
             </span>
-            <span class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">
+            <span class="text-[9px] uppercase tracking-widest text-slate-500 font-semibold -mt-1">
               Financial Intelligence
             </span>
           </div>
         </a>
 
         <!-- Desktop Navigation Categories -->
-        <nav class="hidden xl:flex items-center gap-1 pl-4 border-l border-slate-800">
+        <nav class="hidden xl:flex items-center gap-1 pl-4 border-l border-slate-200">
           {mainCategories.map((cat) => (
             <a
               href={`/category/${cat.slug}`}
-              class="px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-md transition-colors"
+              class="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-950 hover:bg-slate-100 rounded-md transition-colors"
             >
               {cat.name}
             </a>
@@ -38,21 +38,21 @@ const moreCategories = CATEGORY_LIST.slice(8);
           
           <!-- Dropdown for more categories -->
           <div class="relative group">
-            <button class="px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-md transition-colors inline-flex items-center gap-1">
+            <button class="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-950 hover:bg-slate-100 rounded-md transition-colors inline-flex items-center gap-1 cursor-pointer">
               More
               <svg class="w-3.5 h-3.5 opacity-70 group-hover:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div class="absolute left-0 mt-1 w-56 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl p-2 hidden group-hover:block transition-all z-50">
+            <div class="absolute left-0 mt-1 w-56 rounded-xl bg-white border border-slate-200 shadow-xl p-2 hidden group-hover:block transition-all z-50">
               <div class="grid grid-cols-1 gap-1">
                 {moreCategories.map((cat) => (
                   <a
                     href={`/category/${cat.slug}`}
-                    class="px-3 py-2 text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg transition-colors flex items-center justify-between"
+                    class="px-3 py-2 text-xs font-medium text-slate-700 hover:text-slate-950 hover:bg-slate-50 rounded-lg transition-colors flex items-center justify-between"
                   >
                     <span>{cat.name}</span>
-                    <span class="text-[10px] text-slate-500">Explore</span>
+                    <span class="text-[10px] text-slate-400">Explore</span>
                   </a>
                 ))}
               </div>

@@ -2,30 +2,30 @@
 import { MARKET_COINS, MARKET_METRICS } from '../data/market';
 ---
 
-<div class="bg-black border-b border-zinc-800 text-xs text-zinc-300 py-1.5 px-4 overflow-hidden select-none">
+<div class="bg-slate-100/90 border-b border-slate-200 text-xs text-slate-700 py-1.5 px-4 overflow-hidden select-none">
   <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
     <!-- Macro Market Bar Overview -->
-    <div class="hidden lg:flex items-center gap-5 text-[11px] shrink-0 border-r border-slate-800 pr-5">
+    <div class="hidden lg:flex items-center gap-5 text-[11px] shrink-0 border-r border-slate-200 pr-5">
       <div class="flex items-center gap-1.5">
-        <span class="text-slate-400">Total Cap:</span>
-        <span id="ticker-total-cap" class="font-bold text-white financial-num">{MARKET_METRICS.totalMarketCap}</span>
-        <span id="ticker-cap-change" class={`font-semibold financial-num ${MARKET_METRICS.totalMarketCapChange24h >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+        <span class="text-slate-500">Total Cap:</span>
+        <span id="ticker-total-cap" class="font-bold text-slate-900 financial-num">{MARKET_METRICS.totalMarketCap}</span>
+        <span id="ticker-cap-change" class={`font-semibold financial-num ${MARKET_METRICS.totalMarketCapChange24h >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
           {MARKET_METRICS.totalMarketCapChange24h >= 0 ? '+' : ''}{MARKET_METRICS.totalMarketCapChange24h}%
         </span>
       </div>
       <div class="flex items-center gap-1.5">
-        <span class="text-slate-400">24h Vol:</span>
-        <span id="ticker-vol" class="font-bold text-white financial-num">{MARKET_METRICS.volume24h}</span>
+        <span class="text-slate-500">24h Vol:</span>
+        <span id="ticker-vol" class="font-bold text-slate-900 financial-num">{MARKET_METRICS.volume24h}</span>
       </div>
       <div class="flex items-center gap-1.5">
-        <span class="text-slate-400">Dominance:</span>
-        <span id="ticker-btc-dom" class="text-white font-medium financial-num">BTC {MARKET_METRICS.btcDominance}%</span>
-        <span class="text-slate-500">|</span>
-        <span id="ticker-eth-dom" class="text-white font-medium financial-num">ETH {MARKET_METRICS.ethDominance}%</span>
+        <span class="text-slate-500">Dominance:</span>
+        <span id="ticker-btc-dom" class="text-slate-900 font-medium financial-num">BTC {MARKET_METRICS.btcDominance}%</span>
+        <span class="text-slate-300">|</span>
+        <span id="ticker-eth-dom" class="text-slate-900 font-medium financial-num">ETH {MARKET_METRICS.ethDominance}%</span>
       </div>
-      <div class="flex items-center gap-1.5 bg-slate-900/90 px-2 py-0.5 rounded border border-slate-800">
-        <span class="text-slate-400">Sentiment:</span>
-        <span id="ticker-fng" class="text-emerald-400 font-bold financial-num">{MARKET_METRICS.fearAndGreedIndex} ({MARKET_METRICS.fearAndGreedSentiment})</span>
+      <div class="flex items-center gap-1.5 bg-white px-2 py-0.5 rounded border border-slate-200 shadow-xs">
+        <span class="text-slate-500">Sentiment:</span>
+        <span id="ticker-fng" class="text-emerald-600 font-bold financial-num">{MARKET_METRICS.fearAndGreedIndex} ({MARKET_METRICS.fearAndGreedSentiment})</span>
       </div>
     </div>
 
@@ -33,10 +33,10 @@ import { MARKET_COINS, MARKET_METRICS } from '../data/market';
     <div class="flex-1 overflow-hidden relative">
       <div id="crypto-ticker-row" class="flex items-center gap-6 overflow-x-auto no-scrollbar py-0.5 whitespace-nowrap">
         {MARKET_COINS.map((coin) => (
-          <div data-coin-symbol={coin.symbol} class="inline-flex items-center gap-2 shrink-0 bg-slate-900/40 hover:bg-slate-800/60 transition-colors px-2 py-0.5 rounded border border-slate-800/50">
-            <span class="font-bold text-white tracking-wide">{coin.symbol}</span>
-            <span class="coin-price text-slate-200 financial-num transition-all duration-300">${coin.price.toLocaleString(undefined, { minimumFractionDigits: coin.price < 1 ? 4 : 2 })}</span>
-            <span class={`coin-change font-semibold financial-num text-[11px] ${coin.change24h >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+          <div data-coin-symbol={coin.symbol} class="inline-flex items-center gap-2 shrink-0 bg-white hover:bg-slate-50 transition-colors px-2 py-0.5 rounded border border-slate-200 shadow-xs">
+            <span class="font-bold text-slate-900 tracking-wide">{coin.symbol}</span>
+            <span class="coin-price text-slate-700 financial-num transition-all duration-300">${coin.price.toLocaleString(undefined, { minimumFractionDigits: coin.price < 1 ? 4 : 2 })}</span>
+            <span class={`coin-change font-semibold financial-num text-[11px] ${coin.change24h >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
               {coin.change24h >= 0 ? '▲' : '▼'} {Math.abs(coin.change24h)}%
             </span>
           </div>
