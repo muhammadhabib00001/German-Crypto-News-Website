@@ -1,4 +1,4 @@
-﻿---
+---
 interface Props {
   format: 'leaderboard' | 'rectangle' | 'sidebar';
   label?: string;
@@ -17,9 +17,9 @@ const dimensions = {
   <span class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold mb-1.5">
     {label}
   </span>
-  <div class={`bg-slate-900/40 border border-dashed border-slate-800 rounded-xl flex flex-col items-center justify-center p-4 text-center text-slate-400 ${dimensions[format]}`}>
+  <div class={`bg-slate-100 border border-dashed border-slate-300 rounded-xl flex flex-col items-center justify-center p-4 text-center text-slate-500 ${dimensions[format]}`}>
     <!-- Ad Slot Placeholder: Ready for Google AdSense / Header Bidding Tag -->
-    <div class="flex items-center gap-2 text-xs font-medium text-slate-400">
+    <div class="flex items-center gap-2 text-xs font-medium text-slate-600">
       <svg class="w-4 h-4 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
