@@ -49,9 +49,14 @@ interface Props {
     slug: string;
     data: any;
   };
+  headings?: Array<{
+    depth: number;
+    slug: string;
+    text: string;
+  }>;
 }
 
-const { article, authorData, relatedArticles = [], prevArticle, nextArticle } = Astro.props;
+const { article, authorData, relatedArticles = [], prevArticle, nextArticle, headings = [] } = Astro.props;
 
 const categoryMeta = CATEGORIES[article.data.category] || {
   name: article.data.category,
@@ -443,31 +448,24 @@ if (faqSchema) schemas.push(faqSchema);
               <span>Table of Contents</span>
             </h3>
 
-            <nav id="toc-nav" class="space-y-1.5 text-xs text-slate-400">
-              <a href="#executive-summary-how-germany-taxes-cryptocurrency" class="block hover:text-amber-400 py-1 transition-colors">
-                • Executive Summary
-              </a>
-              <a href="#the-legal-classification-private-assets-vs-capital-investment" class="block hover:text-amber-400 py-1 transition-colors">
-                • Legal Classification (§ 23 EStG)
-              </a>
-              <a href="#the-mechanics-of-the-1-year-speculative-period-spekulationsfrist" class="block hover:text-amber-400 py-1 pl-3 transition-colors text-[11px]">
-                - 1-Year Speculative Period
-              </a>
-              <a href="#the-first-in-first-out-fifo-mandate" class="block hover:text-amber-400 py-1 pl-3 transition-colors text-[11px]">
-                - FIFO Accounting Mandate
-              </a>
-              <a href="#staking-lending-and-airdrops-the-bmf-clarification" class="block hover:text-amber-400 py-1 transition-colors">
-                • Staking & Lending (BMF Ruling)
-              </a>
-              <a href="#european-mica-directives-and-bafin-custody-architecture" class="block hover:text-amber-400 py-1 transition-colors">
-                • EU MiCA & BaFin Framework
-              </a>
-              <a href="#tax-implications-for-cross-border--non-resident-investors" class="block hover:text-amber-400 py-1 transition-colors">
-                • Cross-Border Investors
-              </a>
-              <a href="#best-practices-for-audit-proof-record-keeping" class="block hover:text-amber-400 py-1 transition-colors">
-                • Audit-Proof Record Keeping
-              </a>
+            <nav id="toc-nav" class="space-y-1.5 text-xs text-slate-400 max-h-[360px] overflow-y-auto pr-1">
+              {headings && headings.filter(h => h.depth === 2 || h.depth === 3).length > 0 ? (
+                headings
+                  .filter(h => h.depth === 2 || h.depth === 3)
+                  .map(h => (
+                    <a
+                      href={`#${h.slug}`}
+                      class:list={[
+                        "block hover:text-amber-400 py-1 transition-colors leading-snug",
+                        h.depth === 2 ? "font-semibold text-slate-300" : "pl-3 text-slate-400 text-[11px]"
+                      ]}
+                    >
+                      {h.depth === 2 ? `• ${h.text}` : `- ${h.text}`}
+                    </a>
+                  ))
+              ) : (
+                <div class="text-slate-500 italic text-xs">Standard report outline</div>
+              )}
             </nav>
           </div>
 
