@@ -9,8 +9,8 @@ publishedDate: "2026-09-11T09:30:00Z"
 updatedDate: "2026-09-12T16:45:00Z"
 readingTime: "7 min read"
 featuredImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80"
-imageAlt: "Bitcoin physical commemorative token with glowing digital blockchain circuitry"
-imageCaption: "Spot Bitcoin ETFs registered record net asset accumulation over 5 consecutive trading sessions."
+imageAlt: "Bitcoin Hits Record $89,000 as Institutional Inflows Cross $3.2B in Weekly Record"
+imageCaption: "Bitcoin Hits Record $89,000 as Institutional Inflows Cross $3.2B in Weekly Record"
 isBreaking: true
 isFeatured: true
 isTrending: true

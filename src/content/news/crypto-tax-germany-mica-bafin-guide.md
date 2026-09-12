@@ -9,8 +9,8 @@ publishedDate: "2026-09-12T15:00:00Z"
 updatedDate: "2026-09-12T16:30:00Z"
 readingTime: "7 min read"
 featuredImage: "https://images.unsplash.com/photo-1623227413711-25ee4388dae3?w=1200&auto=format&fit=crop&q=80"
-imageAlt: "Bitcoin commemorative coin surrounded by gold nuggets representing tax-advantaged private asset classification"
-imageCaption: "Germany classifies digital currencies as private speculative assets rather than capital securities, offering a unique 1-year tax exemption."
+imageAlt: "Crypto Tax Germany: 1-Year Rule & MiCA Guide 2026"
+imageCaption: "Crypto Tax Germany: 1-Year Rule & MiCA Guide 2026"
 isBreaking: false
 isFeatured: true
 isTrending: true
