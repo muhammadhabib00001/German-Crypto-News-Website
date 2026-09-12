@@ -18,7 +18,7 @@ html {
 
 body {
   background-color: #f8fafc;
-  color: #1e293b;
+  color: #000000;
 }
 
 /* Financial number tabular styling */
@@ -37,7 +37,7 @@ body {
 
 /* Standard Editorial Typography & Prose Layout */
 .article-prose {
-  color: #334155; /* slate-700 for optimal reading contrast on light bg */
+  color: #0f172a; /* deep crisp black-slate for maximum reading contrast */
   font-size: 1.125rem; /* 18px reading font size */
   line-height: 1.9;
   letter-spacing: -0.011em;
@@ -46,11 +46,11 @@ body {
 .article-prose p {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  color: #334155;
+  color: #0f172a;
 }
 
 .article-prose h2 {
-  color: #0f172a; /* slate-900 */
+  color: #000000;
   font-size: 1.75rem;
   font-weight: 800;
   letter-spacing: -0.025em;
@@ -64,7 +64,7 @@ body {
 }
 
 .article-prose h3 {
-  color: #1e293b;
+  color: #000000;
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.015em;
@@ -73,7 +73,7 @@ body {
 }
 
 .article-prose strong {
-  color: #0f172a;
+  color: #000000;
   font-weight: 700;
 }
 
