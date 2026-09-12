@@ -1,0 +1,150 @@
+﻿---
+import { CATEGORY_LIST } from '../data/categories';
+---
+
+<footer class="bg-[#050811] border-t border-slate-800 text-slate-400 text-xs mt-20">
+  <!-- Trust & Compliance Highlights Bar -->
+  <div class="border-b border-slate-800/80 py-8 bg-slate-950/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+      <div class="flex items-start gap-3 justify-center md:justify-start">
+        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+          ✓
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm mb-0.5">Rigorous Editorial Independence</h4>
+          <p class="text-slate-400 text-xs">All market reporting adheres to strict financial journalism ethics, zero insider token holdings policy, and verified sourcing.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3 justify-center md:justify-start">
+        <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+          ⚖
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm mb-0.5">Objective Non-Advisory Content</h4>
+          <p class="text-slate-400 text-xs">CryptoPulse delivers factual market research and technical analysis. Never to be construed as personalized investment advice.</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3 justify-center md:justify-start">
+        <div class="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+          🛡
+        </div>
+        <div>
+          <h4 class="text-white font-bold text-sm mb-0.5">Cryptographic Accuracy & Audits</h4>
+          <p class="text-slate-400 text-xs">On-chain transaction traces, protocol data, and regulatory documents are independently audited prior to publication.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Footer Sitemap Links -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+      
+      <!-- Brand & Mission Column -->
+      <div class="col-span-2">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-7 h-7 rounded-md bg-amber-500 flex items-center justify-center font-bold text-white text-sm">
+            ⚡
+          </div>
+          <span class="text-lg font-black tracking-tight text-white">Crypto<span class="text-amber-400">Pulse</span></span>
+        </div>
+        <p class="text-slate-400 text-xs leading-relaxed mb-4 max-w-sm">
+          CryptoPulse is a premier financial intelligence publication delivering high-impact market news, regulatory analysis, and institutional research across digital asset markets.
+        </p>
+        
+        <!-- Social links -->
+        <div class="flex items-center gap-3">
+          <a href="https://twitter.com/cryptopulse" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded bg-slate-900 border border-slate-800 hover:border-amber-500/50 flex items-center justify-center text-slate-400 hover:text-white transition-colors" aria-label="X Twitter">
+            𝕏
+          </a>
+          <a href="https://t.me/cryptopulse" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded bg-slate-900 border border-slate-800 hover:border-amber-500/50 flex items-center justify-center text-slate-400 hover:text-white transition-colors" aria-label="Telegram">
+            ✈
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded bg-slate-900 border border-slate-800 hover:border-amber-500/50 flex items-center justify-center text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
+            in
+          </a>
+          <a href="/rss.xml" class="w-7 h-7 rounded bg-slate-900 border border-slate-800 hover:border-amber-500/50 flex items-center justify-center text-slate-400 hover:text-amber-400 transition-colors" aria-label="RSS Feed">
+            RSS
+          </a>
+        </div>
+      </div>
+
+      <!-- Markets & Major Sectors -->
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Core Coverage</h3>
+        <ul class="space-y-2">
+          <li><a href="/category/bitcoin" class="hover:text-white transition-colors">Bitcoin</a></li>
+          <li><a href="/category/ethereum" class="hover:text-white transition-colors">Ethereum</a></li>
+          <li><a href="/category/altcoins" class="hover:text-white transition-colors">Altcoins</a></li>
+          <li><a href="/category/crypto-markets" class="hover:text-white transition-colors">Crypto Markets</a></li>
+          <li><a href="/category/institutional-crypto" class="hover:text-white transition-colors">Institutional</a></li>
+          <li><a href="/category/stablecoins" class="hover:text-white transition-colors">Stablecoins</a></li>
+        </ul>
+      </div>
+
+      <!-- Technology & Innovations -->
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Tech & Web3</h3>
+        <ul class="space-y-2">
+          <li><a href="/category/blockchain" class="hover:text-white transition-colors">Blockchain</a></li>
+          <li><a href="/category/defi" class="hover:text-white transition-colors">DeFi</a></li>
+          <li><a href="/category/web3" class="hover:text-white transition-colors">Web3 & DePIN</a></li>
+          <li><a href="/category/crypto-security" class="hover:text-white transition-colors">Security Audits</a></li>
+          <li><a href="/category/mining" class="hover:text-white transition-colors">Mining & Energy</a></li>
+          <li><a href="/category/technology" class="hover:text-white transition-colors">Technology</a></li>
+        </ul>
+      </div>
+
+      <!-- Trust, E-E-A-T & Policies -->
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Trust & Transparency</h3>
+        <ul class="space-y-2">
+          <li><a href="/authors" class="hover:text-white transition-colors">Editorial Staff & Authors</a></li>
+          <li><a href="/editorial-policy" class="hover:text-white transition-colors">Editorial Policy</a></li>
+          <li><a href="/corrections" class="hover:text-white transition-colors">Corrections Policy</a></li>
+          <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
+          <li><a href="/contact" class="hover:text-white transition-colors">Contact & Press Office</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal & Disclaimers -->
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Legal & Privacy</h3>
+        <ul class="space-y-2">
+          <li><a href="/disclaimer" class="hover:text-white transition-colors">Financial Disclaimer</a></li>
+          <li><a href="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms" class="hover:text-white transition-colors">Terms of Service</a></li>
+          <li><a href="/cookie-policy" class="hover:text-white transition-colors">Cookie Policy</a></li>
+          <li><a href="/sitemap.xml" class="hover:text-white transition-colors">XML Sitemap</a></li>
+          <li><a href="/llms.txt" class="hover:text-white transition-colors">LLMs.txt</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Prominent Financial Disclaimer Banner -->
+    <div class="mt-12 pt-8 border-t border-slate-800/80">
+      <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-4 text-[11px] text-slate-400 leading-relaxed">
+        <p class="font-bold text-slate-300 mb-1">GENERAL FINANCIAL AND INVESTMENT RISK DISCLAIMER:</p>
+        <p>
+          The content published on CryptoPulse is created solely for informational, educational, and journalistic purposes. No information, analysis, or opinion expressed herein should be interpreted as financial, investment, legal, tax, or accounting advice. Cryptocurrency markets, decentralized tokens, and derivatives involve substantial economic volatility and risk of capital loss. Past market performance is no guarantee of future returns. Readers must conduct independent due diligence and consult licensed financial fiduciaries prior to executing transactions.
+        </p>
+      </div>
+
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <p>© 2026 CryptoPulse Global Media Inc. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          <a href="/privacy-policy" class="hover:text-slate-300">Privacy</a>
+          <span>•</span>
+          <a href="/terms" class="hover:text-slate-300">Terms</a>
+          <span>•</span>
+          <a href="/editorial-policy" class="hover:text-slate-300">Ethics</a>
+          <span>•</span>
+          <a href="/disclaimer" class="hover:text-slate-300">Disclosures</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

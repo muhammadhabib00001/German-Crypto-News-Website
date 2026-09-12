@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Editorial Policy, Sourcing & Independence Guidelines"
+  description="CryptoPulse journalistic integrity standards, token ownership restrictions, verification protocols, and sponsored content distinction."
+  canonicalUrl="https://cryptopulse.news/editorial-policy"
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+    <header class="mb-10 pb-6 border-b border-slate-800">
+      <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3">
+        Editorial Standards & Independence Policy
+      </h1>
+      <p class="text-xs text-slate-400">Last Reviewed and Formally Ratified: September 2026</p>
+    </header>
+
+    <div class="space-y-8 text-sm text-slate-300 leading-relaxed">
+      <section class="bg-slate-900/50 border border-slate-800 p-6 rounded-xl">
+        <h2 class="text-lg font-bold text-white mb-3">1. Commitments to Factuality & Truth</h2>
+        <p>CryptoPulse operates under traditional journalistic canons of impartiality, accuracy, and rigorous verification. We verify claims through primary sources, official regulatory documents, court dockets, audited smart contract bytecode, and cryptographic on-chain proofs before publication.</p>
+      </section>
+
+      <section class="bg-slate-900/50 border border-slate-800 p-6 rounded-xl">
+        <h2 class="text-lg font-bold text-white mb-3">2. Strict Separation of News and Commercial Operations</h2>
+        <p>There exists an impermeable firewall between our newsroom and commercial advertising teams:</p>
+        <ul class="list-disc pl-5 mt-2 space-y-2 text-slate-400">
+          <li>Advertisers, sponsors, and commercial partners exert zero influence over story selection, tone, or investigative conclusions.</li>
+          <li>Any paid or sponsored material is conspicuously demarcated with a clear "Sponsored Content" or "Press Release" banner.</li>
+          <li>Sponsored articles are marked with appropriate <code>rel="sponsored"</code> or <code>rel="nofollow"</code> robot directives to preserve Google index integrity.</li>
+        </ul>
+      </section>
+
+      <section class="bg-slate-900/50 border border-slate-800 p-6 rounded-xl">
+        <h2 class="text-lg font-bold text-white mb-3">3. Personal Investment & Trading Ethics Policy</h2>
+        <p>To prevent front-running and conflicts of interest:</p>
+        <ul class="list-disc pl-5 mt-2 space-y-2 text-slate-400">
+          <li>Staff journalists are barred from trading micro-cap tokens or altcoins about which they are actively reporting.</li>
+          <li>All full-time editorial personnel must submit periodic asset disclosure statements.</li>
+          <li>Journalists may hold major benchmark assets (e.g. Bitcoin, Ethereum) for long-term savings, provided any direct coverage includes an explicit disclosure note.</li>
+        </ul>
+      </section>
+
+      <section class="bg-slate-900/50 border border-slate-800 p-6 rounded-xl">
+        <h2 class="text-lg font-bold text-white mb-3">4. Generative AI Policy</h2>
+        <p>We believe human critical reasoning and firsthand verification are irreplaceable in financial journalism. AI research tools may assist with translation, proofreading, or data formatting, but every published piece is conceived, structured, verified, and signed off by a credentialed human journalist.</p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

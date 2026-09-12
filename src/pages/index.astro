@@ -1,0 +1,257 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BreakingBanner from '../components/BreakingBanner.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import AdPlacement from '../components/AdPlacement.astro';
+import NewsletterBox from '../components/NewsletterBox.astro';
+import { CATEGORY_LIST } from '../data/categories';
+import { MARKET_COINS, MARKET_METRICS } from '../data/market';
+
+const rawArticles = await getCollection('news');
+const allArticles = rawArticles.map(a => ({
+  ...a,
+  slug: a.id.replace(/\.md$/, '')
+}));
+
+const sortedArticles = allArticles.sort(
+  (a, b) => new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime()
+);
+
+const featuredArticle = sortedArticles.find((a) => a.data.isFeatured) || sortedArticles[0];
+const secondaryStories = sortedArticles.filter((a) => a.slug !== featuredArticle.slug).slice(0, 3);
+const trendingStories = sortedArticles.filter((a) => a.data.isTrending).slice(0, 5);
+
+// Category specific groups
+const btcArticles = sortedArticles.filter((a) => a.data.category === 'bitcoin');
+const ethArticles = sortedArticles.filter((a) => a.data.category === 'ethereum');
+const altcoinArticles = sortedArticles.filter((a) => ['altcoins', 'memecoins'].includes(a.data.category));
+const defiWeb3Articles = sortedArticles.filter((a) => ['defi', 'web3', 'blockchain', 'nft'].includes(a.data.category));
+const regulationMarketArticles = sortedArticles.filter((a) => ['crypto-regulation', 'crypto-markets', 'institutional-crypto', 'crypto-trading'].includes(a.data.category));
+const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'mining', 'technology', 'stablecoins'].includes(a.data.category));
+---
+
+<BaseLayout
+  title="CryptoPulse - Live Crypto News, Bitcoin, Ethereum, Markets & Financial Intelligence"
+  description="Premier financial news publication covering Bitcoin records, Ethereum Layer-2 scaling, institutional ETF flows, crypto regulations, DeFi, and market intelligence."
+  canonicalUrl="https://cryptopulse.news"
+>
+  <!-- Breaking News Alert Banner -->
+  <BreakingBanner
+    headline={featuredArticle.data.title}
+    slug={featuredArticle.slug}
+  />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10">
+    
+    <!-- Hero Editorial Grid (1 Featured Lead + 3 Top Headlines + 1 Trending Sidebar) -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+      
+      <!-- Lead Hero & Sub-features (8 Cols) -->
+      <div class="lg:col-span-8 space-y-6">
+        <!-- Main Lead Story -->
+        <ArticleCard article={featuredArticle} featured={true} />
+
+        <!-- 3-Column Top Stories Subgrid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          {secondaryStories.map((story) => (
+            <div class="bg-slate-900/40 hover:bg-slate-900 border border-slate-800 rounded-xl p-4 transition-all flex flex-col justify-between">
+              <div>
+                <span class="text-[10px] uppercase font-bold text-amber-400 block mb-1">
+                  {story.data.category.toUpperCase()}
+                </span>
+                <h3 class="text-xs sm:text-sm font-bold text-white hover:text-amber-400 line-clamp-3 transition-colors mb-2">
+                  <a href={`/news/${story.slug}`}>
+                    {story.data.title}
+                  </a>
+                </h3>
+              </div>
+              <div class="text-[10px] text-slate-400 pt-2 border-t border-slate-800/60 flex items-center justify-between">
+                <span>{story.data.readingTime}</span>
+                <a href={`/news/${story.slug}`} class="text-amber-400 font-semibold hover:underline">Read →</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Trending & Live Market Quickview Sidebar (4 Cols) -->
+      <div class="lg:col-span-4 space-y-6">
+        
+        <!-- Live Market Watch Widget -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 shadow-xl">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-3">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Market Movers</span>
+            </h2>
+            <span class="text-[10px] text-slate-400">24h Vol: {MARKET_METRICS.volume24h}</span>
+          </div>
+
+          <div class="space-y-2.5">
+            {MARKET_COINS.slice(0, 5).map((coin) => (
+              <div class="flex items-center justify-between text-xs py-1 px-2 rounded hover:bg-slate-800/50 transition-colors">
+                <div class="flex items-center gap-2">
+                  <span class="font-bold text-white w-8">{coin.symbol}</span>
+                  <span class="text-slate-400 text-[11px] hidden sm:inline">{coin.name}</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="font-semibold text-slate-200 financial-num">${coin.price.toLocaleString(undefined, { minimumFractionDigits: coin.price < 1 ? 4 : 2 })}</span>
+                  <span class={`font-bold financial-num text-[11px] w-14 text-right ${coin.change24h >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+                    {coin.change24h >= 0 ? '+' : ''}{coin.change24h}%
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+            <span>Fear & Greed: <strong class="text-emerald-400">{MARKET_METRICS.fearAndGreedIndex} ({MARKET_METRICS.fearAndGreedSentiment})</strong></span>
+            <a href="/category/crypto-markets" class="text-amber-400 hover:underline">Full Heatmap →</a>
+          </div>
+        </div>
+
+        <!-- Trending Stories Ranked (1 to 5) -->
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
+            <span>🔥</span>
+            <span>Trending Stories</span>
+          </h2>
+
+          <div class="space-y-4">
+            {trendingStories.map((item, idx) => (
+              <div class="flex items-start gap-3 group">
+                <span class="text-2xl font-black text-slate-700 group-hover:text-amber-500 transition-colors shrink-0 w-6 leading-none">
+                  0{idx + 1}
+                </span>
+                <div class="flex-1 min-w-0">
+                  <span class="text-[10px] uppercase font-bold text-amber-400 block mb-0.5">
+                    {item.data.category}
+                  </span>
+                  <h4 class="text-xs font-bold text-white group-hover:text-amber-400 line-clamp-2 leading-snug transition-colors">
+                    <a href={`/news/${item.slug}`}>
+                      {item.data.title}
+                    </a>
+                  </h4>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Top Leaderboard Ad Placement -->
+    <AdPlacement format="leaderboard" />
+
+    <!-- Section 1: Bitcoin & Ethereum Hub -->
+    <section class="my-12">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-6">
+        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2.5">
+          <span class="text-amber-400">₿</span>
+          <span>Bitcoin & Ethereum In-Depth</span>
+        </h2>
+        <div class="flex items-center gap-3 text-xs">
+          <a href="/category/bitcoin" class="text-slate-400 hover:text-white">Bitcoin News →</a>
+          <span class="text-slate-700">|</span>
+          <a href="/category/ethereum" class="text-slate-400 hover:text-white">Ethereum Hub →</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {btcArticles.concat(ethArticles).slice(0, 3).map((art) => (
+          <ArticleCard article={art} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Section 2: Crypto Regulation & Market Macro Intelligence -->
+    <section class="my-12 bg-slate-900/30 border border-slate-800/80 rounded-3xl p-6 sm:p-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800 mb-6 gap-2">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2">
+            <span>⚖️</span>
+            <span>Regulatory & Market Analysis</span>
+          </h2>
+          <p class="text-xs text-slate-400 mt-1">SEC filings, MiCA mandates, derivatives liquidation data, and institutional allocations.</p>
+        </div>
+        <a href="/category/crypto-regulation" class="text-xs font-bold text-amber-400 hover:underline shrink-0">
+          View Policy Desk →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {regulationMarketArticles.slice(0, 3).map((art) => (
+          <ArticleCard article={art} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Mid-Page In-Article Sponsor Ad -->
+    <AdPlacement format="leaderboard" label="Institutional Partner" />
+
+    <!-- Section 3: DeFi, Web3 & High-Speed Altcoins -->
+    <section class="my-12">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-6">
+        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2">
+          <span>⚡</span>
+          <span>DeFi, Web3 & Altcoin Ecosystems</span>
+        </h2>
+        <div class="flex items-center gap-3 text-xs">
+          <a href="/category/defi" class="text-slate-400 hover:text-white">DeFi →</a>
+          <a href="/category/altcoins" class="text-slate-400 hover:text-white">Altcoins →</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {defiWeb3Articles.concat(altcoinArticles).slice(0, 3).map((art) => (
+          <ArticleCard article={art} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Section 4: Security, Mining & Advanced Technology -->
+    <section class="my-12">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-6">
+        <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center gap-2">
+          <span>🛡️</span>
+          <span>Security, Mining & Emerging Tech</span>
+        </h2>
+        <a href="/category/crypto-security" class="text-xs font-bold text-amber-400 hover:underline">
+          Security Audits →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {techSecurityArticles.slice(0, 3).map((art) => (
+          <ArticleCard article={art} />
+        ))}
+      </div>
+    </section>
+
+    <!-- All 16 Categories Fast Navigator -->
+    <section class="my-12 p-6 bg-slate-900/50 border border-slate-800 rounded-2xl">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">
+        Explore All 16 Crypto Sectors
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
+        {CATEGORY_LIST.map((cat) => (
+          <a
+            href={`/category/${cat.slug}`}
+            class="px-3 py-2 bg-slate-950 hover:bg-slate-800 border border-slate-800 hover:border-amber-400/30 rounded-xl text-center transition-all group"
+          >
+            <span class="text-xs font-bold text-slate-300 group-hover:text-amber-400 block truncate">
+              {cat.name}
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Institutional Alpha Newsletter Box -->
+    <NewsletterBox />
+
+  </div>
+</BaseLayout>

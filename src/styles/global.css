@@ -1,0 +1,31 @@
+﻿@import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-primary: #0284c7;
+    --brand-accent: #10b981;
+    --brand-gold: #f59e0b;
+    --bg-dark: #090d16;
+    --card-dark: #0f172a;
+    --border-dark: #1e293b;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Custom Financial Typography & utilities */
+.financial-num {
+  font-feature-settings: "tnum" 1, "cv01" 1;
+}
+
+/* Custom Scrollbar for ticker */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

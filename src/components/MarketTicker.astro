@@ -1,0 +1,54 @@
+﻿---
+import { MARKET_COINS, MARKET_METRICS } from '../data/market';
+---
+
+<div class="bg-[#050811] border-b border-slate-800/80 text-xs text-slate-300 py-1.5 px-4 overflow-hidden select-none">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+    <!-- Macro Market Bar Overview -->
+    <div class="hidden lg:flex items-center gap-5 text-[11px] shrink-0 border-r border-slate-800 pr-5">
+      <div class="flex items-center gap-1.5">
+        <span class="text-slate-400">Total Cap:</span>
+        <span class="font-bold text-white financial-num">{MARKET_METRICS.totalMarketCap}</span>
+        <span class="text-emerald-400 font-semibold financial-num">+{MARKET_METRICS.totalMarketCapChange24h}%</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="text-slate-400">24h Vol:</span>
+        <span class="font-bold text-white financial-num">{MARKET_METRICS.volume24h}</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="text-slate-400">Dominance:</span>
+        <span class="text-white font-medium financial-num">BTC {MARKET_METRICS.btcDominance}%</span>
+        <span class="text-slate-500">|</span>
+        <span class="text-white font-medium financial-num">ETH {MARKET_METRICS.ethDominance}%</span>
+      </div>
+      <div class="flex items-center gap-1.5 bg-slate-900/90 px-2 py-0.5 rounded border border-slate-800">
+        <span class="text-slate-400">Sentiment:</span>
+        <span class="text-emerald-400 font-bold financial-num">{MARKET_METRICS.fearAndGreedIndex} ({MARKET_METRICS.fearAndGreedSentiment})</span>
+      </div>
+    </div>
+
+    <!-- Scrolling Ticker Container -->
+    <div class="flex-1 overflow-hidden relative">
+      <div class="flex items-center gap-6 overflow-x-auto no-scrollbar py-0.5 whitespace-nowrap">
+        {MARKET_COINS.map((coin) => (
+          <div class="inline-flex items-center gap-2 shrink-0 bg-slate-900/40 hover:bg-slate-800/60 transition-colors px-2 py-0.5 rounded border border-slate-800/50">
+            <span class="font-bold text-white tracking-wide">{coin.symbol}</span>
+            <span class="text-slate-200 financial-num">${coin.price.toLocaleString(undefined, { minimumFractionDigits: coin.price < 1 ? 4 : 2 })}</span>
+            <span class={`font-semibold financial-num text-[11px] ${coin.change24h >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+              {coin.change24h >= 0 ? '▲' : '▼'} {Math.abs(coin.change24h)}%
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Live indicator -->
+    <div class="hidden sm:flex items-center gap-2 pl-3 shrink-0 text-[11px] text-slate-400">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      </span>
+      <span>Live Rates</span>
+    </div>
+  </div>
+</div>

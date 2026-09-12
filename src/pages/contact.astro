@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact & Newsroom Inquiries"
+  description="Get in touch with the CryptoPulse editorial desk, submit confidential whistleblowing tips, request corrections, or discuss advertising."
+  canonicalUrl="https://cryptopulse.news/contact"
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+    <header class="mb-12">
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+        Contact Our Newsroom
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+        Whether you have a breaking news tip, wish to report a factual discrepancy, or seek commercial collaboration, our team responds promptly.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+      
+      <!-- Contact Form -->
+      <div class="md:col-span-7 bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+        <h2 class="text-lg font-bold text-white mb-6">Send a Message</h2>
+        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message dispatched to CryptoPulse editorial desk.');">
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Full Name</label>
+            <input type="text" required class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Email Address</label>
+            <input type="email" required class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Inquiry Type</label>
+            <select class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400">
+              <option>Editorial Tip / Breaking News</option>
+              <option>Correction Request</option>
+              <option>Interview Request</option>
+              <option>Sponsorship & Advertising</option>
+              <option>Technical / Webmaster Support</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Message / Details</label>
+            <textarea rows="5" required class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs sm:text-sm text-white focus:outline-none focus:border-amber-400"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-3 bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm rounded-xl shadow-lg transition-all cursor-pointer">
+            Transmit Secure Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Department Contacts -->
+      <div class="md:col-span-5 space-y-6">
+        <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+          <h3 class="text-sm font-bold text-white mb-2">🔒 Confidential News Tips</h3>
+          <p class="text-xs text-slate-400 mb-2">For high-priority leaks, smart contract zero-days, or whistleblowing:</p>
+          <p class="text-xs font-mono text-amber-400">tips@cryptopulse.news</p>
+          <p class="text-[10px] text-slate-500 mt-1">PGP Fingerprint available upon request.</p>
+        </div>
+
+        <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+          <h3 class="text-sm font-bold text-white mb-2">📰 General Press & Editorial</h3>
+          <p class="text-xs text-slate-400 mb-1">Press releases & media kits:</p>
+          <p class="text-xs font-mono text-slate-200">newsdesk@cryptopulse.news</p>
+        </div>
+
+        <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+          <h3 class="text-sm font-bold text-white mb-2">🤝 Commercial & Partnerships</h3>
+          <p class="text-xs text-slate-400 mb-1">Advertising, conferences & sponsorships:</p>
+          <p class="text-xs font-mono text-slate-200">partnerships@cryptopulse.news</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

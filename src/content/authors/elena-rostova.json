@@ -1,0 +1,14 @@
+{
+  "name": "Dr. Elena Rostova",
+  "role": "Head of Cryptographic Research & Smart Contracts",
+  "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
+  "bio": "Dr. Elena Rostova specializes in zero-knowledge proof implementations, EVM rollup optimization, and decentralized finance security protocols. She regularly publishes peer-reviewed research and audits high-TVL decentralized infrastructure.",
+  "expertise": ["Zero-Knowledge Proofs", "Ethereum Layer-2", "DeFi Security Auditing", "Consensus Algorithms"],
+  "credentials": "Ph.D. in Applied Cryptography (ETH Zürich)",
+  "social": {
+    "twitter": "https://twitter.com/cryptopulse",
+    "github": "https://github.com",
+    "linkedin": "https://linkedin.com",
+    "email": "elena.rostova@cryptopulse.news"
+  }
+}

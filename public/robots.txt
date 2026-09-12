@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://cryptopulse.news/sitemap.xml
+Sitemap: https://cryptopulse.news/news-sitemap.xml
+
+# LLMs & AI Crawler Discovery
+Disallow: /api/
+Allow: /llms.txt
+Allow: /llms-full.txt

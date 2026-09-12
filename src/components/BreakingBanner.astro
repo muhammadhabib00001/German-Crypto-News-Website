@@ -1,0 +1,29 @@
+﻿---
+interface Props {
+  headline?: string;
+  slug?: string;
+}
+
+const {
+  headline = "Bitcoin hits record $89,000 as institutional ETF inflows cross $3.2B in historic weekly record",
+  slug = "bitcoin-hits-89k-institutional-inflows"
+} = Astro.props;
+---
+
+<div class="bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-transparent border-y border-amber-500/20 py-2 px-4">
+  <div class="max-w-7xl mx-auto flex items-center gap-3 text-xs">
+    <div class="flex items-center gap-1.5 bg-amber-500 text-slate-950 font-black px-2 py-0.5 rounded text-[10px] uppercase tracking-wider shrink-0 animate-pulse">
+      <span>●</span>
+      <span>Breaking News</span>
+    </div>
+    
+    <a href={`/news/${slug}`} class="text-slate-200 hover:text-amber-400 font-medium truncate transition-colors flex-1">
+      {headline}
+    </a>
+
+    <a href={`/news/${slug}`} class="hidden sm:inline-flex items-center gap-1 text-amber-400 hover:text-amber-300 font-semibold shrink-0">
+      <span>Read Story</span>
+      <span>→</span>
+    </a>
+  </div>
+</div>

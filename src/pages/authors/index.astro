@@ -1,0 +1,86 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const authors = await getCollection('authors');
+const articles = await getCollection('news');
+
+const authorStats = authors.map((author) => {
+  const authorKey = author.id.replace('.json', '');
+  const authorArticles = articles.filter((a) => a.data.author === authorKey);
+  return {
+    ...author,
+    articleCount: authorArticles.length
+  };
+});
+---
+
+<BaseLayout
+  title="Editorial Team & Subject Matter Experts"
+  description="Meet the journalists, cryptographers, quantitative analysts, and financial policy experts behind CryptoPulse news reporting."
+  canonicalUrl="https://cryptopulse.news/authors"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+    <header class="max-w-3xl mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold mb-3">
+        <span>🛡</span>
+        <span>E-E-A-T Transparency & Editorial Standards</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+        Our Journalists & Research Analysts
+      </h1>
+      <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+        CryptoPulse upholds institutional-grade reporting rigor. Every article, market model, and technical breakdown is authored by credentialed specialists adhering to strict independence guidelines.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {authorStats.map((auth) => (
+        <div class="bg-slate-900/60 border border-slate-800 hover:border-slate-700/80 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-start transition-all">
+          <img
+            src={auth.data.avatar}
+            alt={auth.data.name}
+            class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-400/30 shrink-0"
+          />
+          <div class="flex-1">
+            <div class="flex items-center justify-between mb-1">
+              <h2 class="text-xl font-bold text-white">
+                <a href={`/author/${auth.id.replace('.json', '')}`} class="hover:text-amber-400 transition-colors">
+                  {auth.data.name}
+                </a>
+              </h2>
+              <span class="text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded">
+                {auth.articleCount} Stories
+              </span>
+            </div>
+
+            <p class="text-xs text-amber-400 font-semibold mb-2">{auth.data.role}</p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">{auth.data.bio}</p>
+
+            <div class="mb-4">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">Core Expertise</span>
+              <div class="flex flex-wrap gap-1.5">
+                {auth.data.expertise.map((exp) => (
+                  <span class="px-2 py-0.5 bg-slate-800 border border-slate-700 rounded text-[11px] text-slate-300">
+                    {exp}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+              <span class="text-[11px] text-slate-400 truncate max-w-[200px]">{auth.data.credentials}</span>
+              <a
+                href={`/author/${auth.id.replace('.json', '')}`}
+                class="text-xs font-bold text-amber-400 hover:underline inline-flex items-center gap-1"
+              >
+                <span>View Author Page</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

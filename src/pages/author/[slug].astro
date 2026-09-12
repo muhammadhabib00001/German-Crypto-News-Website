@@ -1,0 +1,118 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+export async function getStaticPaths() {
+  const authors = await getCollection('authors');
+  const rawArticles = await getCollection('news');
+  const articles = rawArticles.map(a => ({
+    ...a,
+    slug: a.id.replace(/\.md$/, '')
+  }));
+
+  return authors.map((author) => {
+    const authorKey = author.id.replace('.json', '');
+    const authorArticles = articles
+      .filter((a) => a.data.author === authorKey)
+      .sort((a, b) => new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime());
+
+    return {
+      params: { slug: authorKey },
+      props: { author: author.data, authorKey, articles: authorArticles }
+    };
+  });
+}
+
+const { author, authorKey, articles } = Astro.props;
+const canonicalUrl = `https://cryptopulse.news/author/${authorKey}`;
+
+// Person Schema
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": author.name,
+  "jobTitle": author.role,
+  "description": author.bio,
+  "image": author.avatar,
+  "url": canonicalUrl,
+  "worksFor": {
+    "@type": "NewsMediaOrganization",
+    "name": "CryptoPulse"
+  },
+  "knowsAbout": author.expertise
+};
+---
+
+<BaseLayout
+  title={`${author.name} - ${author.role}`}
+  description={author.bio}
+  canonicalUrl={canonicalUrl}
+  ogImage={author.avatar}
+  structuredData={personSchema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+    
+    <!-- Profile Card Header -->
+    <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-10 mb-12">
+      <div class="flex flex-col sm:flex-row gap-8 items-start">
+        <img
+          src={author.avatar}
+          alt={author.name}
+          class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover border-2 border-amber-400/40 shadow-xl"
+        />
+
+        <div class="flex-1">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <h1 class="text-2xl sm:text-4xl font-black text-white">{author.name}</h1>
+            <span class="text-xs bg-slate-800 text-amber-400 font-bold px-3 py-1 rounded-full border border-slate-700">
+              {articles.length} Published Articles
+            </span>
+          </div>
+
+          <p class="text-sm sm:text-base text-amber-400 font-semibold mb-4">{author.role}</p>
+
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 max-w-3xl">
+            {author.bio}
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6 border-t border-slate-800 text-xs text-slate-400">
+            <div>
+              <span class="font-bold text-white block mb-1">Academic & Industry Credentials:</span>
+              <span>{author.credentials}</span>
+            </div>
+
+            <div>
+              <span class="font-bold text-white block mb-1">Coverage Specialties:</span>
+              <div class="flex flex-wrap gap-1.5">
+                {author.expertise.map((exp: string) => (
+                  <span class="px-2 py-0.5 bg-slate-800 rounded text-slate-300">
+                    {exp}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author's Published Articles -->
+    <section>
+      <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-800">
+        <h2 class="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+          <span>📰</span>
+          <span>Reporting & Insights by {author.name}</span>
+        </h2>
+        <span class="text-xs text-slate-400">Chronological Order</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {articles.map((art: any) => (
+          <ArticleCard article={art} />
+        ))}
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

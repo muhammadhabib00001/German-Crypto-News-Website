@@ -1,0 +1,485 @@
+﻿---
+import BaseLayout from './BaseLayout.astro';
+import AdPlacement from '../components/AdPlacement.astro';
+import { CATEGORIES } from '../data/categories';
+
+interface Props {
+  article: {
+    slug: string;
+    body: string;
+    data: {
+      title: string;
+      excerpt: string;
+      category: string;
+      author: string;
+      publishedDate: string;
+      updatedDate?: string;
+      readingTime: string;
+      featuredImage: string;
+      imageAlt: string;
+      imageCaption?: string;
+      tags: string[];
+      keyHighlights: string[];
+      faqs?: Array<{ question: string; answer: string }>;
+      sources?: Array<{ name: string; url: string }>;
+      contentType?: string;
+    };
+  };
+  authorData: {
+    name: string;
+    role: string;
+    avatar: string;
+    bio: string;
+    credentials?: string;
+    social: {
+      twitter?: string;
+      linkedin?: string;
+      email?: string;
+    };
+  };
+  relatedArticles?: Array<{
+    slug: string;
+    data: any;
+  }>;
+  prevArticle?: {
+    slug: string;
+    data: any;
+  };
+  nextArticle?: {
+    slug: string;
+    data: any;
+  };
+}
+
+const { article, authorData, relatedArticles = [], prevArticle, nextArticle } = Astro.props;
+
+const categoryMeta = CATEGORIES[article.data.category] || {
+  name: article.data.category,
+  badgeColor: 'bg-slate-800 text-slate-300'
+};
+
+const fullCanonical = `https://cryptopulse.news/news/${article.slug}`;
+
+// Formatted dates
+const pubDateStr = new Date(article.data.publishedDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+const modDateStr = article.data.updatedDate
+  ? new Date(article.data.updatedDate).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  : null;
+
+// JSON-LD NewsArticle Structured Data
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": fullCanonical
+  },
+  "headline": article.data.title,
+  "description": article.data.excerpt,
+  "image": [article.data.featuredImage],
+  "datePublished": article.data.publishedDate,
+  "dateModified": article.data.updatedDate || article.data.publishedDate,
+  "author": {
+    "@type": "Person",
+    "name": authorData.name,
+    "jobTitle": authorData.role,
+    "url": `https://cryptopulse.news/author/${article.data.author}`
+  },
+  "publisher": {
+    "@type": "NewsMediaOrganization",
+    "name": "CryptoPulse",
+    "url": "https://cryptopulse.news",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cryptopulse.news/logo.png"
+    }
+  },
+  "articleSection": categoryMeta.name,
+  "keywords": article.data.tags.join(', ')
+};
+
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://cryptopulse.news"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": categoryMeta.name,
+      "item": `https://cryptopulse.news/category/${article.data.category}`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": article.data.title,
+      "item": fullCanonical
+    }
+  ]
+};
+
+// FAQ Schema if present
+const faqSchema = article.data.faqs && article.data.faqs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": article.data.faqs.map(f => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.answer
+    }
+  }))
+} : null;
+
+const schemas = [articleSchema, breadcrumbSchema];
+if (faqSchema) schemas.push(faqSchema);
+---
+
+<BaseLayout
+  title={article.data.title}
+  description={article.data.excerpt}
+  canonicalUrl={fullCanonical}
+  ogImage={article.data.featuredImage}
+  ogType="article"
+  publishedDate={article.data.publishedDate}
+  updatedDate={article.data.updatedDate}
+  authorName={authorData.name}
+  structuredData={schemas}
+>
+  <!-- Reading Progress Bar -->
+  <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-amber-400 z-50 transition-all duration-75" style="width: 0%;"></div>
+
+  <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    
+    <!-- Top Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-6 flex-wrap" aria-label="Breadcrumbs">
+      <a href="/" class="hover:text-amber-400 transition-colors">Home</a>
+      <span>/</span>
+      <a href={`/category/${article.data.category}`} class="hover:text-amber-400 transition-colors">
+        {categoryMeta.name}
+      </a>
+      <span>/</span>
+      <span class="text-slate-500 truncate max-w-xs">{article.data.title}</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="mb-8">
+      <div class="flex items-center gap-2.5 mb-4">
+        <a
+          href={`/category/${article.data.category}`}
+          class={`px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider border ${categoryMeta.badgeColor}`}
+        >
+          {categoryMeta.name}
+        </a>
+        <span class="text-xs uppercase font-bold text-amber-400 px-2 py-0.5 rounded bg-amber-400/10 border border-amber-400/20">
+          {article.data.contentType || 'News'}
+        </span>
+      </div>
+
+      <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.15] mb-4">
+        {article.data.title}
+      </h1>
+
+      <p class="text-base sm:text-xl text-slate-300 font-normal leading-relaxed mb-6">
+        {article.data.excerpt}
+      </p>
+
+      <!-- Author Credibility & Date Bar (E-E-A-T) -->
+      <div class="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-slate-800 text-xs text-slate-400">
+        <div class="flex items-center gap-3">
+          <a href={`/author/${article.data.author}`} class="shrink-0">
+            <img
+              src={authorData.avatar}
+              alt={authorData.name}
+              class="w-11 h-11 rounded-full object-cover border border-amber-400/30"
+            />
+          </a>
+          <div>
+            <div class="flex items-center gap-2">
+              <a href={`/author/${article.data.author}`} class="font-bold text-white hover:text-amber-400 transition-colors">
+                {authorData.name}
+              </a>
+              {authorData.credentials && (
+                <span class="text-[10px] bg-slate-800 text-amber-400 px-1.5 py-0.5 rounded border border-slate-700">
+                  {authorData.credentials}
+                </span>
+              )}
+            </div>
+            <p class="text-slate-400 text-[11px]">{authorData.role}</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 text-[11px]">
+          <div>
+            <span class="text-slate-500">Published:</span>
+            <time datetime={article.data.publishedDate} class="text-slate-300 font-medium ml-1">
+              {pubDateStr}
+            </time>
+          </div>
+          {modDateStr && (
+            <div class="hidden sm:block">
+              <span class="text-emerald-400">Updated:</span>
+              <time datetime={article.data.updatedDate} class="text-slate-300 font-medium ml-1">
+                {modDateStr}
+              </time>
+            </div>
+          )}
+          <div>
+            <span class="text-slate-500">Reading Time:</span>
+            <span class="text-slate-300 font-medium ml-1">{article.data.readingTime}</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Hero Image -->
+    <figure class="mb-10">
+      <div class="rounded-2xl overflow-hidden border border-slate-800 aspect-[16/9] bg-slate-950">
+        <img
+          src={article.data.featuredImage}
+          alt={article.data.imageAlt}
+          class="w-full h-full object-cover"
+          loading="eager"
+        />
+      </div>
+      {article.data.imageCaption && (
+        <figcaption class="text-[11px] text-slate-500 mt-2.5 text-center italic">
+          {article.data.imageCaption}
+        </figcaption>
+      )}
+    </figure>
+
+    <!-- Top Leaderboard Ad Slot -->
+    <AdPlacement format="leaderboard" />
+
+    <!-- Main Content Area with Sidebar -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      <!-- Article Body (8 Cols) -->
+      <div class="lg:col-span-8">
+
+        <!-- Executive Key Takeaways / Highlights Box -->
+        {article.data.keyHighlights && article.data.keyHighlights.length > 0 && (
+          <div class="bg-amber-500/5 border border-amber-500/25 rounded-xl p-5 mb-8">
+            <div class="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider mb-3">
+              <span>⚡</span>
+              <span>Executive Highlights & Key Facts</span>
+            </div>
+            <ul class="space-y-2 text-xs sm:text-sm text-slate-200">
+              {article.data.keyHighlights.map((highlight) => (
+                <li class="flex items-start gap-2.5">
+                  <span class="text-amber-400 font-bold">▪</span>
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- Social Share Bar (Floating or Top) -->
+        <div class="flex items-center justify-between gap-3 p-3 bg-slate-900/60 border border-slate-800 rounded-xl mb-8 text-xs">
+          <span class="font-bold text-slate-400">Share Story:</span>
+          <div class="flex items-center gap-2">
+            <a
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.data.title)}&url=${encodeURIComponent(fullCanonical)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded-md transition-colors"
+            >
+              𝕏 Post
+            </a>
+            <a
+              href={`https://t.me/share/url?url=${encodeURIComponent(fullCanonical)}&text=${encodeURIComponent(article.data.title)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-2.5 py-1 bg-blue-600/80 hover:bg-blue-600 text-white rounded-md transition-colors"
+            >
+              Telegram
+            </a>
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullCanonical)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-white rounded-md transition-colors"
+            >
+              LinkedIn
+            </a>
+            <button
+              onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied to clipboard!');"
+              class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-md transition-colors cursor-pointer"
+            >
+              Copy Link
+            </button>
+          </div>
+        </div>
+
+        <!-- In-depth Article Prose -->
+        <div class="prose prose-invert prose-amber max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-6 prose-p:text-slate-300 prose-p:leading-relaxed prose-p:text-base prose-blockquote:border-amber-400 prose-blockquote:bg-slate-900/40 prose-blockquote:p-4 prose-blockquote:rounded-r-lg prose-code:text-amber-300 prose-code:font-mono">
+          <slot />
+        </div>
+
+        <!-- Mid-Article Ad Placement -->
+        <AdPlacement format="rectangle" label="Sponsored Partner" />
+
+        <!-- Verified Sources & Citations -->
+        {article.data.sources && article.data.sources.length > 0 && (
+          <div class="mt-8 p-4 bg-slate-900/40 border border-slate-800 rounded-xl text-xs">
+            <div class="font-bold text-white mb-2 flex items-center gap-1.5">
+              <span>📋</span>
+              <span>Verified Sources & Reference Documents:</span>
+            </div>
+            <ul class="space-y-1 text-slate-400">
+              {article.data.sources.map(src => (
+                <li>
+                  <a href={src.url} target="_blank" rel="noopener noreferrer nofollow" class="text-amber-400 hover:underline">
+                    {src.name} ↗
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- FAQ Section with Schema Accordion -->
+        {article.data.faqs && article.data.faqs.length > 0 && (
+          <section class="mt-12 pt-8 border-t border-slate-800">
+            <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+              <span>❓</span>
+              <span>Frequently Asked Questions</span>
+            </h2>
+            <div class="space-y-4">
+              {article.data.faqs.map((faq) => (
+                <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-4">
+                  <h3 class="text-sm font-bold text-white mb-2">{faq.question}</h3>
+                  <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">{faq.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <!-- Article Tag Pills -->
+        <div class="mt-8 pt-6 border-t border-slate-800 flex flex-wrap items-center gap-2">
+          <span class="text-xs text-slate-500 font-bold uppercase mr-2">Tags:</span>
+          {article.data.tags.map((tag) => (
+            <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-md text-xs text-slate-300">
+              #{tag}
+            </span>
+          ))}
+        </div>
+
+        <!-- Full Author E-E-A-T Bio Box -->
+        <div class="mt-10 p-6 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col sm:flex-row gap-5 items-start">
+          <img
+            src={authorData.avatar}
+            alt={authorData.name}
+            class="w-16 h-16 rounded-full object-cover border-2 border-amber-400/40 shrink-0"
+          />
+          <div class="flex-1">
+            <div class="flex items-center justify-between mb-1">
+              <div>
+                <h3 class="text-base font-bold text-white">{authorData.name}</h3>
+                <p class="text-xs text-amber-400 font-medium">{authorData.role}</p>
+              </div>
+              <a
+                href={`/author/${article.data.author}`}
+                class="text-xs text-slate-400 hover:text-white underline"
+              >
+                View Profile →
+              </a>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              {authorData.bio}
+            </p>
+            {authorData.credentials && (
+              <div class="text-[11px] text-slate-400">
+                <span class="font-bold text-slate-300">Credentials:</span> {authorData.credentials}
+              </div>
+            )}
+          </div>
+        </div>
+
+        <!-- Prev / Next Navigation -->
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-slate-800">
+          {prevArticle ? (
+            <a href={`/news/${prevArticle.slug}`} class="p-4 bg-slate-900/40 hover:bg-slate-900 border border-slate-800 rounded-xl group transition-all">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">← Previous Story</span>
+              <span class="text-xs font-bold text-white group-hover:text-amber-400 line-clamp-2 transition-colors">
+                {prevArticle.data.title}
+              </span>
+            </a>
+          ) : <div />}
+
+          {nextArticle ? (
+            <a href={`/news/${nextArticle.slug}`} class="p-4 bg-slate-900/40 hover:bg-slate-900 border border-slate-800 rounded-xl group transition-all text-right sm:text-right">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">Next Story →</span>
+              <span class="text-xs font-bold text-white group-hover:text-amber-400 line-clamp-2 transition-colors">
+                {nextArticle.data.title}
+              </span>
+            </a>
+          ) : <div />}
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar (4 Cols) -->
+      <aside class="lg:col-span-4 space-y-8">
+        
+        <!-- Sticky Sidebar Ad -->
+        <div class="sticky top-24 space-y-8">
+          
+          <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              <span>Related Market Coverage</span>
+            </h3>
+
+            <div class="space-y-4">
+              {relatedArticles.slice(0, 4).map((rel) => (
+                <a href={`/news/${rel.slug}`} class="group block border-b border-slate-800/80 pb-3 last:border-0 last:pb-0">
+                  <span class="text-[10px] uppercase font-bold text-amber-400 block mb-1">
+                    {rel.data.category}
+                  </span>
+                  <h4 class="text-xs font-bold text-white group-hover:text-amber-400 line-clamp-2 transition-colors">
+                    {rel.data.title}
+                  </h4>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <AdPlacement format="sidebar" label="Partner Placement" />
+        </div>
+
+      </aside>
+
+    </div>
+
+  </article>
+
+  <script is:inline>
+    // Reading Progress Indicator
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const bar = document.getElementById('progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+  </script>
+</BaseLayout>
