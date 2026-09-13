@@ -39,7 +39,7 @@ contentType: "analysis"
 
 The global monetary landscape is undergoing a permanent transformation, with [1 Bitcoin](https://bitcoin.org) evolving from an experimental cryptographic asset into an institutional-grade sovereign reserve benchmark.
 
-As central banks inflate fiat currency supplies and global national debts cross historic records, owning a full single coin—**1 Bitcoin**—has become a key milestone for private wealth preservation, corporate treasuries, and sovereign funds.
+As central banks inflate fiat currency supplies and global national debts cross historic records, owning a full single coin - **1 Bitcoin** - has become a key milestone for private wealth preservation, corporate treasuries, and sovereign funds.
 
 <div class="my-8 p-6 bg-slate-900 border border-slate-800 rounded-2xl text-white shadow-xl">
   <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 mb-2">1 Bitcoin Supply & Scarcity Metrics</h4>

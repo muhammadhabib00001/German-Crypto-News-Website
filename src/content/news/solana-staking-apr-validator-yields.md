@@ -54,10 +54,10 @@ Solana’s gross staking reward rate is driven by two primary revenue pillars: p
 
 | Staking Modality | Typical Gross APR | Net Yield (After Fees) | Liquidity Lockup | Slashing Protection |
 | :--- | :--- | :--- | :--- | :--- |
-| **Native Validator Delegation** | 6.85% – 7.20% | 6.45% – 6.95% | 1 Epoch (~2.5 Days) | Protocol Consensus Level |
-| **JitoSOL (MEV-Boosted LST)** | 7.90% – 8.35% | 7.50% – 7.95% | Instant (DEX Swaps) | Audited Multi-Sig Vaults |
-| **Marinade Native & mSOL** | 7.10% – 7.60% | 6.80% – 7.20% | Instant via Liquidity Pools | Non-Custodial Validator Scoring |
-| **Institutional Cold Custody** | 6.70% – 7.05% | 6.30% – 6.65% | 1 Epoch Unbonding | Slashing Insurance Guarantees |
+| **Native Validator Delegation** | 6.85 - 7.20% | 6.45 - 6.95% | 1 Epoch (~2.5 Days) | Protocol Consensus Level |
+| **JitoSOL (MEV-Boosted LST)** | 7.90 - 8.35% | 7.50 - 7.95% | Instant (DEX Swaps) | Audited Multi-Sig Vaults |
+| **Marinade Native & mSOL** | 7.10 - 7.60% | 6.80 - 7.20% | Instant via Liquidity Pools | Non-Custodial Validator Scoring |
+| **Institutional Cold Custody** | 6.70 - 7.05% | 6.30 - 6.65% | 1 Epoch Unbonding | Slashing Insurance Guarantees |
 
 ### Protocol Disinflation Mechanics
 Solana operates on a predefined programmatic disinflation schedule. The initial inflation rate of **8.0%** decreases by **15% annually** at each epoch rollover until reaching its permanent terminal inflation rate of **1.5%**. 
