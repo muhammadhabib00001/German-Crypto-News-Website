@@ -12,6 +12,8 @@ export async function GET() {
 
   const staticPages = [
     '',
+    '/events',
+    '/token-launches',
     '/about',
     '/contact',
     '/editorial-policy',

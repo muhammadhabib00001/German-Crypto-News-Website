@@ -44,6 +44,15 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
             <span class="text-[9px] uppercase tracking-wider bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-1.5 py-0.2 rounded font-black shadow-xs">Live</span>
           </a>
 
+          <!-- Events Link -->
+          <a
+            href="/events"
+            class="px-2.5 xl:px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-xl transition-colors inline-flex items-center gap-1 whitespace-nowrap"
+          >
+            <span class="text-[11px] opacity-70">🗓️</span>
+            <span>Events</span>
+          </a>
+
           <!-- Primary Category Links -->
           {primaryNav.map((item) => (
             <a
