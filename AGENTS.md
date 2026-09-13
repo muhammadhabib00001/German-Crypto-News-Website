@@ -42,3 +42,8 @@ Whenever publishing or updating news articles on CryptoPulse, you MUST follow th
 4. **Image Descriptions**:
    - Hero `imageAlt` and `imageCaption` must be descriptive, matching the title and subject matter of the article.
 
+5. **Single External Keyword Citation Link**:
+   - Every published article must contain **exactly 1 external link** anchored directly on the primary topic keyword in the body text (e.g. `[OpenSea](https://opensea.io)` or `[Solana](https://solana.com)`).
+   - Do NOT place external links anywhere else in the body text.
+
+

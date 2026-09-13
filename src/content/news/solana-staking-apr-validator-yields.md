@@ -35,7 +35,7 @@ sources:
 contentType: "analysis"
 ---
 
-The Proof-of-Stake (PoS) architecture of **Solana (SOL)** has evolved into one of the highest-yielding and most capital-efficient validator consensus networks in the digital asset economy. With more than **395 million SOL** actively securing the high-throughput blockchain, institutional allocators and retail participants are increasingly optimizing their delegations between native validator staking and decentralized **Liquid Staking Tokens (LSTs)**.
+The Proof-of-Stake (PoS) architecture of [Solana](https://solana.com) has evolved into one of the highest-yielding and most capital-efficient validator consensus networks in the digital asset economy. With more than **395 million SOL** actively securing the high-throughput blockchain, institutional allocators and retail participants are increasingly optimizing their delegations between native validator staking and decentralized **Liquid Staking Tokens (LSTs)**.
 
 ---
 
