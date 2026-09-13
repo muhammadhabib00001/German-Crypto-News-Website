@@ -62,7 +62,7 @@ Data audited across custody providers demonstrates that institutional asset mana
 
 BlackRock’s iShares Bitcoin Trust alone surpassed **$30 billion in cumulative assets under management (AUM)**, shattering the historical speed record previously held by the SPDR Gold Shares (GLD) trust to achieve that valuation threshold.
 
-> "We are witnessing a fundamental shift in portfolio construction," noted Marcus Vance, Chief Macro Strategist at CryptoPulse. "Sovereign wealth managers, regional public pension funds, and multi-family offices are transitioning from exploratory educational allocations directly into strategic balance sheet execution."
+> "We are witnessing a fundamental shift in portfolio construction," noted Marcus Vance, Chief Macro Strategist at newskrypt. "Sovereign wealth managers, regional public pension funds, and multi-family offices are transitioning from exploratory educational allocations directly into strategic balance sheet execution."
 
 ### OTC Desks Face Acute Supply Illiquidity
 
