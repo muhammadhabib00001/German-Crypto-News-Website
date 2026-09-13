@@ -35,18 +35,18 @@ import SearchModal from '../components/SearchModal.astro';
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": "NewsMediaOrganization",
-  "name": "CryptoPulse",
+  "name": "newskrypt",
   "url": "https://cryptopulse.news",
   "logo": {
     "@type": "ImageObject",
     "url": "https://cryptopulse.news/logo.png",
-    "width": 600,
-    "height": 60
+    "width": 740,
+    "height": 229
   },
   "sameAs": [
-    "https://twitter.com/cryptopulse",
-    "https://linkedin.com/company/cryptopulse",
-    "https://t.me/cryptopulse"
+    "https://twitter.com/newskrypt",
+    "https://linkedin.com/company/newskrypt",
+    "https://t.me/newskrypt"
   ],
   "publishingPrinciples": "https://cryptopulse.news/editorial-policy",
   "correctionsPolicy": "https://cryptopulse.news/corrections",
@@ -56,7 +56,7 @@ const orgSchema = {
 const webSiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "CryptoPulse",
+  "name": "newskrypt",
   "url": "https://cryptopulse.news",
   "potentialAction": {
     "@type": "SearchAction",
@@ -64,23 +64,26 @@ const webSiteSchema = {
     "query-input": "required name=search_term_string"
   }
 };
-const fullTitle = exactTitle ? title : `${title} | CryptoPulse`;
+const fullTitle = exactTitle ? title : `${title} | newskrypt`;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-[#f8fafc] text-black antialiased selection:bg-amber-500/30 selection:text-amber-800">
+<html lang="en" class="bg-[#f8fafc] text-black antialiased selection:bg-cyan-500/30 selection:text-cyan-900">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" title="CryptoPulse RSS Feed" href="/rss.xml" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon-64.png" />
+    <link rel="alternate" type="application/rss+xml" title="newskrypt RSS Feed" href="/rss.xml" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:site_name" content="CryptoPulse" />
+    <meta property="og:site_name" content="newskrypt" />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={fullTitle} />
@@ -92,8 +95,8 @@ const fullTitle = exactTitle ? title : `${title} | CryptoPulse`;
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@cryptopulse" />
-    <meta name="twitter:creator" content="@cryptopulse" />
+    <meta name="twitter:site" content="@newskrypt" />
+    <meta name="twitter:creator" content="@newskrypt" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />

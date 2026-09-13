@@ -18,7 +18,7 @@ export async function GET() {
     <loc>${siteUrl}/news/${post.slug}</loc>
     <news:news>
       <news:publication>
-        <news:name>CryptoPulse</news:name>
+        <news:name>newskrypt</news:name>
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>${post.data.publishedDate}</news:publication_date>

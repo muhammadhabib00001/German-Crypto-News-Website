@@ -12,7 +12,7 @@ export async function GET(context: any) {
   );
 
   return rss({
-    title: 'CryptoPulse - Financial Intelligence & Digital Asset Journalism',
+    title: 'newskrypt - Financial Intelligence & Digital Asset Journalism',
     description: 'Premier financial news publication covering Bitcoin, Ethereum, DeFi, Crypto Markets, Regulations, and Web3 developments.',
     site: context.site || 'https://cryptopulse.news',
     items: sortedNews.map((post) => ({
@@ -22,6 +22,6 @@ export async function GET(context: any) {
       link: `/news/${post.slug}/`,
       categories: [post.data.category, ...post.data.tags]
     })),
-    customData: `<language>en-us</language><copyright>© 2026 CryptoPulse Global Media Inc.</copyright>`
+    customData: `<language>en-us</language><copyright>© 2026 newskrypt Global Media Inc.</copyright>`
   });
 }

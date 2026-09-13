@@ -1,4 +1,4 @@
-﻿---
+---
 import { CATEGORY_LIST } from '../data/categories';
 
 // Curated primary topics for prominent navbar display
@@ -22,18 +22,13 @@ const moreCategories = CATEGORY_LIST.filter(c => !['bitcoin', 'ethereum', 'defi'
       
       <!-- Brand Logo -->
       <div class="flex items-center gap-4 lg:gap-6 shrink-0">
-        <a href="/" class="flex items-center gap-2.5 group">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 via-amber-600 to-orange-600 flex items-center justify-center font-black text-white text-lg shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
-            ⚡
-          </div>
-          <div class="flex flex-col">
-            <span class="text-xl font-black tracking-tight text-black flex items-center gap-0.5">
-              Crypto<span class="text-amber-600">Pulse</span>
-            </span>
-            <span class="text-[9px] uppercase tracking-widest text-slate-500 font-bold -mt-1">
-              Financial Intelligence
-            </span>
-          </div>
+        <a href="/" class="flex items-center group py-1" aria-label="newskrypt Home">
+          <img
+            src="/logo.png"
+            alt="newskrypt"
+            class="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+            loading="eager"
+          />
         </a>
 
         <!-- Desktop Navigation Bar -->
