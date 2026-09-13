@@ -1,6 +1,6 @@
 ---
 // Component: LanguageSelector.astro
-// Provides an elegant dropdown with top global languages (English, German, Spanish, French, Italian, Turkish, Arabic, Russian, Chinese, Japanese, Korean, Portuguese)
+// Provides an elegant dropdown with comprehensive global languages
 // Uses Google Translate element with zero intrusive branding, clean cookies, and instant translation.
 ---
 
@@ -24,29 +24,29 @@
   <!-- Language Dropdown Menu -->
   <div
     id="lang-dropdown-menu"
-    class="hidden absolute right-0 mt-2 w-52 rounded-2xl bg-white border border-slate-200 shadow-2xl p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+    class="hidden absolute right-0 mt-2 w-56 rounded-2xl bg-white border border-slate-200 shadow-2xl p-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
     role="menu"
     aria-orientation="vertical"
   >
     <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-1.5 border-b border-slate-100 mb-1 flex items-center justify-between">
       <span>Read In Your Language</span>
-      <span class="text-cyan-600 font-semibold">12 Languages</span>
+      <span class="text-cyan-600 font-semibold">25+ Languages</span>
     </div>
 
-    <div class="max-h-64 overflow-y-auto no-scrollbar space-y-0.5">
+    <div class="max-h-72 overflow-y-auto no-scrollbar space-y-0.5">
       <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="en">
         <span class="flex items-center gap-2"><span>🇺🇸</span> <span>English</span></span>
         <span class="text-[10px] text-slate-400 font-mono">EN</span>
       </button>
 
-      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="de">
-        <span class="flex items-center gap-2"><span>🇩🇪</span> <span>Deutsch</span></span>
-        <span class="text-[10px] text-slate-400 font-mono">DE</span>
-      </button>
-
       <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="es">
         <span class="flex items-center gap-2"><span>🇪🇸</span> <span>Español</span></span>
         <span class="text-[10px] text-slate-400 font-mono">ES</span>
+      </button>
+
+      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="de">
+        <span class="flex items-center gap-2"><span>🇩🇪</span> <span>Deutsch</span></span>
+        <span class="text-[10px] text-slate-400 font-mono">DE</span>
       </button>
 
       <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="fr">
@@ -79,6 +79,21 @@
         <span class="text-[10px] text-slate-400 font-mono">AR</span>
       </button>
 
+      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="hi">
+        <span class="flex items-center gap-2"><span>🇮🇳</span> <span>हिन्दी</span></span>
+        <span class="text-[10px] text-slate-400 font-mono">HI</span>
+      </button>
+
+      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="ur">
+        <span class="flex items-center gap-2"><span>🇵🇰</span> <span>اردو</span></span>
+        <span class="text-[10px] text-slate-400 font-mono">UR</span>
+      </button>
+
+      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="bn">
+        <span class="flex items-center gap-2"><span>🇧🇩</span> <span>বাংলা</span></span>
+        <span class="text-[10px] text-slate-400 font-mono">BN</span>
+      </button>
+
       <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="zh-CN">
         <span class="flex items-center gap-2"><span>🇨🇳</span> <span>简体中文</span></span>
         <span class="text-[10px] text-slate-400 font-mono">ZH</span>
@@ -93,6 +108,46 @@
         <span class="flex items-center gap-2"><span>🇰🇷</span> <span>한국어</span></span>
         <span class="text-[10px] text-slate-400 font-mono">KO</span>
       </button>
+
+      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="id">
+        <span class="flex items-center gap-2"><span>🇮🇩</span> <span>Bahasa Indonesia</span></span>
+        <span class="text-[10px] text-slate-400 font-mono">ID</span>
+      </button>
+
+      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="vi">
+        <span class="flex items-center gap-2"><span>🇻🇳</span> <span>Tiếng Việt</span></span>
+        <span class="text-[10px] text-slate-400 font-mono">VI</span>
+      </button>
+
+      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="th">
+        <span class="flex items-center gap-2"><span>🇹🇭</span> <span>ไทย</span></span>
+        <span class="text-[10px] text-slate-400 font-mono">TH</span>
+      </button>
+
+      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="nl">
+        <span class="flex items-center gap-2"><span>🇳🇱</span> <span>Nederlands</span></span>
+        <span class="text-[10px] text-slate-400 font-mono">NL</span>
+      </button>
+
+      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="pl">
+        <span class="flex items-center gap-2"><span>🇵🇱</span> <span>Polski</span></span>
+        <span class="text-[10px] text-slate-400 font-mono">PL</span>
+      </button>
+
+      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="uk">
+        <span class="flex items-center gap-2"><span>🇺🇦</span> <span>Українська</span></span>
+        <span class="text-[10px] text-slate-400 font-mono">UK</span>
+      </button>
+
+      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="sv">
+        <span class="flex items-center gap-2"><span>🇸🇪</span> <span>Svenska</span></span>
+        <span class="text-[10px] text-slate-400 font-mono">SV</span>
+      </button>
+
+      <button type="button" class="lang-option-btn w-full text-left px-3 py-2 text-xs font-semibold rounded-xl hover:bg-slate-100 flex items-center justify-between transition-colors text-slate-800 cursor-pointer" data-lang="el">
+        <span class="flex items-center gap-2"><span>🇬🇷</span> <span>Ελληνικά</span></span>
+        <span class="text-[10px] text-slate-400 font-mono">EL</span>
+      </button>
     </div>
 
     <!-- Hidden Native Google Translate Mount Point -->
@@ -105,7 +160,7 @@
   window.googleTranslateElementInit = function() {
     new google.translate.TranslateElement({
       pageLanguage: 'en',
-      includedLanguages: 'en,de,es,fr,it,pt,tr,ru,ar,zh-CN,ja,ko',
+      includedLanguages: 'en,es,de,fr,it,pt,tr,ru,ar,hi,ur,bn,zh-CN,ja,ko,id,vi,th,nl,pl,uk,sv,el',
       autoDisplay: false,
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
