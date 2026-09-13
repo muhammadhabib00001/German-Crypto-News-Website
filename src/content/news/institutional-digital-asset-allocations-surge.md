@@ -2,7 +2,7 @@
 title: "Institutional Crypto Allocations Surge Up to 4.5% Total"
 metaTitle: "Institutional Crypto Allocations Surge Up to 4.5% Total"
 excerpt: "Pensions, endowments, and multi-family offices abandon zero-allocation mandates in favor of strategic digital gold and yield allocations."
-metaDescription: "Pensions, endowments, and family offices lift crypto allocations to 4.5%, adopting regulated spot ETFs as digital gold and macro sovereign hedges for 2026."
+metaDescription: "Pensions, endowments, and family offices lift crypto allocations to 4.5%, adopting regulated spot ETFs as digital gold and sovereign portfolio risk hedges."
 category: "institutional-crypto"
 author: "marcus-vance"
 publishedDate: "2026-09-03T08:00:00Z"
