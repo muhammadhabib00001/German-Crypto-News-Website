@@ -1,0 +1,288 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TokenCard from '../../components/TokenCard.astro';
+import { UPCOMING_TOKENS } from '../../data/upcomingTokens';
+
+const totalTokens = UPCOMING_TOKENS.length;
+const presaleCount = UPCOMING_TOKENS.filter(t => t.category === 'presale').length;
+const cryptoCount = UPCOMING_TOKENS.filter(t => t.category === 'crypto').length;
+const memeCount = UPCOMING_TOKENS.filter(t => t.category === 'meme').length;
+
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Upcoming Crypto Token Launches, Presales & Meme Coins | CryptoPulse",
+  "description": "Comprehensive institutional intelligence tracker monitoring upcoming token launches, active presales, IDO/IEO schedules, and meme token fair launches.",
+  "url": "https://cryptopulse.news/token-launches"
+};
+---
+
+<BaseLayout
+  title="Upcoming Token Launches, Presales & Meme Coins 2026"
+  description="Explore upcoming crypto tokens, active presales, and viral meme coin launches. Track launch dates, countdown timers, tokenomics, and security audit scores."
+  canonicalUrl="https://cryptopulse.news/token-launches"
+  structuredData={pageSchema}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-14">
+    
+    <!-- Hero Header Zone -->
+    <header class="mb-10 text-center max-w-4xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 text-xs font-bold mb-4">
+        <span>🚀</span>
+        <span>Institutional Token Launchpad Intelligence</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-black tracking-tight mb-4">
+        Upcoming Token Launches & Presales
+      </h1>
+      <p class="text-slate-700 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+        Track future cryptocurrency token launches, early-stage presale rounds, and high-velocity meme coin bonding curves with verified audits, tokenomics allocations, and live countdown timers.
+      </p>
+    </header>
+
+    <!-- Quick Stat Highlights Banner -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs text-center">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">Total Tracked</span>
+        <span class="text-2xl sm:text-3xl font-black text-black">{totalTokens} Projects</span>
+        <span class="text-[11px] text-emerald-600 font-semibold block mt-1">✓ Verified Smart Contracts</span>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs text-center">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">Active Presales</span>
+        <span class="text-2xl sm:text-3xl font-black text-amber-600">{presaleCount} Presales</span>
+        <span class="text-[11px] text-slate-600 block mt-1">Seed & Private Rounds</span>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs text-center">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">Utility & Infra</span>
+        <span class="text-2xl sm:text-3xl font-black text-blue-600">{cryptoCount} Tokens</span>
+        <span class="text-[11px] text-slate-600 block mt-1">DeFi, AI, ZK & L2</span>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs text-center">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">Meme Tokens</span>
+        <span class="text-2xl sm:text-3xl font-black text-rose-600">{memeCount} Memes</span>
+        <span class="text-[11px] text-slate-600 block mt-1">Fair Launches & Curves</span>
+      </div>
+    </div>
+
+    <!-- Category & Chain Filter Tabs -->
+    <div class="bg-white border border-slate-200 rounded-2xl p-4 sm:p-6 mb-8 shadow-xs">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        
+        <!-- Category Segmented Buttons -->
+        <div class="flex items-center gap-1.5 p-1 bg-slate-100 rounded-xl overflow-x-auto no-scrollbar">
+          <button
+            type="button"
+            class="filter-cat-btn active px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer bg-white text-black shadow-xs"
+            data-category="all"
+          >
+            All Launches ({totalTokens})
+          </button>
+          <button
+            type="button"
+            class="filter-cat-btn px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer text-slate-600 hover:text-black"
+            data-category="presale"
+          >
+            Presale Tokens ({presaleCount})
+          </button>
+          <button
+            type="button"
+            class="filter-cat-btn px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer text-slate-600 hover:text-black"
+            data-category="crypto"
+          >
+            Crypto Tokens ({cryptoCount})
+          </button>
+          <button
+            type="button"
+            class="filter-cat-btn px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer text-slate-600 hover:text-black"
+            data-category="meme"
+          >
+            Meme Tokens ({memeCount})
+          </button>
+        </div>
+
+        <!-- Blockchain Filter Dropdown -->
+        <div class="flex items-center gap-3">
+          <label for="chain-filter" class="text-xs font-bold text-slate-600 shrink-0">Chain:</label>
+          <select
+            id="chain-filter"
+            class="px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-black focus:outline-none focus:border-amber-500 cursor-pointer"
+          >
+            <option value="all">All Blockchains (Multi-Chain)</option>
+            <option value="Solana">Solana 🟣</option>
+            <option value="Ethereum">Ethereum 🔷</option>
+            <option value="Base">Base 🔵</option>
+            <option value="Arbitrum">Arbitrum 🔵</option>
+            <option value="Sui">Sui 💧</option>
+            <option value="TON">TON 💎</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tokens Grid -->
+    <div id="tokens-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {UPCOMING_TOKENS.map((tok) => (
+        <TokenCard token={tok} />
+      ))}
+    </div>
+
+    <!-- Empty State (Hidden by default) -->
+    <div id="no-tokens-found" class="hidden text-center py-16 bg-white border border-slate-200 rounded-2xl p-8 mb-12 shadow-xs">
+      <h3 class="text-base font-bold text-black mb-2">No Matching Tokens Found</h3>
+      <p class="text-slate-600 text-xs sm:text-sm max-w-md mx-auto mb-4">
+        No projects match your current category and blockchain filters. Try selecting "All Launches" or resetting the chain filter.
+      </p>
+      <button
+        id="reset-filter-btn"
+        class="px-4 py-2 bg-black text-white text-xs font-bold rounded-xl hover:bg-slate-800 transition-colors cursor-pointer"
+      >
+        Reset Filters
+      </button>
+    </div>
+
+    <!-- Investor Due Diligence & Risk Notice Box -->
+    <section class="bg-amber-50 border border-amber-200 rounded-2xl p-6 sm:p-8 text-black shadow-xs mb-12">
+      <div class="flex items-start gap-3">
+        <span class="text-2xl shrink-0">⚠</span>
+        <div>
+          <h2 class="text-base font-bold text-black mb-2 uppercase tracking-wide">
+            Mandatory Due Diligence Notice on Upcoming Token Launches
+          </h2>
+          <p class="text-xs sm:text-sm text-black leading-relaxed mb-3">
+            Participating in early-stage cryptocurrency presales, decentralized initial DEX offerings (IDOs), and meme token fair launches carries extreme risk of partial or complete capital loss. Smart contract exploits, liquidity drainage, team allocations, and sudden regulatory adjustments are inherent hazards in nascent digital asset protocols.
+          </p>
+          <p class="text-xs text-black font-semibold">
+            CryptoPulse publishes token launch profiles strictly for informational and news evaluation purposes. None of our content constitutes investment or financial advice. Always verify smart contract bytecode, independent audit certificates, and lockup proofs before committing capital.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Founder Submission Banner -->
+    <section class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 text-center shadow-xs">
+      <h2 class="text-xl sm:text-2xl font-bold text-black mb-2">Launching a Web3 Project or Presale?</h2>
+      <p class="text-slate-700 text-xs sm:text-sm max-w-xl mx-auto mb-5 leading-relaxed">
+        Submit your token for editorial review and verification by our cryptographic research analysts. Gain visibility across our institutional and retail readership.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 px-5 py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs sm:text-sm rounded-xl shadow-md transition-all cursor-pointer"
+      >
+        <span>Submit Project for Verification</span>
+        <span>→</span>
+      </a>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<script is:inline>
+  // Countdown Timer Logic
+  function updateCountdownTimers() {
+    const clocks = document.querySelectorAll('.countdown-clock');
+    const now = new Date().getTime();
+
+    clocks.forEach((clock) => {
+      const targetStr = clock.getAttribute('data-target-date');
+      if (!targetStr) return;
+
+      const target = new Date(targetStr).getTime();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        clock.textContent = 'Launched / Live';
+        clock.classList.add('text-emerald-700');
+        clock.classList.remove('text-black');
+      } else {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        clock.textContent = `${days}d ${hours}h ${mins}m ${secs}s`;
+      }
+    });
+  }
+
+  updateCountdownTimers();
+  setInterval(updateCountdownTimers, 1000);
+
+  // Category & Blockchain Filtering Logic
+  const catButtons = document.querySelectorAll('.filter-cat-btn');
+  const chainSelect = document.getElementById('chain-filter');
+  const cards = document.querySelectorAll('.token-card');
+  const emptyState = document.getElementById('no-tokens-found');
+  const resetBtn = document.getElementById('reset-filter-btn');
+
+  let activeCategory = 'all';
+  let activeChain = 'all';
+
+  function applyFilters() {
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const cardCat = card.getAttribute('data-category');
+      const cardChain = card.getAttribute('data-chain');
+
+      const matchCat = activeCategory === 'all' || cardCat === activeCategory;
+      const matchChain = activeChain === 'all' || cardChain === activeChain;
+
+      if (matchCat && matchChain) {
+        card.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    if (emptyState) {
+      if (visibleCount === 0) {
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+      }
+    }
+  }
+
+  catButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      catButtons.forEach(b => {
+        b.classList.remove('active', 'bg-white', 'text-black', 'shadow-xs');
+        b.classList.add('text-slate-600');
+      });
+      btn.classList.add('active', 'bg-white', 'text-black', 'shadow-xs');
+      btn.classList.remove('text-slate-600');
+
+      activeCategory = btn.getAttribute('data-category') || 'all';
+      applyFilters();
+    });
+  });
+
+  if (chainSelect) {
+    chainSelect.addEventListener('change', (e) => {
+      activeChain = e.target.value;
+      applyFilters();
+    });
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      activeCategory = 'all';
+      activeChain = 'all';
+      if (chainSelect) chainSelect.value = 'all';
+      catButtons.forEach((b, i) => {
+        if (i === 0) {
+          b.classList.add('active', 'bg-white', 'text-black', 'shadow-xs');
+          b.classList.remove('text-slate-600');
+        } else {
+          b.classList.remove('active', 'bg-white', 'text-black', 'shadow-xs');
+          b.classList.add('text-slate-600');
+        }
+      });
+      applyFilters();
+    });
+  }
+</script>
