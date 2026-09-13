@@ -9,20 +9,94 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
     <header class="mb-10 pb-6 border-b border-slate-200">
-      <h1 class="text-3xl sm:text-4xl font-black text-black tracking-tight mb-3">Cookie Policy</h1>
-      <p class="text-xs text-slate-600 font-medium">Effective Date: September 2026</p>
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full text-xs font-extrabold text-amber-800 uppercase tracking-wider mb-4">
+        <span>🍪 Cookie & Tracking Transparency</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight mb-3">
+        Cookie Policy & Browser Storage Preferences
+      </h1>
+      <p class="text-xs text-slate-600 font-medium">Last Reviewed & Formally Ratified: September 2026 | newskrypt Technical & Compliance Team</p>
     </header>
 
-    <div class="space-y-6 text-sm text-black leading-relaxed">
-      <div class="bg-white border border-slate-200 p-6 rounded-xl space-y-3 shadow-xs">
-        <h2 class="text-base font-bold text-black">1. What Are Cookies?</h2>
-        <p class="text-black">Cookies are small text files stored on your device that retain preferences and enhance navigation efficiency. We categorize cookies into Essential (strictly necessary for core site rendering and security) and Analytics/Advertising (evaluating audience readership patterns).</p>
-      </div>
+    <div class="space-y-8 text-sm text-black leading-relaxed">
+      <!-- Section 1: Overview & Definition -->
+      <section class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-xs">
+        <h2 class="text-xl font-black text-black mb-3 flex items-center gap-2">
+          <span>1. What Are Cookies & Local Storage?</span>
+        </h2>
+        <p class="text-black mb-3">
+          Cookies are small text files placed on your computer, smartphone, or tablet when visiting websites. They allow digital platforms to retain user preferences, maintain session state, verify security integrity, and analyze website speed.
+        </p>
+        <p class="text-black">
+          At <strong>newskrypt</strong>, we minimize cookie utilization, relying wherever possible on ephemeral browser storage to ensure lighting-fast article loading and total reader anonymity.
+        </p>
+      </section>
 
-      <div class="bg-white border border-slate-200 p-6 rounded-xl space-y-3 shadow-xs">
-        <h2 class="text-base font-bold text-black">2. Managing Cookie Preferences</h2>
-        <p class="text-black">You can adjust your browser settings to reject cookies or notify you when a cookie is placed. Note that disabling cookies may affect certain customized features such as saved ticker favorites or instant search memory.</p>
-      </div>
+      <!-- Section 2: Cookie Classifications -->
+      <section class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-xs">
+        <h2 class="text-xl font-black text-black mb-3">2. Classifications of Storage Technologies Used</h2>
+        <p class="text-black mb-4">
+          We categorize browser storage technologies into three operational buckets:
+        </p>
+
+        <div class="space-y-4">
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+            <h3 class="font-bold text-black text-base mb-1">A. Essential Operational Cookies (Strictly Necessary)</h3>
+            <p class="text-slate-800 text-xs sm:text-sm">
+              These cookies are mandatory for core website security, server load balancing, and anti-DDoS protection. Disabling essential cookies via custom browser plugins may disrupt page rendering and instant article navigation.
+            </p>
+          </div>
+
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+            <h3 class="font-bold text-black text-base mb-1">B. Functional Preference Cookies</h3>
+            <p class="text-slate-800 text-xs sm:text-sm">
+              Functional storage retains your UI preferences—such as favorite cryptocurrency ticker watchlists, currency selection (USD/EUR), or search history—ensuring seamless visits without re-entering settings.
+            </p>
+          </div>
+
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+            <h3 class="font-bold text-black text-base mb-1">C. Performance & Analytics Metrics</h3>
+            <p class="text-slate-800 text-xs sm:text-sm">
+              Aggregated, non-personally identifiable telemetry helps our engineering desk evaluate page load performance, Core Web Vitals (LCP/CLS), and reader volume across top news categories.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Alignment with Editorial Firewall & Advertising -->
+      <section class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-xs">
+        <h2 class="text-xl font-black text-black mb-3">3. Commercial Firewall & Advertising Compliance</h2>
+        <p class="text-black mb-3">
+          As stated in our <a href="/editorial-policy" class="text-amber-600 font-bold hover:underline">Editorial Policy</a>, <strong>newskrypt</strong> maintains an unbreachable firewall between advertisers and our newsroom:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-black">
+          <li><strong>No Invasive Advertising Trackers:</strong> Sponsored banners or partner links operate strictly under mandatory <code class="bg-slate-100 px-1.5 py-0.5 rounded text-black font-semibold border border-slate-200">rel="sponsored nofollow"</code> attributes.</li>
+          <li><strong>Non-Duplicate Visual Standards:</strong> All article visual assets, technical graphics, and hero images are served directly without third-party tracking scripts attached to image media.</li>
+          <li><strong>Zero Data Selling:</strong> We do not sell tracking data to third-party ad exchanges or identity resolution providers.</li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Managing & Disabling Cookies -->
+      <section class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-xs">
+        <h2 class="text-xl font-black text-black mb-3">4. How to Manage or Disable Cookies</h2>
+        <p class="text-black mb-3">
+          You retain full control over cookie permissions. You can modify your browser settings to reject non-essential cookies, block third-party cookies, or clear local storage upon browser exit:
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-black">
+          <li><strong>Google Chrome:</strong> Settings → Privacy and security → Cookies and other site data</li>
+          <li><strong>Mozilla Firefox:</strong> Options → Privacy & Security → Cookies and Site Data</li>
+          <li><strong>Apple Safari:</strong> Preferences → Privacy → Block all cookies</li>
+          <li><strong>Brave / Edge:</strong> Settings → Privacy, search, and services → Clear browsing data</li>
+        </ul>
+      </section>
+
+      <!-- Section 5: Inquiries -->
+      <section class="bg-white border border-slate-200 p-6 sm:p-8 rounded-2xl shadow-xs">
+        <h2 class="text-xl font-black text-black mb-3">5. Questions & Data Protection Contact</h2>
+        <p class="text-black">
+          If you have questions regarding our cookie implementation or data handling, please contact our compliance desk at <code class="bg-slate-100 px-1.5 py-0.5 rounded text-black font-semibold border border-slate-200">privacy@newskrypt.com</code> or consult our <a href="/privacy-policy" class="text-amber-600 font-bold hover:underline">Privacy Policy</a>.
+        </p>
+      </section>
     </div>
   </div>
 </BaseLayout>
