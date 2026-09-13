@@ -112,6 +112,12 @@ const eventSchema = {
                   <span class="text-slate-400">📍</span>
                   <span class="font-bold text-slate-900">{ev.location}, {ev.city}, {ev.country}</span>
                 </div>
+                {ev.startTime && (
+                  <div class="flex items-center gap-2 text-[11px] text-amber-800 font-semibold">
+                    <span class="text-amber-500">⏰</span>
+                    <span>Daily Schedule: <strong>{ev.startTime} - {ev.endTime}</strong> ({ev.timeZone})</span>
+                  </div>
+                )}
                 <div class="flex items-center gap-2">
                   <span class="text-slate-400">🎟️</span>
                   <span>Passes: <strong class="text-amber-700">{ev.ticketPrice}</strong></span>
@@ -188,6 +194,11 @@ const eventSchema = {
                   <td class="py-4 px-4 whitespace-nowrap font-mono text-[11px] font-bold text-slate-700">
                     {ev.startDate} <br />
                     <span class="text-[10px] text-slate-400 font-normal">to {ev.endDate}</span>
+                    {ev.startTime && (
+                      <div class="text-[10px] text-amber-700 font-sans font-bold mt-1">
+                        ⏰ {ev.startTime} - {ev.endTime}
+                      </div>
+                    )}
                   </td>
                   <td class="py-4 px-4">
                     <div class="font-semibold text-slate-900">{ev.city}, {ev.country}</div>
