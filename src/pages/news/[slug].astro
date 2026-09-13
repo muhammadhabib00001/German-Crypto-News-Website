@@ -15,9 +15,9 @@ export async function getStaticPaths() {
   return articles.map((article, index) => {
     const slug = article.id.replace(/\.md$/, '');
     const authorData = authorMap.get(article.data.author) || {
-      name: "CryptoPulse Editorial Team",
+      name: "newskrypt Editorial Team",
       role: "Financial News Desk",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80",
       bio: "Covering crypto markets, policy, and blockchain developments.",
       social: {}
     };

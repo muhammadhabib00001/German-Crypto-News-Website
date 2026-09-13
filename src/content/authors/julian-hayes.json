@@ -1,13 +1,13 @@
 {
   "name": "Julian Hayes",
   "role": "Global Regulatory & Policy Correspondent",
-  "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80",
-  "bio": "Julian Hayes covers legislative developments from Washington D.C., Brussels, and Singapore. Former policy analyst at financial regulatory advisory firms, Julian breaks down SEC enforcement, MiCA rollouts, and CFTC jurisdictional rulings for institutional investors.",
+  "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&auto=format&fit=crop&q=80",
+  "bio": "Julian Hayes reports on international digital asset legislation, SEC filings, MiCA compliance guidelines, and cross-border payment frameworks. With background covering financial regulation in Washington D.C. and London, he delivers timely policy reporting for the crypto industry.",
   "expertise": ["SEC Regulation", "MiCA Directives", "Anti-Money Laundering (AML)", "Cross-Border Stablecoin Law"],
-  "credentials": "J.D., Georgetown University Law Center",
+  "credentials": "J.D., Financial Law & Regulatory Policy",
   "social": {
-    "twitter": "https://twitter.com/cryptopulse",
+    "twitter": "https://twitter.com/newskrypt",
     "linkedin": "https://linkedin.com",
-    "email": "julian.hayes@cryptopulse.news"
+    "email": "julian.hayes@newskrypt.com"
   }
 }

@@ -1,13 +1,13 @@
 {
   "name": "Marcus Vance",
   "role": "Chief Macro & Market Strategist",
-  "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80",
-  "bio": "Marcus Vance has over 14 years of capital markets experience, previously leading institutional digital asset analysis at proprietary desks in London and New York. He focuses on Bitcoin monetary economics, sovereign adoption, and derivative flow structures.",
-  "expertise": ["Bitcoin Macro", "Institutional ETFs", "Derivatives & Liquidity", "Monetary Policy"],
-  "credentials": "CFA Charterholder, M.Sc. Quantitative Finance (LSE)",
+  "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80",
+  "bio": "Marcus Vance is a seasoned capital markets strategist with over a decade analyzing institutional digital asset flows, macroeconomic liquidity, and Bitcoin treasury allocations. Formerly with proprietary trading desks, he provides clear, unbiased market intelligence for daily readers.",
+  "expertise": ["Bitcoin Macro Trends", "Institutional ETFs", "Derivatives & Liquidity", "Monetary Policy"],
+  "credentials": "CFA Charterholder, Former Capital Markets Analyst",
   "social": {
-    "twitter": "https://twitter.com/cryptopulse",
+    "twitter": "https://twitter.com/newskrypt",
     "linkedin": "https://linkedin.com",
-    "email": "marcus.vance@cryptopulse.news"
+    "email": "marcus.vance@newskrypt.com"
   }
 }

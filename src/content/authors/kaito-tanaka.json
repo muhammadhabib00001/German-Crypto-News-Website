@@ -1,13 +1,13 @@
 {
   "name": "Kaito Tanaka",
   "role": "Senior Web3 & DeFi Ecosystem Analyst",
-  "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80",
-  "bio": "Based in Tokyo, Kaito tracks algorithmic liquidity mechanics, automated market makers (AMMs), decentralized physical infrastructure networks (DePIN), and high-throughput alternative Layer-1 ecosystems.",
+  "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop&q=80",
+  "bio": "Kaito Tanaka is a Web3 analyst and financial tech journalist tracking automated market makers, Solana infrastructure, tokenomics design, and decentralized compute networks. He regularly evaluates on-chain liquidity metrics and emerging protocol innovations.",
   "expertise": ["DeFi Protocols", "Solana & Move VM", "Tokenomics Engineering", "DePIN & AI Crypto"],
-  "credentials": "B.S. in Computer Science & Applied Economics (Waseda University)",
+  "credentials": "B.S. in Computer Science & Applied Economics",
   "social": {
-    "twitter": "https://twitter.com/cryptopulse",
+    "twitter": "https://twitter.com/newskrypt",
     "github": "https://github.com",
-    "email": "kaito.tanaka@cryptopulse.news"
+    "email": "kaito.tanaka@newskrypt.com"
   }
 }

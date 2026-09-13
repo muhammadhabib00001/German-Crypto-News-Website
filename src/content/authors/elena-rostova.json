@@ -1,14 +1,14 @@
 {
-  "name": "Dr. Elena Rostova",
+  "name": "Elena Rossi",
   "role": "Head of Cryptographic Research & Smart Contracts",
-  "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80",
-  "bio": "Dr. Elena Rostova specializes in zero-knowledge proof implementations, EVM rollup optimization, and decentralized finance security protocols. She regularly publishes peer-reviewed research and audits high-TVL decentralized infrastructure.",
+  "avatar": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&auto=format&fit=crop&q=80",
+  "bio": "Elena Rossi is a blockchain researcher and tech journalist specializing in zero-knowledge rollups, Ethereum development, and decentralized security. She writes comprehensive deep dives and code audits that make complex cryptographic advancements accessible.",
   "expertise": ["Zero-Knowledge Proofs", "Ethereum Layer-2", "DeFi Security Auditing", "Consensus Algorithms"],
-  "credentials": "Ph.D. in Applied Cryptography (ETH Zürich)",
+  "credentials": "M.Sc. Computer Science & Applied Cryptography",
   "social": {
-    "twitter": "https://twitter.com/cryptopulse",
+    "twitter": "https://twitter.com/newskrypt",
     "github": "https://github.com",
     "linkedin": "https://linkedin.com",
-    "email": "elena.rostova@cryptopulse.news"
+    "email": "elena.rossi@newskrypt.com"
   }
 }
