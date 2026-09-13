@@ -4,44 +4,45 @@ import LanguageSelector from './LanguageSelector.astro';
 
 // Curated primary topics for prominent navbar display
 const primaryNav = [
-  { name: 'Bitcoin', slug: 'bitcoin', icon: '₿' },
-  { name: 'Ethereum', slug: 'ethereum', icon: 'Ξ' },
-  { name: 'DeFi', slug: 'defi', icon: '⚡' },
-  { name: 'Altcoins', slug: 'altcoins', icon: '💎' },
-  { name: 'Markets', slug: 'crypto-markets', icon: '📈' },
-  { name: 'Regulation', slug: 'crypto-regulation', icon: '⚖️' },
-  { name: 'Web3 & AI', slug: 'web3', icon: '🌐' }
+  { name: 'Bitcoin', slug: 'bitcoin', icon: '₿', hideOnLg: false },
+  { name: 'Ethereum', slug: 'ethereum', icon: 'Ξ', hideOnLg: false },
+  { name: 'DeFi', slug: 'defi', icon: '⚡', hideOnLg: false },
+  { name: 'Altcoins', slug: 'altcoins', icon: '💎', hideOnLg: false },
+  { name: 'Markets', slug: 'crypto-markets', icon: '📈', hideOnLg: false },
+  { name: 'Regulation', slug: 'crypto-regulation', icon: '⚖️', hideOnLg: 'xl' },
+  { name: 'Web3 & AI', slug: 'web3', icon: '🌐', hideOnLg: '2xl' }
 ];
 
-// Group remaining categories cleanly for dropdown
-const moreCategories = CATEGORY_LIST.filter(c => !['bitcoin', 'ethereum', 'defi', 'altcoins', 'crypto-markets', 'crypto-regulation', 'web3'].includes(c.slug));
+// Group remaining categories cleanly for Explore dropdown megamenu
+const primarySlugs = ['bitcoin', 'ethereum', 'defi', 'altcoins', 'crypto-markets'];
+const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug));
 ---
 
-<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 gap-3">
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs w-full overflow-x-clip">
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 gap-2 sm:gap-3">
       
-      <!-- Brand Logo -->
-      <div class="flex items-center gap-4 lg:gap-6 shrink-0">
-        <a href="/" class="flex items-center group py-1" aria-label="newskrypt Home">
+      <!-- Left Side: Brand Logo & Desktop Navigation -->
+      <div class="flex items-center gap-2 xl:gap-4 shrink min-w-0">
+        <a href="/" class="flex items-center group py-1 shrink-0" aria-label="newskrypt Home">
           <img
             src="/logo.png"
             alt="newskrypt"
-            class="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+            class="h-8 sm:h-9 xl:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]"
             loading="eager"
           />
         </a>
 
         <!-- Desktop Navigation Bar -->
-        <nav class="hidden lg:flex items-center gap-1 pl-4 border-l border-slate-200">
+        <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 pl-2 xl:pl-4 border-l border-slate-200">
           
           <!-- Prominent Token Launches Tab -->
           <a
             href="/token-launches"
-            class="px-3 py-1.5 text-xs font-black text-cyan-900 bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/30 rounded-lg transition-all inline-flex items-center gap-1.5 mr-1 shadow-2xs"
+            class="px-2 xl:px-3 py-1.5 text-xs font-black text-cyan-900 bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/30 rounded-lg transition-all inline-flex items-center gap-1 shrink-0 shadow-2xs"
           >
-            <span class="text-sm">🚀</span>
-            <span>Token Launches</span>
+            <span class="text-xs sm:text-sm">🚀</span>
+            <span class="whitespace-nowrap">Token Launches</span>
             <span class="text-[9px] uppercase tracking-wider bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-1.5 py-0.2 rounded font-black shadow-xs">Live</span>
           </a>
 
@@ -49,7 +50,10 @@ const moreCategories = CATEGORY_LIST.filter(c => !['bitcoin', 'ethereum', 'defi'
           {primaryNav.map((item) => (
             <a
               href={`/category/${item.slug}`}
-              class="px-2.5 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-lg transition-colors inline-flex items-center gap-1"
+              class={`px-1.5 xl:px-2.5 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-lg transition-colors inline-flex items-center gap-1 whitespace-nowrap ${
+                item.hideOnLg === 'xl' ? 'hidden xl:inline-flex' :
+                item.hideOnLg === '2xl' ? 'hidden 2xl:inline-flex' : 'inline-flex'
+              }`}
             >
               <span class="text-[11px] opacity-70">{item.icon}</span>
               <span>{item.name}</span>
@@ -57,10 +61,10 @@ const moreCategories = CATEGORY_LIST.filter(c => !['bitcoin', 'ethereum', 'defi'
           ))}
           
           <!-- Explore Categories Megamenu Dropdown -->
-          <div class="relative group">
+          <div class="relative group shrink-0">
             <button
               type="button"
-              class="px-2.5 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-lg transition-colors inline-flex items-center gap-1 cursor-pointer"
+              class="px-2 xl:px-2.5 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-lg transition-colors inline-flex items-center gap-1 cursor-pointer whitespace-nowrap"
               aria-expanded="false"
               aria-haspopup="true"
             >
@@ -82,7 +86,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !['bitcoin', 'ethereum', 'defi'
                     class="px-3 py-2 text-xs font-semibold text-slate-800 hover:text-black hover:bg-slate-50 rounded-xl transition-colors flex items-center justify-between group/sub"
                   >
                     <span>{cat.name}</span>
-                    <span class="text-[10px] text-slate-400 group-hover/sub:text-amber-600 font-bold transition-colors">→</span>
+                    <span class="text-[10px] text-slate-400 group-hover/sub:text-cyan-600 font-bold transition-colors">→</span>
                   </a>
                 ))}
               </div>
@@ -99,31 +103,32 @@ const moreCategories = CATEGORY_LIST.filter(c => !['bitcoin', 'ethereum', 'defi'
         </nav>
       </div>
 
-      <!-- Right Header Actions (Language, Search, Mobile Toggle) -->
-      <div class="flex items-center gap-2 sm:gap-3">
+      <!-- Right Side Actions (Language, Instant Search, Mobile Menu Button) -->
+      <div class="flex items-center gap-1.5 sm:gap-2 lg:gap-3 shrink-0 ml-auto">
         <!-- Multilingual Reader Selector -->
-        <LanguageSelector />
+        <div class="shrink-0">
+          <LanguageSelector />
+        </div>
 
         <!-- Instant Search Trigger Button -->
         <button
           id="search-btn"
           type="button"
-          class="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-colors group cursor-pointer"
+          class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-colors group cursor-pointer shrink-0"
           aria-label="Search articles"
         >
           <svg class="w-4 h-4 text-slate-500 group-hover:text-cyan-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-          <span class="hidden md:inline">Search...</span>
-          <kbd class="hidden md:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-white border border-slate-300 text-slate-600 rounded">⌘K</kbd>
+          <span class="hidden sm:inline">Search...</span>
+          <kbd class="hidden xl:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-white border border-slate-300 text-slate-600 rounded">⌘K</kbd>
         </button>
-
 
         <!-- Mobile Menu Hamburger Button -->
         <button
           id="mobile-menu-btn"
           type="button"
-          class="lg:hidden p-2 text-slate-700 hover:text-black bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl cursor-pointer transition-colors"
+          class="lg:hidden p-2 text-slate-700 hover:text-black bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl cursor-pointer transition-colors shrink-0"
           aria-label="Toggle navigation menu"
         >
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
