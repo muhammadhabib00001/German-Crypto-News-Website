@@ -41,7 +41,6 @@ The global monetary landscape is undergoing a permanent transformation, with [1 
 
 As central banks inflate fiat currency supplies and global national debts cross historic records, owning a full single coin—**1 Bitcoin**—has become a key milestone for private wealth preservation, corporate treasuries, and sovereign funds.
 
-```html
 <div class="my-8 p-6 bg-slate-900 border border-slate-800 rounded-2xl text-white shadow-xl">
   <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 mb-2">1 Bitcoin Supply & Scarcity Metrics</h4>
   <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center font-mono">
@@ -63,7 +62,6 @@ As central banks inflate fiat currency supplies and global national debts cross 
     </div>
   </div>
 </div>
-```
 
 ---
 
@@ -111,14 +109,12 @@ Unlike central bank fiat currencies (USD, EUR, JPY) that undergo continuous purc
 ### A. Stock-to-Flow (S2F) Hardness Ratio
 The Stock-to-Flow ratio measures asset hardness by dividing existing stock by annual production:
 
-```html
 <div class="my-6 p-5 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-slate-900">
   <h4 class="text-xs font-bold uppercase tracking-wider text-amber-800 mb-1">Monetary Hardness Comparison</h4>
   <p class="text-xs leading-relaxed text-slate-800">
     Following the 2024 halving, Bitcoin's Stock-to-Flow ratio doubled to approximately <strong>112</strong>, exceeding Physical Gold (S2F ~60). This mathematical shift makes 1 Bitcoin the hardest monetary asset in human history.
   </p>
 </div>
-```
 
 ---
 

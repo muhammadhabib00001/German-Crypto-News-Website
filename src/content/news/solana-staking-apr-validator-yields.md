@@ -68,7 +68,6 @@ Solana operates on a predefined programmatic disinflation schedule. The initial 
 
 Because protocol rewards are distributed proportionally among all active staked tokens, net returns dynamically adjust based on the global staking participation ratio:
 
-```html
 <div class="my-6 p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-center text-sm md:text-base text-cyan-400 shadow-inner">
   <span class="text-white font-semibold">Staking Yield</span> = 
   <span class="inline-flex flex-col items-center align-middle mx-1.5">
@@ -77,7 +76,6 @@ Because protocol rewards are distributed proportionally among all active staked 
   </span>
   &times; (1 &minus; <span class="text-amber-400">Commission</span>)
 </div>
-```
 
 Currently, with approximately **67% of total circulating SOL bonded** to consensus nodes, the baseline inflation yield remains comfortably anchored above 6.8% APR.
 
