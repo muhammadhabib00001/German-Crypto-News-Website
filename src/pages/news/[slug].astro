@@ -22,13 +22,21 @@ export async function getStaticPaths() {
       social: {}
     };
 
-    const related = articles
+    let related = articles
       .filter(a => a.id !== article.id && (a.data.category === article.data.category || a.data.tags.some(t => article.data.tags.includes(t))))
-      .slice(0, 4)
-      .map(a => ({
-        ...a,
-        slug: a.id.replace(/\.md$/, '')
-      }));
+      .slice(0, 4);
+
+    if (related.length < 4) {
+      const remainingNeeded = 4 - related.length;
+      const existingIds = new Set([article.id, ...related.map(r => r.id)]);
+      const fallbacks = articles.filter(a => !existingIds.has(a.id)).slice(0, remainingNeeded);
+      related = [...related, ...fallbacks];
+    }
+
+    const relatedFormatted = related.map(a => ({
+      ...a,
+      slug: a.id.replace(/\.md$/, '')
+    }));
 
     const prevArticle = index > 0 ? {
       ...articles[index - 1],
@@ -48,7 +56,7 @@ export async function getStaticPaths() {
           slug
         },
         authorData,
-        relatedArticles: related,
+        relatedArticles: relatedFormatted,
         prevArticle,
         nextArticle
       }
