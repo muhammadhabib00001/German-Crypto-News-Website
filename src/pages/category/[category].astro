@@ -97,25 +97,22 @@ const breadcrumbSchema = {
     </div>
 
     <!-- Articles Grid -->
-    {articles.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {articles.map((art: any) => (
-          <ArticleCard article={art} />
-        ))}
-      </div>
-    ) : (
-      <div class="text-center py-16 bg-white border border-slate-200 rounded-2xl p-8 shadow-xs">
-        <h3 class="text-base font-bold text-slate-900 mb-2">Expanding Real-Time Coverage</h3>
-        <p class="text-slate-600 text-xs sm:text-sm max-w-md mx-auto mb-6">
-          Our editorial desk is actively preparing fresh research and breaking market updates for {cat.name}. Explore top market stories below:
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-          {fallbackArticles.map((art: any) => (
+    {(() => {
+      let displayArticles = [...articles];
+      if (displayArticles.length < 6) {
+        const existingSlugs = new Set(displayArticles.map((a: any) => a.slug));
+        const needed = 6 - displayArticles.length;
+        const extra = allArticles.filter((a: any) => !existingSlugs.has(a.slug)).slice(0, needed);
+        displayArticles = displayArticles.concat(extra);
+      }
+      return (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {displayArticles.map((art: any) => (
             <ArticleCard article={art} />
           ))}
         </div>
-      </div>
-    )}
+      );
+    })()}
 
   </div>
 </BaseLayout>
