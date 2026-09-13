@@ -32,8 +32,8 @@ import { MARKET_COINS, MARKET_METRICS } from '../data/market';
     <!-- Scrolling Ticker Container (Infinite Smooth Marquee) -->
     <div class="flex-1 overflow-hidden relative">
       <div id="crypto-ticker-row" class="animate-ticker flex items-center gap-4 py-0.5 whitespace-nowrap">
-        <!-- First Loop -->
-        {MARKET_COINS.map((coin) => (
+        <!-- First Loop (Top 20 Market Coins) -->
+        {MARKET_COINS.slice(0, 20).map((coin) => (
           <div data-coin-symbol={coin.symbol} class="inline-flex items-center gap-2 shrink-0 bg-white hover:bg-slate-50 transition-colors px-2.5 py-1 rounded-lg border border-slate-200 shadow-xs">
             <span class="font-bold text-slate-900 tracking-wide">{coin.symbol}</span>
             <div class="inline-flex items-baseline gap-1.5 financial-num">
@@ -45,8 +45,8 @@ import { MARKET_COINS, MARKET_METRICS } from '../data/market';
             </span>
           </div>
         ))}
-        <!-- Duplicated Loop for Seamless Seamless Infinite Scroll -->
-        {MARKET_COINS.map((coin) => (
+        <!-- Duplicated Loop for Seamless Infinite Scroll -->
+        {MARKET_COINS.slice(0, 20).map((coin) => (
           <div data-coin-symbol={coin.symbol} aria-hidden="true" class="inline-flex items-center gap-2 shrink-0 bg-white hover:bg-slate-50 transition-colors px-2.5 py-1 rounded-lg border border-slate-200 shadow-xs">
             <span class="font-bold text-slate-900 tracking-wide">{coin.symbol}</span>
             <div class="inline-flex items-baseline gap-1.5 financial-num">
