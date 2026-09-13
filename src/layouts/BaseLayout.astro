@@ -133,13 +133,18 @@ const fullTitle = exactTitle ? title : `${title} | newskrypt`;
     <!-- Keyboard shortcut for Search (Ctrl+K or Cmd+K) -->
     <script is:inline>
       document.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
           e.preventDefault();
-          const modal = document.getElementById('search-modal');
-          if (modal) {
-            modal.classList.remove('hidden');
-            const input = document.getElementById('search-input');
-            if (input) input.focus();
+          if (typeof window.openSearchModal === 'function') {
+            window.openSearchModal();
+          } else {
+            const modal = document.getElementById('search-modal');
+            if (modal) {
+              modal.classList.remove('hidden');
+              modal.style.display = 'flex';
+              const input = document.getElementById('search-input');
+              if (input) input.focus();
+            }
           }
         }
       });
