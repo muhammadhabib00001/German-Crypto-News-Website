@@ -91,13 +91,16 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
 
           <div class="space-y-2.5">
             {MARKET_COINS.slice(0, 5).map((coin) => (
-              <div data-mover-symbol={coin.symbol} class="flex items-center justify-between text-xs py-1 px-2 rounded hover:bg-slate-50 transition-colors">
+              <div data-mover-symbol={coin.symbol} class="flex items-center justify-between text-xs py-1.5 px-2 rounded-xl hover:bg-slate-50 transition-colors">
                 <div class="flex items-center gap-2">
                   <span class="font-bold text-slate-900 w-8">{coin.symbol}</span>
                   <span class="text-slate-500 text-[11px] hidden sm:inline">{coin.name}</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="mover-price font-semibold text-slate-700 financial-num">${coin.price.toLocaleString(undefined, { minimumFractionDigits: coin.price < 1 ? 4 : 2 })}</span>
+                  <div class="flex flex-col items-end">
+                    <span class="mover-price font-bold text-slate-900 financial-num leading-tight">${coin.price.toLocaleString(undefined, { minimumFractionDigits: coin.price < 1 ? 4 : 2, maximumFractionDigits: coin.price < 1 ? 4 : 2 })}</span>
+                    <span class="mover-price-eur text-[10px] font-medium text-slate-500 financial-num leading-tight">€{coin.priceEur.toLocaleString(undefined, { minimumFractionDigits: coin.priceEur < 1 ? 4 : 2, maximumFractionDigits: coin.priceEur < 1 ? 4 : 2 })}</span>
+                  </div>
                   <span class={`mover-change font-bold financial-num text-[11px] w-14 text-right ${coin.change24h >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
                     {coin.change24h >= 0 ? '+' : ''}{coin.change24h}%
                   </span>
