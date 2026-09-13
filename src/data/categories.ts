@@ -1,4 +1,4 @@
-﻿export interface CategoryMeta {
+export interface CategoryMeta {
   id: string;
   name: string;
   slug: string;
@@ -152,6 +152,15 @@ export const CATEGORIES: Record<string, CategoryMeta> = {
     badgeColor: 'bg-sky-500/15 border-sky-500/30 text-sky-400',
     textColor: 'text-sky-500',
     metaTitle: 'Blockchain Technology, AI Integrations & Cryptographic Research'
+  },
+  'press-releases': {
+    id: 'press-releases',
+    name: 'Press Releases',
+    slug: 'press-releases',
+    description: 'Official corporate press releases, protocol announcements, token launch disclosures, strategic partnerships, and enterprise communications.',
+    badgeColor: 'bg-indigo-500/15 border-indigo-500/30 text-indigo-400',
+    textColor: 'text-indigo-600',
+    metaTitle: 'Official Crypto Press Releases, Corporate Announcements & Wire'
   }
 };
 
