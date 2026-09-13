@@ -395,11 +395,26 @@ if (faqSchema) schemas.push(faqSchema);
                 href={`/tag/${tagSlug}`}
                 class="px-3 py-1.5 bg-white hover:bg-slate-100 border border-slate-200 hover:border-amber-400 rounded-lg text-xs font-medium text-slate-700 hover:text-amber-700 transition-all cursor-pointer inline-flex items-center gap-1.5 group shadow-xs"
               >
-                <span class="text-amber-600 font-semibold">#</span>
+                <span class="text-cyan-600 font-semibold">#</span>
                 <span>{tag}</span>
               </a>
             );
           })}
+        </div>
+
+        <!-- YMYL Financial & Regulatory Risk Disclosure Callout -->
+        <div class="mt-8 p-5 bg-amber-50/60 border border-amber-200/80 rounded-2xl flex items-start gap-3.5 shadow-2xs">
+          <div class="w-7 h-7 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-700 flex items-center justify-center shrink-0 text-sm font-bold mt-0.5">
+            ⚖
+          </div>
+          <div class="flex-1 text-xs text-slate-700 leading-relaxed">
+            <span class="font-bold text-slate-900 block mb-0.5 uppercase tracking-wide text-[11px]">
+              Financial Disclaimer (YMYL Compliance Notice)
+            </span>
+            <span>
+              This article is published strictly for informational, educational, and journalistic purposes. No part of this publication constitutes financial, legal, tax, or investment advice. Digital assets and cryptocurrencies involve extraordinary market volatility and substantial risk of total capital loss. Always conduct independent due diligence ("DYOR") and consult a licensed fiduciary advisor prior to making financial decisions. Read our full <a href="/disclaimer" class="text-cyan-700 hover:text-cyan-900 underline font-semibold">Risk Disclaimer</a> and <a href="/editorial-policy" class="text-cyan-700 hover:text-cyan-900 underline font-semibold">Editorial Policy</a>.
+            </span>
+          </div>
         </div>
 
         <!-- Full Author E-E-A-T Bio Box -->
