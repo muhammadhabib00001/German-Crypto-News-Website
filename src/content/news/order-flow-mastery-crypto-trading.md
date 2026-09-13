@@ -1,6 +1,6 @@
 ---
-title: "Order Flow Mastery: Volume Profile and Delta Divergence in Crypto Day Trading"
-metaTitle: "Order Flow Crypto Trading: Volume Profile & CVD Guide"
+title: "Order Flow Crypto Trading: Volume Profile and CVD Guide"
+metaTitle: "Order Flow Crypto Trading: Volume Profile and CVD Guide"
 excerpt: "How professional proprietary desks read cumulative volume delta (CVD) and institutional auction market theory to trade high-volatility ranges."
 metaDescription: "Master crypto day trading with order flow, volume profile, and cumulative volume delta (CVD) to spot institutional liquidity zones and key price reversals."
 category: "crypto-trading"

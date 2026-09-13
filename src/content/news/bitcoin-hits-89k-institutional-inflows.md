@@ -1,6 +1,6 @@
 ---
-title: "Bitcoin Hits Record $89,000 as Institutional Inflows Cross $3.2B in Weekly Record"
-metaTitle: "Bitcoin Hits Record $89K as Weekly ETF Inflows Top $3.2B"
+title: "Bitcoin Hits Record $89K as Weekly ETF Inflows Top 3.2B"
+metaTitle: "Bitcoin Hits Record $89K as Weekly ETF Inflows Top 3.2B"
 excerpt: "Spot Bitcoin exchange-traded funds recorded the highest single-week net capital allocation in history as global sovereign wealth funds and corporate treasuries ramp up accumulation."
 metaDescription: "Bitcoin hits record $89,000 on $3.2B weekly spot ETF inflows, drying exchange supply, and institutional buying from BlackRock and MicroStrategy desk teams."
 category: "bitcoin"

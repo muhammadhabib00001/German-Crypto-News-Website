@@ -1,6 +1,6 @@
 ---
-title: "Crypto Tax Germany: 1 Year Rule & MiCA Guide 2026"
-metaTitle: "Crypto Tax Germany: 1 Year Rule & MiCA Guide 2026"
+title: "Crypto Tax Germany: 1 Year Holding & MiCA Guide in 2026"
+metaTitle: "Crypto Tax Germany: 1 Year Holding & MiCA Guide in 2026"
 excerpt: "Complete 2026 guide to crypto tax in Germany: how the 1 year holding rule provides tax-free gains under § 23 EStG, staking rules, and EU MiCA regulations."
 metaDescription: "Crypto tax Germany 2026 guide: understand 1-year tax-free rules under § 23 EStG, staking tax, BaFin custody laws, and EU MiCA crypto compliance frameworks."
 category: "crypto-regulation"

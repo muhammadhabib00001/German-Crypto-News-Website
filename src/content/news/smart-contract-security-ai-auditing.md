@@ -1,6 +1,6 @@
 ---
-title: "Smart Contract Security in the Age of Autonomous AI Audit Agents"
-metaTitle: "Smart Contract Security in the Age of AI Audit Agents"
+title: "Smart Contract Security in the Age of AI Auditing Tools"
+metaTitle: "Smart Contract Security in the Age of AI Auditing Tools"
 excerpt: "Formal verification engines coupled with specialized LLMs identify zero-day reentrancy and logic vulnerabilities prior to testnet deployment."
 metaDescription: "Learn how autonomous AI audit agents and formal verification engines detect critical zero-day security flaws in Web3 smart contracts before testnet launch."
 category: "crypto-security"

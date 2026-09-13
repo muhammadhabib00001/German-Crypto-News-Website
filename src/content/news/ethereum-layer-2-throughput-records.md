@@ -1,6 +1,6 @@
 ---
-title: "Ethereum Layer-2 Throughput Surpasses 2,500 TPS as Pectra Upgrade Approaches"
-metaTitle: "Ethereum Layer 2 Hits 2,500 TPS Ahead of Pectra Upgrade"
+title: "Ethereum Layer 2 Hits 2,500 TPS Ahead of Pectra Rollout"
+metaTitle: "Ethereum Layer 2 Hits 2,500 TPS Ahead of Pectra Rollout"
 excerpt: "Blob fee optimization and zero-knowledge rollups drive aggregate Ethereum scaling to historic highs while mainnet gas fees remain consistently below 12 Gwei."
 metaDescription: "Ethereum Layer 2 rollups hit 2,500 TPS after blob fee optimizations and zero-knowledge rollup throughput gains ahead of the Pectra network upgrade in 2026."
 category: "ethereum"

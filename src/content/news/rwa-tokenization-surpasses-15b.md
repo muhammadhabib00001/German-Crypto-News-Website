@@ -1,6 +1,6 @@
 ---
-title: "Real-World Asset (RWA) Tokenization Surpasses $15B in Institutional Value"
-metaTitle: "Real-World Asset (RWA) Tokenization Surpasses $15B"
+title: "Real-World Asset (RWA) Tokenization Surpasses $15B Mark"
+metaTitle: "Real-World Asset (RWA) Tokenization Surpasses $15B Mark"
 excerpt: "Wall Street giants digitize treasury bills, private credit, and commercial real estate on public and permissioned EVM networks."
 metaDescription: "Institutional real-world asset tokenization tops $15B as Wall Street firms digitize US Treasury bills, private credit, and commercial real estate on-chain."
 category: "technology"

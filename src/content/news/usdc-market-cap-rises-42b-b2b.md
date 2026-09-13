@@ -1,5 +1,5 @@
 ---
-title: "USDC Market Cap Rises to $42 Billion as Enterprise B2B Settlements Accelerate"
+title: "USDC Market Cap Rises to $42B on B2B Crypto Settlements"
 metaTitle: "USDC Market Cap Rises to $42B on B2B Crypto Settlements"
 excerpt: "Fintech infrastructure providers integrate regulated stablecoins for same-day cross-border corporate supplier invoices and remittances."
 metaDescription: "Circle's USDC market cap crosses $42 billion as enterprise corporate treasuries and fintech payment processors adopt instant cross-border settlement rails."

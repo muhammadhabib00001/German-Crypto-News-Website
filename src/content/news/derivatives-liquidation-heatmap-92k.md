@@ -1,6 +1,6 @@
 ---
-title: "Derivatives Liquidation Heatmap Reveals $1.8B Short Squeeze Potential at $92K"
-metaTitle: "Bitcoin Liquidation Heatmap: $1.8B Squeeze Near $92K"
+title: "Bitcoin Liquidation Heatmap: $1.8B Squeeze Near $92,000"
+metaTitle: "Bitcoin Liquidation Heatmap: $1.8B Squeeze Near $92,000"
 excerpt: "Perpetual contract open interest concentrates heavily above local resistance, creating fertile conditions for violent upward volatility."
 metaDescription: "Derivatives liquidation heatmap analysis reveals $1.8B short squeeze risk as Bitcoin open interest and perpetual funding rates surge near the $92,000 mark."
 category: "crypto-markets"
