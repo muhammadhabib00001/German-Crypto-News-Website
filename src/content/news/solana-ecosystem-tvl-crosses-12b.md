@@ -1,6 +1,8 @@
 ---
 title: "Solana Ecosystem Crosses $12B TVL as DePIN and High-Frequency Trading Surge"
+metaTitle: "Solana Ecosystem Crosses $12B TVL as Firedancer Looms"
 excerpt: "Parallelized execution pipelines and the Firedancer validator client catapult Solana to record fee generation and non-vote transaction velocity."
+metaDescription: "Solana TVL hits $12B propelled by high-frequency trading velocity, DePIN network expansion, and validator decentralization ahead of the Firedancer upgrade."
 category: "altcoins"
 author: "kaito-tanaka"
 publishedDate: "2026-09-08T16:45:00Z"

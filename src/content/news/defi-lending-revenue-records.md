@@ -1,6 +1,8 @@
 ---
 title: "Decentralized Lending Protocols Generate $450M in Annualized Protocol Revenue"
+metaTitle: "DeFi Lending Protocols Generate Record $450M in Revenue"
 excerpt: "Capital efficiency upgrades, automated debt refinancing, and real-world asset collateralization propel decentralized money markets to multi-year profitability."
+metaDescription: "Decentralized lending protocols hit $450M in revenue as capital efficiency, RWA collateral, and heavy borrowing volume surge across top decentralized apps."
 category: "defi"
 author: "kaito-tanaka"
 publishedDate: "2026-09-07T12:00:00Z"

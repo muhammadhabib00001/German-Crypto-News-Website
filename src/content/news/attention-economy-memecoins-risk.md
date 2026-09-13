@@ -1,6 +1,8 @@
 ---
 title: "The Attention Economy of Memecoins: Community Liquidity vs. Speculative Risk"
+metaTitle: "Memecoin Attention Economy: Community Liquidity vs Risk"
 excerpt: "Fair-launch bonding curves and cultural coordination mechanisms generate historic on-chain trading volumes while presenting distinct volatility dynamics."
+metaDescription: "Analyze the memecoin attention economy, fair-launch curves, viral community liquidity, on-chain trading volume, and high-risk volatile portfolio drawdowns."
 category: "memecoins"
 author: "kaito-tanaka"
 publishedDate: "2026-08-28T16:00:00Z"

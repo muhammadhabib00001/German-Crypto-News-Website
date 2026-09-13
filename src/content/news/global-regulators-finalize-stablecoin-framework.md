@@ -1,6 +1,8 @@
 ---
 title: "Global Regulators Finalize Cross-Border Stablecoin Framework Ahead of MiCA Enforcement"
+metaTitle: "Global Regulators Finalize Stablecoin MiCA Framework"
 excerpt: "The Financial Stability Board and European authorities release coordinated guidance establishing strict 1:1 liquid reserve audits and capital reserves for payment token issuers."
+metaDescription: "Regulators finalize global stablecoin rules before MiCA, mandating 1:1 liquid reserve audits and strict capital requirements for payment token issuers now."
 category: "crypto-regulation"
 author: "julian-hayes"
 publishedDate: "2026-09-09T14:20:00Z"

@@ -1,6 +1,8 @@
 ---
 title: "Green Bitcoin Mining: Sustainable Energy Usage Reaches 58% Globally"
+metaTitle: "Green Bitcoin Mining: Sustainable Energy Reaches 58%"
 excerpt: "Methane flare capture, hydroelectric partnerships, and grid demand-response contracts drive crypto mining toward unprecedented decarbonization."
+metaDescription: "Global Bitcoin mining hits 58% sustainable energy usage with methane flare mitigation, hydroelectric partnerships, and grid demand-response infrastructure."
 category: "mining"
 author: "marcus-vance"
 publishedDate: "2026-09-02T09:15:00Z"

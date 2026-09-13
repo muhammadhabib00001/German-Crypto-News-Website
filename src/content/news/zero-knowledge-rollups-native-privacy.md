@@ -1,6 +1,8 @@
 ---
 title: "Zero-Knowledge Rollups Introduce Native Privacy and Prover Optimization"
+metaTitle: "Zero-Knowledge Rollups: Native Privacy & Scaling Guide"
 excerpt: "New recursive SNARK implementations reduce cryptographic proof generation times by 70%, paving the way for confidential enterprise settlements."
+metaDescription: "Zero-knowledge rollups introduce native transaction privacy and fast prover optimization, cutting proof generation times by 70% for enterprise blockchains."
 category: "blockchain"
 author: "elena-rostova"
 publishedDate: "2026-09-06T15:10:00Z"
