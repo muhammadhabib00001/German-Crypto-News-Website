@@ -1,5 +1,6 @@
 ---
 import { CATEGORY_LIST } from '../data/categories';
+import LanguageSelector from './LanguageSelector.astro';
 
 // Curated primary topics for prominent navbar display
 const primaryNav = [
@@ -98,8 +99,11 @@ const moreCategories = CATEGORY_LIST.filter(c => !['bitcoin', 'ethereum', 'defi'
         </nav>
       </div>
 
-      <!-- Right Header Actions (Search, Newsletter, Mobile Toggle) -->
+      <!-- Right Header Actions (Language, Search, Mobile Toggle) -->
       <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Multilingual Reader Selector -->
+        <LanguageSelector />
+
         <!-- Instant Search Trigger Button -->
         <button
           id="search-btn"
