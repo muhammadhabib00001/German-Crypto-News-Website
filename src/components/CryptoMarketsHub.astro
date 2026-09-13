@@ -1,6 +1,7 @@
 ---
 // Component: CryptoMarketsHub.astro
 // Dedicated comprehensive crypto markets terminal with Live Prices (USD + EUR),
+// Category Filters (Meme Coins, Stablecoins, Layer-1, DeFi & Infra), Token Search,
 // Technical Analysis Oscillators & Moving Averages, Derivative Liquidation Heatmap Data,
 // Order Flow Depth & Macro Dominance Metrics.
 import { MARKET_COINS, MARKET_METRICS } from '../data/market';
@@ -81,6 +82,21 @@ const TECHNICAL_SIGNALS = [
     resistance: '$1.45',
     openInterest: '$2.1B',
     fundingRate: '+0.010%'
+  },
+  {
+    symbol: 'DOGE',
+    name: 'Dogecoin',
+    signal: 'BUY',
+    signalColor: 'bg-emerald-500/10 text-emerald-700 border-emerald-300',
+    rsi14: '61.4 (Momentum)',
+    macd: '+0.0042 (Bullish)',
+    ema20: '$0.158',
+    ema50: '$0.142',
+    ema200: '$0.118',
+    support: '$0.152',
+    resistance: '$0.185',
+    openInterest: '$1.42B',
+    fundingRate: '+0.014%'
   }
 ];
 
@@ -90,6 +106,15 @@ const DERIVATIVES_METRICS = [
   { label: 'Global Long/Short Ratio', value: '52.4% / 47.6%', subtext: 'Dominant Long Bias', positive: true },
   { label: 'Average Funding Rate', value: '+0.0118%', subtext: 'Annualized 12.9%', positive: true }
 ];
+
+// Calculate category counts
+const counts = {
+  all: MARKET_COINS.length,
+  layer1: MARKET_COINS.filter(c => c.category === 'layer1').length,
+  meme: MARKET_COINS.filter(c => c.category === 'meme').length,
+  stablecoin: MARKET_COINS.filter(c => c.category === 'stablecoin').length,
+  defi: MARKET_COINS.filter(c => c.category === 'defi' || c.category === 'infra').length
+};
 ---
 
 <div class="space-y-8 mb-12">
@@ -136,27 +161,104 @@ const DERIVATIVES_METRICS = [
     </div>
   </div>
 
-  <!-- 2. Live Interactive Prices Board (USD & EUR with real-time ticker stream) -->
-  <div class="bg-white border border-slate-200 rounded-2xl shadow-xs overflow-hidden">
+  <!-- 2. Live Interactive Prices Board (USD & EUR with Filter Tabs & Search) -->
+  <div class="bg-white border border-slate-200 rounded-2xl shadow-xs overflow-hidden" id="crypto-terminal-section">
+    <!-- Header with Title and Forex Rate -->
     <div class="p-5 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/50">
       <div>
         <div class="flex items-center gap-2">
           <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <h2 class="text-base font-black text-slate-900 tracking-tight">Live Cryptocurrency Prices & Liquidity</h2>
+          <h2 class="text-base sm:text-lg font-black text-slate-900 tracking-tight">Live Cryptocurrency Prices & Categorized Liquidity</h2>
         </div>
-        <p class="text-xs text-slate-500 mt-0.5">Real-time dual prices in US Dollar ($) and Euro (€) with 24h market capitalization and volume.</p>
+        <p class="text-xs text-slate-500 mt-0.5">Real-time dual prices in US Dollar ($) and Euro (€) across Layer-1, Meme tokens, Stablecoins, and DeFi.</p>
       </div>
-      <div class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 bg-white border border-slate-200 rounded-xl shadow-2xs">
+      <div class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 bg-white border border-slate-200 rounded-xl shadow-2xs self-start sm:self-auto">
         <span class="text-slate-500">Forex Rate:</span>
         <span class="font-mono font-bold text-slate-800">1 EUR = $1.1596 USD</span>
       </div>
     </div>
 
+    <!-- Category Filter Tabs & Quick Search Bar -->
+    <div class="p-4 border-b border-slate-200 bg-white flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+      
+      <!-- Interactive Filter Buttons -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 text-xs no-scrollbar" id="coin-filter-buttons">
+        <button
+          type="button"
+          data-category="all"
+          class="filter-btn active-filter px-3.5 py-1.5 rounded-xl font-bold transition-all shrink-0 flex items-center gap-1.5 border border-amber-500 bg-amber-500 text-slate-950 shadow-xs cursor-pointer"
+        >
+          <span>🌐 All Tokens</span>
+          <span class="filter-count text-[10px] py-0.2 px-1.5 rounded-full bg-slate-950/20 font-mono">{counts.all}</span>
+        </button>
+
+        <button
+          type="button"
+          data-category="layer1"
+          class="filter-btn px-3.5 py-1.5 rounded-xl font-bold transition-all shrink-0 flex items-center gap-1.5 border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 cursor-pointer"
+        >
+          <span>⚡ Layer-1 & Majors</span>
+          <span class="filter-count text-[10px] py-0.2 px-1.5 rounded-full bg-slate-200 font-mono text-slate-700">{counts.layer1}</span>
+        </button>
+
+        <button
+          type="button"
+          data-category="meme"
+          class="filter-btn px-3.5 py-1.5 rounded-xl font-bold transition-all shrink-0 flex items-center gap-1.5 border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 cursor-pointer"
+        >
+          <span>🐶 Meme Coins</span>
+          <span class="filter-count text-[10px] py-0.2 px-1.5 rounded-full bg-amber-100 font-mono text-amber-800 font-black">{counts.meme}</span>
+        </button>
+
+        <button
+          type="button"
+          data-category="stablecoin"
+          class="filter-btn px-3.5 py-1.5 rounded-xl font-bold transition-all shrink-0 flex items-center gap-1.5 border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 cursor-pointer"
+        >
+          <span>💵 Stablecoins</span>
+          <span class="filter-count text-[10px] py-0.2 px-1.5 rounded-full bg-emerald-100 font-mono text-emerald-800 font-black">{counts.stablecoin}</span>
+        </button>
+
+        <button
+          type="button"
+          data-category="defi,infra"
+          class="filter-btn px-3.5 py-1.5 rounded-xl font-bold transition-all shrink-0 flex items-center gap-1.5 border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 cursor-pointer"
+        >
+          <span>🔗 DeFi & Infra</span>
+          <span class="filter-count text-[10px] py-0.2 px-1.5 rounded-full bg-slate-200 font-mono text-slate-700">{counts.defi}</span>
+        </button>
+      </div>
+
+      <!-- Live Search Box -->
+      <div class="relative w-full md:w-64 shrink-0">
+        <input
+          type="text"
+          id="token-search-input"
+          placeholder="Filter token name or symbol..."
+          class="w-full pl-9 pr-8 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 text-slate-900 placeholder:text-slate-400 transition-all"
+        />
+        <svg class="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        <button
+          id="clear-search-btn"
+          type="button"
+          class="hidden absolute right-2.5 top-2 text-slate-400 hover:text-slate-600 text-xs font-bold"
+          title="Clear search"
+        >
+          ✕
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Active Coins Table -->
     <div class="overflow-x-auto">
-      <table class="w-full text-left text-xs border-collapse">
+      <table class="w-full text-left text-xs border-collapse" id="crypto-table">
         <thead>
           <tr class="border-b border-slate-200 bg-slate-100/70 text-slate-600 text-[11px] font-bold uppercase tracking-wider">
             <th class="py-3 px-4">Asset</th>
+            <th class="py-3 px-3">Category</th>
             <th class="py-3 px-4 text-right">USD Price ($)</th>
             <th class="py-3 px-4 text-right">EUR Price (€)</th>
             <th class="py-3 px-4 text-right">24h Change</th>
@@ -165,50 +267,84 @@ const DERIVATIVES_METRICS = [
             <th class="py-3 px-4 text-center">Trend Signal</th>
           </tr>
         </thead>
-        <tbody class="divide-y divide-slate-100 font-medium">
-          {MARKET_COINS.map((coin) => (
-            <tr data-market-row={coin.symbol} class="hover:bg-slate-50/80 transition-colors">
-              <td class="py-3.5 px-4">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center font-black text-slate-900 text-xs">
-                    {coin.symbol}
+        <tbody class="divide-y divide-slate-100 font-medium" id="crypto-table-body">
+          {MARKET_COINS.map((coin) => {
+            const isMeme = coin.category === 'meme';
+            const isStable = coin.category === 'stablecoin';
+            const isDefi = coin.category === 'defi' || coin.category === 'infra';
+            
+            const badgeLabel = isMeme ? 'Meme' : isStable ? 'Stable' : isDefi ? 'DeFi/Infra' : 'Layer-1';
+            const badgeClass = isMeme 
+              ? 'bg-amber-100/80 text-amber-900 border-amber-300' 
+              : isStable 
+              ? 'bg-emerald-100/80 text-emerald-900 border-emerald-300' 
+              : isDefi 
+              ? 'bg-indigo-100/80 text-indigo-900 border-indigo-300' 
+              : 'bg-slate-100 text-slate-800 border-slate-200';
+
+            const formatPrecision = coin.price < 0.001 ? 7 : coin.price < 1 ? 4 : 2;
+
+            return (
+              <tr 
+                data-market-row={coin.symbol} 
+                data-coin-category={coin.category} 
+                data-coin-name={coin.name.toLowerCase()} 
+                data-coin-symbol={coin.symbol.toLowerCase()}
+                class="coin-row hover:bg-slate-50/80 transition-colors"
+              >
+                <td class="py-3.5 px-4">
+                  <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center font-black text-slate-900 text-xs shadow-2xs">
+                      {coin.symbol}
+                    </div>
+                    <div>
+                      <span class="font-bold text-slate-900 block leading-tight">{coin.name}</span>
+                      <span class="text-[10px] text-slate-400 font-mono">{coin.symbol}/USDT</span>
+                    </div>
                   </div>
-                  <div>
-                    <span class="font-bold text-slate-900 block leading-tight">{coin.name}</span>
-                    <span class="text-[10px] text-slate-400 font-mono">{coin.symbol}/USDT</span>
-                  </div>
-                </div>
-              </td>
-              <td class="py-3.5 px-4 text-right">
-                <span class="row-usd-price font-bold text-slate-900 financial-num text-sm block">
-                  ${coin.price.toLocaleString(undefined, { minimumFractionDigits: coin.price < 1 ? 4 : 2, maximumFractionDigits: coin.price < 1 ? 4 : 2 })}
-                </span>
-              </td>
-              <td class="py-3.5 px-4 text-right">
-                <span class="row-eur-price font-semibold text-slate-600 financial-num text-sm block">
-                  €{coin.priceEur.toLocaleString(undefined, { minimumFractionDigits: coin.priceEur < 1 ? 4 : 2, maximumFractionDigits: coin.priceEur < 1 ? 4 : 2 })}
-                </span>
-              </td>
-              <td class="py-3.5 px-4 text-right">
-                <span class={`row-change font-bold financial-num text-xs px-2 py-0.5 rounded-md inline-block ${coin.change24h >= 0 ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-rose-50 text-rose-700 border border-rose-200'}`}>
-                  {coin.change24h >= 0 ? '+' : ''}{coin.change24h}%
-                </span>
-              </td>
-              <td class="py-3.5 px-4 text-right font-semibold text-slate-700 financial-num hidden md:table-cell">
-                {coin.marketCap}
-              </td>
-              <td class="py-3.5 px-4 text-right font-semibold text-slate-700 financial-num hidden lg:table-cell">
-                {coin.volume24h}
-              </td>
-              <td class="py-3.5 px-4 text-center">
-                <span class={`text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full border ${coin.change24h >= 0 ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-rose-50 text-rose-700 border-rose-200'}`}>
-                  {coin.change24h >= 0 ? 'Accumulation' : 'Retracement'}
-                </span>
-              </td>
-            </tr>
-          ))}
+                </td>
+                <td class="py-3.5 px-3">
+                  <span class={`text-[10px] font-bold px-2 py-0.5 rounded-md border ${badgeClass}`}>
+                    {badgeLabel}
+                  </span>
+                </td>
+                <td class="py-3.5 px-4 text-right">
+                  <span class="row-usd-price font-bold text-slate-900 financial-num text-sm block">
+                    ${coin.price.toLocaleString(undefined, { minimumFractionDigits: formatPrecision, maximumFractionDigits: formatPrecision })}
+                  </span>
+                </td>
+                <td class="py-3.5 px-4 text-right">
+                  <span class="row-eur-price font-semibold text-slate-600 financial-num text-sm block">
+                    €{coin.priceEur.toLocaleString(undefined, { minimumFractionDigits: formatPrecision, maximumFractionDigits: formatPrecision })}
+                  </span>
+                </td>
+                <td class="py-3.5 px-4 text-right">
+                  <span class={`row-change font-bold financial-num text-xs px-2 py-0.5 rounded-md inline-block ${coin.change24h >= 0 ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-rose-50 text-rose-700 border border-rose-200'}`}>
+                    {coin.change24h >= 0 ? '+' : ''}{coin.change24h}%
+                  </span>
+                </td>
+                <td class="py-3.5 px-4 text-right font-semibold text-slate-700 financial-num hidden md:table-cell">
+                  {coin.marketCap}
+                </td>
+                <td class="py-3.5 px-4 text-right font-semibold text-slate-700 financial-num hidden lg:table-cell">
+                  {coin.volume24h}
+                </td>
+                <td class="py-3.5 px-4 text-center">
+                  <span class={`text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full border ${coin.change24h >= 0 ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-rose-50 text-rose-700 border border-rose-200'}`}>
+                    {coin.change24h >= 0 ? 'Accumulation' : 'Retracement'}
+                  </span>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
+
+      <!-- No Results State -->
+      <div id="no-coins-found" class="hidden text-center py-10 px-4 bg-slate-50/50">
+        <p class="text-sm font-bold text-slate-700">No crypto tokens match your filter or search.</p>
+        <p class="text-xs text-slate-500 mt-1">Try clearing your search term or selecting "All Tokens".</p>
+      </div>
     </div>
   </div>
 
@@ -346,3 +482,213 @@ const DERIVATIVES_METRICS = [
   </div>
 
 </div>
+
+<!-- Client-side Interactive Filter, Search, and Live WebSocket Updates -->
+<script is:inline>
+  // 1. Filtering and Search Logic
+  function setupMarketFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const searchInput = document.getElementById('token-search-input');
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    const tableRows = document.querySelectorAll('.coin-row');
+    const noCoinsFound = document.getElementById('no-coins-found');
+
+    let currentCategory = 'all';
+    let currentSearchTerm = '';
+
+    function filterTable() {
+      let visibleCount = 0;
+
+      tableRows.forEach(row => {
+        const rowCategory = row.getAttribute('data-coin-category') || '';
+        const rowName = row.getAttribute('data-coin-name') || '';
+        const rowSymbol = row.getAttribute('data-coin-symbol') || '';
+
+        // Check Category Match
+        let matchesCategory = false;
+        if (currentCategory === 'all') {
+          matchesCategory = true;
+        } else {
+          const allowedCategories = currentCategory.split(',');
+          matchesCategory = allowedCategories.includes(rowCategory);
+        }
+
+        // Check Search Match
+        const matchesSearch = !currentSearchTerm || 
+          rowName.includes(currentSearchTerm) || 
+          rowSymbol.includes(currentSearchTerm);
+
+        if (matchesCategory && matchesSearch) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      if (noCoinsFound) {
+        if (visibleCount === 0) {
+          noCoinsFound.classList.remove('hidden');
+        } else {
+          noCoinsFound.classList.add('hidden');
+        }
+      }
+    }
+
+    // Filter button click handlers
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Reset button styles
+        filterButtons.forEach(b => {
+          b.classList.remove('active-filter', 'border-amber-500', 'bg-amber-500', 'text-slate-950', 'shadow-xs');
+          b.classList.add('border-slate-200', 'bg-slate-50', 'text-slate-700');
+        });
+
+        // Set active button style
+        btn.classList.add('active-filter', 'border-amber-500', 'bg-amber-500', 'text-slate-950', 'shadow-xs');
+        btn.classList.remove('border-slate-200', 'bg-slate-50', 'text-slate-700');
+
+        currentCategory = btn.getAttribute('data-category') || 'all';
+        filterTable();
+      });
+    });
+
+    // Search input handler
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentSearchTerm = e.target.value.trim().toLowerCase();
+        if (clearSearchBtn) {
+          if (currentSearchTerm.length > 0) {
+            clearSearchBtn.classList.remove('hidden');
+          } else {
+            clearSearchBtn.classList.add('hidden');
+          }
+        }
+        filterTable();
+      });
+    }
+
+    // Clear search handler
+    if (clearSearchBtn && searchInput) {
+      clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        currentSearchTerm = '';
+        clearSearchBtn.classList.add('hidden');
+        filterTable();
+        searchInput.focus();
+      });
+    }
+  }
+
+  // 2. Real-time sub-second WebSocket price streaming for table rows
+  function setupMarketPriceLiveSync() {
+    const SYMBOL_MAP = {
+      'btcusdt': 'BTC',
+      'ethusdt': 'ETH',
+      'solusdt': 'SOL',
+      'bnbusdt': 'BNB',
+      'xrpusdt': 'XRP',
+      'adausdt': 'ADA',
+      'avaxusdt': 'AVAX',
+      'dogeusdt': 'DOGE',
+      'shibusdt': 'SHIB',
+      'pepeusdt': 'PEPE',
+      'wifusdt': 'WIF',
+      'bonkusdt': 'BONK',
+      'flokiusdt': 'FLOKI',
+      'linkusdt': 'LINK',
+      'uniusdt': 'UNI',
+      'aaveusdt': 'AAVE',
+      'nearusdt': 'NEAR'
+    };
+
+    let eurUsdRate = 1.1596;
+    const lastRowPrices = {};
+
+    function formatCoinPrice(val) {
+      const precision = val < 0.001 ? 7 : val < 1 ? 4 : 2;
+      return val.toLocaleString(undefined, {
+        minimumFractionDigits: precision,
+        maximumFractionDigits: precision
+      });
+    }
+
+    function updateRowPrice(symbol, price, changePercent) {
+      const row = document.querySelector(`tr[data-market-row="${symbol}"]`);
+      if (!row) return;
+
+      const prev = lastRowPrices[symbol] || price;
+      const isUp = price >= prev;
+      lastRowPrices[symbol] = price;
+
+      const usdEl = row.querySelector('.row-usd-price');
+      const eurEl = row.querySelector('.row-eur-price');
+      const changeEl = row.querySelector('.row-change');
+
+      if (usdEl) {
+        usdEl.textContent = '$' + formatCoinPrice(price);
+        usdEl.classList.remove('text-emerald-500', 'text-rose-500');
+        usdEl.classList.add(isUp ? 'text-emerald-500' : 'text-rose-500');
+        setTimeout(() => {
+          usdEl.classList.remove('text-emerald-500', 'text-rose-500');
+        }, 500);
+      }
+
+      if (eurEl) {
+        const eurPrice = price / eurUsdRate;
+        eurEl.textContent = '€' + formatCoinPrice(eurPrice);
+      }
+
+      if (changeEl && changePercent !== undefined) {
+        const ch = Number(changePercent);
+        const pos = ch >= 0;
+        changeEl.className = `row-change font-bold financial-num text-xs px-2 py-0.5 rounded-md inline-block ${pos ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-rose-50 text-rose-700 border border-rose-200'}`;
+        changeEl.textContent = `${pos ? '+' : ''}${ch.toFixed(2)}%`;
+      }
+    }
+
+    // Connect to WebSocket stream
+    const streams = Object.keys(SYMBOL_MAP).map(s => `${s}@ticker`);
+    streams.push('eurusdt@ticker');
+    const wsUrl = `wss://stream.binance.com:9443/ws/${streams.join('/')}`;
+
+    try {
+      const ws = new WebSocket(wsUrl);
+      ws.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data);
+          const rawSymbol = (data.s || '').toLowerCase();
+
+          if (rawSymbol === 'eurusdt' && data.c) {
+            const parsedRate = parseFloat(data.c);
+            if (parsedRate > 0.5 && parsedRate < 2.0) {
+              eurUsdRate = parsedRate;
+            }
+            return;
+          }
+
+          const sym = SYMBOL_MAP[rawSymbol];
+          if (sym && data.c) {
+            const currentPrice = parseFloat(data.c);
+            const changePercent = parseFloat(data.P);
+            updateRowPrice(sym, currentPrice, changePercent);
+          }
+        } catch (e) {}
+      };
+      ws.onerror = () => {};
+    } catch (e) {}
+  }
+
+  // Initialize on DOM load
+  if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setupMarketFilters();
+        setupMarketPriceLiveSync();
+      });
+    } else {
+      setupMarketFilters();
+      setupMarketPriceLiveSync();
+    }
+  }
+</script>
