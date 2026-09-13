@@ -35,6 +35,16 @@ import { MARKET_COINS, MARKET_METRICS } from '../data/market';
         <!-- First Loop (Top 20 Market Coins) -->
         {MARKET_COINS.slice(0, 20).map((coin) => (
           <div data-coin-symbol={coin.symbol} class="inline-flex items-center gap-2 shrink-0 bg-white hover:bg-slate-50 transition-colors px-2.5 py-1 rounded-lg border border-slate-200 shadow-xs">
+            <div class="w-4 h-4 rounded-full overflow-hidden shrink-0 bg-slate-100 flex items-center justify-center">
+              <img 
+                src={`https://assets.coincap.io/assets/icons/${coin.symbol.toLowerCase().replace('1000', '')}@2x.png`} 
+                alt={coin.name}
+                width="16"
+                height="16"
+                class="w-full h-full object-cover"
+                onerror="this.style.display='none';"
+              />
+            </div>
             <span class="font-bold text-slate-900 tracking-wide">{coin.symbol}</span>
             <div class="inline-flex items-baseline gap-1.5 financial-num">
               <span class="coin-price text-slate-900 font-bold transition-all duration-300">${coin.price.toLocaleString(undefined, { minimumFractionDigits: coin.price < 1 ? 4 : 2, maximumFractionDigits: coin.price < 1 ? 4 : 2 })}</span>
@@ -48,6 +58,16 @@ import { MARKET_COINS, MARKET_METRICS } from '../data/market';
         <!-- Duplicated Loop for Seamless Infinite Scroll -->
         {MARKET_COINS.slice(0, 20).map((coin) => (
           <div data-coin-symbol={coin.symbol} aria-hidden="true" class="inline-flex items-center gap-2 shrink-0 bg-white hover:bg-slate-50 transition-colors px-2.5 py-1 rounded-lg border border-slate-200 shadow-xs">
+            <div class="w-4 h-4 rounded-full overflow-hidden shrink-0 bg-slate-100 flex items-center justify-center">
+              <img 
+                src={`https://assets.coincap.io/assets/icons/${coin.symbol.toLowerCase().replace('1000', '')}@2x.png`} 
+                alt={coin.name}
+                width="16"
+                height="16"
+                class="w-full h-full object-cover"
+                onerror="this.style.display='none';"
+              />
+            </div>
             <span class="font-bold text-slate-900 tracking-wide">{coin.symbol}</span>
             <div class="inline-flex items-baseline gap-1.5 financial-num">
               <span class="coin-price text-slate-900 font-bold transition-all duration-300">${coin.price.toLocaleString(undefined, { minimumFractionDigits: coin.price < 1 ? 4 : 2, maximumFractionDigits: coin.price < 1 ? 4 : 2 })}</span>

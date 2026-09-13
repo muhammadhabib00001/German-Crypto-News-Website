@@ -294,8 +294,19 @@ const counts = {
               >
                 <td class="py-3.5 px-4">
                   <div class="flex items-center gap-2.5">
-                    <div class="w-8 h-8 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center font-black text-slate-900 text-xs shadow-2xs">
-                      {coin.symbol}
+                    <div class="w-8 h-8 rounded-xl bg-slate-100 border border-slate-200/80 flex items-center justify-center font-black text-slate-900 text-xs shadow-2xs shrink-0 overflow-hidden relative">
+                      <img 
+                        src={`https://assets.coincap.io/assets/icons/${coin.symbol.toLowerCase().replace('1000', '')}@2x.png`} 
+                        alt={coin.name}
+                        width="32"
+                        height="32"
+                        loading="lazy"
+                        class="w-full h-full object-cover"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                      />
+                      <span class="w-full h-full hidden items-center justify-center font-bold text-slate-700 bg-slate-100 text-[10px] uppercase">
+                        {coin.symbol.slice(0, 3)}
+                      </span>
                     </div>
                     <div>
                       <span class="font-bold text-slate-900 block leading-tight">{coin.name}</span>

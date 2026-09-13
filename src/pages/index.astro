@@ -93,6 +93,16 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
             {MARKET_COINS.slice(0, 5).map((coin) => (
               <div data-mover-symbol={coin.symbol} class="flex items-center justify-between text-xs py-1.5 px-2 rounded-xl hover:bg-slate-50 transition-colors">
                 <div class="flex items-center gap-2">
+                  <div class="w-5 h-5 rounded-full overflow-hidden shrink-0 bg-slate-100 flex items-center justify-center">
+                    <img 
+                      src={`https://assets.coincap.io/assets/icons/${coin.symbol.toLowerCase().replace('1000', '')}@2x.png`} 
+                      alt={coin.name}
+                      width="20"
+                      height="20"
+                      class="w-full h-full object-cover"
+                      onerror="this.style.display='none';"
+                    />
+                  </div>
                   <span class="font-bold text-slate-900 w-8">{coin.symbol}</span>
                   <span class="text-slate-500 text-[11px] hidden sm:inline">{coin.name}</span>
                 </div>
