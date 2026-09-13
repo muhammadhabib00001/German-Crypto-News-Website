@@ -41,13 +41,12 @@ According to data audited by Coinglass, a break above **\$91,500** would trigger
 
 These forced liquidations function as an accelerant, injecting non-discretionary market buy orders into a market already characterized by thin public ask depth on spot exchanges.
 
-```text
-Derivatives Market Snapshot:
-- Total BTC Open Interest: $41.8 Billion (+8.4% 24h)
-- 24h Long/Short Ratio: 51.2% Long / 48.8% Short
-- Annualized Basis Premium: 9.8% (Healthy contango)
-- 25-Delta Options Skew: -4.2% (Bullish bias)
-```
+| Metric | Reading | Market Implication |
+| :--- | :--- | :--- |
+| **Total BTC Open Interest** | $41.8 Billion (+8.4% 24h) | Rapid capital inflows into leveraged books |
+| **24h Long/Short Ratio** | 51.2% Long / 48.8% Short | Balanced sentiment with heavy short clustering |
+| **Annualized Basis Premium** | 9.8% | Healthy contango pricing |
+| **25-Delta Options Skew** | -4.2% | Bullish bias across out-of-the-money calls |
 
 ## Institutional Options Positioning Targets \$100K
 

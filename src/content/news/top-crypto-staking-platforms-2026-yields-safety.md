@@ -102,18 +102,13 @@ Solana’s proof-of-stake architecture produces sub-second blocks, creating subs
 
 Selecting an optimal crypto staking platform requires rigorous technical due diligence:
 
-```text
-Crypto Staking Evaluation Framework:
-┌───────────────────────────────┬───────────────────────────────┬───────────────────────────────┐
-│ Evaluation Criteria           │ Recommended Standard          │ High-Risk Indicator           │
-├───────────────────────────────┼───────────────────────────────┼───────────────────────────────┤
-│ Custody Model                 │ Non-custodial (self-custody)  │ Unregulated offshore exchange │
-│ Smart Contract Audits         │ 3+ Tier-1 audits (OpenZeppelin│ Unverified or closed contracts│
-│ Slashing Insurance            │ Multi-layer protocol coverage │ Zero node operator insurance  │
-│ Unbonding Duration            │ Liquid (instant swap via LST) │ Extended lockups (21-28 days) │
-│ Net Yield Transparency        │ Clear fee disclosures         │ Suspicious 20%+ unsustainable │
-└───────────────────────────────┴───────────────────────────────┴───────────────────────────────┘
-```
+| Evaluation Criteria | Recommended Standard | High-Risk Indicator |
+| :--- | :--- | :--- |
+| **Custody Model** | Non-custodial (self-custody) | Unregulated offshore exchange |
+| **Smart Contract Audits** | 3+ Tier-1 audits (OpenZeppelin, etc.) | Unverified or closed contracts |
+| **Slashing Insurance** | Multi-layer protocol coverage | Zero node operator insurance |
+| **Unbonding Duration** | Liquid (instant swap via LST) | Extended lockups (21-28 days) |
+| **Net Yield Transparency** | Clear fee disclosures | Suspicious 20%+ unsustainable |
 
 ### Non-Custodial vs. Centralized Exchange Staking
 While centralized exchanges (CEXs) such as Coinbase, Kraken, or Binance provide convenient one-click staking, they deduct substantial commissions ranging from **20% to 35%** of gross rewards. Furthermore, assets deposited on centralized platforms remain vulnerable to counterparty risk, withdrawal freezes, or insolvency events.

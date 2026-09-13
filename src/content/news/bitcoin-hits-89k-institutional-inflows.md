@@ -68,17 +68,12 @@ BlackRock’s iShares Bitcoin Trust alone surpassed **$30 billion in cumulative 
 
 On-chain analysis from Glassnode underscores that available inventory on centralized trading platforms has fallen to its lowest percentage of total supply in six years. 
 
-```text
-Institutional Supply & Demand Dynamics (Weekly Average):
-┌───────────────────────────────┬───────────────────────────────┬───────────────────────────────┐
-│ Metric                        │ Volume / Rate                 │ Market Implication            │
-├───────────────────────────────┼───────────────────────────────┼───────────────────────────────┤
-│ Weekly Mined Supply           │ ~3,150 BTC                    │ Fixed programmatic issuance   │
-│ Weekly Spot ETF Inflows       │ ~14,700 BTC                   │ 4.6x post-halving production  │
-│ OTC Desk Liquid Inventory     │ -18.4% (Quarter-over-Quarter) │ Urgent order routing to books │
-│ Long-Term Holder Supply       │ 14.82 Million BTC             │ 68.4% illiquid supply floor   │
-└───────────────────────────────┴───────────────────────────────┴───────────────────────────────┘
-```
+| Metric | Volume / Rate | Market Implication |
+| :--- | :--- | :--- |
+| **Weekly Mined Supply** | ~3,150 BTC | Fixed programmatic issuance |
+| **Weekly Spot ETF Inflows** | ~14,700 BTC | 4.6x post-halving production |
+| **OTC Desk Liquid Inventory** | -18.4% (Quarter-over-Quarter) | Urgent order routing to books |
+| **Long-Term Holder Supply** | 14.82 Million BTC | 68.4% illiquid supply floor |
 
 Over-the-counter (OTC) dealing desks, which traditionally absorb institutional orders measuring hundreds of millions of dollars without moving public spot quotes, report that bid-ask spreads have widened significantly. Prime brokerage units are increasingly routed directly to public exchange order books to fulfill allocations, translating institutional demand into direct price discovery.
 

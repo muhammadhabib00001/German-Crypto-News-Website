@@ -71,17 +71,12 @@ The defining advantage of German digital asset taxation is the 1 year speculativ
 * **Holding Day 1 to 365:** If an investor purchases Bitcoin on October 1st and liquidates it on September 30th of the following year, the resulting capital gain must be declared on the annual income tax return (*Einkommensteuererklärung*, Annex SO).
 * **Holding Day 366 Onward:** If the position is held for 366 days or longer, the entirety of the capital gain is legally exempt from income taxation. A multi-million-euro gain held past the threshold carries zero tax obligation.
 
-```text
-German Crypto Tax Matrix:
-┌───────────────────────────────┬───────────────────────────────┬───────────────────────────────┐
-│ Holding Duration              │ Tax Treatment                 │ Applicable Rate               │
-├───────────────────────────────┼───────────────────────────────┼───────────────────────────────┤
-│ Less than 12 Months           │ Taxable (Private Disposal)    │ Marginal Income Tax (0% - 45%)│
-│ Less than 12 Months (<€1,000) │ Tax-Exempt (Freigrenze)       │ 0%                            │
-│ Greater than 12 Months        │ Completely Tax-Free           │ 0% Permanent Exemption        │
-│ Staking Rewards Receipt       │ Taxable (Other Income § 22)   │ Personal Income Tax Rate      │
-└───────────────────────────────┴───────────────────────────────┴───────────────────────────────┘
-```
+| Holding Duration | Tax Classification | Statutory Rate |
+| :--- | :--- | :--- |
+| **Less than 12 Months** | Taxable (Private Disposal) | Marginal Income Tax (0% - 45%) |
+| **Under 12 Months (<€1,000 profit)** | Exemption Limit (*Freigrenze*) | 0% |
+| **Greater than 12 Months** | Completely Tax-Free | 0% Permanent Exemption |
+| **Staking Rewards Receipt** | Taxable (Other Income § 22) | Personal Income Tax Rate |
 
 ### The First-In, First-Out (FIFO) Mandate
 

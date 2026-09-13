@@ -361,14 +361,14 @@ if (faqSchema) schemas.push(faqSchema);
         {article.data.faqs && article.data.faqs.length > 0 && (
           <section class="mt-12 pt-8 border-t border-slate-200">
             <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-500"></span>
               <span>Frequently Asked Questions</span>
             </h2>
             <div class="space-y-3.5">
               {article.data.faqs.map((faq) => (
-                <div class="bg-white border border-slate-200 hover:border-slate-300 rounded-xl p-5 transition-all shadow-xs">
+                <div class="bg-white border border-slate-200 hover:border-cyan-300 rounded-xl p-5 transition-all shadow-xs">
                   <h3 class="text-sm font-bold text-slate-900 mb-2 flex items-start gap-2">
-                    <span class="text-amber-600 font-black text-xs mt-0.5">Q:</span>
+                    <span class="text-cyan-600 font-black text-xs mt-0.5">Q:</span>
                     <span>{faq.question}</span>
                   </h3>
                   <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pl-5 font-normal">
