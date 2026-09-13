@@ -63,8 +63,6 @@ As central banks inflate fiat currency supplies and global national debts cross 
   </div>
 </div>
 
----
-
 ## 1. The Mathematical Significance of Owning 1 Bitcoin
 
 The core protocol rules governing Bitcoin mandate an unalterable supply cap of **21,000,000 coins**. Divided among a global population exceeding 8 billion people, owning **1 Bitcoin** guarantees a fixed fractional share of humanity's first absolute digital hard asset.
@@ -87,8 +85,6 @@ On-chain intelligence metrics track wallet addresses holding at least one full c
   </figcaption>
 </figure>
 
----
-
 ## 2. Institutional Spot ETF Absorption vs. Miner Issuance
 
 Following the historic approval of Spot Bitcoin ETFs across major global exchanges (including Wall Street, Hong Kong, and European bourses), the market dynamics governing **1 Bitcoin** pricing shifted fundamentally from retail speculation to institutional capital allocation.
@@ -99,8 +95,6 @@ Post-fourth halving, miners produce exactly **3.125 BTC per block**, translating
 - **Average Daily ETF Inflows**: Institutional ETF products purchase between 1,500 BTC and 4,000 BTC on positive net inflow trading days.
 - **Supply Deficit Multiplier**: ETF demand consistently exceeds daily programmatic supply by **3x to 8x**, forcing fund managers to buy illiquid supply from OTC desks at premium valuations.
 - **Corporate Treasury Allocation**: Public companies (e.g. MicroStrategy, Tesla, Semler Scientific) adopt Bitcoin as a primary strategic balance sheet asset, permanently removing thousands of Bitcoins from liquid circulation.
-
----
 
 ## 3. Purchasing Power & Macro Stock-to-Flow Valuation
 
@@ -115,8 +109,6 @@ The Stock-to-Flow ratio measures asset hardness by dividing existing stock by an
     Following the 2024 halving, Bitcoin's Stock-to-Flow ratio doubled to approximately <strong>112</strong>, exceeding Physical Gold (S2F ~60). This mathematical shift makes 1 Bitcoin the hardest monetary asset in human history.
   </p>
 </div>
-
----
 
 ## 4. On-Chain Illiquid Supply & Storage Security
 

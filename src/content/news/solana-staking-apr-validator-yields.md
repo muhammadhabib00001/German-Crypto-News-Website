@@ -39,8 +39,6 @@ contentType: "analysis"
 
 The Proof-of-Stake (PoS) architecture of [Solana](https://solana.com) has evolved into one of the highest-yielding and most capital-efficient validator consensus networks in the digital asset economy. With more than **395 million SOL** actively securing the high-throughput blockchain, institutional allocators and retail participants are increasingly optimizing their delegations between native validator staking and decentralized **Liquid Staking Tokens (LSTs)**.
 
----
-
 ## Executive Summary: Solana Staking Economics
 
 Understanding Solana’s real staking returns requires an in-depth assessment of baseline inflation rewards, hardware operation expenses, vote transaction costs, and MEV tip distribution across active consensus nodes:
@@ -49,8 +47,6 @@ Understanding Solana’s real staking returns requires an in-depth assessment of
 - **Total Network Staking Ratio**: Approximately 67% of circulating SOL is currently bonded to validator nodes.
 - **Liquid Staking Share**: Over 38% of total staked SOL is encapsulated in Liquid Staking Tokens (JitoSOL, mSOL, bSOL).
 - **Average Validator Commission**: Top community consensus nodes charge between 0% and 5% fee on earned inflation rewards.
-
----
 
 ## 1. Solana Staking Yield Breakdown and APR Components
 
@@ -79,8 +75,6 @@ Because protocol rewards are distributed proportionally among all active staked 
 
 Currently, with approximately **67% of total circulating SOL bonded** to consensus nodes, the baseline inflation yield remains comfortably anchored above 6.8% APR.
 
----
-
 ## 2. Validator Fee Economics and Commission Structures
 
 Selecting a high-performance validator requires examining uptime reliability, commission rates, hardware architecture, and node decentralization metrics:
@@ -106,8 +100,6 @@ Validators running modified consensus clients capture arbitrage and liquidation 
 - **Block Space Auctions**: Searchers bid priority tips to bundle arbitrage transactions within specific block slots.
 - **Delegator Tip Shares**: Jito-Solana nodes automatically pass back up to 95% of captured MEV tips directly to delegators, boosting baseline APR by an additional 1.2% to 1.8%.
 
----
-
 ## 3. Liquid Staking Tokens (LSTs) & DeFi Composability
 
 Liquid Staking Tokens (LSTs) have unlocked unprecedented composability across Solana decentralized finance protocols. Instead of immobilizing capital during the 1-epoch unbonding phase (~2.5 days), holders deposit LSTs as prime collateral on money markets:
@@ -119,8 +111,6 @@ Liquid Staking Tokens (LSTs) have unlocked unprecedented composability across So
 
 ### Liquid Restaking Tokens (LRTs) & Solayer Architecture
 Beyond standard liquid staking, new primitive protocols like **Solayer** and **Jito Restaking Vaults** allow Solana delegators to restake their LSTs to secure off-chain Actively Validated Services (AVS), such as decentralized oracles, cross-chain bridges, and high-frequency order matching engines. By securing secondary infrastructure layers, stakers earn incremental protocol yield on top of base SOL inflation.
-
----
 
 ## 4. Risk Factors & Network Security Outlook
 

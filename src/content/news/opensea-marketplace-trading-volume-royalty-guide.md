@@ -33,8 +33,6 @@ faqs:
 
 The non-fungible token (NFT) ecosystem continues to experience structural evolution, with [OpenSea](https://opensea.io) remaining at the epicenter of decentralized digital asset trading, creator royalties, and multi-chain order book aggregation. As digital ownership transitions from speculative profile pictures (PFPs) toward tokenized gaming assets, decentralized physical infrastructure (DePIN), and real-world asset (RWA) intellectual property rights, OpenSea has continuously overhauled its core protocol architecture to maintain its market dominance.
 
----
-
 ## Executive Data Snapshot: OpenSea Protocol Metrics
 
 To understand OpenSea's operational scale, our research desk has compiled key real-time protocol benchmarks:
@@ -43,8 +41,6 @@ To understand OpenSea's operational scale, our research desk has compiled key re
 - **Liquidity Aggregation Scope**: OpenSea Pro routes orders across 17 distinct liquidity venues, including rival order books, ensuring traders achieve optimal execution price without manual fragmentation.
 - **Core Smart Contract Engine**: Seaport v1.6 operates as an open-source, EVM-optimized bytecode contract framework enabling atomic batch purchases and off-chain signature matching.
 - **Gas Optimization Rating**: Bytecode optimizations in Seaport v1.6 reduce average Ethereum gas consumption by up to 34% compared to legacy exchange contracts.
-
----
 
 ## 1. Seaport v1.6 Smart Contract Architecture & Gas Engineering
 
@@ -74,8 +70,6 @@ Seaport leverages EIP-712 typed data hashing to separate order creation from tra
   </figcaption>
 </figure>
 
----
-
 ## 2. OpenSea Pro: Institutional Aggregation & Multi-Chain Routing
 
 As professional trading firms, market makers, and algorithmic collectors entered the digital asset space, standard retail marketplace interfaces proved insufficient. In response, **OpenSea Pro** (formerly GEM) was engineered to deliver terminal-style trading interfaces and deep liquidity routing.
@@ -95,8 +89,6 @@ While Ethereum mainnet accounts for high-value blue-chip collections, cost-sensi
 - **Arbitrum & Optimism**: Serving as the primary host for decentralized gaming ecosystems, virtual land, and interoperable avatar assets.
 - **Polygon (PoS & zkEVM)**: Powering enterprise brand loyalty programs, sports collectibles, and high-frequency trading volumes.
 
----
-
 ## 3. Creator Royalty Protection & On-Chain Enforcement Standards
 
 The debate surrounding creator royalties has reshaped NFT marketplace dynamics over recent years. While zero-royalty platforms gained temporary market share by appealing to short-term speculators, **OpenSea** has consistently championed sustainable creator monetization frameworks.
@@ -110,8 +102,6 @@ To ensure digital artists receive secondary market creator fees, OpenSea develop
 Recognizing diverse business models, OpenSea offers configurable royalty structures:
 - **Fixed Creator Percentages**: Artists specify secondary payout rates (typically 2.5% to 7.5%) distributed automatically to designated treasury multisig wallets upon trade finalization.
 - **Split Payout Contracts**: Proceeds can be split programmatically among multiple team members, co-creators, or community treasuries directly inside the settlement transaction.
-
----
 
 ## 4. Market Trends, Risk Factors & Future Outlook
 
