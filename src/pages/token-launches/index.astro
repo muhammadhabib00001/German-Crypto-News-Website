@@ -41,12 +41,14 @@ const pageSchema = {
       <!-- Auto-refresh status bar -->
       <div class="inline-flex items-center gap-3 mt-4 px-4 py-1.5 bg-slate-100 rounded-full border border-slate-200 text-xs text-slate-700">
         <span class="flex items-center gap-1.5 font-semibold text-emerald-700">
-          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          Auto-Sync: <span id="sync-status">Connected</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Auto-Sync: <span id="sync-status">Hourly Sync Active</span>
         </span>
         <span class="text-slate-300">|</span>
+        <span class="text-slate-600 font-medium">Cycle: <strong>Every Hour</strong></span>
+        <span class="text-slate-300">|</span>
         <span id="last-sync-time" class="font-mono text-slate-600">Updated just now</span>
-        <button id="refresh-tokens-btn" class="hover:text-black font-bold flex items-center gap-1 transition-colors cursor-pointer text-slate-600">
+        <button id="refresh-tokens-btn" class="hover:text-black font-bold flex items-center gap-1 transition-colors cursor-pointer text-slate-600 ml-1">
           <span>🔄</span>
           <span>Refresh</span>
         </button>
@@ -490,6 +492,12 @@ const pageSchema = {
 
   // Also execute immediately in case DOM is already ready
   loadAutomatedTokens();
+
+  // Automatically check for new/less tokens on an hourly basis
+  const HOURLY_SYNC_INTERVAL_MS = 60 * 60 * 1000; // 1 hour
+  setInterval(() => {
+    loadAutomatedTokens();
+  }, HOURLY_SYNC_INTERVAL_MS);
 
   const refreshBtn = document.getElementById('refresh-tokens-btn');
   if (refreshBtn) {
