@@ -2,28 +2,26 @@
 import { CATEGORY_LIST } from '../data/categories';
 import LanguageSelector from './LanguageSelector.astro';
 
-// Curated primary topics for prominent navbar display
+// Curated primary topics for clean, uncluttered navbar display across all desktop sizes
 const primaryNav = [
-  { name: 'Bitcoin', slug: 'bitcoin', icon: '₿', hideOnLg: false },
-  { name: 'Ethereum', slug: 'ethereum', icon: 'Ξ', hideOnLg: false },
-  { name: 'DeFi', slug: 'defi', icon: '⚡', hideOnLg: false },
-  { name: 'Altcoins', slug: 'altcoins', icon: '💎', hideOnLg: false },
-  { name: 'Markets', slug: 'crypto-markets', icon: '📈', hideOnLg: false },
-  { name: 'Regulation', slug: 'crypto-regulation', icon: '⚖️', hideOnLg: 'xl' },
-  { name: 'Web3 & AI', slug: 'web3', icon: '🌐', hideOnLg: '2xl' }
+  { name: 'Bitcoin', slug: 'bitcoin', icon: '₿', showOn: 'always' },
+  { name: 'Ethereum', slug: 'ethereum', icon: 'Ξ', showOn: 'always' },
+  { name: 'DeFi', slug: 'defi', icon: '⚡', showOn: 'always' },
+  { name: 'Altcoins', slug: 'altcoins', icon: '💎', showOn: 'always' },
+  { name: 'Markets', slug: 'crypto-markets', icon: '📈', showOn: 'xl' }
 ];
 
-// Group remaining categories cleanly for Explore dropdown megamenu
+// All remaining sectors & niches are grouped cleanly for the Explore megamenu
 const primarySlugs = ['bitcoin', 'ethereum', 'defi', 'altcoins', 'crypto-markets'];
 const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug));
 ---
 
 <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs w-full">
   <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 gap-2 sm:gap-3">
+    <div class="flex items-center justify-between h-16 gap-3">
       
       <!-- Left Side: Brand Logo & Desktop Navigation -->
-      <div class="flex items-center gap-2 xl:gap-4 shrink min-w-0">
+      <div class="flex items-center gap-3 xl:gap-5 shrink min-w-0">
         <a href="/" class="flex items-center group py-1 shrink-0" aria-label="newskrypt Home">
           <img
             src="/logo.png"
@@ -34,12 +32,12 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
         </a>
 
         <!-- Desktop Navigation Bar -->
-        <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1 pl-2 xl:pl-4 border-l border-slate-200">
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5 pl-3 xl:pl-5 border-l border-slate-200">
           
           <!-- Prominent Token Launches Tab -->
           <a
             href="/token-launches"
-            class="px-2 xl:px-3 py-1.5 text-xs font-black text-cyan-900 bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/30 rounded-lg transition-all inline-flex items-center gap-1 shrink-0 shadow-2xs"
+            class="px-2.5 xl:px-3.5 py-1.5 text-xs font-black text-cyan-900 bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/30 rounded-xl transition-all inline-flex items-center gap-1.5 shrink-0 shadow-2xs mr-1"
           >
             <span class="text-xs sm:text-sm">🚀</span>
             <span class="whitespace-nowrap">Token Launches</span>
@@ -50,9 +48,8 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
           {primaryNav.map((item) => (
             <a
               href={`/category/${item.slug}`}
-              class={`px-1.5 xl:px-2.5 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-lg transition-colors inline-flex items-center gap-1 whitespace-nowrap ${
-                item.hideOnLg === 'xl' ? 'hidden xl:inline-flex' :
-                item.hideOnLg === '2xl' ? 'hidden 2xl:inline-flex' : 'inline-flex'
+              class={`px-2.5 xl:px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-xl transition-colors items-center gap-1 whitespace-nowrap ${
+                item.showOn === 'xl' ? 'hidden xl:inline-flex' : 'inline-flex'
               }`}
             >
               <span class="text-[11px] opacity-70">{item.icon}</span>
@@ -64,7 +61,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
           <div class="relative group shrink-0">
             <button
               type="button"
-              class="px-2 xl:px-2.5 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-lg transition-colors inline-flex items-center gap-1 cursor-pointer whitespace-nowrap"
+              class="px-2.5 xl:px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-xl transition-colors inline-flex items-center gap-1 cursor-pointer whitespace-nowrap"
               aria-expanded="false"
               aria-haspopup="true"
             >
@@ -75,7 +72,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
             </button>
 
             <!-- Dropdown Menu Box -->
-            <div class="absolute right-0 mt-1 w-72 rounded-2xl bg-white border border-slate-200 shadow-2xl p-3 hidden group-hover:block transition-all z-50 animate-in fade-in slide-in-from-top-1 duration-150">
+            <div class="absolute left-0 mt-1 w-72 rounded-2xl bg-white border border-slate-200 shadow-2xl p-3 hidden group-hover:block transition-all z-50 animate-in fade-in slide-in-from-top-1 duration-150">
               <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-2.5 py-1">
                 More Sectors & Niches
               </div>
