@@ -20,7 +20,9 @@ export async function GET() {
     '/privacy-policy',
     '/terms',
     '/cookie-policy',
-    '/authors'
+    '/authors',
+    '/llms.txt',
+    '/llms-full.txt'
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -30,7 +32,7 @@ export async function GET() {
       (path) => `
   <url>
     <loc>${siteUrl}${path}</loc>
-    <changefreq>daily</changefreq>
+    <changefreq>always</changefreq>
     <priority>${path === '' ? '1.0' : '0.8'}</priority>
   </url>`
     )
@@ -39,7 +41,7 @@ export async function GET() {
     (cat) => `
   <url>
     <loc>${siteUrl}/category/${cat.slug}</loc>
-    <changefreq>hourly</changefreq>
+    <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>`
   ).join('')}
@@ -47,7 +49,7 @@ export async function GET() {
     (auth) => `
   <url>
     <loc>${siteUrl}/author/${auth.id.replace('.json', '')}</loc>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>`
   ).join('')}
@@ -57,8 +59,8 @@ export async function GET() {
   <url>
     <loc>${siteUrl}/news/${post.slug}</loc>
     <lastmod>${post.data.updatedDate || post.data.publishedDate}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <changefreq>always</changefreq>
+    <priority>1.0</priority>
   </url>`
     )
     .join('')}
@@ -67,7 +69,7 @@ export async function GET() {
   return new Response(sitemap.trim(), {
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=3600'
+      'Cache-Control': 'public, max-age=0, s-maxage=60, must-revalidate'
     }
   });
 }

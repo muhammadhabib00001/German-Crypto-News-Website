@@ -32,7 +32,7 @@ export async function GET() {
   return new Response(sitemap.trim(), {
     headers: {
       'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=1800'
+      'Cache-Control': 'public, max-age=0, s-maxage=60, must-revalidate'
     }
   });
 }
