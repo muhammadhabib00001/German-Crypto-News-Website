@@ -27,6 +27,8 @@ faqs:
     answer: "Native staking requires an unbonding cooldown period of 2 to 3 days (1 epoch). Liquid staking issues fungible tokens like JitoSOL that remain tradable and earn compounded staking rewards."
   - question: "Are Solana staking rewards subject to slashing risk?"
     answer: "Solana's protocol level does not currently enforce automatic economic slashing for downtime, though malicious double-signing safety proposals are in governance rollout."
+  - question: "What is MEV and how does it increase Solana staking returns?"
+    answer: "Maximum Extractable Value (MEV) tips are earned by validators optimizing block space transaction ordering, which provides an additional 1.2% to 1.8% in annual yield."
 sources:
   - name: "Solana Foundation Validator Economics Report"
     url: "https://solana.com/staking"

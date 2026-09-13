@@ -25,6 +25,10 @@ faqs:
     answer: "Because the total supply of Bitcoin is capped by protocol consensus at 21 million coins, owning 1 full Bitcoin guarantees ownership of exactly 1/21,000,000th of the ultimate global supply."
   - question: "How does institutional ETF demand impact 1 Bitcoin pricing?"
     answer: "Spot Bitcoin ETFs accumulate BTC directly from OTC desks. When daily ETF net inflows exceed the 450 BTC daily miner issuance post-halving, supply illiquidity accelerates price discovery."
+  - question: "Why is 1 Bitcoin considered a sovereign reserve asset?"
+    answer: "Bitcoin possesses unforgeable digital scarcity, zero counterparty risk, and decentralized settlement independent of any single nation state or central bank."
+  - question: "How can individual investors securely store 1 Bitcoin?"
+    answer: "Wholecoiners securely hold 1 Bitcoin using air-gapped hardware cold storage wallets with seed phrase backups or multi-signature vault setups."
 sources:
   - name: "Glassnode On-Chain Supply Metrics"
     url: "https://glassnode.com"

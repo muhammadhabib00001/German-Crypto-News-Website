@@ -25,6 +25,10 @@ faqs:
     answer: "OpenSea is the world's leading peer-to-peer non-fungible token (NFT) marketplace. It allows creators, collectors, and traders to mint, buy, sell, and auction digital assets across multiple EVM-compatible blockchains."
   - question: "How does OpenSea Pro differ from the standard OpenSea interface?"
     answer: "OpenSea Pro is an advanced NFT marketplace aggregator tailored for professional traders. It features real-time floor price tracking, zero-fee listing aggregation across 17 venues, advanced analytics, and inventory management tools."
+  - question: "What blockchains does OpenSea support for NFT trading?"
+    answer: "OpenSea supports major EVM networks including Ethereum, Polygon, Arbitrum, Optimism, Base, Avalanche, BNB Chain, and Solana."
+  - question: "How are creator royalties enforced on OpenSea?"
+    answer: "OpenSea utilizes Seaport smart contract protocols and configurable creator payout settings to distribute secondary market fees directly to creator treasury wallets."
 ---
 
 The non-fungible token (NFT) ecosystem continues to experience structural evolution, with [OpenSea](https://opensea.io) remaining at the epicenter of decentralized digital asset trading, creator royalties, and multi-chain order book aggregation. As digital ownership transitions from speculative profile pictures (PFPs) toward tokenized gaming assets, decentralized physical infrastructure (DePIN), and real-world asset (RWA) intellectual property rights, OpenSea has continuously overhauled its core protocol architecture to maintain its market dominance.
