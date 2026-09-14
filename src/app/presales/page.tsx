@@ -118,32 +118,28 @@ export default function PresalesPage() {
                     </span>
 
                     {/* Token Logo Avatar Overlay */}
-                    {token.logoUrl && (
-                      <div className="absolute -bottom-4 left-5 w-12 h-12 rounded-full border-2 border-white dark:border-slate-900 bg-white shadow-md overflow-hidden z-10">
-                        <Image
+                    <div className="absolute -bottom-4 left-5 w-12 h-12 rounded-full border-2 border-white dark:border-slate-900 bg-gradient-to-br from-blue-600 to-indigo-700 shadow-md flex items-center justify-center text-white font-black text-xs z-10">
+                      {token.logoUrl ? (
+                        /* eslint-disable-next-line @next/next/no-img-element */
+                        <img
                           src={token.logoUrl}
                           alt={`${token.name} logo`}
-                          width={48}
-                          height={48}
-                          className="object-cover w-full h-full"
+                          className="w-full h-full object-cover rounded-full p-0.5"
+                          onError={(e) => {
+                            // Hide broken image and fallback to symbol text
+                            (e.target as HTMLElement).style.display = 'none';
+                          }}
                         />
-                      </div>
-                    )}
+                      ) : (
+                        <span>{token.symbol.slice(0, 3)}</span>
+                      )}
+                    </div>
                   </div>
 
                   <div className="p-5 pt-7 space-y-4 flex-1 flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between gap-2">
-                        <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex items-center gap-2.5">
-                          {token.logoUrl && (
-                            <Image
-                              src={token.logoUrl}
-                              alt={token.name}
-                              width={26}
-                              height={26}
-                              className="rounded-full shrink-0 shadow-sm border border-slate-200 dark:border-slate-700"
-                            />
-                          )}
+                        <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                           <Link href={`/presales/${token.slug}`}>{token.name} ({token.symbol})</Link>
                         </h2>
                         <span className="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded shrink-0">

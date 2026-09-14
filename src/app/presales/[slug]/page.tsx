@@ -71,17 +71,21 @@ export default function PresaleDetailPage({ params }: PresaleDetailPageProps) {
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                {token.logoUrl && (
-                  <div className="w-16 h-16 rounded-full border-2 border-slate-200 dark:border-slate-700 bg-white shadow-md p-1 overflow-hidden shrink-0">
-                    <Image
+                <div className="w-16 h-16 rounded-full border-2 border-slate-200 dark:border-slate-700 bg-gradient-to-br from-blue-600 to-indigo-700 shadow-md p-0.5 overflow-hidden shrink-0 flex items-center justify-center text-white font-black text-lg">
+                  {token.logoUrl ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
                       src={token.logoUrl}
                       alt={`${token.name} logo`}
-                      width={60}
-                      height={60}
-                      className="object-cover w-full h-full rounded-full"
+                      className="w-full h-full object-cover rounded-full"
+                      onError={(e) => {
+                        (e.target as HTMLElement).style.display = 'none';
+                      }}
                     />
-                  </div>
-                )}
+                  ) : (
+                    <span>{token.symbol.slice(0, 3)}</span>
+                  )}
+                </div>
                 <div>
                   <span className="bg-amber-500 text-slate-950 font-black text-xs uppercase px-2.5 py-1 rounded">
                     {token.badge}
