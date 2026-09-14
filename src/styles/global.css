@@ -49,7 +49,7 @@ body {
 .animate-ticker {
   display: inline-flex;
   width: max-content;
-  animation: ticker-scroll 35s linear infinite;
+  animation: ticker-scroll 90s linear infinite;
   will-change: transform;
 }
 
