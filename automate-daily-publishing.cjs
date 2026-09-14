@@ -187,7 +187,7 @@ ${content}`;
   return { fileName, content: mdFile, keyword: cleanKw };
 }
 
-function runAutomationBatch(targetCount = 5) {
+function runAutomationBatch(targetCount = 1) {
   console.log(`Starting automated batch generation for ${targetCount} articles...`);
   
   const allKeywords = JSON.parse(fs.readFileSync(KEYWORDS_FILE, 'utf8'));
@@ -250,7 +250,7 @@ function runAutomationBatch(targetCount = 5) {
 
 // Run 5 articles batch if executed directly
 if (require.main === module) {
-  runAutomationBatch(5);
+  runAutomationBatch(1);
 }
 
 module.exports = { runAutomationBatch };
