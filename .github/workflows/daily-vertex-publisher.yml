@@ -33,7 +33,7 @@ jobs:
           GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
           GCP_LOCATION: ${{ secrets.GCP_LOCATION || 'us-central1' }}
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-          GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID }}
+          GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID || '1ojF-ZsefLnFcbvtIeu02KyxsvB7jZN0g' }}
           DAILY_BATCH_COUNT: '5'
         run: node scripts/vertex-drive-publisher.cjs
 

@@ -11,7 +11,7 @@ const LOG_FILE = path.join(PROJECT_DIR, 'automation-history.json');
 // Initialize Google Services
 const gcpProjectId = process.env.GCP_PROJECT_ID;
 const gcpLocation = process.env.GCP_LOCATION || 'us-central1';
-const googleDriveFileId = process.env.GOOGLE_DRIVE_FILE_ID; // The spreadsheet ID containing keywords
+const googleDriveFileId = process.env.GOOGLE_DRIVE_FILE_ID || '1ojF-ZsefLnFcbvtIeu02KyxsvB7jZN0g'; // The spreadsheet ID containing keywords
 
 // GCP Service Account credentials from GitHub Secrets (supports plain JSON or Base64 string)
 const gcpSaKeyRaw = (process.env.GCP_SA_KEY || '').trim();
