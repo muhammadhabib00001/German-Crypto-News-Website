@@ -1,6 +1,5 @@
 ---
 import { CATEGORY_LIST } from '../data/categories';
-import LanguageSelector from './LanguageSelector.astro';
 
 // Curated primary topics for clean, uncluttered navbar display across all desktop sizes
 const primaryNav = [
@@ -109,12 +108,8 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
         </nav>
       </div>
 
-      <!-- Right Side Actions (Language, Instant Search, Mobile Menu Button) -->
+      <!-- Right Side Actions (Instant Search, Mobile Menu Button) -->
       <div class="flex items-center gap-1.5 sm:gap-2 lg:gap-3 shrink-0 ml-auto">
-        <!-- Multilingual Reader Selector -->
-        <div class="shrink-0">
-          <LanguageSelector />
-        </div>
 
         <!-- Instant Search Trigger Button -->
         <button

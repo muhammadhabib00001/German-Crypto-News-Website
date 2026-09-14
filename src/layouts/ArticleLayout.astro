@@ -1,7 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import AdPlacement from '../components/AdPlacement.astro';
-import LanguageSelector from '../components/LanguageSelector.astro';
 import { CATEGORIES } from '../data/categories';
 
 interface Props {
@@ -297,13 +296,8 @@ if (faqSchema) schemas.push(faqSchema);
           </div>
         )}
 
-        <!-- Social Share & Reader Language Bar -->
-        <div class="flex flex-wrap items-center justify-between gap-3 p-3.5 bg-white border border-slate-200 rounded-xl mb-8 text-xs shadow-xs">
-          <div class="flex items-center gap-2">
-            <span class="font-bold text-slate-700">Read In:</span>
-            <LanguageSelector />
-          </div>
-
+        <!-- Social Share Bar -->
+        <div class="flex flex-wrap items-center justify-end gap-3 p-3.5 bg-white border border-slate-200 rounded-xl mb-8 text-xs shadow-xs">
           <div class="flex items-center gap-2">
             <span class="font-semibold text-slate-500 hidden sm:inline">Share:</span>
             <a
