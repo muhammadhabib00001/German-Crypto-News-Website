@@ -84,14 +84,32 @@ function getPublishedKeywords() {
 }
 
 async function fetchKeywordsFromGoogleSheets() {
-  console.log(`Fetching keyword list from Google Sheets (ID: ${googleDriveFileId})...`);
-  const sheets = google.sheets({ version: 'v4', auth });
-  const response = await sheets.spreadsheets.values.get({
-    spreadsheetId: googleDriveFileId,
-    range: 'A:A'
-  });
-  const rows = response.data.values || [];
-  return rows.flat().map(k => k.trim()).filter(k => k.length > 2 && k.toLowerCase() !== 'keyword');
+  if (googleDriveFileId) {
+    try {
+      console.log(`Attempting to fetch keyword list from Google Sheets (ID: ${googleDriveFileId})...`);
+      const sheets = google.sheets({ version: 'v4', auth });
+      const response = await sheets.spreadsheets.values.get({
+        spreadsheetId: googleDriveFileId,
+        range: 'A:A'
+      });
+      const rows = response.data.values || [];
+      const fetched = rows.flat().map(k => k.trim()).filter(k => k.length > 2 && k.toLowerCase() !== 'keyword');
+      if (fetched.length > 0) {
+        console.log(`Successfully fetched ${fetched.length} keywords from Google Sheets.`);
+        return fetched;
+      }
+    } catch (err) {
+      console.warn(`Google Sheets API fetch failed (${err.message}). Falling back to local csv_keywords.json...`);
+    }
+  }
+
+  console.log('Loading keyword list from local csv_keywords.json...');
+  const localFile = path.join(PROJECT_DIR, 'csv_keywords.json');
+  if (fs.existsSync(localFile)) {
+    const list = JSON.parse(fs.readFileSync(localFile, 'utf8'));
+    return list.map(k => k.trim()).filter(k => k.length > 2);
+  }
+  return [];
 }
 
 function slugify(text) {
