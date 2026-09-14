@@ -35,7 +35,7 @@ jobs:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
           GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID }}
           DAILY_BATCH_COUNT: '5'
-        run: node scripts/vertex-drive-publisher.js
+        run: node scripts/vertex-drive-publisher.cjs
 
       - name: Run Astro Build Check
         run: npm run build
