@@ -108,31 +108,31 @@ function generateArticleForKeyword(kw, uniqueImage) {
     { question: `Welche Netzwerke und Tokens werden von ${cleanKw} unterstützt?`, answer: `Es werden Tausende von Tokens auf Ethereum, Base, Polygon, Arbitrum, Optimism, Solana und Bitcoin unterstützt.` }
   ];
 
-  const content = `Die Akzeptanz von dezentralen Finanzlösungen (DeFi) und Self-Custodial-Verwahrung wächst im europäischen Markt rasant. Das Thema [${cleanKw}](https://bitcoin.org) steht im Zentrum moderner Analysen für Privatanleger und professionelle Web3-Akteure.
+  const content = `Die Akzeptanz und Nachfrage im Bereich dezentraler Finanzlösungen und digitaler Märkte wächst im europäischen Raum rasant. Das Thema [${cleanKw}](https://bitcoin.org) steht im Zentrum moderner Marktanalysen für Privatanleger und professionelle Web3-Akteure.
 
-In diesem umfassenden Ratgeber analysieren wir die architektonischen Grundlagen, Sicherheitsmerkmale, steuerrechtlichen Rahmenbedingungen im DACH-Raum sowie die praktischen Anwendungsmöglichkeiten von **${cleanKw}**.
+In diesem umfassenden Ratgeber analysieren wir die architektonischen Grundlagen, Markt-Kennzahlen, steuerrechtlichen Rahmenbedingungen im DACH-Raum sowie die praktischen Anwendungsmöglichkeiten von **${cleanKw}**.
 
 <div class="my-8 p-6 bg-slate-900 border border-slate-800 rounded-2xl text-white shadow-xl">
   <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 mb-2">Featured Snippet: Was ist ${cleanKw}?</h4>
-  <p class="text-xs leading-relaxed text-slate-300 mb-4">
-    <strong>${cleanKw}</strong> ist eine dezentrale, eigenverwahrte (Non-Custodial) Software-Geldbörse, die Anlegern die vollständige Kontrolle über ihre privaten Schlüssel (Private Keys) und digitalen Vermögenswerte ermöglicht. Im Gegensatz zu zentralen Börsen verwaltet der Nutzer seine Kryptowährungen, NFTs und Web3-Identitäten eigenständig ohne Intermediäre.
+  <p class="text-sm leading-relaxed text-slate-200 mb-4">
+    <strong>${cleanKw}</strong> bezieht sich auf wichtige Markt- und Analyseparameter im europäischen Kryptomarkt. Anleger und Händler nutzen diese Kennzahlen zur Bewertung von Liquidität, Kursentwicklungen, regulatorischen BaFin-Standards und steuerfreien Haltefristen im DACH-Raum.
   </p>
   <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center font-mono">
-    <div class="bg-slate-800/80 p-3 rounded-xl">
-      <span class="block text-slate-400 text-[10px]">VERWAHRUNG</span>
-      <span class="text-sm font-bold text-amber-400">Self-Custody</span>
+    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+      <span class="block text-slate-400 text-[10px] uppercase font-bold">MARKTSEGMENT</span>
+      <span class="text-xs font-bold text-amber-400 font-sans">${category.toUpperCase()}</span>
     </div>
-    <div class="bg-slate-800/80 p-3 rounded-xl">
-      <span class="block text-slate-400 text-[10px]">STEUERFREI DE</span>
-      <span class="text-sm font-bold text-cyan-400">Nach 12 Mon.</span>
+    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+      <span class="block text-slate-400 text-[10px] uppercase font-bold">STEUERFREI DE</span>
+      <span class="text-xs font-bold text-cyan-400 font-sans">Nach 12 Mon.</span>
     </div>
-    <div class="bg-slate-800/80 p-3 rounded-xl">
-      <span class="block text-slate-400 text-[10px]">REGULIERUNG</span>
-      <span class="text-sm font-bold text-emerald-400">MiCA Standard</span>
+    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+      <span class="block text-slate-400 text-[10px] uppercase font-bold">REGULIERUNG</span>
+      <span class="text-xs font-bold text-emerald-400 font-sans">MiCA Standard</span>
     </div>
-    <div class="bg-slate-800/80 p-3 rounded-xl">
-      <span class="block text-slate-400 text-[10px]">NETZWERKE</span>
-      <span class="text-sm font-bold text-purple-400">Multi-Chain</span>
+    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+      <span class="block text-slate-400 text-[10px] uppercase font-bold">REGION</span>
+      <span class="text-xs font-bold text-purple-400 font-sans">DACH &amp; EU</span>
     </div>
   </div>
 </div>
