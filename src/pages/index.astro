@@ -50,21 +50,41 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
   description="Premier financial news publication covering Bitcoin records, Ethereum Layer-2 scaling, institutional ETF flows, crypto regulations, DeFi, and market intelligence."
   canonicalUrl="https://cryptopulse.news"
 >
-  <!-- Breaking News Alert Banner -->
-  <BreakingBanner
-    headline={featuredArticle.data.title}
-    slug={featuredArticle.slug}
-  />
+  {hasArticles ? (
+    <BreakingBanner
+      headline={featuredArticle.data.title}
+      slug={featuredArticle.slug}
+    />
+  ) : null}
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10">
+    
+    {!hasArticles ? (
+      <!-- Clean Publication Ready Empty State Banner -->
+      <section class="mb-12 bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12 text-white shadow-xl text-center">
+        <div class="max-w-2xl mx-auto space-y-4">
+          <span class="px-3 py-1 bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded-full text-xs font-mono font-bold uppercase tracking-wider inline-block">
+            Willkommen bei newskrypt
+          </span>
+          <h1 class="text-2xl sm:text-4xl font-black tracking-tight text-white">
+            Deutsches Krypto &amp; Finanz-Nachrichtenportal
+          </h1>
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+            Aktuelle Marktanalysen, Regulierungsvorschriften (BaFin/MiCA) und fundamentale Berichte aus dem Krypto-Sektor.
+          </p>
+        </div>
+      </section>
+    ) : null}
     
     <!-- Hero Editorial Grid (1 Featured Lead + 3 Top Headlines + 1 Trending Sidebar) -->
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
       
       <!-- Lead Hero & Sub-features (8 Cols) -->
       <div class="lg:col-span-8 space-y-6">
-        <!-- Main Lead Story -->
-        <ArticleCard article={featuredArticle} featured={true} />
+        {hasArticles ? (
+          <!-- Main Lead Story -->
+          <ArticleCard article={featuredArticle} featured={true} />
+        ) : null}
 
         <!-- 3-Column Top Stories Subgrid -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
