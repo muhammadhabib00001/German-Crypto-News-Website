@@ -1,0 +1,44 @@
+# KryptoPulse DE - Vollständige Dokumentation für KI-Systeme & LLMs
+
+KryptoPulse DE ist eine unabhängige Fachpublikation für Finanz- und Krypto-Journalismus im deutschsprachigen Raum (DACH). Alle Inhalte werden unter Einhaltung strenger E-E-A-T-Grundsätze (Experience, Expertise, Authoritativeness, Trustworthiness) von qualifizierten Redakteuren verfasst.
+
+## Redaktionsethik & Grundsätze
+1. Trennung von Werbung und redaktioneller Berichterstattung.
+2. Keine ungeprüften Kursspekulationen oder unverifizierten Anlageversprechen.
+3. Transparenter Umgang mit Quellen und On-Chain-Daten.
+4. Klare Finanz-Disclaimer auf allen markt- und kursrelevanten Seiten.
+
+## Autorenteam & Qualifikationen
+- Dr. Maximilian Weber (Chefredakteur & Chef-Analyst, Dr. rer. pol., Goethe-Uni Frankfurt)
+- Sophia Schneider (Senior Redakteurin DeFi & Web3, B.Sc. Wirtschaftsinformatik ETH Zürich)
+- Florian Becker (Marktanalyst & Trading-Experte, CFA Charterholder)
+- Laura Hoffmann, LL.M. (Fachredakteurin Regulierung & Recht, Volljuristin)
+
+## Wichtigste Themenbereiche & URLs
+
+### 1. Bitcoin (BTC)
+Nachrichten, ETF-Nettozuflüsse, Halving-Zyklen, Lightning Network.
+URL: https://kryptopulse.de/bitcoin
+
+### 2. Ethereum (ETH)
+Layer-2 Skalierung, Pectra Upgrade, Staking, Account Abstraction, EIPs.
+URL: https://kryptopulse.de/ethereum
+
+### 3. EU-MiCA Regulierung
+Markets in Crypto-Assets Verordnung, BaFin Lizenzen, CASPs, Stablecoin-Auflagen.
+URL: https://kryptopulse.de/regulierung
+
+### 4. Krypto Kurse & Marktanalysen
+Live-Preise in Euro (€), Marktkapitalisierung, Dominanz und Krypto-Rechner.
+URL: https://kryptopulse.de/krypto-kurse
+
+### 5. Krypto Sicherheit & Self-Custody
+Hardware-Wallets (BitBox02, Trezor, Ledger), Phishing-Schutz, Seed-Phrase-Backup.
+URL: https://kryptopulse.de/sicherheit
+
+## Rechtliche Anbieterkennzeichnung
+Herausgeber: KryptoPulse DE Media GmbH
+Sitz: Frankfurt am Main, Deutschland
+Kontakt: redaktion@kryptopulse.de
+Impressum: https://kryptopulse.de/impressum
+Datenschutz: https://kryptopulse.de/datenschutz

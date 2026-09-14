@@ -1,167 +1,144 @@
-export interface CategoryMeta {
-  id: string;
-  name: string;
-  slug: string;
-  description: string;
-  badgeColor: string;
-  textColor: string;
-  metaTitle: string;
-}
+import { Category } from '@/types';
 
-export const CATEGORIES: Record<string, CategoryMeta> = {
-  bitcoin: {
+export const CATEGORIES: Category[] = [
+  {
     id: 'bitcoin',
     name: 'Bitcoin',
     slug: 'bitcoin',
-    description: 'Echtzeit-Bitcoin-Nachrichten, Halving-Zyklen, ETF-Zuflüsse, On-Chain-Analysen und Lightning-Netzwerk-Updates.',
-    badgeColor: 'bg-amber-500/15 border-amber-500/30 text-amber-400',
-    textColor: 'text-amber-500',
-    metaTitle: 'Bitcoin News, BTC ETF Trends & Marktanalysen'
+    description: 'Aktuelle Nachrichten, Analysen und Entwicklungen rund um die führende Kryptowährung Bitcoin (BTC).',
+    iconName: 'Coins',
+    color: '#f7931a',
   },
-  ethereum: {
+  {
     id: 'ethereum',
     name: 'Ethereum',
     slug: 'ethereum',
-    description: 'Aktuelle Ethereum-Nachrichten, Layer-2 Rollups, Staking-Kennzahlen, EIP-Entwicklungen und Smart-Contract-Analysen.',
-    badgeColor: 'bg-blue-500/15 border-blue-500/30 text-blue-400',
-    textColor: 'text-blue-500',
-    metaTitle: 'Ethereum News, ETH ETFs, Layer-2 Netzwerke & Staking'
+    description: 'Neuigkeiten zu Ethereum (ETH), Layer-2-Skalierung, Smart Contracts und Netzwerkevents.',
+    iconName: 'Zap',
+    color: '#627eea',
   },
-  altcoins: {
+  {
     id: 'altcoins',
     name: 'Altcoins',
     slug: 'altcoins',
-    description: 'Umfassende Berichterstattung über Layer-1-Protokolle, alternative Blockchain-Netzwerke und aufstrebende Krypto-Tokens.',
-    badgeColor: 'bg-violet-500/15 border-violet-500/30 text-violet-400',
-    textColor: 'text-violet-500',
-    metaTitle: 'Altcoin News, Layer 1 Blockchains & Token-Analysen'
+    description: 'Neueste Trends, Kursanalysen und Updates zu Solana, Cardano, Ripple, Avalanche und weiteren Altcoins.',
+    iconName: 'Boxes',
+    color: '#10b981',
   },
-  blockchain: {
+  {
     id: 'blockchain',
     name: 'Blockchain',
     slug: 'blockchain',
-    description: 'Fundierte Einblicke in Zero-Knowledge-Kryptographie, Konsensmechanismen, modulare Architekturen und DLT.',
-    badgeColor: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-400',
-    textColor: 'text-emerald-500',
-    metaTitle: 'Blockchain Technologie, Kryptographie & Enterprise DLT'
+    description: 'Technologische Fundamente, Konsensmechanismen, Infrastruktur und Unternehmens-Blockchains.',
+    iconName: 'Network',
+    color: '#6366f1',
   },
-  defi: {
+  {
     id: 'defi',
     name: 'DeFi',
     slug: 'defi',
-    description: 'Dezentrale Finanzmärkte, Automated Market Maker, Liquiditäts-Pools, Kreditmärkte und Yield-Strategien.',
-    badgeColor: 'bg-teal-500/15 border-teal-500/30 text-teal-400',
-    textColor: 'text-teal-500',
-    metaTitle: 'DeFi News, Yield Farming, DEXs & Dezentrales Kreditwesen'
+    description: 'Dezentrale Finanzen, Yield Farming, DEX-Börsen, Lending-Protokolle und Liquid Staking.',
+    iconName: 'Landmark',
+    color: '#ec4899',
   },
-  web3: {
+  {
     id: 'web3',
     name: 'Web3',
     slug: 'web3',
-    description: 'Dezentrale Internet-Infrastruktur, digitale Identitäten, DePIN-Netzwerke und soziale Protokolle.',
-    badgeColor: 'bg-purple-500/15 border-purple-500/30 text-purple-400',
-    textColor: 'text-purple-500',
-    metaTitle: 'Web3 News, DePIN, Identität & Dezentrale Infrastruktur'
+    description: 'Das dezentrale Internet der Zukunft, dApps, digitale Identitäten und Dezentralisierung.',
+    iconName: 'Globe',
+    color: '#14b8a6',
   },
-  nft: {
+  {
     id: 'nft',
     name: 'NFT',
     slug: 'nft',
-    description: 'Non-Fungible Tokens, digitale Sammlerstücke, RWA-Tokenisierung, On-Chain-Gaming und Urheberrechte.',
-    badgeColor: 'bg-pink-500/15 border-pink-500/30 text-pink-400',
-    textColor: 'text-pink-500',
-    metaTitle: 'NFT News, Digitale Kunst & RWA Tokenisierung'
+    description: 'Non-Fungible Tokens, digitale Kunst, Gaming, Tokenisierung von Vermögenswerten und Marken-NFTs.',
+    iconName: 'Palette',
+    color: '#8b5cf6',
   },
-  'crypto-markets': {
-    id: 'crypto-markets',
-    name: 'Krypto-Märkte',
-    slug: 'crypto-markets',
-    description: 'Makro-Krypto-Trends, Marktkapitalisierung, Liquidationen, Derivate und makroökonomische Zusammenhänge.',
-    badgeColor: 'bg-cyan-500/15 border-cyan-500/30 text-cyan-400',
-    textColor: 'text-cyan-500',
-    metaTitle: 'Krypto Marktanalysen, Makro-Trends & Liquidations-Heatmaps'
+  {
+    id: 'krypto-maerkte',
+    name: 'Krypto Märkte',
+    slug: 'krypto-maerkte',
+    description: 'Marktdynamik, Kapitalflüsse, Instutitonelle Investoren, ETF-Zuflüsse und globale Markttrends.',
+    iconName: 'TrendingUp',
+    color: '#06b6d4',
   },
-  'crypto-regulation': {
-    id: 'crypto-regulation',
-    name: 'Krypto-Regulierung',
-    slug: 'crypto-regulation',
-    description: 'Globale Regulierungsrichtlinien, BaFin-Mitteilungen, europäische MiCA-Verordnung, SEC-Beschlüsse und Urteile.',
-    badgeColor: 'bg-rose-500/15 border-rose-500/30 text-rose-400',
-    textColor: 'text-rose-500',
-    metaTitle: 'Krypto Regulierung, BaFin, MiCA Richtlinien & Rechtsprechung'
+  {
+    id: 'krypto-kurse',
+    name: 'Krypto Kurse',
+    slug: 'krypto-kurse',
+    description: 'Echtzeit-Kurse, Marktwerte, Allzeithochs und historische Preisdaten aller Top-Kryptowährungen.',
+    iconName: 'LineChart',
+    color: '#f59e0b',
   },
-  'crypto-trading': {
-    id: 'crypto-trading',
-    name: 'Krypto-Trading',
-    slug: 'crypto-trading',
-    description: 'Technische Analysen, Spot- und Perpetual-Trading, Orderbuch-Dynamiken, Liquidität und Marktpsychologie.',
-    badgeColor: 'bg-indigo-500/15 border-indigo-500/30 text-indigo-400',
-    textColor: 'text-indigo-500',
-    metaTitle: 'Krypto Trading Strategien, Technische Indikatoren & Chartanalysen'
+  {
+    id: 'regulierung',
+    name: 'Regulierung',
+    slug: 'regulierung',
+    description: 'Gesetzgebung in der EU (MiCA), BaFin-Richtlinien, SEC-Entscheidungen und globale Krypto-Gesetze.',
+    iconName: 'Scale',
+    color: '#ef4444',
   },
-  'crypto-security': {
-    id: 'crypto-security',
-    name: 'Krypto-Sicherheit',
-    slug: 'crypto-security',
-    description: 'Smart-Contract-Audits, Exploit-Analysen, Hardware-Wallet-Sicherheit und Sicherheitsprotokolle.',
-    badgeColor: 'bg-red-500/15 border-red-500/30 text-red-400',
-    textColor: 'text-red-500',
-    metaTitle: 'Krypto Sicherheit, Hack-Analysen & Wallet-Schutz'
+  {
+    id: 'trading',
+    name: 'Trading',
+    slug: 'trading',
+    description: 'Technische Analyse, Indikatoren, Handelsstrategien, Futures, Derivate und Risikomanagement.',
+    iconName: 'CandlestickChart',
+    color: '#3b82f6',
   },
-  mining: {
+  {
+    id: 'forschung',
+    name: 'Forschung',
+    slug: 'forschung',
+    description: 'Wissenschaftliche Studien, Kryptographie-Forschung, Protokoll-Upgrades und On-Chain-Metriken.',
+    iconName: 'BookOpen',
+    color: '#a855f7',
+  },
+  {
+    id: 'prognosen',
+    name: 'Krypto-Prognosen',
+    slug: 'prognosen',
+    description: 'Fundierte Marktanalysen, Modellprognosen und Experteneinschätzungen zur zukünftigen Kursentwicklung.',
+    iconName: 'Target',
+    color: '#10b981',
+  },
+  {
+    id: 'unternehmen',
+    name: 'Unternehmen',
+    slug: 'unternehmen',
+    description: 'Unternehmensnews, Krypto-Startups, Adoption durch Großkonzerne und Investmentgesellschaften.',
+    iconName: 'Building2',
+    color: '#64748b',
+  },
+  {
+    id: 'sicherheit',
+    name: 'Krypto Sicherheit',
+    slug: 'sicherheit',
+    description: 'Hardware Wallets, Cyber-Sicherheit, Betrugsschutz, Wallet-Sicherheit und Smart-Contract-Audits.',
+    iconName: 'ShieldCheck',
+    color: '#0284c7',
+  },
+  {
     id: 'mining',
     name: 'Mining',
     slug: 'mining',
-    description: 'Proof-of-Work Hashrate, ASIC-Effizienz, grüne Mining-Initiativen und wirtschaftliche Rentabilität.',
-    badgeColor: 'bg-orange-500/15 border-orange-500/30 text-orange-400',
-    textColor: 'text-orange-500',
-    metaTitle: 'Krypto Mining, Bitcoin Hashrate & Energieeffizienz'
+    description: 'Bitcoin-Mining, Halving, Hashrate, Energieeffizienz und Mining-Infrastruktur im DACH-Raum.',
+    iconName: 'Cpu',
+    color: '#d97706',
   },
-  'institutional-crypto': {
-    id: 'institutional-crypto',
-    name: 'Institutionelle Krypto',
-    slug: 'institutional-crypto',
-    description: 'Hedgefonds-Allokationen, Unternehmens-Treasuries, ETF-Ströme, Brokerage-Angebote und Staatsfonds.',
-    badgeColor: 'bg-slate-400/15 border-slate-400/30 text-slate-300',
-    textColor: 'text-slate-300',
-    metaTitle: 'Institutionelles Krypto, Staatsreserven & Wall-Street-Adoption'
-  },
-  stablecoins: {
-    id: 'stablecoins',
-    name: 'Stablecoins',
-    slug: 'stablecoins',
-    description: 'Fiat-gedeckte Tokens, algorithmische Modelle, grenzüberschreitende Zahlungen und Deckungsprüfungen.',
-    badgeColor: 'bg-green-500/15 border-green-500/30 text-green-400',
-    textColor: 'text-green-500',
-    metaTitle: 'Stablecoins, Globaler Zahlungsverkehr, USDT, USDC & Reserven'
-  },
-  memecoins: {
-    id: 'memecoins',
-    name: 'Memecoins',
-    slug: 'memecoins',
-    description: 'Virale Community-Tokens, Aufmerksamkeitstrends, Fair-Launch-Mechanismen und Hype-Analysen.',
-    badgeColor: 'bg-yellow-500/15 border-yellow-500/30 text-yellow-400',
-    textColor: 'text-yellow-500',
-    metaTitle: 'Memecoin Trends, Community-Dynamik & Markt-Stimmung'
-  },
-  technology: {
-    id: 'technology',
-    name: 'Technologie',
-    slug: 'technology',
-    description: 'Kryptographische Durchbrüche, KI x Krypto Integrationen, Verifizierung und Konsens-Engineering.',
-    badgeColor: 'bg-sky-500/15 border-sky-500/30 text-sky-400',
-    textColor: 'text-sky-500',
-    metaTitle: 'Blockchain Technologie, KI-Integrationen & Forschung'
-  },
-  'press-releases': {
-    id: 'press-releases',
+  {
+    id: 'pressemitteilungen',
     name: 'Pressemitteilungen',
-    slug: 'press-releases',
-    description: 'Offizielle Pressemitteilungen, Protokoll-Ankündigungen, Token-Launches und Unternehmens-News.',
-    badgeColor: 'bg-indigo-500/15 border-indigo-500/30 text-indigo-400',
-    textColor: 'text-indigo-600',
-    metaTitle: 'Offizielle Krypto Pressemitteilungen & Unternehmens-News'
-  }
-};
+    slug: 'pressemitteilungen',
+    description: 'Offizielle Unternehmensmeldungen, Produktankündigungen und Pressemeldungen aus der Krypto-Branche.',
+    iconName: 'Megaphone',
+    color: '#475569',
+  },
+];
 
-export const CATEGORY_LIST = Object.values(CATEGORIES);
+export function getCategoryBySlug(slug: string): Category | undefined {
+  return CATEGORIES.find((cat) => cat.slug === slug);
+}
