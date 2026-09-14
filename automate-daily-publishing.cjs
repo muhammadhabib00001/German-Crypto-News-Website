@@ -86,13 +86,20 @@ function generateArticleForKeyword(kw, uniqueImage) {
   
   const category = getRandomItem(CATEGORIES);
   const author = getRandomItem(AUTHORS);
-  const slug = `${slugify(cleanKw)}-anlageratgeber-analyse-2026`;
+  const slug = `${slugify(cleanKw)}-ratgeber-deutschland`;
   const fileName = `${slug}.md`;
 
-  const title = `${kwTitle} im Praxis-Test 2026: Sicherheit, Funktionen & MiCA-Regulierung`;
-  const metaTitle = `${kwTitle} Erfahrungen 2026: Sicherheit, Test & BaFin-Analyse`;
-  const excerpt = `Umfassender Ratgeber zu ${cleanKw}. Erfahren Sie alles über Non-Custodial Sicherheit, Web3-Funktionen, BaFin/MiCA-Regulierungen und steuerliche Haltefristen im DACH-Raum.`;
-  const metaDescription = `Ist ${cleanKw} sicher? Detaillierte Analyse zu Private Keys, Staking, dApp-Integration und steuerfreien Gewinnen nach 12 Monaten in Deutschland.`;
+  // metaTitle: ≤55 chars, unique, keyword-first, no "2026"
+  const rawMeta = `${kwTitle}: Sicherheit, Kosten & BaFin-Info`;
+  const metaTitle = rawMeta.length <= 55 ? rawMeta : rawMeta.substring(0, 52) + '...';
+
+  // title: click-worthy, unique H1, ≤70 chars recommended
+  const title = `${kwTitle}: Leitfaden für deutsche Krypto-Anleger`;
+
+  const excerpt = `Alles Wichtige zu ${cleanKw} auf einen Blick: Regulierung, Sicherheit, Gebühren und steuerliche Regeln für Anleger in Deutschland.`;
+  // metaDescription: ≤155 chars, compelling CTA
+  const rawDesc = `${kwTitle} im Überblick: BaFin-Regulierung, Gebührenstruktur, Sicherheitsarchitektur und Steuerregeln für Krypto-Anleger in Deutschland. Jetzt informieren.`;
+  const metaDescription = rawDesc.length <= 155 ? rawDesc : rawDesc.substring(0, 152) + '...';
 
   const highlights = [
     `Self-Custody Sicherheit: Vollständige Kontrolle über Private Keys und Seed Phrase ohne Drittparteien-Risiko.`,
