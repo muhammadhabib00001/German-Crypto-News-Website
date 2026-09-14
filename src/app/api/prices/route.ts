@@ -5,8 +5,15 @@ export const revalidate = 15;
 
 export async function GET() {
   try {
-    // Extract all unique CoinGecko IDs from CRYPTO_PRICES
-    const cgIds = CRYPTO_PRICES.map((c) => c.coingeckoId).filter(Boolean).join(',');
+    const validCoins = CRYPTO_PRICES.filter((c) => Boolean(c.coingeckoId));
+    const cgIds = validCoins.map((c) => c.coingeckoId).join(',');
+
+    if (!cgIds) {
+      return NextResponse.json({
+        success: true,
+        prices: CRYPTO_PRICES,
+      });
+    }
 
     const res = await fetch(
       `https://api.coingecko.com/api/v3/simple/price?ids=${cgIds}&vs_currencies=eur,usd&include_24hr_change=true`,
@@ -25,15 +32,16 @@ export async function GET() {
       const updatedPrices = CRYPTO_PRICES.map((item) => {
         if (item.coingeckoId && data[item.coingeckoId]) {
           const coinData = data[item.coingeckoId];
-          const priceEur = coinData.eur || item.priceEur;
-          const priceUsd = coinData.usd || item.priceUsd;
-          const change24h = coinData.eur_24h_change !== undefined ? coinData.eur_24h_change : item.change24h;
+          const priceEur = typeof coinData?.eur === 'number' ? coinData.eur : item.priceEur;
+          const priceUsd = typeof coinData?.usd === 'number' ? coinData.usd : item.priceUsd;
+          const rawChange = coinData?.eur_24h_change;
+          const change24h = typeof rawChange === 'number' ? parseFloat(rawChange.toFixed(2)) : item.change24h;
 
           return {
             ...item,
             priceEur,
             priceUsd,
-            change24h: parseFloat(change24h.toFixed(2)),
+            change24h,
           };
         }
         return item;
@@ -49,7 +57,6 @@ export async function GET() {
     console.error('Failed to fetch live prices from CoinGecko API:', error);
   }
 
-  // Graceful fallback to initial dataset
   return NextResponse.json({
     success: true,
     fallback: true,

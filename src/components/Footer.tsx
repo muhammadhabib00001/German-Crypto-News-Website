@@ -49,7 +49,9 @@ export default function Footer() {
         <div className="space-y-3">
           <h3 className="text-white font-bold text-xs uppercase tracking-wider">Themen & Märkte</h3>
           <ul className="space-y-2 text-xs">
-            {CATEGORIES.slice(8, 16).map((cat) => (
+            <li><Link href="/presales" className="text-amber-400 font-bold hover:underline">Token Presales & ICOs</Link></li>
+            <li><Link href="/krypto-events" className="hover:text-white transition-colors">Krypto Events 2026</Link></li>
+            {CATEGORIES.slice(8, 14).map((cat) => (
               <li key={cat.slug}>
                 <Link href={`/${cat.slug}`} className="hover:text-white transition-colors">
                   {cat.name}

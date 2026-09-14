@@ -41,9 +41,14 @@ export default function Header({ onOpenSearch }: HeaderProps) {
         <div className="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700 dark:text-slate-200">
           <Link href="/bitcoin" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Bitcoin</Link>
           <Link href="/ethereum" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Ethereum</Link>
-          <Link href="/altcoins" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Altcoins</Link>
           <Link href="/krypto-kurse" className="flex items-center gap-1 text-blue-600 dark:text-blue-400 font-bold hover:underline">
             <BarChart2 className="w-4 h-4" /> Krypto Kurse
+          </Link>
+          <Link href="/presales" className="hover:text-amber-500 font-bold text-amber-600 dark:text-amber-400 transition-colors">
+            Presales
+          </Link>
+          <Link href="/krypto-events" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            Events
           </Link>
           <Link href="/regulierung" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Regulierung</Link>
           <Link href="/prognosen" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Prognosen</Link>

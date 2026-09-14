@@ -102,3 +102,57 @@ export interface CryptoPrice {
   sparkline?: number[];
   tickDirection?: 'up' | 'down' | 'neutral';
 }
+
+export interface CryptoEvent {
+  id: string;
+  title: string;
+  slug: string;
+  shortDescription: string;
+  fullDescription: string;
+  startDate: string;
+  endDate: string;
+  city: string;
+  country: string;
+  venue: string;
+  isOnline: boolean;
+  category: 'Konferenz' | 'Summit' | 'Expo' | 'Hackathon' | 'Webinar';
+  ticketPrice: string;
+  organizer: string;
+  websiteUrl: string;
+  featuredImage: string;
+  speakers: { name: string; title: string; company: string }[];
+  topics: string[];
+}
+
+export interface TokenomicsItem {
+  label: string;
+  percentage: number;
+  color: string;
+}
+
+export interface PresaleToken {
+  id: string;
+  name: string;
+  symbol: string;
+  slug: string;
+  shortDescription: string;
+  fullDescription: string;
+  badge: string;
+  network: string; // e.g. Ethereum, Solana, BNB Chain
+  status: 'Aktiv' | 'Demnächst' | 'Beendet';
+  currentPriceUsd: number;
+  nextStagePriceUsd?: number;
+  raisedAmountUsd: number;
+  targetGoalUsd: number;
+  presaleStage: string;
+  tokenomics: TokenomicsItem[];
+  auditStatus: string;
+  auditUrl?: string;
+  websiteUrl: string;
+  whitepaperUrl: string;
+  featuredImage: string;
+  publishedAt: string;
+  highlights: string[];
+  risks: string[];
+  faqs: ArticleFAQ[];
+}

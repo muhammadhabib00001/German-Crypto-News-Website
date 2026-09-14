@@ -24,6 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/sicherheit',
     '/mining',
     '/pressemitteilungen',
+    '/krypto-events',
+    '/presales',
     '/autoren',
     '/ueber-uns',
     '/redaktion',
