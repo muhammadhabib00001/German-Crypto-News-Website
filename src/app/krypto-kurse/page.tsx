@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import CryptoConverter from '@/components/CryptoConverter';
 import CryptoPricesTable from '@/components/CryptoPricesTable';
+import GeminiMarketAnalysis from '@/components/GeminiMarketAnalysis';
 import FinancialDisclaimer from '@/components/FinancialDisclaimer';
 import Sidebar from '@/components/Sidebar';
 import { getTrendingArticles } from '@/data/articles';
@@ -58,6 +59,9 @@ export default function CryptoPricesPage() {
           <span className="text-xs font-bold text-blue-500">Marktführer</span>
         </div>
       </div>
+
+      {/* Gemini AI Analysis Widget */}
+      <GeminiMarketAnalysis />
 
       {/* Calculator Component */}
       <CryptoConverter />
