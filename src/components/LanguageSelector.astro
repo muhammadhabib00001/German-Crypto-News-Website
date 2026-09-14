@@ -156,7 +156,26 @@
 </div>
 
 <script is:inline>
-  // Function to initialize Google Translate element cleanly
+  // Immediately set googtrans cookie to German before Google script initializes
+  (function ensureGermanDefault() {
+    const cookies = document.cookie.split(';');
+    let hasGoogtrans = false;
+    for (let c of cookies) {
+      if (c.trim().startsWith('googtrans=')) {
+        hasGoogtrans = true;
+        break;
+      }
+    }
+    if (!hasGoogtrans) {
+      const host = window.location.hostname;
+      document.cookie = "googtrans=/en/de; path=/;";
+      if (host && host !== 'localhost') {
+        document.cookie = "googtrans=/en/de; path=/; domain=." + host + ";";
+      }
+    }
+  })();
+
+  // Function to initialize Google Translate element cleanly with German target
   window.googleTranslateElementInit = function() {
     new google.translate.TranslateElement({
       pageLanguage: 'en',
@@ -164,6 +183,15 @@
       autoDisplay: false,
       layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');
+
+    // Auto-trigger German if not already translated
+    setTimeout(() => {
+      const select = document.querySelector('#google_translate_element select');
+      if (select && select.value !== 'de' && !document.cookie.includes('googtrans=/en/en')) {
+        select.value = 'de';
+        select.dispatchEvent(new Event('change'));
+      }
+    }, 500);
   };
 
   function setLanguage(langCode) {
@@ -214,7 +242,6 @@
     // Read stored or cookie language (Default to 'de' for Germany target)
     const cookies = document.cookie.split(';');
     let current = 'de';
-    let hasCookie = false;
     for (let c of cookies) {
       c = c.trim();
       if (c.startsWith('googtrans=')) {
@@ -223,22 +250,7 @@
           const parts = val.split('/');
           if (parts.length >= 3 && parts[2]) {
             current = parts[2];
-            hasCookie = true;
           }
-        }
-      }
-    }
-
-    // Automatically initialize German translation if no explicit language cookie exists
-    if (!hasCookie) {
-      const stored = localStorage.getItem('user_selected_lang');
-      if (stored) {
-        current = stored;
-      } else {
-        const domain = window.location.hostname;
-        document.cookie = `googtrans=/en/de; path=/;`;
-        if (domain && domain !== 'localhost') {
-          document.cookie = `googtrans=/en/de; path=/; domain=.${domain};`;
         }
       }
     }
