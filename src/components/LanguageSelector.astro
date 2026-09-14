@@ -211,9 +211,10 @@
     const menu = document.getElementById('lang-dropdown-menu');
     const chevron = document.getElementById('lang-chevron');
 
-    // Read stored or cookie language
+    // Read stored or cookie language (Default to 'de' for Germany target)
     const cookies = document.cookie.split(';');
-    let current = 'en';
+    let current = 'de';
+    let hasCookie = false;
     for (let c of cookies) {
       c = c.trim();
       if (c.startsWith('googtrans=')) {
@@ -222,10 +223,26 @@
           const parts = val.split('/');
           if (parts.length >= 3 && parts[2]) {
             current = parts[2];
+            hasCookie = true;
           }
         }
       }
     }
+
+    // Automatically initialize German translation if no explicit language cookie exists
+    if (!hasCookie) {
+      const stored = localStorage.getItem('user_selected_lang');
+      if (stored) {
+        current = stored;
+      } else {
+        const domain = window.location.hostname;
+        document.cookie = `googtrans=/en/de; path=/;`;
+        if (domain && domain !== 'localhost') {
+          document.cookie = `googtrans=/en/de; path=/; domain=.${domain};`;
+        }
+      }
+    }
+
     const badge = document.getElementById('current-lang-code');
     if (badge) {
       badge.textContent = current === 'zh-CN' ? 'ZH' : current.toUpperCase();
