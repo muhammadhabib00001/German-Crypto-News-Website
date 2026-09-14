@@ -113,13 +113,13 @@ function generateArticleForKeyword(kw, uniqueImage) {
 In diesem umfassenden Ratgeber analysieren wir die architektonischen Grundlagen, Markt-Kennzahlen, steuerrechtlichen Rahmenbedingungen im DACH-Raum sowie die praktischen Anwendungsmöglichkeiten von **${cleanKw}**.
 
 <div class="my-8 p-6 bg-slate-900 border border-slate-800 rounded-2xl text-white shadow-xl">
-  <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 mb-2">Featured Snippet: Was ist ${cleanKw}?</h4>
+  <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 mb-2">Schnellübersicht &amp; Definition: ${kwTitle}</h4>
   <p class="text-sm leading-relaxed text-slate-200 mb-4">
-    <strong>${cleanKw}</strong> bezieht sich auf wichtige Markt- und Analyseparameter im europäischen Kryptomarkt. Anleger und Händler nutzen diese Kennzahlen zur Bewertung von Liquidität, Kursentwicklungen, regulatorischen BaFin-Standards und steuerfreien Haltefristen im DACH-Raum.
+    <strong>${kwTitle}</strong> ist ein zentraler Such- und Analysebegriff im deutschen Krypto- und Web3-Markt. Anleger, Trader und Web3-Enthusiasten bewerten unter diesem Themenkomplex relevante Kursentwicklungen, technische Protokoll-Upgrades, BaFin/MiCA-Regulierungen sowie die steuerfreie Haltefrist von 12 Monaten gemäß § 23 EStG.
   </p>
   <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center font-mono">
     <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
-      <span class="block text-slate-400 text-[10px] uppercase font-bold">MARKTSEGMENT</span>
+      <span class="block text-slate-400 text-[10px] uppercase font-bold">KATEGORIE</span>
       <span class="text-xs font-bold text-amber-400 font-sans">${category.toUpperCase()}</span>
     </div>
     <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
