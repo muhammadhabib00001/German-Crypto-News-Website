@@ -208,9 +208,6 @@ export default function ArticleDetailPage({ params }: ArticlePageProps) {
               </div>
             )}
 
-            {/* Table of Contents */}
-            <TableOfContents items={article.toc} />
-
             {/* Financial Disclaimer (if required) */}
             {article.disclaimerRequired && <FinancialDisclaimer />}
 
