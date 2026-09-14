@@ -18,7 +18,10 @@ const sortedArticles = allArticles.sort(
   (a, b) => new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime()
 );
 
-const featuredArticle = sortedArticles.find((a) => a.data.isFeatured) || sortedArticles[0];
+const featuredArticle = sortedArticles.find((a) => a.data.isFeatured) || sortedArticles[0] || {
+  slug: '',
+  data: { title: 'Welcome to newskrypt Financial News Desk' }
+};
 const secondaryStories = sortedArticles.filter((a) => a.slug !== featuredArticle.slug).slice(0, 3);
 const trendingStories = sortedArticles.filter((a) => a.data.isTrending).slice(0, 5);
 
