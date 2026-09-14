@@ -26,7 +26,7 @@ const auth = new google.auth.GoogleAuth({
 });
 
 const vertexAI = new VertexAI({ project: gcpProjectId, location: gcpLocation, googleAuth: auth });
-const generativeModel = vertexAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
+const generativeModel = vertexAI.getGenerativeModel({ model: process.env.VERTEX_MODEL || 'gemini-2.5-flash' });
 
 // Image pool for unique assignment
 const UNSPLASH_POOL = [
