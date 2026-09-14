@@ -97,11 +97,18 @@ export default function HomePage() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {latestArticles.map((article) => (
-                  <ArticleCard key={article.id} article={article} />
-                ))}
-              </div>
+              {latestArticles.length === 0 ? (
+                <div className="py-12 text-center text-slate-500 dark:text-slate-400 space-y-2">
+                  <p className="text-base font-bold">Derzeit sind keine veröffentlichten Artikel vorhanden.</p>
+                  <p className="text-xs">Neue Fachartikel und Marktberichte werden in Kürze veröffentlicht.</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {latestArticles.map((article) => (
+                    <ArticleCard key={article.id} article={article} />
+                  ))}
+                </div>
+              )}
             </section>
 
             {/* Category Section: Bitcoin */}
