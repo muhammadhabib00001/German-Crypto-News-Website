@@ -100,26 +100,41 @@ export default function PresalesPage() {
                   key={token.id}
                   className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group"
                 >
-                  <div className="relative h-44 w-full overflow-hidden">
+                  <div className="relative h-44 w-full overflow-hidden bg-slate-950">
                     <Image
                       src={token.featuredImage}
                       alt={token.name}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300 opacity-90"
                     />
                     <span className="absolute top-3 left-3 bg-amber-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded shadow">
                       {token.badge}
                     </span>
-                    <span className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-0.5 rounded">
-                      {token.network}
+                    <span className={`absolute top-3 right-3 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow ${
+                      token.status === 'Aktiv' ? 'bg-emerald-600' : 'bg-amber-600'
+                    }`}>
+                      {token.status}
                     </span>
+
+                    {/* Token Logo Avatar Overlay */}
+                    {token.logoUrl && (
+                      <div className="absolute -bottom-4 left-5 w-12 h-12 rounded-full border-2 border-white dark:border-slate-900 bg-white shadow-md overflow-hidden z-10">
+                        <Image
+                          src={token.logoUrl}
+                          alt={`${token.name} logo`}
+                          width={48}
+                          height={48}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                    )}
                   </div>
 
-                  <div className="p-5 space-y-4 flex-1 flex flex-col justify-between">
+                  <div className="p-5 pt-7 space-y-4 flex-1 flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex items-center gap-2">
                           <Link href={`/presales/${token.slug}`}>{token.name} ({token.symbol})</Link>
                         </h2>
                         <span className="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded">

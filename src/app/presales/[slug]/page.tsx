@@ -70,14 +70,27 @@ export default function PresaleDetailPage({ params }: PresaleDetailPageProps) {
           {/* Header Card */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <span className="bg-amber-500 text-slate-950 font-black text-xs uppercase px-2.5 py-1 rounded">
-                  {token.badge}
-                </span>
-                <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-2">
-                  {token.name} ({token.symbol}) Presale Analyse
-                </h1>
-                <p className="text-xs text-slate-500 mt-1">Netzwerk: {token.network}</p>
+              <div className="flex items-center gap-4">
+                {token.logoUrl && (
+                  <div className="w-16 h-16 rounded-full border-2 border-slate-200 dark:border-slate-700 bg-white shadow-md p-1 overflow-hidden shrink-0">
+                    <Image
+                      src={token.logoUrl}
+                      alt={`${token.name} logo`}
+                      width={60}
+                      height={60}
+                      className="object-cover w-full h-full rounded-full"
+                    />
+                  </div>
+                )}
+                <div>
+                  <span className="bg-amber-500 text-slate-950 font-black text-xs uppercase px-2.5 py-1 rounded">
+                    {token.badge}
+                  </span>
+                  <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-1">
+                    {token.name} ({token.symbol}) Presale Analyse
+                  </h1>
+                  <p className="text-xs text-slate-500 mt-1">Netzwerk: {token.network}</p>
+                </div>
               </div>
 
               <div className="text-right">

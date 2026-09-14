@@ -135,6 +135,7 @@ export interface PresaleToken {
   name: string;
   symbol: string;
   slug: string;
+  logoUrl?: string;
   shortDescription: string;
   fullDescription: string;
   badge: string;
