@@ -11,11 +11,13 @@ import { getTrendingArticles } from '@/data/articles';
 import { Rocket, ShieldCheck, ArrowRight, Sparkles, Filter } from 'lucide-react';
 
 const CATEGORIES = [
-  { id: 'all', label: 'Alle Vorverkäufe' },
-  { id: 'meme', label: 'Meme Coins' },
-  { id: 'l2', label: 'Layer-1 & Layer-2' },
-  { id: 'ai', label: 'KI & Gaming (P2E)' },
-  { id: 'defi', label: 'DeFi & Payments' },
+  { id: 'all', label: 'Alle Presales' },
+  { id: 'aktiv', label: '🟢 Aktive Vorverkäufe' },
+  { id: 'demnaechst', label: '⏳ Demnächst / Upcoming' },
+  { id: 'meme', label: '🚀 Meme Coins' },
+  { id: 'l2', label: '⚡ Layer-1 & Layer-2' },
+  { id: 'ai', label: '🤖 KI & Gaming (P2E)' },
+  { id: 'rwa', label: '🏢 RWA & DeFi' },
 ];
 
 export default function PresalesPage() {
@@ -24,6 +26,8 @@ export default function PresalesPage() {
 
   const filteredTokens = PRESALE_TOKENS.filter((token) => {
     if (activeCategory === 'all') return true;
+    if (activeCategory === 'aktiv') return token.status === 'Aktiv';
+    if (activeCategory === 'demnaechst') return token.status === 'Demnächst';
     if (activeCategory === 'meme') {
       return (
         token.badge.toLowerCase().includes('meme') ||
@@ -31,17 +35,18 @@ export default function PresalesPage() {
         token.symbol.includes('SHIB') ||
         token.symbol.includes('WAI') ||
         token.symbol.includes('STARS') ||
-        token.symbol.includes('DAWGZ')
+        token.symbol.includes('DAWGZ') ||
+        token.symbol.includes('MEMEBET')
       );
     }
     if (activeCategory === 'l2') {
-      return token.badge.toLowerCase().includes('layer') || token.badge.toLowerCase().includes('dag');
+      return token.badge.toLowerCase().includes('layer') || token.badge.toLowerCase().includes('dag') || token.badge.toLowerCase().includes('mine');
     }
     if (activeCategory === 'ai') {
-      return token.badge.toLowerCase().includes('ki') || token.badge.toLowerCase().includes('earn') || token.badge.toLowerCase().includes('play');
+      return token.badge.toLowerCase().includes('ki') || token.badge.toLowerCase().includes('earn') || token.badge.toLowerCase().includes('play') || token.badge.toLowerCase().includes('gamble');
     }
-    if (activeCategory === 'defi') {
-      return token.badge.toLowerCase().includes('defi') || token.badge.toLowerCase().includes('payment') || token.badge.toLowerCase().includes('protocol');
+    if (activeCategory === 'rwa') {
+      return token.badge.toLowerCase().includes('rwa') || token.badge.toLowerCase().includes('defi') || token.badge.toLowerCase().includes('payment') || token.badge.toLowerCase().includes('green');
     }
     return true;
   });
