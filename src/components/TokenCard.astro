@@ -8,10 +8,18 @@ interface Props {
 const { token } = Astro.props;
 
 const riskColors = {
-  'Low': 'bg-emerald-50 text-emerald-700 border-emerald-200',
-  'Medium': 'bg-blue-50 text-blue-700 border-blue-200',
-  'High': 'bg-amber-50 text-amber-700 border-amber-200',
-  'Extreme / Degen': 'bg-rose-50 text-rose-700 border-rose-200'
+  'Niedrig': 'bg-emerald-50 text-emerald-700 border-emerald-200',
+  'Mittel': 'bg-blue-50 text-blue-700 border-blue-200',
+  'Hoch': 'bg-amber-50 text-amber-700 border-amber-200',
+  'Extrem / Spekulativ': 'bg-rose-50 text-rose-700 border-rose-200'
+};
+
+const stageGerman = {
+  'Upcoming Presale': 'Kommender Presale',
+  'Active Presale': 'Aktiver Presale',
+  'Upcoming DEX Launch': 'Kommender DEX-Launch',
+  'Upcoming CEX Launch': 'Kommender CEX-Launch',
+  'Airdrop / Testnet': 'Airdrop & Testnet'
 };
 ---
 
@@ -27,7 +35,7 @@ const riskColors = {
       <div class="flex items-center gap-3">
         <img
           src={token.logo}
-          alt={`${token.name} token icon`}
+          alt={`${token.name} Token-Icon`}
           class="w-12 h-12 rounded-xl object-cover border border-slate-200 shadow-xs shrink-0"
           loading="lazy"
           onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=160&auto=format&fit=crop&q=80';"
@@ -56,7 +64,7 @@ const riskColors = {
 
       <!-- Stage Badge -->
       <span class={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${token.badgeColor} shrink-0`}>
-        {token.stage}
+        {stageGerman[token.stage] || token.stage}
       </span>
     </div>
 
@@ -103,72 +111,20 @@ const riskColors = {
         </div>
       </div>
     )}
-
-    <!-- Live Countdown Timer -->
-    <div class="flex items-center justify-between bg-amber-500/5 border border-amber-500/20 rounded-xl px-3 py-2 text-xs mb-4">
-      <div class="flex items-center gap-1.5 text-amber-800 font-bold text-[11px]">
-        <span>⏳</span>
-        <span>Launch Countdown:</span>
-      </div>
-      <div
-        class="countdown-clock font-mono font-bold text-black text-xs"
-        data-target-date={token.launchDate}
-      >
-        Wird berechnet...
-      </div>
-    </div>
-
-    <!-- Token Allocation Summary -->
-    <div class="mb-4">
-      <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1.5">Token-Verteilung</span>
-      <div class="flex h-2 rounded-full overflow-hidden bg-slate-100 gap-0.5">
-        <div style={`width: ${token.tokenomics.presale}%;`} class="bg-amber-500" title={`Presale / Verkauf: ${token.tokenomics.presale}%`}></div>
-        <div style={`width: ${token.tokenomics.liquidity}%;`} class="bg-blue-500" title={`Liquiditätspool: ${token.tokenomics.liquidity}%`}></div>
-        <div style={`width: ${token.tokenomics.stakingRewards}%;`} class="bg-emerald-500" title={`Staking: ${token.tokenomics.stakingRewards}%`}></div>
-        <div style={`width: ${token.tokenomics.ecosystem}%;`} class="bg-purple-500" title={`Ökosystem: ${token.tokenomics.ecosystem}%`}></div>
-        <div style={`width: ${token.tokenomics.team}%;`} class="bg-slate-400" title={`Team: ${token.tokenomics.team}%`}></div>
-      </div>
-      <div class="flex flex-wrap gap-x-3 gap-y-1 mt-1.5 text-[10px] text-slate-600">
-        <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Verkauf {token.tokenomics.presale}%</span>
-        <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>LP {token.tokenomics.liquidity}%</span>
-        <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Belohnungen {token.tokenomics.stakingRewards}%</span>
-        <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>Team {token.tokenomics.team}%</span>
-      </div>
-    </div>
   </div>
 
-  <!-- Action Bar & Official Links -->
-  <div class="pt-4 border-t border-slate-200 flex items-center justify-between gap-2">
-    <div class="flex items-center gap-2">
-      <span class={`text-[10px] font-bold px-2 py-0.5 rounded border ${riskColors[token.riskRating]}`}>
-        {token.riskRating}
-      </span>
-      {token.securityAudit.score && (
-        <span class="text-[10px] font-mono font-bold bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded border border-slate-200" title="Sicherheits-Audit Punkte">
-          Audit: {token.securityAudit.score}
-        </span>
-      )}
-    </div>
+  <!-- Footer Actions -->
+  <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2 mt-2">
+    <span class={`text-[10px] font-bold px-2 py-0.5 rounded border ${riskColors[token.riskRating] || 'bg-slate-100 text-slate-700 border-slate-200'}`}>
+      Risiko: {token.riskRating}
+    </span>
 
-    <div class="flex items-center gap-2">
-      {token.links.website && (
-        <a
-          href={token.links.website}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 px-2.5 py-1.5 rounded-lg border border-slate-200 transition-colors inline-flex items-center gap-1"
-        >
-          <span>Webseite</span>
-          <span>↗</span>
-        </a>
-      )}
-      <a
-        href={`/token-launches/${token.id}`}
-        class="text-xs font-bold text-white bg-black hover:bg-slate-800 px-3 py-1.5 rounded-lg shadow-xs transition-colors inline-flex items-center gap-1"
-      >
-        <span>Details</span>
-        <span>→</span>
-      </a>
-    </div>
+    <a
+      href={`/token-launches/${token.id}`}
+      class="inline-flex items-center gap-1 text-xs font-bold text-black hover:text-amber-600 transition-colors"
+    >
+      <span>Projekt Details</span>
+      <span>→</span>
+    </a>
   </div>
 </div>
