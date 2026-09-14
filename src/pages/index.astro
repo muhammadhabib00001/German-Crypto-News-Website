@@ -45,9 +45,9 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
 ---
 
 <BaseLayout
-  title="newskrypt - Live Crypto News, Bitcoin, Ethereum, Markets & Financial Intelligence"
+  title="newskrypt - Krypto-Nachrichten, Bitcoin, Ethereum, Märkte & Finanz-Analysen"
   exactTitle={true}
-  description="Premier financial news publication covering Bitcoin records, Ethereum Layer-2 scaling, institutional ETF flows, crypto regulations, DeFi, and market intelligence."
+  description="Führendes deutsches Finanz-Nachrichtenportal für Bitcoin-Rekorde, Ethereum Layer-2-Skalierung, ETF-Zuflüsse, Krypto-Regulierung (BaFin/MiCA) und Marktanalysen."
   canonicalUrl="https://cryptopulse.news"
 >
   {hasArticles ? (
@@ -100,7 +100,7 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
               </div>
               <div class="text-[10px] text-slate-500 pt-2 border-t border-slate-100 flex items-center justify-between">
                 <span>{story.data.readingTime}</span>
-                <a href={`/news/${story.slug}`} class="text-amber-600 font-semibold hover:underline">Read →</a>
+                <a href={`/news/${story.slug}`} class="text-amber-600 font-semibold hover:underline">Lesen →</a>
               </div>
             </div>
           ))}
@@ -115,7 +115,7 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
           <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-3">
             <h2 class="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>Market Movers</span>
+              <span>Marktbewegungen</span>
             </h2>
             <span class="text-[10px] text-slate-500">24h Vol: {MARKET_METRICS.volume24h}</span>
           </div>
@@ -151,8 +151,8 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
           </div>
 
           <div class="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500">
-            <span>Fear & Greed: <strong class="text-emerald-600">{MARKET_METRICS.fearAndGreedIndex} ({MARKET_METRICS.fearAndGreedSentiment})</strong></span>
-            <a href="/category/crypto-markets" class="text-amber-600 hover:underline">Full Heatmap →</a>
+            <span>Angst &amp; Gier: <strong class="text-emerald-600">{MARKET_METRICS.fearAndGreedIndex} ({MARKET_METRICS.fearAndGreedSentiment})</strong></span>
+            <a href="/category/crypto-markets" class="text-amber-600 hover:underline">Alle Kurse →</a>
           </div>
         </div>
 
@@ -160,7 +160,7 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
         <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
           <h2 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-4 flex items-center gap-2">
             <span>🔥</span>
-            <span>Trending Stories</span>
+            <span>Beliebte Berichte</span>
           </h2>
 
           <div class="space-y-4">
@@ -189,20 +189,20 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
           <div class="flex items-center justify-between pb-3 border-b border-amber-500/20 mb-3">
             <h2 class="text-xs font-bold uppercase tracking-wider text-black flex items-center gap-1.5">
               <span>🚀</span>
-              <span>Upcoming Token Launches</span>
+              <span>Kommende Token-Launches</span>
             </h2>
             <span class="text-[10px] font-bold text-amber-700 bg-amber-500/10 px-1.5 py-0.5 rounded">
-              Presales & Memes
+              Presales &amp; Memes
             </span>
           </div>
           <p class="text-xs text-slate-700 leading-relaxed mb-3">
-            Track future token sales, fair launch bonding curves, and high-impact utility tokens with live countdowns.
+            Verfolgen Sie zukünftige Token-Verkäufe, Presales und Projekte mit Live-Countdowns.
           </p>
           <a
             href="/token-launches"
             class="w-full py-2.5 bg-black hover:bg-slate-800 text-white font-bold text-xs rounded-xl text-center block transition-colors shadow-xs"
           >
-            Explore All Launches & Presales →
+            Alle Launches &amp; Presales ansehen →
           </a>
         </div>
 
@@ -218,7 +218,7 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
       <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-6">
         <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
           <span class="text-amber-500">₿</span>
-          <span>Bitcoin & Ethereum In-Depth</span>
+          <span>Bitcoin &amp; Ethereum im Detail</span>
         </h2>
         <div class="flex items-center gap-3 text-xs">
           <a href="/category/bitcoin" class="text-slate-500 hover:text-slate-900">Bitcoin News →</a>
@@ -240,12 +240,12 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
         <div>
           <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
             <span>⚖️</span>
-            <span>Regulatory & Market Analysis</span>
+            <span>Regulierung &amp; Marktanalysen</span>
           </h2>
-          <p class="text-xs text-slate-500 mt-1">SEC filings, MiCA mandates, derivatives liquidation data, and institutional allocations.</p>
+          <p class="text-xs text-slate-500 mt-1">BaFin-Mitteilungen, MiCA-Richtlinien, Liquidationen und institutionelle Kapitalflüsse.</p>
         </div>
         <a href="/category/crypto-regulation" class="text-xs font-bold text-amber-600 hover:underline shrink-0">
-          View Policy Desk →
+          Zum Regulierungs-Desk →
         </a>
       </div>
 
@@ -264,7 +264,7 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
       <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-6">
         <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
           <span>⚡</span>
-          <span>DeFi, Web3 & Altcoin Ecosystems</span>
+          <span>DeFi, Web3 &amp; Altcoin-Ökosysteme</span>
         </h2>
         <div class="flex items-center gap-3 text-xs">
           <a href="/category/defi" class="text-slate-500 hover:text-slate-900">DeFi →</a>
@@ -284,10 +284,10 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
       <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-6">
         <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
           <span>🛡️</span>
-          <span>Security, Mining & Emerging Tech</span>
+          <span>Sicherheit, Mining &amp; Technologie</span>
         </h2>
         <a href="/category/crypto-security" class="text-xs font-bold text-amber-600 hover:underline">
-          Security Audits →
+          Sicherheits-Audits →
         </a>
       </div>
 
@@ -301,7 +301,7 @@ const techSecurityArticles = sortedArticles.filter((a) => ['crypto-security', 'm
     <!-- All Categories Fast Navigator -->
     <section class="my-12 p-6 bg-white border border-slate-200 rounded-2xl shadow-xs">
       <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">
-        Explore All {CATEGORY_LIST.length} Crypto Sectors & Wire Desks
+        Alle {CATEGORY_LIST.length} Krypto-Sektoren &amp; Themenbereiche
       </h3>
       <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
         {CATEGORY_LIST.map((cat) => (

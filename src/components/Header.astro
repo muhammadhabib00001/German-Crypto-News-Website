@@ -7,7 +7,7 @@ const primaryNav = [
   { name: 'Ethereum', slug: 'ethereum', icon: 'Ξ', showOn: 'always' },
   { name: 'DeFi', slug: 'defi', icon: '⚡', showOn: 'always' },
   { name: 'Altcoins', slug: 'altcoins', icon: '💎', showOn: 'always' },
-  { name: 'Markets', slug: 'crypto-markets', icon: '📈', showOn: 'xl' }
+  { name: 'Märkte', slug: 'crypto-markets', icon: '📈', showOn: 'xl' }
 ];
 
 // All remaining sectors & niches are grouped cleanly for the Explore megamenu
@@ -39,7 +39,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
             class="px-2.5 xl:px-3.5 py-1.5 text-xs font-black text-cyan-900 bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/30 rounded-xl transition-all inline-flex items-center gap-1.5 shrink-0 shadow-2xs mr-1"
           >
             <span class="text-xs sm:text-sm">🚀</span>
-            <span class="whitespace-nowrap">Token Launches</span>
+            <span class="whitespace-nowrap">Token-Launches</span>
             <span class="text-[9px] uppercase tracking-wider bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-1.5 py-0.2 rounded font-black shadow-xs">Live</span>
           </a>
 
@@ -73,7 +73,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
               aria-expanded="false"
               aria-haspopup="true"
             >
-              <span class="whitespace-nowrap">Explore</span>
+              <span class="whitespace-nowrap">Entdecken</span>
               <svg class="w-3.5 h-3.5 text-slate-500 group-hover:rotate-180 transition-transform shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
               </svg>
@@ -82,7 +82,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
             <!-- Dropdown Menu Box -->
             <div class="absolute left-0 mt-1 w-72 rounded-2xl bg-white border border-slate-200 shadow-2xl p-3 hidden group-hover:block transition-all z-50 animate-in fade-in slide-in-from-top-1 duration-150 max-h-[75vh] overflow-y-auto no-scrollbar">
               <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-2.5 py-1">
-                More Sectors & Niches
+                Weitere Sektoren &amp; Nischen
               </div>
               <div class="grid grid-cols-1 gap-0.5 mt-1">
                 {moreCategories.map((cat) => (
@@ -98,10 +98,10 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
 
               <!-- Quick Editorial Links inside Dropdown -->
               <div class="border-t border-slate-100 mt-2 pt-2 grid grid-cols-2 gap-1 text-[11px] text-slate-500 font-medium px-1">
-                <a href="/authors" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Authors</a>
-                <a href="/editorial-policy" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Editorial</a>
-                <a href="/about" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">About Us</a>
-                <a href="/contact" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Contact</a>
+                <a href="/authors" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Autoren</a>
+                <a href="/editorial-policy" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Redaktion</a>
+                <a href="/about" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Über uns</a>
+                <a href="/contact" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Kontakt</a>
               </div>
             </div>
           </div>
@@ -116,12 +116,12 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
           id="search-btn"
           type="button"
           class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-colors group cursor-pointer shrink-0"
-          aria-label="Search articles"
+          aria-label="Artikel suchen"
         >
           <svg class="w-4 h-4 text-slate-500 group-hover:text-cyan-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
-          <span class="hidden sm:inline">Search...</span>
+          <span class="hidden sm:inline">Suchen...</span>
           <kbd class="hidden xl:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-white border border-slate-300 text-slate-600 rounded">⌘K</kbd>
         </button>
 
@@ -130,7 +130,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
           id="mobile-menu-btn"
           type="button"
           class="lg:hidden p-2 text-slate-700 hover:text-black bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl cursor-pointer transition-colors shrink-0"
-          aria-label="Toggle navigation menu"
+          aria-label="Menü umschalten"
         >
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
@@ -152,7 +152,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
       >
         <span class="flex items-center gap-2">
           <span class="text-base">🚀</span>
-          <span>Upcoming Token Launches & Presales</span>
+          <span>Kommende Token-Launches &amp; Presales</span>
         </span>
         <span class="px-2 py-0.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-md text-[10px] uppercase tracking-wider font-extrabold">Live</span>
       </a>
@@ -160,7 +160,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
 
     <!-- Main Navigation Categories Grid -->
     <div class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2 px-1">
-      Coverage Sectors
+      Themenbereiche
     </div>
     <div class="grid grid-cols-2 gap-2 mb-5">
       {CATEGORY_LIST.map((cat) => (
@@ -176,10 +176,10 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
     
     <!-- Publication Info & Policies -->
     <div class="border-t border-slate-200 pt-3 flex flex-col gap-1 text-xs font-semibold text-slate-600">
-      <a href="/authors" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Our Authors & Analysts</a>
-      <a href="/editorial-policy" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Editorial Standards</a>
-      <a href="/about" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">About newskrypt</a>
-      <a href="/contact" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Contact & PR Inquiries</a>
+      <a href="/authors" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Unsere Autoren &amp; Analysten</a>
+      <a href="/editorial-policy" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Redaktionelle Standards</a>
+      <a href="/about" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Über newskrypt</a>
+      <a href="/contact" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Kontakt &amp; Presse</a>
     </div>
   </div>
 </header>
