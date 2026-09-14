@@ -131,7 +131,7 @@ CRITICAL RULES:
 2. Exactly 1 external markdown link anchored directly on "${keyword}" in the first paragraph (e.g. [${keyword}](https://bitcoin.org)). Do NOT put external links anywhere else.
 3. No Horizontal Dash Rules ("---") anywhere in the article body.
 4. No raw backtick code blocks (\`\`\`html) around HTML components or text.
-5. Include a custom Key Highlights HTML box with double quotes: <div class="my-8 p-6 bg-slate-900 border border-slate-800 rounded-2xl text-white shadow-xl">...</div>.
+5. Do NOT include custom HTML boxes or div containers in the body text.
 6. Return JSON only with fields: title, metaTitle (max 55 chars), excerpt, metaDescription (max 155 chars), category (one of: bitcoin, ethereum, altcoins, defi, crypto-markets, crypto-regulation, crypto-trading), author (one of: julian-hayes, elena-rostova, kaito-tanaka, marcus-vance), keyHighlights (array of 4 German bullet strings), faqs (array of 4 objects {question, answer}), content (the Markdown body text in German).`;
 
   const req = {
