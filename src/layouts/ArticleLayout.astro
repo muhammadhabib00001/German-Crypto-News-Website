@@ -68,13 +68,13 @@ const categoryMeta = CATEGORIES[article.data.category] || {
 const fullCanonical = `https://cryptopulse.news/news/${article.slug}`;
 
 // Formatted dates
-const pubDateStr = new Date(article.data.publishedDate).toLocaleDateString('en-US', {
+const pubDateStr = new Date(article.data.publishedDate).toLocaleDateString('de-DE', {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
 });
 const modDateStr = article.data.updatedDate
-  ? new Date(article.data.updatedDate).toLocaleDateString('en-US', {
+  ? new Date(article.data.updatedDate).toLocaleDateString('de-DE', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -121,7 +121,7 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Home",
+      "name": "Startseite",
       "item": "https://cryptopulse.news"
     },
     {
@@ -176,7 +176,7 @@ if (faqSchema) schemas.push(faqSchema);
     
     <!-- Top Breadcrumbs -->
     <nav class="flex items-center gap-2 text-xs text-slate-500 mb-6 flex-wrap" aria-label="Breadcrumbs">
-      <a href="/" class="hover:text-amber-600 transition-colors">Home</a>
+      <a href="/" class="hover:text-amber-600 transition-colors">Startseite</a>
       <span>/</span>
       <a href={`/category/${article.data.category}`} class="hover:text-amber-600 transition-colors">
         {categoryMeta.name}
@@ -201,7 +201,7 @@ if (faqSchema) schemas.push(faqSchema);
               {categoryMeta.name}
             </a>
             <span class="text-xs uppercase font-bold text-amber-700 px-2 py-0.5 rounded bg-amber-50 border border-amber-200">
-              {article.data.contentType || 'Analysis'}
+              {article.data.contentType || 'Analyse'}
             </span>
           </div>
 
@@ -240,21 +240,21 @@ if (faqSchema) schemas.push(faqSchema);
 
             <div class="flex items-center gap-4 text-[11px]">
               <div>
-                <span class="text-slate-500">Published:</span>
+                <span class="text-slate-500">Veröffentlicht:</span>
                 <time datetime={article.data.publishedDate} class="text-slate-700 font-medium ml-1">
                   {pubDateStr}
                 </time>
               </div>
               {modDateStr && (
                 <div class="hidden sm:block">
-                  <span class="text-emerald-600">Updated:</span>
+                  <span class="text-emerald-600">Aktualisiert:</span>
                   <time datetime={article.data.updatedDate} class="text-slate-700 font-medium ml-1">
                     {modDateStr}
                   </time>
                 </div>
               )}
               <div>
-                <span class="text-slate-500">Read Time:</span>
+                <span class="text-slate-500">Lesezeit:</span>
                 <span class="text-slate-700 font-medium ml-1">{article.data.readingTime}</span>
               </div>
             </div>
@@ -283,7 +283,7 @@ if (faqSchema) schemas.push(faqSchema);
           <div class="bg-gradient-to-r from-amber-500/10 via-amber-500/5 to-white border-l-4 border-amber-500 border border-slate-200 rounded-r-2xl p-6 mb-8 shadow-xs">
             <div class="flex items-center gap-2 text-amber-700 font-bold text-xs uppercase tracking-wider mb-3.5">
               <span class="text-base">⚡</span>
-              <span class="tracking-widest">Key Takeaways & Executive Summary</span>
+              <span class="tracking-widest">Wichtigste Erkenntnisse &amp; Zusammenfassung</span>
             </div>
             <ul class="space-y-2.5 text-[15px] text-slate-800">
               {article.data.keyHighlights.map((highlight) => (
@@ -299,7 +299,7 @@ if (faqSchema) schemas.push(faqSchema);
         <!-- Social Share Bar -->
         <div class="flex flex-wrap items-center justify-end gap-3 p-3.5 bg-white border border-slate-200 rounded-xl mb-8 text-xs shadow-xs">
           <div class="flex items-center gap-2">
-            <span class="font-semibold text-slate-500 hidden sm:inline">Share:</span>
+            <span class="font-semibold text-slate-500 hidden sm:inline">Teilen:</span>
             <a
               href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.data.title)}&url=${encodeURIComponent(fullCanonical)}`}
               target="_blank"
@@ -325,9 +325,9 @@ if (faqSchema) schemas.push(faqSchema);
               <span>LinkedIn</span>
             </a>
             <button
-              onclick="navigator.clipboard.writeText(window.location.href); alert('Article URL copied to clipboard!');"
+              onclick="navigator.clipboard.writeText(window.location.href); alert('Artikel-Link in die Zwischenablage kopiert!');"
               class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md transition-colors cursor-pointer"
-              title="Copy Link"
+              title="Link kopieren"
             >
               <span>🔗 Link</span>
             </button>
@@ -344,7 +344,7 @@ if (faqSchema) schemas.push(faqSchema);
           <div class="mt-10 p-5 bg-slate-50 border border-slate-200 rounded-xl text-xs">
             <div class="font-bold text-slate-900 mb-2 flex items-center gap-2">
               <span>📋</span>
-              <span>Regulatory Filings & Primary Sources:</span>
+              <span>Primärquellen &amp; Dokumente:</span>
             </div>
             <ul class="space-y-1.5 text-slate-600">
               {article.data.sources.map(src => (
@@ -363,13 +363,13 @@ if (faqSchema) schemas.push(faqSchema);
           <section class="mt-12 pt-8 border-t border-slate-200">
             <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-cyan-500"></span>
-              <span>Frequently Asked Questions</span>
+              <span>Häufig gestellte Fragen (FAQ)</span>
             </h2>
             <div class="space-y-3.5">
               {article.data.faqs.map((faq) => (
                 <div class="bg-white border border-slate-200 hover:border-cyan-300 rounded-xl p-5 transition-all shadow-xs">
                   <h3 class="text-sm font-bold text-slate-900 mb-2 flex items-start gap-2">
-                    <span class="text-cyan-600 font-black text-xs mt-0.5">Q:</span>
+                    <span class="text-cyan-600 font-black text-xs mt-0.5">F:</span>
                     <span>{faq.question}</span>
                   </h3>
                   <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pl-5 font-normal">
@@ -383,7 +383,7 @@ if (faqSchema) schemas.push(faqSchema);
 
         <!-- Article Tag Pills -->
         <div class="mt-8 pt-6 border-t border-slate-200 flex flex-wrap items-center gap-2">
-          <span class="text-xs text-slate-500 font-bold uppercase mr-2">Tags:</span>
+          <span class="text-xs text-slate-500 font-bold uppercase mr-2">Schlagwörter:</span>
           {article.data.tags.map((tag) => {
             const tagSlug = tag
               .toLowerCase()
@@ -410,10 +410,10 @@ if (faqSchema) schemas.push(faqSchema);
           </div>
           <div class="flex-1 text-xs text-slate-700 leading-relaxed">
             <span class="font-bold text-slate-900 block mb-0.5 uppercase tracking-wide text-[11px]">
-              Financial Disclaimer (YMYL Compliance Notice)
+              Finanz- und Risikohinweis
             </span>
             <span>
-              This article is published strictly for informational, educational, and journalistic purposes. No part of this publication constitutes financial, legal, tax, or investment advice. Digital assets and cryptocurrencies involve extraordinary market volatility and substantial risk of total capital loss. Always conduct independent due diligence ("DYOR") and consult a licensed fiduciary advisor prior to making financial decisions. Read our full <a href="/disclaimer" class="text-cyan-700 hover:text-cyan-900 underline font-semibold">Risk Disclaimer</a> and <a href="/editorial-policy" class="text-cyan-700 hover:text-cyan-900 underline font-semibold">Editorial Policy</a>.
+              Dieser Artikel dient ausschließlich Informations- und Bildungszwecken. Keine Inhalte stellen eine Finanz-, Anlage-, Rechts- oder Steuerberatung dar. Digitale Vermögenswerte unterliegen extremen Marktschwankungen bis hin zum Totalverlust. Führen Sie eigene Recherchen durch ("DYOR") und konsultieren Sie qualifizierte Berater. Lesen Sie unseren vollständigen <a href="/disclaimer" class="text-cyan-700 hover:text-cyan-900 underline font-semibold">Risikohinweis</a> und unsere <a href="/editorial-policy" class="text-cyan-700 hover:text-cyan-900 underline font-semibold">Redaktionsrichtlinien</a>.
             </span>
           </div>
         </div>
@@ -435,7 +435,7 @@ if (faqSchema) schemas.push(faqSchema);
                 href={`/author/${article.data.author}`}
                 class="text-xs text-cyan-700 hover:text-cyan-900 underline font-medium"
               >
-                View Author Dossier →
+                Autorenprofil ansehen →
               </a>
             </div>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
@@ -443,7 +443,7 @@ if (faqSchema) schemas.push(faqSchema);
             </p>
             {authorData.credentials && (
               <div class="text-[11px] text-slate-500">
-                <span class="font-bold text-slate-700">Credentials:</span> {authorData.credentials}
+                <span class="font-bold text-slate-700">Qualifikationen:</span> {authorData.credentials}
               </div>
             )}
           </div>
@@ -453,7 +453,7 @@ if (faqSchema) schemas.push(faqSchema);
         <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 border-t border-slate-200">
           {prevArticle ? (
             <a href={`/news/${prevArticle.slug}`} class="p-4 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl group transition-all shadow-xs">
-              <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">← Previous Report</span>
+              <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">← Vorheriger Bericht</span>
               <span class="text-xs font-bold text-slate-900 group-hover:text-amber-600 line-clamp-2 transition-colors">
                 {prevArticle.data.title}
               </span>
@@ -462,7 +462,7 @@ if (faqSchema) schemas.push(faqSchema);
 
           {nextArticle ? (
             <a href={`/news/${nextArticle.slug}`} class="p-4 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl group transition-all text-right sm:text-right shadow-xs">
-              <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">Next Report →</span>
+              <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">Nächster Bericht →</span>
               <span class="text-xs font-bold text-slate-900 group-hover:text-amber-600 line-clamp-2 transition-colors">
                 {nextArticle.data.title}
               </span>
@@ -481,7 +481,7 @@ if (faqSchema) schemas.push(faqSchema);
           <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
             <h3 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-              <span>Table of Contents</span>
+              <span>Inhaltsverzeichnis</span>
             </h3>
 
             <nav id="toc-nav" class="space-y-1.5 text-xs text-slate-600 max-h-[360px] overflow-y-auto pr-1">
@@ -500,7 +500,7 @@ if (faqSchema) schemas.push(faqSchema);
                     </a>
                   ))
               ) : (
-                <div class="text-slate-400 italic text-xs">Standard report outline</div>
+                <div class="text-slate-400 italic text-xs">Standard-Artikelübersicht</div>
               )}
             </nav>
           </div>
@@ -509,7 +509,7 @@ if (faqSchema) schemas.push(faqSchema);
           <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs">
             <h3 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-4 flex items-center gap-2">
               <span>📰</span>
-              <span>Related Policy & Markets</span>
+              <span>Verwandte Berichte &amp; Märkte</span>
             </h3>
 
             <div class="space-y-4">
@@ -527,7 +527,7 @@ if (faqSchema) schemas.push(faqSchema);
           </div>
 
           <!-- Sponsored Placement -->
-          <AdPlacement format="sidebar" label="Partner Placement" />
+          <AdPlacement format="sidebar" label="Partner-Anzeige" />
         </div>
 
       </aside>

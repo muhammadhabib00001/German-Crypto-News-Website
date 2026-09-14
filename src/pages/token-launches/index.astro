@@ -11,15 +11,15 @@ const memeCount = UPCOMING_TOKENS.filter(t => t.category === 'meme').length;
 const pageSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Upcoming Crypto Token Launches, Presales & Meme Coins | newskrypt",
-  "description": "Comprehensive institutional intelligence tracker monitoring upcoming token launches, active presales, IDO/IEO schedules, and meme token fair launches with live automated on-chain updates.",
+  "name": "Kommende Krypto Token-Launches, Presales & Memecoins | newskrypt",
+  "description": "Umfassender Token-Tracker für neue Launches, Presale-Runden, IDO/IEO-Termine und Memecoins mit automatischen On-Chain-Updates.",
   "url": "https://cryptopulse.news/token-launches"
 };
 ---
 
 <BaseLayout
-  title="Upcoming Token Launches, Presales & Meme Coins 2026"
-  description="Explore upcoming crypto tokens, active presales, and viral meme coin launches. Track launch dates, countdown timers, tokenomics, and security audit scores with live automatic feeds."
+  title="Kommende Token-Launches, Presales & Memecoins 2026"
+  description="Entdecken Sie kommende Krypto-Tokens, aktive Presales und neue Memecoin-Launches. Verfolgen Sie Termine, Countdowns, Tokenomics und Sicherheits-Audits."
   canonicalUrl="https://cryptopulse.news/token-launches"
   structuredData={pageSchema}
 >
@@ -29,28 +29,28 @@ const pageSchema = {
     <header class="mb-10 text-center max-w-4xl mx-auto">
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 text-xs font-bold mb-4">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>Live Automated Token Tracking & Launchpad Hub</span>
+        <span>Automatisiertes Token-Tracking &amp; Launchpad-Hub</span>
       </div>
       <h1 class="text-3xl sm:text-5xl font-black text-black tracking-tight mb-4">
-        Upcoming Token Launches & Presales
+        Kommende Token-Launches &amp; Presales
       </h1>
       <p class="text-slate-700 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-        Track cryptocurrency token launches, early-stage presale rounds, and high-velocity meme coin bonding curves updated automatically from on-chain pools and verified research indexes.
+        Verfolgen Sie Krypto-Token-Launches, Presale-Phasen und Memecoin-Projekte mit automatischen Aktualisierungen aus On-Chain-Datenbanken.
       </p>
 
       <!-- Auto-refresh status bar -->
       <div class="inline-flex items-center gap-3 mt-4 px-4 py-1.5 bg-slate-100 rounded-full border border-slate-200 text-xs text-slate-700">
         <span class="flex items-center gap-1.5 font-semibold text-emerald-700">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          Auto-Sync: <span id="sync-status">Hourly Sync Active</span>
+          Auto-Sync: <span id="sync-status">Stündliche Synchronisierung aktiv</span>
         </span>
         <span class="text-slate-300">|</span>
-        <span class="text-slate-600 font-medium">Cycle: <strong>Every Hour</strong></span>
+        <span class="text-slate-600 font-medium">Intervall: <strong>Jede Stunde</strong></span>
         <span class="text-slate-300">|</span>
-        <span id="last-sync-time" class="font-mono text-slate-600">Updated just now</span>
+        <span id="last-sync-time" class="font-mono text-slate-600">Gerade aktualisiert</span>
         <button id="refresh-tokens-btn" class="hover:text-black font-bold flex items-center gap-1 transition-colors cursor-pointer text-slate-600 ml-1">
           <span>🔄</span>
-          <span>Refresh</span>
+          <span>Aktualisieren</span>
         </button>
       </div>
     </header>
@@ -58,27 +58,27 @@ const pageSchema = {
     <!-- Quick Stat Highlights Banner -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
       <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs text-center">
-        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">Total Tracked</span>
-        <span id="stat-total" class="text-2xl sm:text-3xl font-black text-black">{totalTokens} Projects</span>
-        <span class="text-[11px] text-emerald-600 font-semibold block mt-1">✓ Automated Multi-Feed</span>
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">Projekte gesamt</span>
+        <span id="stat-total" class="text-2xl sm:text-3xl font-black text-black">{totalTokens} Projekte</span>
+        <span class="text-[11px] text-emerald-600 font-semibold block mt-1">✓ Multi-Feed-Erfassung</span>
       </div>
 
       <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs text-center">
-        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">Active Presales</span>
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">Aktive Presales</span>
         <span id="stat-presales" class="text-2xl sm:text-3xl font-black text-amber-600">{presaleCount} Presales</span>
-        <span class="text-[11px] text-slate-600 block mt-1">Seed & Private Rounds</span>
+        <span class="text-[11px] text-slate-600 block mt-1">Seed- &amp; Private Rounds</span>
       </div>
 
       <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs text-center">
-        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">Utility & Infra</span>
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">Utility &amp; Infrastruktur</span>
         <span id="stat-crypto" class="text-2xl sm:text-3xl font-black text-blue-600">{cryptoCount} Tokens</span>
-        <span class="text-[11px] text-slate-600 block mt-1">DeFi, AI, ZK & L2</span>
+        <span class="text-[11px] text-slate-600 block mt-1">DeFi, KI, ZK &amp; L2</span>
       </div>
 
       <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-xs text-center">
-        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">Meme Tokens</span>
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1">Memecoins</span>
         <span id="stat-memes" class="text-2xl sm:text-3xl font-black text-rose-600">{memeCount} Memes</span>
-        <span class="text-[11px] text-slate-600 block mt-1">Fair Launches & DEXs</span>
+        <span class="text-[11px] text-slate-600 block mt-1">Fair Launches &amp; DEXs</span>
       </div>
     </div>
 
@@ -93,7 +93,7 @@ const pageSchema = {
             class="filter-cat-btn active px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer bg-white text-black shadow-xs"
             data-category="all"
           >
-            All Launches (<span id="btn-count-all">{totalTokens}</span>)
+            Alle Launches (<span id="btn-count-all">{totalTokens}</span>)
           </button>
           <button
             type="button"
@@ -107,25 +107,25 @@ const pageSchema = {
             class="filter-cat-btn px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer text-slate-600 hover:text-black"
             data-category="crypto"
           >
-            Crypto Tokens (<span id="btn-count-crypto">{cryptoCount}</span>)
+            Krypto Tokens (<span id="btn-count-crypto">{cryptoCount}</span>)
           </button>
           <button
             type="button"
             class="filter-cat-btn px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer text-slate-600 hover:text-black"
             data-category="meme"
           >
-            Meme Tokens (<span id="btn-count-meme">{memeCount}</span>)
+            Memecoins (<span id="btn-count-meme">{memeCount}</span>)
           </button>
         </div>
 
         <!-- Blockchain Filter Dropdown -->
         <div class="flex items-center gap-3">
-          <label for="chain-filter" class="text-xs font-bold text-slate-600 shrink-0">Chain:</label>
+          <label for="chain-filter" class="text-xs font-bold text-slate-600 shrink-0">Blockchain:</label>
           <select
             id="chain-filter"
             class="px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs font-semibold text-black focus:outline-none focus:border-amber-500 cursor-pointer"
           >
-            <option value="all">All Blockchains (Multi-Chain)</option>
+            <option value="all">Alle Blockchains (Multi-Chain)</option>
             <option value="Solana">Solana 🟣</option>
             <option value="Ethereum">Ethereum 🔷</option>
             <option value="Base">Base 🔵</option>
@@ -148,15 +148,15 @@ const pageSchema = {
 
     <!-- Empty State (Hidden by default) -->
     <div id="no-tokens-found" class="hidden text-center py-16 bg-white border border-slate-200 rounded-2xl p-8 mb-12 shadow-xs">
-      <h3 class="text-base font-bold text-black mb-2">No Matching Tokens Found</h3>
+      <h3 class="text-base font-bold text-black mb-2">Keine passenden Tokens gefunden</h3>
       <p class="text-slate-600 text-xs sm:text-sm max-w-md mx-auto mb-4">
-        No projects match your current category and blockchain filters. Try selecting "All Launches" or resetting the chain filter.
+        Es entsprechen keine Projekte Ihren aktuellen Filtern. Wählen Sie "Alle Launches" oder setzen Sie den Filter zurück.
       </p>
       <button
         id="reset-filter-btn"
         class="px-4 py-2 bg-black text-white text-xs font-bold rounded-xl hover:bg-slate-800 transition-colors cursor-pointer"
       >
-        Reset Filters
+        Filter zurücksetzen
       </button>
     </div>
 
@@ -166,13 +166,13 @@ const pageSchema = {
         <span class="text-2xl shrink-0">⚠</span>
         <div>
           <h2 class="text-base font-bold text-black mb-2 uppercase tracking-wide">
-            Mandatory Due Diligence Notice on Upcoming Token Launches
+            Wichtiger Risikohinweis zu neuen Token-Launches
           </h2>
           <p class="text-xs sm:text-sm text-black leading-relaxed mb-3">
-            Participating in early-stage cryptocurrency presales, decentralized initial DEX offerings (IDOs), and meme token fair launches carries extreme risk of partial or complete capital loss. Smart contract exploits, liquidity drainage, team allocations, and sudden regulatory adjustments are inherent hazards in nascent digital asset protocols.
+            Die Teilnahme an Krypto-Presales, Initial DEX Offerings (IDOs) und Memecoin-Launches birgt erhebliche Verlustrisiken bis hin zum Totalverlust. Smart-Contract-Exploits, Liquiditätsabzüge und plötzliche Marktveränderungen sind typische Risiken im Krypto-Sektor.
           </p>
           <p class="text-xs text-black font-semibold">
-            newskrypt publishes token launch profiles strictly for informational and news evaluation purposes. None of our content constitutes investment or financial advice. Always verify smart contract bytecode, independent audit certificates, and lockup proofs before committing capital.
+            newskrypt veröffentlicht Token-Profile ausschließlich zu Informationszwecken. Keine Inhalte stellen eine Anlageberatung dar. Überprüfen Sie stets Smart-Contract-Audits und Lockup-Nachweise vor einer Investition.
           </p>
         </div>
       </div>
@@ -180,15 +180,15 @@ const pageSchema = {
 
     <!-- Project Founder Submission Banner -->
     <section class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 text-center shadow-xs">
-      <h2 class="text-xl sm:text-2xl font-bold text-black mb-2">Launching a Web3 Project or Presale?</h2>
+      <h2 class="text-xl sm:text-2xl font-bold text-black mb-2">Sie starten ein Web3-Projekt oder einen Presale?</h2>
       <p class="text-slate-700 text-xs sm:text-sm max-w-xl mx-auto mb-5 leading-relaxed">
-        Submit your token for editorial review and verification by our cryptographic research analysts. Gain visibility across our institutional and retail readership.
+        Reichen Sie Ihr Token-Projekt für eine redaktionelle Prüfung durch unsere Analysten ein.
       </p>
       <a
         href="/contact"
         class="inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-xs sm:text-sm rounded-xl shadow-md shadow-cyan-500/20 transition-all cursor-pointer"
       >
-        <span>Submit Project for Verification</span>
+        <span>Projekt zur Prüfung einreichen</span>
         <span>→</span>
       </a>
     </section>

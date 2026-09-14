@@ -16,21 +16,21 @@ const authorStats = authors.map((author) => {
 ---
 
 <BaseLayout
-  title="Editorial Team & Subject Matter Experts"
-  description="Meet the journalists, cryptographers, quantitative analysts, and financial policy experts behind newskrypt news reporting."
+  title="Redaktionsteam & Krypto-Experten"
+  description="Lernen Sie die Journalisten, Kryptographen, Finanzanalysten und Regulierungsexperten von newskrypt kennen."
   canonicalUrl="https://cryptopulse.news/authors"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
     <header class="max-w-3xl mb-12">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-800 text-xs font-bold mb-3">
         <span>🛡</span>
-        <span>E-E-A-T Transparency & Editorial Standards</span>
+        <span>E-E-A-T Transparenz &amp; Redaktionelle Standards</span>
       </div>
       <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4">
-        Our Journalists & Research Analysts
+        Unsere Journalisten &amp; Analysten
       </h1>
       <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-        newskrypt upholds institutional-grade reporting rigor. Every article, market model, and technical breakdown is authored by credentialed specialists adhering to strict editorial standards.
+        newskrypt steht für hochkarätigen Finanzjournalismus. Jeder Artikel, Marktbericht und jede technische Analyse wird von Fachexperten unter Einhaltung strenger redaktioneller Standards verfasst.
       </p>
     </header>
 
@@ -50,7 +50,7 @@ const authorStats = authors.map((author) => {
                 </a>
               </h2>
               <span class="text-xs font-bold text-cyan-800 bg-cyan-500/10 border border-cyan-500/20 px-2 py-0.5 rounded">
-                {auth.articleCount} Stories
+                {auth.articleCount} Artikel
               </span>
             </div>
 
@@ -58,7 +58,7 @@ const authorStats = authors.map((author) => {
             <p class="text-xs text-slate-600 leading-relaxed mb-4">{auth.data.bio}</p>
 
             <div class="mb-4">
-              <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Core Expertise</span>
+              <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Fachgebiete</span>
               <div class="flex flex-wrap gap-1.5">
                 {auth.data.expertise.map((exp) => (
                   <span class="px-2 py-0.5 bg-slate-100 border border-slate-200 rounded text-[11px] text-slate-700 font-medium">
@@ -74,7 +74,7 @@ const authorStats = authors.map((author) => {
                 href={`/author/${auth.id.replace('.json', '')}`}
                 class="text-xs font-bold text-cyan-600 hover:text-cyan-700 hover:underline inline-flex items-center gap-1"
               >
-                <span>View Author Page</span>
+                <span>Autorenprofil ansehen</span>
                 <span>→</span>
               </a>
             </div>

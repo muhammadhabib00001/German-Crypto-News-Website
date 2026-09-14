@@ -38,8 +38,8 @@ const eventSchema = {
 ---
 
 <BaseLayout
-  title="Global Crypto Events, Summits & Web3 Conferences | newskrypt"
-  description="Verified global directory of top cryptocurrency conferences, Web3 summits, Ethereum Devcons, Solana Breakpoint, TOKEN2049, and blockchain hackathons."
+  title="Krypto-Events, Konferenzen & Web3-Summits 2026 | newskrypt"
+  description="Verifiziertes globales Verzeichnis führender Krypto-Konferenzen, Web3-Summits, Devcons, TOKEN2049 und Blockchain-Hackathons."
   canonicalUrl="https://cryptopulse.news/events"
   structuredData={eventSchema}
 >
@@ -48,25 +48,25 @@ const eventSchema = {
     <!-- Page Header -->
     <header class="mb-10 pb-8 border-b border-slate-200">
       <div class="flex items-center gap-2 text-xs text-slate-500 mb-3">
-        <a href="/" class="hover:text-amber-600">Home</a>
+        <a href="/" class="hover:text-amber-600">Startseite</a>
         <span>/</span>
-        <span class="text-slate-900 font-medium">Crypto Events Calendar</span>
+        <span class="text-slate-900 font-medium">Krypto-Eventkalender</span>
       </div>
 
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight flex items-center gap-3">
             <span class="text-amber-500">🗓️</span>
-            <span>Global Crypto Events & Summits Calendar</span>
+            <span>Globale Krypto-Events &amp; Summits</span>
           </h1>
           <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-3xl leading-relaxed">
-            Discover verified global Web3 conferences, developer hackathons, institutional crypto summits, and blockchain conventions.
+            Entdecken Sie verifizierte internationale Web3-Konferenzen, Entwickler-Hackathons, institutionelle Krypto-Gipfel und Blockchain-Messen.
           </p>
         </div>
 
         <div class="shrink-0 flex items-center gap-2 bg-white border border-slate-200 px-4 py-2.5 rounded-2xl text-xs text-slate-700 shadow-xs">
           <span class="font-bold text-amber-600 text-base">{CRYPTO_EVENTS.length}</span>
-          <span class="font-medium">Upcoming Verified Events</span>
+          <span class="font-medium">Kommende verifizierte Events</span>
         </div>
       </div>
     </header>
@@ -78,9 +78,9 @@ const eventSchema = {
       <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-6">
         <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
           <span>🔥</span>
-          <span>Featured Global Summits</span>
+          <span>Top-Gipfeltreffen &amp; Highlight-Events</span>
         </h2>
-        <span class="text-xs font-semibold text-amber-600">High-Impact Keynotes</span>
+        <span class="text-xs font-semibold text-amber-600">Internationale Keynotes</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -115,18 +115,18 @@ const eventSchema = {
                 {ev.startTime && (
                   <div class="flex items-center gap-2 text-[11px] text-amber-800 font-semibold">
                     <span class="text-amber-500">⏰</span>
-                    <span>Daily Schedule: <strong>{ev.startTime} - {ev.endTime}</strong> ({ev.timeZone})</span>
+                    <span>Tagesplan: <strong>{ev.startTime} - {ev.endTime}</strong> ({ev.timeZone})</span>
                   </div>
                 )}
                 <div class="flex items-center gap-2">
                   <span class="text-slate-400">🎟️</span>
-                  <span>Passes: <strong class="text-amber-700">{ev.ticketPrice}</strong></span>
+                  <span>Tickets: <strong class="text-amber-700">{ev.ticketPrice}</strong></span>
                 </div>
               </div>
 
               <!-- Speaker Highlights -->
               <div class="mt-4 pt-3 border-t border-slate-100">
-                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1.5">Keynote Speakers</span>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1.5">Hauptsprecher</span>
                 <div class="flex flex-wrap gap-1">
                   {ev.keySpeakers.map((sp) => (
                     <span class="px-2 py-0.5 bg-slate-100 text-slate-800 rounded-md text-[10px] font-semibold">
@@ -138,14 +138,14 @@ const eventSchema = {
             </div>
 
             <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-              <span class="text-[11px] font-medium text-slate-500">By {ev.organizer}</span>
+              <span class="text-[11px] font-medium text-slate-500">Veranstalter: {ev.organizer}</span>
               <a
                 href={ev.website}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="px-4 py-2 bg-slate-900 hover:bg-amber-600 text-white font-bold text-xs rounded-xl transition-colors shadow-xs inline-flex items-center gap-1"
               >
-                <span>Event Portal</span>
+                <span>Event-Portal</span>
                 <span>↗</span>
               </a>
             </div>
@@ -159,9 +159,9 @@ const eventSchema = {
       <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-6">
         <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
           <span>🌐</span>
-          <span>Full Crypto & Blockchain Events Calendar</span>
+          <span>Vollständiger Krypto- &amp; Blockchain-Veranstaltungskalender</span>
         </h2>
-        <span class="text-xs font-semibold text-slate-500">Chronological Order</span>
+        <span class="text-xs font-semibold text-slate-500">Chronologische Reihenfolge</span>
       </div>
 
       <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xs">
@@ -169,11 +169,11 @@ const eventSchema = {
           <table class="w-full text-left border-collapse">
             <thead>
               <tr class="bg-slate-50 border-b border-slate-200 text-[11px] font-extrabold uppercase tracking-wider text-slate-500">
-                <th class="py-4 px-6">Event Name & Type</th>
-                <th class="py-4 px-4">Dates</th>
-                <th class="py-4 px-4">Location</th>
-                <th class="py-4 px-4">Topics</th>
-                <th class="py-4 px-6 text-right">Action</th>
+                <th class="py-4 px-6">Event &amp; Typ</th>
+                <th class="py-4 px-4">Datum</th>
+                <th class="py-4 px-4">Ort</th>
+                <th class="py-4 px-4">Themen</th>
+                <th class="py-4 px-6 text-right">Aktion</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-100 text-xs text-slate-800">
@@ -193,7 +193,7 @@ const eventSchema = {
                   </td>
                   <td class="py-4 px-4 whitespace-nowrap font-mono text-[11px] font-bold text-slate-700">
                     {ev.startDate} <br />
-                    <span class="text-[10px] text-slate-400 font-normal">to {ev.endDate}</span>
+                    <span class="text-[10px] text-slate-400 font-normal">bis {ev.endDate}</span>
                     {ev.startTime && (
                       <div class="text-[10px] text-amber-700 font-sans font-bold mt-1">
                         ⏰ {ev.startTime} - {ev.endTime}
@@ -220,7 +220,7 @@ const eventSchema = {
                       rel="noopener noreferrer"
                       class="px-3 py-1.5 bg-slate-100 hover:bg-amber-500 hover:text-slate-950 text-slate-900 font-bold text-xs rounded-xl transition-all inline-block border border-slate-200"
                     >
-                      Visit Site ↗
+                      Website besuchen ↗
                     </a>
                   </td>
                 </tr>
