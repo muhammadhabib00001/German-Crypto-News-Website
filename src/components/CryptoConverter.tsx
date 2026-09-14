@@ -1,15 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { CRYPTO_PRICES } from '@/data/crypto-prices';
-import { ArrowLeftRight, Calculator } from 'lucide-react';
+import { useLivePrices } from '@/hooks/useLivePrices';
+import { ArrowLeftRight, Calculator, Radio } from 'lucide-react';
 
 export default function CryptoConverter() {
+  const { prices, isLive } = useLivePrices(15000);
   const [selectedCoinSymbol, setSelectedCoinSymbol] = useState('BTC');
   const [amount, setAmount] = useState<number | string>(1);
   const [currency, setCurrency] = useState<'EUR' | 'USD'>('EUR');
 
-  const coin = CRYPTO_PRICES.find((c) => c.symbol === selectedCoinSymbol) || CRYPTO_PRICES[0];
+  const coin = prices.find((c) => c.symbol === selectedCoinSymbol) || prices[0];
   const numAmount = typeof amount === 'number' ? amount : parseFloat(amount) || 0;
 
   const price = currency === 'EUR' ? coin.priceEur : coin.priceUsd;
@@ -21,8 +22,13 @@ export default function CryptoConverter() {
 
   return (
     <div className="bg-slate-900 text-white p-6 rounded-2xl border border-slate-800 shadow-md space-y-4">
-      <div className="flex items-center gap-2 font-bold text-sm text-blue-400 uppercase tracking-wider">
-        <Calculator className="w-4 h-4" /> Krypto-Währungsrechner (EUR / USD)
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2 font-bold text-sm text-blue-400 uppercase tracking-wider">
+          <Calculator className="w-4 h-4" /> Krypto-Währungsrechner (EUR / USD)
+        </div>
+        <span className="text-[11px] text-emerald-400 flex items-center gap-1">
+          <Radio className="w-3 h-3 animate-pulse" /> Live Kurse
+        </span>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-end">
@@ -45,7 +51,7 @@ export default function CryptoConverter() {
             onChange={(e) => setSelectedCoinSymbol(e.target.value)}
             className="w-full px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm font-bold focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            {CRYPTO_PRICES.map((c) => (
+            {prices.map((c) => (
               <option key={c.symbol} value={c.symbol}>
                 {c.name} ({c.symbol})
               </option>

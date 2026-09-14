@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import CryptoConverter from '@/components/CryptoConverter';
+import CryptoPricesTable from '@/components/CryptoPricesTable';
 import FinancialDisclaimer from '@/components/FinancialDisclaimer';
 import Sidebar from '@/components/Sidebar';
-import { CRYPTO_PRICES } from '@/data/crypto-prices';
 import { getTrendingArticles } from '@/data/articles';
 import { SITE_NAME, SITE_URL } from '@/lib/seo';
-import { BarChart3, TrendingUp, TrendingDown, RefreshCw, Layers } from 'lucide-react';
+import { BarChart3, TrendingUp } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: `Krypto Kurse & Marktübersicht Live (EUR) | ${SITE_NAME}`,
@@ -32,7 +32,7 @@ export default function CryptoPricesPage() {
           </h1>
         </div>
         <p className="text-slate-600 dark:text-slate-300 text-sm max-w-3xl leading-relaxed">
-          Verfolgen Sie die aktuellen Preise, 24h-Veränderungen, Handelsvolumen und Marktkapitalisierungen der Top-Kryptowährungen in Euro (€) und US-Dollar ($).
+          Verfolgen Sie die aktuellen Preise, 24h-Veränderungen, Handelsvolumen und Marktkapitalisierungen der Top-Kryptowährungen in Euro (€) und US-Dollar ($) auf Live-Basis.
         </p>
       </div>
 
@@ -65,53 +65,7 @@ export default function CryptoPricesPage() {
       {/* Main Table + Sidebar */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-6">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
-            <div className="p-4 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
-              <h3 className="font-bold text-sm text-slate-900 dark:text-white uppercase tracking-wider">
-                Top Kryptowährungen nach Marktkapitalisierung
-              </h3>
-              <span className="text-[11px] text-slate-500 flex items-center gap-1">
-                <RefreshCw className="w-3 h-3 text-emerald-500 animate-spin" /> Live Daten
-              </span>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
-                <thead className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold border-b border-slate-200 dark:border-slate-800">
-                  <tr>
-                    <th className="p-3">#</th>
-                    <th className="p-3">Name</th>
-                    <th className="p-3 text-right">Preis (EUR)</th>
-                    <th className="p-3 text-right">24h Änd.</th>
-                    <th className="p-3 text-right">Marktkap.</th>
-                    <th className="p-3 text-right">24h Vol.</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-medium">
-                  {CRYPTO_PRICES.map((coin, idx) => {
-                    const isPos = coin.change24h >= 0;
-                    return (
-                      <tr key={coin.symbol} className="hover:bg-slate-50 dark:hover:bg-slate-800/50">
-                        <td className="p-3 text-slate-400 font-semibold">{idx + 1}</td>
-                        <td className="p-3 font-bold text-slate-900 dark:text-white">
-                          {coin.name} <span className="text-slate-400 font-normal text-[10px]">({coin.symbol})</span>
-                        </td>
-                        <td className="p-3 text-right font-bold text-slate-900 dark:text-slate-100">
-                          {coin.priceEur.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}
-                        </td>
-                        <td className={`p-3 text-right font-bold ${isPos ? 'text-emerald-500' : 'text-rose-500'}`}>
-                          {isPos ? '+' : ''}{coin.change24h}%
-                        </td>
-                        <td className="p-3 text-right text-slate-600 dark:text-slate-300">{coin.marketCapEur}</td>
-                        <td className="p-3 text-right text-slate-600 dark:text-slate-300">{coin.volume24hEur}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
+          <CryptoPricesTable />
           <FinancialDisclaimer />
         </div>
 

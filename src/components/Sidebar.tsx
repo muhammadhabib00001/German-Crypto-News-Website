@@ -1,15 +1,19 @@
+'use client';
+
 import Link from 'next/link';
 import ArticleCard from './ArticleCard';
 import Newsletter from './Newsletter';
 import { Article } from '@/types';
-import { CRYPTO_PRICES } from '@/data/crypto-prices';
-import { TrendingUp, Flame, BarChart3, Layers } from 'lucide-react';
+import { useLivePrices } from '@/hooks/useLivePrices';
+import { Flame, BarChart3, Radio } from 'lucide-react';
 
 interface SidebarProps {
   trendingArticles: Article[];
 }
 
 export default function Sidebar({ trendingArticles }: SidebarProps) {
+  const { prices, isLive } = useLivePrices(15000);
+
   return (
     <aside className="space-y-8">
       {/* Mini Market Prices Widget */}
@@ -17,8 +21,9 @@ export default function Sidebar({ trendingArticles }: SidebarProps) {
         <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-2">
             <BarChart3 className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            <h3 className="font-bold text-sm text-slate-900 dark:text-white uppercase tracking-wider">
-              MARKTOBERSICHT (EUR)
+            <h3 className="font-bold text-sm text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
+              MARKTÜBERSICHT (EUR)
+              <span className={`w-2 h-2 rounded-full ${isLive ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500'}`} title="Live Updates"></span>
             </h3>
           </div>
           <Link href="/krypto-kurse" className="text-[11px] font-bold text-blue-600 dark:text-blue-400 hover:underline">
@@ -27,7 +32,7 @@ export default function Sidebar({ trendingArticles }: SidebarProps) {
         </div>
 
         <div className="space-y-3">
-          {CRYPTO_PRICES.slice(0, 5).map((coin) => {
+          {prices.slice(0, 5).map((coin) => {
             const isPos = coin.change24h >= 0;
             return (
               <div key={coin.symbol} className="flex items-center justify-between text-xs py-1 border-b border-slate-50 dark:border-slate-800/50 last:border-0">
@@ -40,7 +45,7 @@ export default function Sidebar({ trendingArticles }: SidebarProps) {
                     {coin.priceEur.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}
                   </span>
                   <span className={`text-[10px] font-bold ${isPos ? 'text-emerald-500' : 'text-rose-500'}`}>
-                    {isPos ? '+' : ''}{coin.change24h}%
+                    {isPos ? '+' : ''}{coin.change24h.toFixed(2)}%
                   </span>
                 </div>
               </div>
