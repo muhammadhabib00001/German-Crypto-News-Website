@@ -17,11 +17,11 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
 ---
 
 <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs w-full">
-  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 gap-3">
+  <div class="max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-6">
+    <div class="flex items-center justify-between h-16 gap-1.5 sm:gap-3">
       
       <!-- Left Side: Brand Logo & Desktop Navigation -->
-      <div class="flex items-center gap-3 xl:gap-5 shrink min-w-0">
+      <div class="flex items-center gap-2 xl:gap-4 shrink-0">
         <a href="/" class="flex items-center group py-1 shrink-0" aria-label="newskrypt Home">
           <img
             src="/logo.png"
@@ -32,7 +32,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
         </a>
 
         <!-- Desktop Navigation Bar -->
-        <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5 pl-3 xl:pl-5 border-l border-slate-200">
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5 pl-2 xl:pl-4 border-l border-slate-200 shrink-0 notranslate skiptranslate">
           
           <!-- Prominent Token Launches Tab -->
           <a
@@ -70,12 +70,12 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
           <div class="relative group shrink-0">
             <button
               type="button"
-              class="px-2.5 xl:px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-xl transition-colors inline-flex items-center gap-1 cursor-pointer whitespace-nowrap"
+              class="px-2.5 xl:px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-xl transition-colors inline-flex items-center gap-1 cursor-pointer whitespace-nowrap shrink-0"
               aria-expanded="false"
               aria-haspopup="true"
             >
-              <span>Explore</span>
-              <svg class="w-3.5 h-3.5 text-slate-500 group-hover:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span class="whitespace-nowrap">Explore</span>
+              <svg class="w-3.5 h-3.5 text-slate-500 group-hover:rotate-180 transition-transform shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
