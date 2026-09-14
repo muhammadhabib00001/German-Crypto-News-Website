@@ -76,7 +76,7 @@ On-chain intelligence metrics track wallet addresses holding at least one full c
 
 <figure class="my-8">
   <img 
-    src="https://images.unsplash.com/photo-1516245834210-c4c142787335?w=1200&auto=format&fit=crop&q=80" 
+    src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=1200" 
     alt="1 Bitcoin supply scarcity and institutional accumulation visualization" 
     class="w-full h-auto rounded-2xl border border-slate-200 shadow-md"
   />
