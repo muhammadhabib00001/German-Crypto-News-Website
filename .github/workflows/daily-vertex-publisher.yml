@@ -1,0 +1,49 @@
+name: Daily Vertex AI & Google Drive Auto Publishing
+
+on:
+  schedule:
+    # Runs 6 times a day (every 4 hours: 00:00, 04:00, 08:00, 12:00, 16:00, 20:00 UTC)
+    - cron: '0 */4 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions UI tab
+
+jobs:
+  publish-daily-articles:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Project Dependencies
+        run: npm ci
+
+      - name: Install Google Cloud & Vertex AI SDKs
+        run: npm install @google-cloud/vertexai googleapis
+
+      - name: Run Vertex AI & Google Drive Daily Publisher
+        env:
+          GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+          GCP_LOCATION: ${{ secrets.GCP_LOCATION || 'us-central1' }}
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          GOOGLE_DRIVE_FILE_ID: ${{ secrets.GOOGLE_DRIVE_FILE_ID || '1ojF-ZsefLnFcbvtIeu02KyxsvB7jZN0g' }}
+          DAILY_BATCH_COUNT: '1'
+        run: node scripts/vertex-drive-publisher.cjs
+
+      - name: Run Astro Build Check
+        run: npm run build
+
+      - name: Commit & Push New Daily Articles
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "feat(auto-publish): publish daily German article via Vertex AI & Google Drive"
+          git push origin main
