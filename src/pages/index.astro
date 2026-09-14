@@ -1,14 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
-import TokenCard from '../components/TokenCard.astro';
 import AdPlacement from '../components/AdPlacement.astro';
-import CryptoMarketsHub from '../components/CryptoMarketsHub.astro';
 import BreakingBanner from '../components/BreakingBanner.astro';
 import NewsletterBox from '../components/NewsletterBox.astro';
 import { getCollection } from 'astro:content';
 import { CATEGORIES, CATEGORY_LIST } from '../data/categories';
-import { UPCOMING_TOKENS } from '../data/upcomingTokens';
+import { MARKET_METRICS } from '../data/market';
 
 const rawNews = await getCollection('news');
 
@@ -18,8 +16,8 @@ const allNews = rawNews.map(article => ({
 })).sort((a, b) => new Date(b.data.publishedDate).getTime() - new Date(a.data.publishedDate).getTime());
 
 const heroArticle = allNews[0];
-const subHeroArticles = allNews.slice(1, 4);
-const latestNews = allNews.slice(4, 10);
+const subHeroArticles = allNews.slice(1, 3);
+const trendingStories = allNews.slice(0, 5);
 
 // Categorized Feeds
 const btcArticles = allNews.filter(a => a.data.category === 'bitcoin');
@@ -28,9 +26,6 @@ const defiWeb3Articles = allNews.filter(a => ['defi', 'web3'].includes(a.data.ca
 const altcoinArticles = allNews.filter(a => a.data.category === 'altcoins');
 const regulationMarketArticles = allNews.filter(a => ['crypto-regulation', 'crypto-markets'].includes(a.data.category));
 const techSecurityArticles = allNews.filter(a => ['crypto-security', 'technology', 'mining'].includes(a.data.category));
-
-// Top Featured Token Launches for Spotlight Widget
-const featuredTokenSpotlight = UPCOMING_TOKENS.filter(t => t.isFeatured).slice(0, 3);
 
 // Home Page Schema
 const homeSchema = {
@@ -64,13 +59,13 @@ const homeSchema = {
       <BreakingBanner title={heroArticle.data.title} slug={heroArticle.slug} />
     )}
 
-    <!-- HERO SECTION: Split Grid Layout -->
-    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- HERO SECTION: Original 3-Column Layout (Hero Article + Sub-Hero List + Market Movers Sidebar) -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
       
-      <!-- Primary Featured Hero Article (8 Cols) -->
-      {heroArticle && (
-        <div class="lg:col-span-8 group">
-          <article class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+      <!-- Column 1: Main Featured Hero Article (6 Cols) -->
+      {heroArticle ? (
+        <div class="lg:col-span-6 group flex flex-col">
+          <article class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 flex flex-col h-full">
             <a href={`/nachrichten/${heroArticle.slug}`} class="block relative aspect-[16/9] overflow-hidden bg-slate-100">
               <img
                 src={heroArticle.data.featuredImage}
@@ -78,33 +73,33 @@ const homeSchema = {
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="eager"
               />
-              <div class="absolute top-4 left-4 flex items-center gap-2">
-                <span class="px-3 py-1 bg-amber-500 text-slate-950 rounded-full text-xs font-black uppercase tracking-wider shadow-lg">
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span class="px-2.5 py-1 bg-amber-500 text-slate-950 rounded-md text-[11px] font-black uppercase tracking-wider shadow-md">
                   Eilmeldung
                 </span>
-                <span class="px-3 py-1 bg-black/80 backdrop-blur-md text-white rounded-full text-xs font-bold capitalize">
+                <span class="px-2.5 py-1 bg-black/80 backdrop-blur-md text-white rounded-md text-[11px] font-bold capitalize">
                   {CATEGORIES[heroArticle.data.category]?.name || heroArticle.data.category}
                 </span>
               </div>
             </a>
 
-            <div class="p-6 sm:p-8 flex flex-col justify-between flex-1">
+            <div class="p-6 flex flex-col justify-between flex-1">
               <div>
-                <div class="flex items-center gap-3 text-xs text-slate-600 font-medium mb-3">
-                  <span class="font-semibold text-slate-800">Von {heroArticle.data.author.replace('-', ' ')}</span>
+                <div class="flex items-center gap-3 text-xs text-slate-500 mb-2 font-medium">
+                  <span>Von {heroArticle.data.author.replace('-', ' ')}</span>
                   <span>•</span>
                   <span>{new Date(heroArticle.data.publishedDate).toLocaleDateString('de-DE', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
                   <span>•</span>
                   <span>{heroArticle.data.readingTime} Lesezeit</span>
                 </div>
 
-                <h1 class="text-2xl sm:text-4xl font-black text-black group-hover:text-amber-600 transition-colors leading-tight tracking-tight mb-4">
+                <h1 class="text-xl sm:text-3xl font-black text-slate-900 group-hover:text-amber-600 transition-colors leading-tight tracking-tight mb-3">
                   <a href={`/nachrichten/${heroArticle.slug}`}>
                     {heroArticle.data.title}
                   </a>
                 </h1>
 
-                <p class="text-slate-700 text-sm sm:text-base leading-relaxed line-clamp-3 mb-6 font-normal">
+                <p class="text-slate-700 text-sm leading-relaxed line-clamp-3 mb-4">
                   {heroArticle.data.excerpt}
                 </p>
               </div>
@@ -112,106 +107,148 @@ const homeSchema = {
               <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
                 <a
                   href={`/nachrichten/${heroArticle.slug}`}
-                  class="inline-flex items-center gap-2 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors"
+                  class="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 transition-colors"
                 >
-                  <span>Vollständigen Analysebericht lesen</span>
+                  <span>Analysebericht lesen</span>
                   <span>→</span>
                 </a>
               </div>
             </div>
           </article>
         </div>
+      ) : (
+        <div class="lg:col-span-6 bg-white border border-slate-200 rounded-2xl p-8 text-center flex flex-col items-center justify-center">
+          <span class="text-4xl mb-2">📰</span>
+          <h2 class="text-xl font-bold text-slate-900 mb-1">Keine aktuellen Nachrichten</h2>
+          <p class="text-xs text-slate-500">Das Portal wird in Kürze mit neuen Marktberichten aktualisiert.</p>
+        </div>
       )}
 
-      <!-- Secondary Sub-Hero Feed & Trending (4 Cols) -->
-      <div class="lg:col-span-4 flex flex-col justify-between space-y-6">
-        <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-xs flex-1">
-          <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-4">
-            <h2 class="text-base font-extrabold text-black uppercase tracking-wide flex items-center gap-2">
-              <span>🔥</span>
-              <span>Trending Marktberichte</span>
+      <!-- Column 2: Secondary Sub-Hero Feed (3 Cols) -->
+      <div class="lg:col-span-3 flex flex-col gap-4">
+        {subHeroArticles.map((art) => (
+          <article class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-xs hover:border-slate-300 transition-all flex flex-col group flex-1">
+            <a href={`/nachrichten/${art.slug}`} class="block relative aspect-[16/9] overflow-hidden bg-slate-100">
+              <img
+                src={art.data.featuredImage}
+                alt={art.data.imageAlt}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="eager"
+              />
+              <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-white rounded text-[10px] font-bold">
+                {CATEGORIES[art.data.category]?.name || art.data.category}
+              </span>
+            </a>
+            <div class="p-4 flex flex-col justify-between flex-1">
+              <h3 class="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-amber-600 line-clamp-2 leading-snug transition-colors mb-2">
+                <a href={`/nachrichten/${art.slug}`}>
+                  {art.data.title}
+                </a>
+              </h3>
+              <span class="text-[10px] text-slate-500 font-medium">
+                {new Date(art.data.publishedDate).toLocaleDateString('de-DE', { month: 'short', day: 'numeric' })}
+              </span>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Column 3: Market Movers & Trending Sidebar (3 Cols) -->
+      <div class="lg:col-span-3 space-y-4">
+        
+        <!-- Live Market Movers Widget -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-3">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
+              <span>📈</span>
+              <span>Marktbewegungen (24h)</span>
             </h2>
-            <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           </div>
 
-          <div class="space-y-4">
-            {subHeroArticles.map((article, idx) => (
-              <div class="group/sub flex items-start gap-3 pb-4 border-b border-slate-100 last:border-0 last:pb-0">
-                <span class="text-2xl font-black text-slate-300 group-hover/sub:text-amber-600 transition-colors font-mono">
+          <div class="space-y-2.5">
+            {MARKET_METRICS.topMovers.map((coin) => (
+              <div class="flex items-center justify-between text-xs py-1 border-b border-slate-100 last:border-0">
+                <div class="flex items-center gap-2">
+                  <span class="font-bold text-slate-900">{coin.symbol}</span>
+                  <span class="text-slate-400 text-[10px]">{coin.name}</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="font-mono text-slate-700 text-[11px] font-semibold">
+                    {coin.price}
+                  </span>
+                  <span class={`font-bold font-mono text-[11px] w-12 text-right ${coin.change24h >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
+                    {coin.change24h >= 0 ? '+' : ''}{coin.change24h}%
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-3 pt-2.5 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500">
+            <span>Fear &amp; Greed: <strong class="text-emerald-600">{MARKET_METRICS.fearAndGreedIndex} ({MARKET_METRICS.fearAndGreedSentiment})</strong></span>
+            <a href="/kategorie/crypto-markets" class="text-amber-600 font-bold hover:underline">Heatmap →</a>
+          </div>
+        </div>
+
+        <!-- Trending Stories Ranked (1 to 5) -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-2">
+            <span>🔥</span>
+            <span>Trending Stories</span>
+          </h2>
+
+          <div class="space-y-3">
+            {trendingStories.map((item, idx) => (
+              <div class="flex items-start gap-2.5 group">
+                <span class="text-xl font-black text-slate-300 group-hover:text-amber-600 transition-colors shrink-0 font-mono w-5">
                   0{idx + 1}
                 </span>
-                <div>
-                  <span class="text-[10px] font-extrabold uppercase tracking-wider text-amber-800 mb-1 block">
-                    {CATEGORIES[article.data.category]?.name || article.data.category}
+                <div class="flex-1 min-w-0">
+                  <span class="text-[9px] uppercase font-bold text-amber-700 block">
+                    {CATEGORIES[item.data.category]?.name || item.data.category}
                   </span>
-                  <h3 class="text-xs sm:text-sm font-bold text-black group-hover/sub:text-amber-700 transition-colors leading-snug line-clamp-2">
-                    <a href={`/nachrichten/${article.slug}`}>
-                      {article.data.title}
+                  <h4 class="text-xs font-bold text-slate-900 group-hover:text-amber-600 line-clamp-2 leading-snug transition-colors">
+                    <a href={`/nachrichten/${item.slug}`}>
+                      {item.data.title}
                     </a>
-                  </h3>
+                  </h4>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <!-- Compact Newsletter Subscribe Widget -->
-        <div class="bg-slate-900 text-white rounded-3xl p-6 shadow-xl border border-slate-800">
-          <span class="text-[10px] font-extrabold uppercase tracking-wider text-amber-400 block mb-1">Tägliches Briefing</span>
-          <h3 class="text-lg font-black mb-2">Krypto-Märkte im Überblick</h3>
-          <p class="text-xs text-slate-300 mb-4 leading-relaxed">
-            Erhalten Sie jeden Morgen verifizierte On-Chain-Analysen und BaFin-Regulierungs-Updates.
-          </p>
-          <form class="space-y-2" onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Anmeldung zum newskrypt Markt-Briefing!');">
-            <input
-              type="email"
-              placeholder="Ihre E-Mail-Adresse..."
-              required
-              class="w-full px-3.5 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white placeholder:text-slate-400 focus:outline-none focus:border-amber-500 transition-colors"
-            />
-            <button
-              type="submit"
-              class="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs rounded-xl shadow-md transition-all cursor-pointer"
-            >
-              Kostenlos Abonnieren
-            </button>
-          </form>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- LIVE CRYPTO MARKET PRICES WIDGET -->
-    <CryptoMarketsHub />
-
-    <!-- UPCOMING TOKEN LAUNCHES SPOTLIGHT SECTION -->
-    <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200 mb-8">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-800 text-xs font-bold mb-2">
-            <span>🚀 Verifiziertes Launchpad-Hub</span>
+        <!-- Upcoming Token Launches Spotlight Widget -->
+        <div class="bg-gradient-to-br from-amber-500/10 via-white to-amber-500/5 border border-amber-500/30 rounded-2xl p-4 shadow-xs">
+          <div class="flex items-center justify-between pb-2.5 border-b border-amber-500/20 mb-2.5">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-black flex items-center gap-1.5">
+              <span>🚀</span>
+              <span>Token-Starts &amp; Presales</span>
+            </h2>
+            <span class="text-[9px] font-bold text-amber-700 bg-amber-500/10 px-1.5 py-0.5 rounded">
+              Presales
+            </span>
           </div>
-          <h2 class="text-2xl sm:text-3xl font-black text-black tracking-tight">
-            Top Token-Starts &amp; Aktive Presales
-          </h2>
+          <p class="text-xs text-slate-700 leading-relaxed mb-3">
+            Verfolgen Sie neue Token-Launches, Presale-Termine und Projektdaten in Echtzeit.
+          </p>
+          <a
+            href="/token-starts"
+            class="w-full py-2 bg-black hover:bg-slate-800 text-white font-bold text-xs rounded-xl text-center block transition-colors shadow-xs"
+          >
+            Alle Launches anzeigen →
+          </a>
         </div>
-        <a
-          href="/token-starts"
-          class="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-black font-bold text-xs rounded-xl transition-colors shrink-0"
-        >
-          <span>Alle Token-Launches anzeigen</span>
-          <span>→</span>
-        </a>
+
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {featuredTokenSpotlight.map((token) => (
-          <TokenCard token={token} />
-        ))}
-      </div>
     </section>
 
-    <!-- SECTION 1: BITCOIN & ETHEREUM SPOTLIGHT -->
+    <!-- Top Leaderboard Ad Placement -->
+    <AdPlacement format="leaderboard" />
+
+    <!-- Section 1: Bitcoin & Ethereum In-Depth -->
     <section class="my-12">
       <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-6">
         <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
@@ -232,7 +269,7 @@ const homeSchema = {
       </div>
     </section>
 
-    <!-- SECTION 2: REGULATION & MARKET MACRO -->
+    <!-- Section 2: Crypto Regulation & Market Macro Intelligence -->
     <section class="my-12 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 mb-6 gap-2">
         <div>
@@ -254,9 +291,10 @@ const homeSchema = {
       </div>
     </section>
 
-    <AdPlacement format="leaderboard" />
+    <!-- Mid-Page In-Article Sponsor Ad -->
+    <AdPlacement format="leaderboard" label="Institutional Partner" />
 
-    <!-- SECTION 3: DEFI, WEB3 & ALTCOINS -->
+    <!-- Section 3: DeFi, Web3 & High-Speed Altcoins -->
     <section class="my-12">
       <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-6">
         <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
@@ -276,7 +314,7 @@ const homeSchema = {
       </div>
     </section>
 
-    <!-- SECTION 4: SECURITY & TECHNOLOGY -->
+    <!-- Section 4: Security, Mining & Advanced Technology -->
     <section class="my-12">
       <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-6">
         <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
@@ -295,7 +333,7 @@ const homeSchema = {
       </div>
     </section>
 
-    <!-- FAST CATEGORIES NAVIGATOR GRID -->
+    <!-- All Categories Fast Navigator -->
     <section class="my-12 p-6 bg-white border border-slate-200 rounded-2xl shadow-xs">
       <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">
         Alle {CATEGORY_LIST.length} Krypto-Sektoren &amp; Themenbereiche
@@ -314,7 +352,7 @@ const homeSchema = {
       </div>
     </section>
 
-    <!-- INSTITUTIONAL NEWSLETTER BOX -->
+    <!-- Institutional Alpha Newsletter Box -->
     <NewsletterBox />
 
   </div>
