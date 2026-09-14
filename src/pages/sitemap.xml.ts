@@ -13,17 +13,17 @@ export async function GET() {
 
   const staticPages = [
     '',
-    '/events',
-    '/token-launches',
-    '/about',
-    '/contact',
-    '/editorial-policy',
-    '/corrections',
-    '/disclaimer',
-    '/privacy-policy',
-    '/terms',
-    '/cookie-policy',
-    '/authors',
+    '/veranstaltungen',
+    '/token-starts',
+    '/ueber-uns',
+    '/kontakt',
+    '/redaktionsrichtlinien',
+    '/korrekturen',
+    '/haftungsausschluss',
+    '/datenschutz',
+    '/agb',
+    '/cookie-richtlinie',
+    '/autoren',
     '/llms.txt',
     '/llms-full.txt'
   ];
@@ -43,7 +43,7 @@ export async function GET() {
   ${CATEGORY_LIST.map(
     (cat) => `
   <url>
-    <loc>${siteUrl}/category/${cat.slug}</loc>
+    <loc>${siteUrl}/kategorie/${cat.slug}</loc>
     <changefreq>always</changefreq>
     <priority>0.9</priority>
   </url>`
@@ -51,7 +51,7 @@ export async function GET() {
   ${authors.map(
     (auth) => `
   <url>
-    <loc>${siteUrl}/author/${auth.id.replace('.json', '')}</loc>
+    <loc>${siteUrl}/autor/${auth.id.replace('.json', '')}</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>`
@@ -59,7 +59,7 @@ export async function GET() {
   ${UPCOMING_TOKENS.map(
     (token) => `
   <url>
-    <loc>${siteUrl}/token-launches/${token.id}</loc>
+    <loc>${siteUrl}/token-starts/${token.id}</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>`
@@ -68,7 +68,7 @@ export async function GET() {
     .map(
       (post) => `
   <url>
-    <loc>${siteUrl}/news/${post.slug}</loc>
+    <loc>${siteUrl}/nachrichten/${post.slug}</loc>
     <lastmod>${post.data.updatedDate || post.data.publishedDate}</lastmod>
     <changefreq>always</changefreq>
     <priority>1.0</priority>

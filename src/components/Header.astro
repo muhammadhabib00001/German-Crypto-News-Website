@@ -35,7 +35,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
           
           <!-- Prominent Token Starts Tab -->
           <a
-            href="/token-launches"
+            href="/token-starts"
             class="px-2.5 xl:px-3.5 py-1.5 text-xs font-black text-cyan-900 bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/30 rounded-xl transition-all inline-flex items-center gap-1.5 shrink-0 shadow-2xs mr-1"
           >
             <span class="text-xs sm:text-sm">🚀</span>
@@ -45,7 +45,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
 
           <!-- Events Link -->
           <a
-            href="/events"
+            href="/veranstaltungen"
             class="px-2.5 xl:px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-xl transition-colors inline-flex items-center gap-1 whitespace-nowrap"
           >
             <span class="text-[11px] opacity-70">🗓️</span>
@@ -55,7 +55,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
           <!-- Primary Category Links -->
           {primaryNav.map((item) => (
             <a
-              href={`/category/${item.slug}`}
+              href={`/kategorie/${item.slug}`}
               class={`px-2.5 xl:px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-black hover:bg-slate-100 rounded-xl transition-colors items-center gap-1 whitespace-nowrap ${
                 item.showOn === 'xl' ? 'hidden xl:inline-flex' : 'inline-flex'
               }`}
@@ -87,7 +87,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
               <div class="grid grid-cols-1 gap-0.5 mt-1">
                 {moreCategories.map((cat) => (
                   <a
-                    href={`/category/${cat.slug}`}
+                    href={`/kategorie/${cat.slug}`}
                     class="px-3 py-2 text-xs font-semibold text-slate-800 hover:text-black hover:bg-slate-50 rounded-xl transition-colors flex items-center justify-between group/sub"
                   >
                     <span>{cat.name}</span>
@@ -98,10 +98,10 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
 
               <!-- Quick Editorial Links inside Dropdown -->
               <div class="border-t border-slate-100 mt-2 pt-2 grid grid-cols-2 gap-1 text-[11px] text-slate-500 font-medium px-1">
-                <a href="/authors" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Autoren</a>
-                <a href="/editorial-policy" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Redaktion</a>
-                <a href="/about" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Über uns</a>
-                <a href="/contact" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Kontakt</a>
+                <a href="/autoren" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Autoren</a>
+                <a href="/redaktionsrichtlinien" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Redaktion</a>
+                <a href="/ueber-uns" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Über uns</a>
+                <a href="/kontakt" class="px-2 py-1 hover:text-black hover:bg-slate-50 rounded">Kontakt</a>
               </div>
             </div>
           </div>
@@ -147,7 +147,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
     <!-- Token Launches Feature Tile -->
     <div class="mb-4 pb-3 border-b border-slate-200">
       <a
-        href="/token-launches"
+        href="/token-starts"
         class="flex items-center justify-between p-3.5 bg-gradient-to-r from-cyan-500/15 via-blue-500/10 to-violet-500/10 border border-cyan-500/30 rounded-2xl text-xs font-black text-cyan-950 shadow-2xs"
       >
         <span class="flex items-center gap-2">
@@ -165,7 +165,7 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
     <div class="grid grid-cols-2 gap-2 mb-5">
       {CATEGORY_LIST.map((cat) => (
         <a
-          href={`/category/${cat.slug}`}
+          href={`/kategorie/${cat.slug}`}
           class="px-3 py-2 text-xs font-bold text-slate-800 hover:text-black bg-slate-50 hover:bg-slate-100 border border-slate-200/80 rounded-xl transition-colors flex items-center justify-between"
         >
           <span>{cat.name}</span>
@@ -176,10 +176,10 @@ const moreCategories = CATEGORY_LIST.filter(c => !primarySlugs.includes(c.slug))
     
     <!-- Publication Info & Policies -->
     <div class="border-t border-slate-200 pt-3 flex flex-col gap-1 text-xs font-semibold text-slate-600">
-      <a href="/authors" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Unsere Autoren &amp; Analysten</a>
-      <a href="/editorial-policy" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Redaktionelle Standards</a>
-      <a href="/about" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Über newskrypt</a>
-      <a href="/contact" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Kontakt &amp; Presse</a>
+      <a href="/autoren" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Unsere Autoren &amp; Analysten</a>
+      <a href="/redaktionsrichtlinien" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Redaktionelle Standards</a>
+      <a href="/ueber-uns" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Über newskrypt</a>
+      <a href="/kontakt" class="px-3 py-2 hover:bg-slate-50 rounded-lg hover:text-black">Kontakt &amp; Presse</a>
     </div>
   </div>
 </header>
