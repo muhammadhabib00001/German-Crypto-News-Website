@@ -132,7 +132,17 @@ CRITICAL RULES:
 3. No Horizontal Dash Rules ("---") anywhere in the article body.
 4. No raw backtick code blocks (\`\`\`html) around HTML components or text.
 5. Do NOT include custom HTML boxes or div containers in the body text.
-6. Return JSON only with fields: title, metaTitle (max 55 chars), excerpt, metaDescription (max 155 chars), category (one of: bitcoin, ethereum, altcoins, defi, crypto-markets, crypto-regulation, crypto-trading), author (one of: julian-hayes, elena-rostova, kaito-tanaka, marcus-vance), keyHighlights (array of 4 German bullet strings), faqs (array of 4 objects {question, answer}), content (the Markdown body text in German).`;
+6. Do NOT include year numbers (like 2026) in the title or meta fields unless relevant to a specific past event.
+7. Return JSON only with fields:
+   - title: unique click-worthy headline (e.g. "${keyword}: Leitfaden für deutsche Krypto-Anleger")
+   - metaTitle: STRICT MAX 55 characters (e.g. "${keyword}: Sicherheit, Kosten & BaFin-Info")
+   - excerpt: short summary paragraph
+   - metaDescription: STRICT MAX 155 characters
+   - category: one of (bitcoin, ethereum, altcoins, defi, crypto-markets, crypto-regulation, crypto-trading)
+   - author: one of (julian-hayes, elena-rostova, kaito-tanaka, marcus-vance)
+   - keyHighlights: array of 4 German bullet strings
+   - faqs: array of 4 objects {question, answer}
+   - content: the Markdown body text in German.`;
 
   const req = {
     contents: [{ role: 'user', parts: [{ text: systemPrompt }] }],
@@ -143,15 +153,19 @@ CRITICAL RULES:
   const jsonText = response.response.candidates[0].content.parts[0].text;
   const parsed = JSON.parse(jsonText);
 
-  const slug = `${slugify(keyword)}-anlageratgeber-analyse-2026`;
+  // Enforce strict SEO length limits
+  const cleanMetaTitle = (parsed.metaTitle || '').length > 55 ? parsed.metaTitle.substring(0, 52) + '...' : parsed.metaTitle;
+  const cleanMetaDesc = (parsed.metaDescription || '').length > 155 ? parsed.metaDescription.substring(0, 152) + '...' : parsed.metaDescription;
+
+  const slug = `${slugify(keyword)}-ratgeber-deutschland`;
   const fileName = `${slug}.md`;
   const dateStr = new Date().toISOString();
 
   const mdFile = `---
 title: "${parsed.title}"
-metaTitle: "${parsed.metaTitle}"
+metaTitle: "${cleanMetaTitle}"
 excerpt: "${parsed.excerpt}"
-metaDescription: "${parsed.metaDescription}"
+metaDescription: "${cleanMetaDesc}"
 category: "${parsed.category}"
 author: "${parsed.author}"
 publishedDate: "${dateStr}"

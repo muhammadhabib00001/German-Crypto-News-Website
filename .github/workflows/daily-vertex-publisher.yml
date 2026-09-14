@@ -2,8 +2,8 @@ name: Daily Vertex AI & Google Drive Auto Publishing
 
 on:
   schedule:
-    # Runs daily at 06:00 UTC (07:00 German time)
-    - cron: '0 6 * * *'
+    # Runs 6 times a day (every 4 hours: 00:00, 04:00, 08:00, 12:00, 16:00, 20:00 UTC)
+    - cron: '0 */4 * * *'
   workflow_dispatch: # Allows manual trigger from GitHub Actions tab
 
 jobs:
