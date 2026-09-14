@@ -717,7 +717,6 @@ export const ARTICLES: Article[] = [
     disclaimerRequired: false,
   },
   {
-  {
     id: 'krypto-staking-strategien-passives-einkommen-leitfaden',
     title: 'Krypto Staking Strategien: Passives Einkommen Guide',
     seoTitle: 'Krypto Staking Strategien: Passives Einkommen Guide',
