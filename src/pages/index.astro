@@ -192,7 +192,7 @@ const homeSchema = {
                 </div>
                 <div class="flex items-center gap-2">
                   <span class="font-mono text-slate-700 text-[11px] font-semibold">
-                    {coin.price}
+                    {coin.priceEur ? `${coin.priceEur.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €` : `${(coin.price / 1.1596).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`}
                   </span>
                   <span class={`font-bold font-mono text-[11px] w-12 text-right ${coin.change24h >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
                     {coin.change24h >= 0 ? '+' : ''}{coin.change24h}%
