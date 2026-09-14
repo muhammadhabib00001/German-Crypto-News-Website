@@ -6,7 +6,7 @@ import BreakingBanner from '../components/BreakingBanner.astro';
 import NewsletterBox from '../components/NewsletterBox.astro';
 import { getCollection } from 'astro:content';
 import { CATEGORIES, CATEGORY_LIST } from '../data/categories';
-import { MARKET_METRICS } from '../data/market';
+import { MARKET_METRICS, MARKET_COINS } from '../data/market';
 import { UPCOMING_TOKENS } from '../data/upcomingTokens';
 
 const rawNews = await getCollection('news');
