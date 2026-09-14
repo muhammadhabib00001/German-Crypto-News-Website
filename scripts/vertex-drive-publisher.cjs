@@ -13,17 +13,34 @@ const gcpProjectId = process.env.GCP_PROJECT_ID;
 const gcpLocation = process.env.GCP_LOCATION || 'us-central1';
 const googleDriveFileId = process.env.GOOGLE_DRIVE_FILE_ID; // The spreadsheet ID containing keywords
 
-// Base64 decoded GCP Service Account credentials from GitHub Secrets
-const credentialsBase64 = process.env.GCP_SA_KEY;
-let credentials = {};
-if (credentialsBase64) {
-  credentials = JSON.parse(Buffer.from(credentialsBase64, 'base64').toString('utf8'));
+// GCP Service Account credentials from GitHub Secrets (supports plain JSON or Base64 string)
+const gcpSaKeyRaw = (process.env.GCP_SA_KEY || '').trim();
+let credentials = null;
+
+if (gcpSaKeyRaw) {
+  try {
+    if (gcpSaKeyRaw.startsWith('{')) {
+      credentials = JSON.parse(gcpSaKeyRaw);
+    } else {
+      const decoded = Buffer.from(gcpSaKeyRaw, 'base64').toString('utf8');
+      credentials = JSON.parse(decoded);
+    }
+  } catch (err) {
+    console.error('Error parsing GCP_SA_KEY secret. Ensure it is a valid JSON string or base64 JSON string:', err.message);
+  }
 }
 
-const auth = new google.auth.GoogleAuth({
-  credentials,
+const authOptions = {
   scopes: ['https://www.googleapis.com/auth/drive.readonly', 'https://www.googleapis.com/auth/spreadsheets.readonly']
-});
+};
+
+if (credentials) {
+  authOptions.credentials = credentials;
+} else if (gcpProjectId) {
+  authOptions.projectId = gcpProjectId;
+}
+
+const auth = new google.auth.GoogleAuth(authOptions);
 
 const vertexAI = new VertexAI({ project: gcpProjectId, location: gcpLocation, googleAuth: auth });
 const generativeModel = vertexAI.getGenerativeModel({ model: process.env.VERTEX_MODEL || 'gemini-2.5-flash' });
