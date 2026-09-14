@@ -118,21 +118,8 @@ export default function PresalesPage() {
                     </span>
 
                     {/* Token Logo Avatar Overlay */}
-                    <div className="absolute -bottom-4 left-5 w-12 h-12 rounded-full border-2 border-white dark:border-slate-900 bg-gradient-to-br from-blue-600 to-indigo-700 shadow-md flex items-center justify-center text-white font-black text-xs z-10">
-                      {token.logoUrl ? (
-                        /* eslint-disable-next-line @next/next/no-img-element */
-                        <img
-                          src={token.logoUrl}
-                          alt={`${token.name} logo`}
-                          className="w-full h-full object-cover rounded-full p-0.5"
-                          onError={(e) => {
-                            // Hide broken image and fallback to symbol text
-                            (e.target as HTMLElement).style.display = 'none';
-                          }}
-                        />
-                      ) : (
-                        <span>{token.symbol.slice(0, 3)}</span>
-                      )}
+                    <div className="absolute -bottom-4 left-5 w-12 h-12 rounded-full border-2 border-white dark:border-slate-900 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 shadow-lg flex items-center justify-center text-white font-black text-xs tracking-wider z-10">
+                      <span>{token.symbol.slice(0, 4)}</span>
                     </div>
                   </div>
 
