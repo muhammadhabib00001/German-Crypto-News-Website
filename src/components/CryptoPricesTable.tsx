@@ -5,7 +5,7 @@ import { useLivePrices } from '@/hooks/useLivePrices';
 import { Search, Radio, Sparkles, Shield, Coins, Layers, Flame, DollarSign, Rocket } from 'lucide-react';
 
 export default function CryptoPricesTable() {
-  const { prices, isLive, lastUpdated } = useLivePrices(15000);
+  const { prices, isLive, lastUpdated } = useLivePrices(700); // 700ms tick interval
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');
 
@@ -35,8 +35,8 @@ export default function CryptoPricesTable() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h3 className="font-bold text-base text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-              Krypto Marktpreise & Tokens
-              <span className={`w-2.5 h-2.5 rounded-full ${isLive ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500'}`}></span>
+              Krypto Marktpreise (Millisekunden Live-Ticker)
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               Live Kurse, DeFi, Meme-Coins, Stablecoins & ICO-Vorverkäufe
@@ -46,7 +46,7 @@ export default function CryptoPricesTable() {
           <div className="flex items-center gap-2">
             <span className="text-[11px] text-slate-500 flex items-center gap-1 bg-white dark:bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800">
               <Radio className="w-3.5 h-3.5 text-emerald-500 animate-pulse" />
-              {lastUpdated ? `Stand: ${lastUpdated.toLocaleTimeString('de-DE')}` : 'Live Polling'}
+              {lastUpdated ? `Stand: ${lastUpdated.toLocaleTimeString('de-DE')}` : 'Millisekunden Polling'}
             </span>
           </div>
         </div>
@@ -113,6 +113,17 @@ export default function CryptoPricesTable() {
               filteredPrices.map((coin, idx) => {
                 const isPos = coin.change24h >= 0;
                 const isICO = coin.category === 'ico';
+                const isUp = coin.tickDirection === 'up';
+                const isDown = coin.tickDirection === 'down';
+
+                const formattedEur = coin.priceEur < 0.01
+                  ? `€${coin.priceEur.toFixed(6)}`
+                  : coin.priceEur.toLocaleString('de-DE', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2 });
+
+                const formattedUsd = coin.priceUsd < 0.01
+                  ? `$${coin.priceUsd.toFixed(6)}`
+                  : coin.priceUsd.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 });
+
                 return (
                   <tr key={coin.symbol} className="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                     <td className="p-3.5 text-slate-400 font-semibold">{idx + 1}</td>
@@ -125,15 +136,21 @@ export default function CryptoPricesTable() {
                         {coin.categoryLabel}
                       </span>
                     </td>
-                    <td className="p-3.5 text-right font-bold text-slate-900 dark:text-slate-100 text-sm">
-                      {coin.priceEur < 0.01
-                        ? `€${coin.priceEur.toFixed(7)}`
-                        : coin.priceEur.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' })}
+                    <td className="p-3.5 text-right font-mono font-bold text-sm">
+                      <span
+                        className={`px-1.5 py-0.5 rounded transition-all duration-300 ${
+                          isUp
+                            ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-bold scale-105 inline-block'
+                            : isDown
+                            ? 'bg-rose-500/20 text-rose-600 dark:text-rose-400 font-bold scale-105 inline-block'
+                            : 'text-slate-900 dark:text-slate-100'
+                        }`}
+                      >
+                        {formattedEur}
+                      </span>
                     </td>
-                    <td className="p-3.5 text-right text-slate-600 dark:text-slate-400">
-                      {coin.priceUsd < 0.01
-                        ? `$${coin.priceUsd.toFixed(7)}`
-                        : coin.priceUsd.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
+                    <td className="p-3.5 text-right font-mono text-slate-600 dark:text-slate-400">
+                      {formattedUsd}
                     </td>
                     <td className={`p-3.5 text-right font-bold text-sm ${isPos ? 'text-emerald-500' : 'text-rose-500'}`}>
                       {isPos ? '+' : ''}{coin.change24h.toFixed(2)}%

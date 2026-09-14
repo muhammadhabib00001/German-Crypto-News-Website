@@ -100,4 +100,5 @@ export interface CryptoPrice {
   presaleStage?: string;
   icoStatus?: 'Aktiv' | 'Demnächst' | 'Beendet';
   sparkline?: number[];
+  tickDirection?: 'up' | 'down' | 'neutral';
 }
