@@ -133,11 +133,20 @@ export default function PresalesPage() {
 
                   <div className="p-5 pt-7 space-y-4 flex-1 flex flex-col justify-between">
                     <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex items-center gap-2">
+                      <div className="flex items-center justify-between gap-2">
+                        <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex items-center gap-2.5">
+                          {token.logoUrl && (
+                            <Image
+                              src={token.logoUrl}
+                              alt={token.name}
+                              width={26}
+                              height={26}
+                              className="rounded-full shrink-0 shadow-sm border border-slate-200 dark:border-slate-700"
+                            />
+                          )}
                           <Link href={`/presales/${token.slug}`}>{token.name} ({token.symbol})</Link>
                         </h2>
-                        <span className="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded">
+                        <span className="text-xs font-bold text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded shrink-0">
                           ${token.currentPriceUsd}
                         </span>
                       </div>
