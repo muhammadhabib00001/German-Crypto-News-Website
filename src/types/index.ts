@@ -60,7 +60,7 @@ export interface Article {
   focusKeyword: string;
   secondaryKeywords: string[];
   excerpt: string;
-  content: string; // Markdown or rich HTML string
+  content: string;
   toc: { id: string; text: string; level: number }[];
   author: Author;
   featuredImage: {
@@ -89,10 +89,15 @@ export interface Article {
 export interface CryptoPrice {
   symbol: string;
   name: string;
+  coingeckoId: string;
+  category: 'top' | 'defi' | 'meme' | 'stable' | 'ico' | 'layer2';
+  categoryLabel: string;
   priceUsd: number;
   priceEur: number;
   change24h: number;
   volume24hEur: string;
   marketCapEur: string;
-  sparkline: number[];
+  presaleStage?: string;
+  icoStatus?: 'Aktiv' | 'Demnächst' | 'Beendet';
+  sparkline?: number[];
 }
