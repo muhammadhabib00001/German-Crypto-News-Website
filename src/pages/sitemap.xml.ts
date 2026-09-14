@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import { CATEGORY_LIST } from '../data/categories';
+import { UPCOMING_TOKENS } from '../data/upcomingTokens';
 
 export async function GET() {
   const siteUrl = 'https://cryptopulse.news';
@@ -53,6 +54,14 @@ export async function GET() {
     <loc>${siteUrl}/author/${auth.id.replace('.json', '')}</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
+  </url>`
+  ).join('')}
+  ${UPCOMING_TOKENS.map(
+    (token) => `
+  <url>
+    <loc>${siteUrl}/token-launches/${token.id}</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
   </url>`
   ).join('')}
   ${news
