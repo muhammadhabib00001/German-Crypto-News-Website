@@ -5,8 +5,9 @@ import TokenCard from '../components/TokenCard.astro';
 import AdPlacement from '../components/AdPlacement.astro';
 import CryptoMarketsHub from '../components/CryptoMarketsHub.astro';
 import BreakingBanner from '../components/BreakingBanner.astro';
+import NewsletterBox from '../components/NewsletterBox.astro';
 import { getCollection } from 'astro:content';
-import { CATEGORIES } from '../data/categories';
+import { CATEGORIES, CATEGORY_LIST } from '../data/categories';
 import { UPCOMING_TOKENS } from '../data/upcomingTokens';
 
 const rawNews = await getCollection('news');
@@ -19,14 +20,14 @@ const allNews = rawNews.map(article => ({
 const heroArticle = allNews[0];
 const subHeroArticles = allNews.slice(1, 4);
 const latestNews = allNews.slice(4, 10);
-const trendingNews = allNews.slice(0, 5);
 
-// Category Hubs
-const bitcoinArticles = allNews.filter(a => a.data.category === 'bitcoin').slice(0, 4);
-const ethereumArticles = allNews.filter(a => a.data.category === 'ethereum').slice(0, 4);
-const defiArticles = allNews.filter(a => a.data.category === 'defi').slice(0, 4);
-const altcoinArticles = allNews.filter(a => a.data.category === 'altcoins').slice(0, 4);
-const regulationArticles = allNews.filter(a => a.data.category === 'crypto-regulation').slice(0, 4);
+// Categorized Feeds
+const btcArticles = allNews.filter(a => a.data.category === 'bitcoin');
+const ethArticles = allNews.filter(a => a.data.category === 'ethereum');
+const defiWeb3Articles = allNews.filter(a => ['defi', 'web3'].includes(a.data.category));
+const altcoinArticles = allNews.filter(a => a.data.category === 'altcoins');
+const regulationMarketArticles = allNews.filter(a => ['crypto-regulation', 'crypto-markets'].includes(a.data.category));
+const techSecurityArticles = allNews.filter(a => ['crypto-security', 'technology', 'mining'].includes(a.data.category));
 
 // Top Featured Token Launches for Spotlight Widget
 const featuredTokenSpotlight = UPCOMING_TOKENS.filter(t => t.isFeatured).slice(0, 3);
@@ -210,65 +211,111 @@ const homeSchema = {
       </div>
     </section>
 
-    <!-- LATEST ARTICLES FEED GRID -->
-    <section>
-      <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-8">
-        <h2 class="text-xl sm:text-2xl font-black text-black tracking-tight flex items-center gap-2">
-          <span>📰</span>
-          <span>Neueste Berichterstattung &amp; Analysen</span>
+    <!-- SECTION 1: BITCOIN & ETHEREUM SPOTLIGHT -->
+    <section class="my-12">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-6">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
+          <span class="text-amber-500">₿</span>
+          <span>Bitcoin &amp; Ethereum im Detail</span>
         </h2>
-        <span class="text-xs font-semibold text-slate-500">Stündlich aktualisiert</span>
+        <div class="flex items-center gap-3 text-xs">
+          <a href="/kategorie/bitcoin" class="text-slate-500 hover:text-slate-900 font-bold">Bitcoin News →</a>
+          <span class="text-slate-300">|</span>
+          <a href="/kategorie/ethereum" class="text-slate-500 hover:text-slate-900 font-bold">Ethereum Hub →</a>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {latestNews.map((article) => (
-          <ArticleCard article={article} />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {btcArticles.concat(ethArticles).slice(0, 3).map((art) => (
+          <ArticleCard article={art} />
+        ))}
+      </div>
+    </section>
+
+    <!-- SECTION 2: REGULATION & MARKET MACRO -->
+    <section class="my-12 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 mb-6 gap-2">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+            <span>⚖️</span>
+            <span>Regulierung &amp; Marktanalysen</span>
+          </h2>
+          <p class="text-xs text-slate-500 mt-1">BaFin-Mitteilungen, MiCA-Richtlinien, Liquidationen und institutionelle Kapitalflüsse.</p>
+        </div>
+        <a href="/kategorie/crypto-regulation" class="text-xs font-bold text-amber-600 hover:underline shrink-0">
+          Zum Regulierungs-Desk →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {regulationMarketArticles.slice(0, 3).map((art) => (
+          <ArticleCard article={art} />
         ))}
       </div>
     </section>
 
     <AdPlacement format="leaderboard" />
 
-    <!-- CATEGORY FEATURED HUBS GRID -->
-    <section class="space-y-12">
-      
-      <!-- Bitcoin Category Hub -->
-      {bitcoinArticles.length > 0 && (
-        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs">
-          <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-6">
-            <h2 class="text-xl font-black text-black flex items-center gap-2">
-              <span class="text-amber-500">₿</span>
-              <span>Bitcoin &amp; Markt-Zyklen</span>
-            </h2>
-            <a href="/kategorie/bitcoin" class="text-xs font-bold text-amber-700 hover:underline">Alle Bitcoin News →</a>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {bitcoinArticles.map(article => (
-              <ArticleCard article={article} compact={true} />
-            ))}
-          </div>
+    <!-- SECTION 3: DEFI, WEB3 & ALTCOINS -->
+    <section class="my-12">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-6">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+          <span>⚡</span>
+          <span>DeFi, Web3 &amp; Altcoin-Ökosysteme</span>
+        </h2>
+        <div class="flex items-center gap-3 text-xs">
+          <a href="/kategorie/defi" class="text-slate-500 hover:text-slate-900 font-bold">DeFi →</a>
+          <a href="/kategorie/altcoins" class="text-slate-500 hover:text-slate-900 font-bold">Altcoins →</a>
         </div>
-      )}
+      </div>
 
-      <!-- Ethereum & DeFi Category Hub -->
-      {ethereumArticles.length > 0 && (
-        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs">
-          <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-6">
-            <h2 class="text-xl font-black text-black flex items-center gap-2">
-              <span class="text-blue-500">Ξ</span>
-              <span>Ethereum, Layer-2 &amp; DeFi</span>
-            </h2>
-            <a href="/kategorie/ethereum" class="text-xs font-bold text-blue-700 hover:underline">Alle Ethereum News →</a>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {ethereumArticles.map(article => (
-              <ArticleCard article={article} compact={true} />
-            ))}
-          </div>
-        </div>
-      )}
-
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {defiWeb3Articles.concat(altcoinArticles).slice(0, 3).map((art) => (
+          <ArticleCard article={art} />
+        ))}
+      </div>
     </section>
+
+    <!-- SECTION 4: SECURITY & TECHNOLOGY -->
+    <section class="my-12">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-200 mb-6">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+          <span>🛡️</span>
+          <span>Sicherheit, Mining &amp; Technologie</span>
+        </h2>
+        <a href="/kategorie/crypto-security" class="text-xs font-bold text-amber-600 hover:underline">
+          Sicherheits-Audits →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {techSecurityArticles.slice(0, 3).map((art) => (
+          <ArticleCard article={art} />
+        ))}
+      </div>
+    </section>
+
+    <!-- FAST CATEGORIES NAVIGATOR GRID -->
+    <section class="my-12 p-6 bg-white border border-slate-200 rounded-2xl shadow-xs">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4">
+        Alle {CATEGORY_LIST.length} Krypto-Sektoren &amp; Themenbereiche
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
+        {CATEGORY_LIST.map((cat) => (
+          <a
+            href={`/kategorie/${cat.slug}`}
+            class="px-3 py-2 bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-amber-400/50 rounded-xl text-center transition-all group"
+          >
+            <span class="text-xs font-bold text-slate-700 group-hover:text-amber-600 block truncate">
+              {cat.name}
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- INSTITUTIONAL NEWSLETTER BOX -->
+    <NewsletterBox />
 
   </div>
 </BaseLayout>
