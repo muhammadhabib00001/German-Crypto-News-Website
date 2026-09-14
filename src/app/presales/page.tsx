@@ -1,4 +1,6 @@
-import { Metadata } from 'next';
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -6,19 +8,43 @@ import Sidebar from '@/components/Sidebar';
 import FinancialDisclaimer from '@/components/FinancialDisclaimer';
 import { PRESALE_TOKENS } from '@/data/presales';
 import { getTrendingArticles } from '@/data/articles';
-import { SITE_NAME, SITE_URL } from '@/lib/seo';
-import { Rocket, ShieldCheck, DollarSign, ArrowRight, CheckCircle, ExternalLink } from 'lucide-react';
+import { Rocket, ShieldCheck, ArrowRight, Sparkles, Filter } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: `Krypto Presales & Vorverkäufe 2026 / 2027 | ${SITE_NAME}`,
-  description: 'Aktuelle Krypto Presales, ICOs und Token-Vorverkäufe im Test. Fundierte Analysen zu Audits, Tokenomics, Preisen und Risiken.',
-  alternates: {
-    canonical: `${SITE_URL}/presales`,
-  },
-};
+const CATEGORIES = [
+  { id: 'all', label: 'Alle Vorverkäufe' },
+  { id: 'meme', label: 'Meme Coins' },
+  { id: 'l2', label: 'Layer-1 & Layer-2' },
+  { id: 'ai', label: 'KI & Gaming (P2E)' },
+  { id: 'defi', label: 'DeFi & Payments' },
+];
 
 export default function PresalesPage() {
   const trendingArticles = getTrendingArticles();
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const filteredTokens = PRESALE_TOKENS.filter((token) => {
+    if (activeCategory === 'all') return true;
+    if (activeCategory === 'meme') {
+      return (
+        token.badge.toLowerCase().includes('meme') ||
+        token.symbol.includes('PEPU') ||
+        token.symbol.includes('SHIB') ||
+        token.symbol.includes('WAI') ||
+        token.symbol.includes('STARS') ||
+        token.symbol.includes('DAWGZ')
+      );
+    }
+    if (activeCategory === 'l2') {
+      return token.badge.toLowerCase().includes('layer') || token.badge.toLowerCase().includes('dag');
+    }
+    if (activeCategory === 'ai') {
+      return token.badge.toLowerCase().includes('ki') || token.badge.toLowerCase().includes('earn') || token.badge.toLowerCase().includes('play');
+    }
+    if (activeCategory === 'defi') {
+      return token.badge.toLowerCase().includes('defi') || token.badge.toLowerCase().includes('payment') || token.badge.toLowerCase().includes('protocol');
+    }
+    return true;
+  });
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 space-y-8">
@@ -39,11 +65,29 @@ export default function PresalesPage() {
 
       <FinancialDisclaimer />
 
+      {/* Category Filter Tabs */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <Filter className="w-4 h-4 text-slate-400 shrink-0 ml-1" />
+        {CATEGORIES.map((cat) => (
+          <button
+            key={cat.id}
+            onClick={() => setActiveCategory(cat.id)}
+            className={`px-4 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition-all ${
+              activeCategory === cat.id
+                ? 'bg-blue-600 text-white shadow-sm'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
       {/* Main Presale Grid + Sidebar */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {PRESALE_TOKENS.map((token) => {
+            {filteredTokens.map((token) => {
               const progressPct = Math.min(100, Math.round((token.raisedAmountUsd / token.targetGoalUsd) * 100));
 
               return (
