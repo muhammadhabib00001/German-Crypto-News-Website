@@ -1,23 +1,38 @@
-import { Metadata } from 'next';
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Sidebar from '@/components/Sidebar';
 import { CRYPTO_EVENTS } from '@/data/events';
 import { getTrendingArticles } from '@/data/articles';
-import { SITE_NAME, SITE_URL } from '@/lib/seo';
 import { Calendar, MapPin, Ticket, Globe, Users, ExternalLink, Filter } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: `Krypto & Blockchain Events 2026 / 2027 (DACH) | ${SITE_NAME}`,
-  description: 'Übersicht aller wichtigen Krypto-Konferenzen, Summits, Expos und Hackathons in Deutschland, Österreich, der Schweiz und weltweit.',
-  alternates: {
-    canonical: `${SITE_URL}/krypto-events`,
-  },
-};
+const CATEGORIES = [
+  { id: 'all', label: 'Alle Events' },
+  { id: 'dach', label: '🇩🇪 🇦🇹 🇨🇭 DACH Region' },
+  { id: 'konferenz', label: 'Konferenzen' },
+  { id: 'summit', label: 'Summits' },
+  { id: 'expo', label: 'Expos & Messen' },
+  { id: 'hackathon', label: 'Hackathons' },
+];
 
 export default function CryptoEventsPage() {
   const trendingArticles = getTrendingArticles();
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const filteredEvents = CRYPTO_EVENTS.filter((event) => {
+    if (activeFilter === 'all') return true;
+    if (activeFilter === 'dach') {
+      return event.country === 'Deutschland' || event.country === 'Österreich' || event.country === 'Schweiz';
+    }
+    if (activeFilter === 'konferenz') return event.category === 'Konferenz';
+    if (activeFilter === 'summit') return event.category === 'Summit';
+    if (activeFilter === 'expo') return event.category === 'Expo';
+    if (activeFilter === 'hackathon') return event.category === 'Hackathon';
+    return true;
+  });
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 space-y-8">
@@ -36,12 +51,30 @@ export default function CryptoEventsPage() {
         </p>
       </div>
 
+      {/* Filter Tabs Bar */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <Filter className="w-4 h-4 text-slate-400 shrink-0 ml-1" />
+        {CATEGORIES.map((cat) => (
+          <button
+            key={cat.id}
+            onClick={() => setActiveFilter(cat.id)}
+            className={`px-4 py-2 rounded-xl font-bold text-xs whitespace-nowrap transition-all ${
+              activeFilter === cat.id
+                ? 'bg-blue-600 text-white shadow-sm'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+            }`}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
       {/* Main Grid + Sidebar */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Events Column */}
         <div className="lg:col-span-2 space-y-6">
           <div className="space-y-6">
-            {CRYPTO_EVENTS.map((event) => {
+            {filteredEvents.map((event) => {
               const startDateFormatted = new Date(event.startDate).toLocaleDateString('de-DE', {
                 day: '2-digit',
                 month: 'long',
