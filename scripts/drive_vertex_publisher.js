@@ -244,11 +244,6 @@ Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
         fs.writeFileSync(articlesFilePath, currentFileContent, 'utf8');
         console.log(`🎉 Successfully wrote new article "${articleObj.title}" to src/data/articles.ts!`);
       }
-    } catch (e) {
-      console.error('❌ Vertex AI API Call Error:', e.message);
-      throw e;
-    }
-  }
 
   console.log('✅ Excel Keyword Automation Pipeline complete.');
 }
