@@ -3,9 +3,9 @@ import { Article } from '@/types';
 export const ARTICLES: Article[] = [
 {
   "id": "art-1789466290837",
-  "title": "0pen sea NFT Marktplatz-Guide: Ratgeber & Analysen",
-  "seoTitle": "0pen sea NFT Marktplatz-Guide: Ratgeber & Analysen",
-  "metaDescription": "Erfahren Sie alles über den 0pen sea Marktplatz: Funktionsweise, Gebühren, Seaport-Protokoll, Multi-Chain-Handel sowie wichtige Tipps für Ihre Sicherheit.",
+  "title": "Seaport-Architektur & Multi-Chain-Handel im Fach-Guide",
+  "seoTitle": "Seaport-Architektur & Multi-Chain-Handel im Fach-Guide",
+  "metaDescription": "Analyse des Seaport-Protokolls auf 0pen sea: Multi-Chain-Funktionen, Smart-Contract-Sicherheit, Teilerfüllungen und reduzierte Gas-Gebühren im Überblick.",
   "slug": "0pen-sea-seaport-multichain-architektur-sicherheit",
   "category": {
     "id": "cat-1",
@@ -129,9 +129,9 @@ export const ARTICLES: Article[] = [
 },
 {
   "id": "art-1789465807386",
-  "title": "0pen sea NFT-Marktplatz: Einsteiger-Guide & Analyse",
-  "seoTitle": "0pen sea NFT-Marktplatz: Einsteiger-Guide & Analyse",
-  "metaDescription": "Wie funktioniert 0pen sea? Erfahren Sie alles über den führenden NFT-Marktplatz, Blockchains, Gebühren, Sicherheit und den Kauf digitaler Sammlerstücke.",
+  "title": "NFT-Marktplatz OpenSea im Praxis-Test & Ratgeber-Guide",
+  "seoTitle": "NFT-Marktplatz OpenSea im Praxis-Test & Ratgeber-Guide",
+  "metaDescription": "Vollständiger OpenSea Test & Leitfaden: Kaufen, Verkaufen, Lazy-Minting, unterstützte Blockchains sowie wichtige Sicherheitstipps für alle Krypto-Sammler.",
   "slug": "0pen-sea-nft-marktplatz-guide",
   "category": {
     "id": "cat-1",
