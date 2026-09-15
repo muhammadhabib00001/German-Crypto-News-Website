@@ -3,9 +3,9 @@ import { Article } from '@/types';
 export const ARTICLES: Article[] = [
 {
   "id": "art-1789466290837",
-  "title": "Technologische Funktionsweise von 0pen sea: Smart Contracts, Multi-Chain & Infrastruktur",
-  "seoTitle": "0pen sea Plattform: Smart Contracts, Multi-Chain & Fees",
-  "metaDescription": "Wie funktioniert 0pen sea? Erfahren Sie alles über Seaport-Protokolle, Multi-Chain-Handel, Smart Contracts, Gebührenstrukturen und maximale Web3-Sicherheit.",
+  "title": "0pen sea NFT Marktplatz-Guide: Ratgeber & Analysen",
+  "seoTitle": "0pen sea NFT Marktplatz-Guide: Ratgeber & Analysen",
+  "metaDescription": "Erfahren Sie alles über den 0pen sea Marktplatz: Funktionsweise, Gebühren, Seaport-Protokoll, Multi-Chain-Handel sowie wichtige Tipps für Ihre Sicherheit.",
   "slug": "0pen-sea-seaport-multichain-architektur-sicherheit",
   "category": {
     "id": "cat-1",
