@@ -205,7 +205,8 @@ Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
         console.log(`🎉 Successfully wrote new article "${articleObj.title}" to src/data/articles.ts!`);
       }
     } catch (e) {
-      console.warn('⚠️ Vertex AI call execution note:', e.message);
+      console.error('❌ Vertex AI API Call Error:', e.message);
+      throw e;
     }
   }
 
