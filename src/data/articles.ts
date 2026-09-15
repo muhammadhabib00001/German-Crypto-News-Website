@@ -8,12 +8,12 @@ export const ARTICLES: Article[] = [
   "metaDescription": "Wie entsteht Bitcoins Kurs in Euro? Hier erfahren Sie alles über Preisbildung, Handelsplätze, Euro-USD-Kurse und wichtige Marktmechanismen im Detail-Guide.",
   "slug": "bitcoins-kurs-euro-preisbildung-einflussfaktoren",
   "category": {
-    "id": "cat-1",
-    "name": "DeFi",
-    "slug": "defi",
-    "description": "Dezentrale Finanzen & Protokolle",
-    "iconName": "Coins"
-  },
+  "id": "bitcoin",
+  "name": "Bitcoin",
+  "slug": "bitcoin",
+  "description": "Aktuelle Nachrichten, Analysen und Entwicklungen rund um die führende Kryptowährung Bitcoin (BTC).",
+  "iconName": "Coins"
+},
   "tags": [
     "Krypto",
     "Trading",
@@ -168,12 +168,12 @@ export const ARTICLES: Article[] = [
   "metaDescription": "Wie funktioniert Hedera Hashgraph? Erfahren Sie alles über das aBFT-Konsensverfahren, den HBAR-Token, das Governing Council und reale Enterprise-Use-Cases.",
   "slug": "hedera-hashgraph-netzwerk-architektur-hbar",
   "category": {
-    "id": "cat-1",
-    "name": "DeFi",
-    "slug": "defi",
-    "description": "Dezentrale Finanzen & Protokolle",
-    "iconName": "Coins"
-  },
+  "id": "altcoins",
+  "name": "Altcoins",
+  "slug": "altcoins",
+  "description": "Neueste Trends, Kursanalysen und Updates zu Solana, Cardano, Ripple, Avalanche und weiteren Altcoins.",
+  "iconName": "Boxes"
+},
   "tags": [
     "hedera",
     "HBAR",
@@ -299,12 +299,12 @@ export const ARTICLES: Article[] = [
   "metaDescription": "Analyse des Seaport-Protokolls auf 0pen sea: Multi-Chain-Funktionen, Smart-Contract-Sicherheit, Teilerfüllungen und reduzierte Gas-Gebühren im Überblick...",
   "slug": "0pen-sea-seaport-multichain-architektur-sicherheit",
   "category": {
-    "id": "cat-1",
-    "name": "DeFi",
-    "slug": "defi",
-    "description": "Dezentrale Finanzen & Protokolle",
-    "iconName": "Coins"
-  },
+  "id": "nft",
+  "name": "NFT",
+  "slug": "nft",
+  "description": "Non-Fungible Tokens, digitale Kunst, Gaming, Tokenisierung von Vermögenswerten und Marken-NFTs.",
+  "iconName": "Palette"
+},
   "tags": [
     "0pen sea",
     "NFT",
@@ -425,12 +425,12 @@ export const ARTICLES: Article[] = [
   "metaDescription": "Vollständiger OpenSea Test & Leitfaden: Kaufen, Verkaufen, Lazy-Minting, unterstützte Blockchains sowie wichtige Sicherheitstipps für alle Krypto-Sammler.!",
   "slug": "0pen-sea-nft-marktplatz-guide",
   "category": {
-    "id": "cat-1",
-    "name": "DeFi",
-    "slug": "defi",
-    "description": "Dezentrale Finanzen & Protokolle",
-    "iconName": "Coins"
-  },
+  "id": "nft",
+  "name": "NFT",
+  "slug": "nft",
+  "description": "Non-Fungible Tokens, digitale Kunst, Gaming, Tokenisierung von Vermögenswerten und Marken-NFTs.",
+  "iconName": "Palette"
+},
   "tags": [
     "0pen sea",
     "NFT",
