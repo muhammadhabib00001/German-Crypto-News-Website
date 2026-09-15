@@ -11,10 +11,7 @@ export default function Footer() {
         {/* Brand Column */}
         <div className="lg:col-span-2 space-y-4">
           <Link href="/" className="inline-flex items-center gap-3">
-            <img src="/logo.png" alt="NEWSKRYPT Logo" className="w-8 h-8 object-contain rounded-lg" />
-            <span className="text-xl font-extrabold text-white tracking-tight">
-              NEWS<span className="text-blue-500">KRYPT</span>
-            </span>
+            <img src="/logo.png" alt="NEWSKRYPT Logo" className="h-7 w-auto object-contain" />
           </Link>
           <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
             NEWSKRYPT ist das vertrauenswürdige deutsche Fachportal für unabhängige Berichterstattung über Bitcoin, Ethereum, Altcoins, DeFi, Regulierung (MiCA) und Marktanalysen in Deutschland, Österreich und der Schweiz.
