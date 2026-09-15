@@ -4,6 +4,16 @@ import { google } from 'googleapis';
 import { VertexAI } from '@google-cloud/vertexai';
 import * as XLSX from 'xlsx';
 
+function parseCredentials(raw) {
+  if (!raw) return null;
+  const trimmed = raw.trim();
+  if (trimmed.startsWith('{')) {
+    return JSON.parse(trimmed);
+  }
+  const decoded = Buffer.from(trimmed, 'base64').toString('utf8');
+  return JSON.parse(decoded);
+}
+
 /**
  * Full Drive (.xlsx keyword sheet) + Vertex AI Automation Pipeline Script
  */
@@ -26,8 +36,7 @@ async function main() {
   // 1. Google Drive API Connection (support .xlsx keywords sheet)
   if (serviceAccountKeyBase64 && folderId && !manualTopic) {
     try {
-      const decodedKey = Buffer.from(serviceAccountKeyBase64, 'base64').toString('utf8');
-      const credentials = JSON.parse(decodedKey);
+      const credentials = parseCredentials(serviceAccountKeyBase64);
 
       const auth = new google.auth.GoogleAuth({
         credentials,
@@ -94,8 +103,7 @@ async function main() {
   // 2. Vertex AI API Generation
   if (serviceAccountKeyBase64 && projectId) {
     try {
-      const decodedKey = Buffer.from(serviceAccountKeyBase64, 'base64').toString('utf8');
-      const credentials = JSON.parse(decodedKey);
+      const credentials = parseCredentials(serviceAccountKeyBase64);
 
       const vertexAI = new VertexAI({
         project: projectId,
