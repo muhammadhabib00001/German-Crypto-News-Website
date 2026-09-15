@@ -198,7 +198,13 @@ Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
           seoTitle: generatedArticle.seoTitle || `${topicToProcess}: Guide & Analyse`,
           metaDescription: generatedArticle.metaDescription || `Entdecken Sie ${topicToProcess} im Detail. Vollständiger Leitfaden, aktuelle Markt-Daten und Tipps im Überblick.`,
           slug,
-          category: generatedArticle.category || { id: 'cat-1', name: 'DeFi', slug: 'defi', description: 'Dezentrale Finanzen & Protokolle' },
+          category: (generatedArticle.category && generatedArticle.category.iconName) ? generatedArticle.category : { 
+            id: 'cat-1', 
+            name: generatedArticle.category?.name || 'DeFi', 
+            slug: generatedArticle.category?.slug || 'defi', 
+            description: generatedArticle.category?.description || 'Dezentrale Finanzen & Protokolle',
+            iconName: generatedArticle.category?.iconName || 'Coins'
+          },
           tags: generatedArticle.tags || ['Krypto', 'DeFi', topicToProcess],
           focusKeyword: topicToProcess,
           secondaryKeywords: generatedArticle.secondaryKeywords || ['Trading', 'Sicherheit'],
