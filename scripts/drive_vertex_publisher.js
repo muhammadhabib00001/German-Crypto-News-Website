@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { google } from 'googleapis';
+import { GoogleGenAI } from '@google/genai';
 import { VertexAI } from '@google-cloud/vertexai';
 import * as XLSX from 'xlsx';
 
@@ -15,18 +16,19 @@ function parseCredentials(raw) {
 }
 
 /**
- * Full Drive (.xlsx keyword sheet) + Vertex AI Automation Pipeline Script
+ * Full Drive (.xlsx keyword sheet) + Gemini API / Vertex AI Automation Pipeline Script
  */
 async function main() {
-  console.log('🤖 Running Google Drive (.xlsx) + Vertex AI Auto-Publisher...');
+  console.log('🤖 Running Google Drive (.xlsx) + Gemini AI Auto-Publisher...');
 
+  const geminiApiKey = process.env.GEMINI_API_KEY;
   const serviceAccountKeyBase64 = process.env.GCP_SERVICE_ACCOUNT_KEY;
   const projectId = process.env.GCP_PROJECT_ID;
   const location = process.env.GCP_LOCATION || 'us-central1';
   const folderId = process.env.GOOGLE_DRIVE_FOLDER_ID;
   const manualTopic = process.env.ARTICLE_TOPIC;
 
-  if (!serviceAccountKeyBase64 && !manualTopic) {
+  if (!geminiApiKey && !serviceAccountKeyBase64 && !manualTopic) {
     console.log('ℹ️ Credentials/Topic missing. Automation script standing by.');
     return;
   }
@@ -98,10 +100,36 @@ async function main() {
     return;
   }
 
-  console.log(`🚀 Processing Topic with Vertex AI Gemini Model: "${topicToProcess}"`);
+  console.log(`🚀 Processing Topic with Gemini Model: "${topicToProcess}"`);
 
-  // 2. Vertex AI API Generation
-  if (serviceAccountKeyBase64 && projectId) {
+  // 2. AI Content Generation (supports GEMINI_API_KEY primary & Vertex AI fallback)
+  const prompt = `Erstelle einen professionellen Finanzartikel auf Deutsch basierend auf folgendem Ziel-Keyword: "${topicToProcess}".
+
+Striker SEO Regelkatalog:
+- SEO Title: exakt 50-55 Zeichen.
+- Meta Description: exakt 150-155 Zeichen.
+- Wortanzahl des Artikels: exakt 1000 bis 1500 Wörter in Deutsch (de-DE).
+- Kein '2026' im Fliesstext.
+- Unique H2 & H3 Subheadings.
+Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
+
+  let rawText = '';
+
+  if (geminiApiKey) {
+    try {
+      const ai = new GoogleGenAI({ apiKey: geminiApiKey });
+      const resp = await ai.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: prompt,
+      });
+      rawText = resp.text || '';
+      console.log('✨ Gemini API (Google AI Studio) Response received successfully.');
+    } catch (e) {
+      console.error('⚠️ Gemini API key call failed:', e.message);
+    }
+  }
+
+  if (!rawText && serviceAccountKeyBase64 && projectId) {
     try {
       const credentials = parseCredentials(serviceAccountKeyBase64);
 
@@ -112,22 +140,16 @@ async function main() {
       });
 
       const generativeModel = vertexAI.getGenerativeModel({
-        model: 'gemini-3.7-flash',
+        model: 'gemini-1.5-flash',
       });
 
-      const prompt = `Erstelle einen professionellen Finanzartikel auf Deutsch basierend auf folgendem Ziel-Keyword: "${topicToProcess}".
-
-Striker SEO Regelkatalog:
-- SEO Title: exakt 50-55 Zeichen.
-- Meta Description: exakt 150-155 Zeichen.
-- Wortanzahl des Artikels: exakt 1000 bis 1500 Wörter in Deutsch (de-DE).
-- Kein '2026' im Fliesstext.
-- Unique H2 & H3 Subheadings.
-Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
-
       const resp = await generativeModel.generateContent(prompt);
-      const rawText = resp.response?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+      rawText = resp.response?.candidates?.[0]?.content?.parts?.[0]?.text || '';
       console.log('✨ Vertex AI Response received successfully.');
+    } catch (e) {
+      console.error('❌ Vertex AI API Call Error:', e.message);
+    }
+  }
 
       let generatedArticle;
       try {
