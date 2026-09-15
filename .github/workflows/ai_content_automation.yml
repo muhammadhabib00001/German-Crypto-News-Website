@@ -1,0 +1,47 @@
+name: Vertex AI & Google Drive Content Automation
+
+on:
+  schedule:
+    # Runs every day at 08:00 UTC (Adjust as needed)
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Optional manual article topic (overrides Drive polling)'
+        required: false
+        default: ''
+
+jobs:
+  publish-ai-content:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Authenticate GCP & Run Publisher Script
+        env:
+          GCP_SERVICE_ACCOUNT_KEY: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+          GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+          GCP_LOCATION: ${{ secrets.GCP_LOCATION || 'us-central1' }}
+          GOOGLE_DRIVE_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}
+          ARTICLE_TOPIC: ${{ github.event.inputs.topic }}
+        run: node scripts/drive_vertex_publisher.js
+
+      - name: Commit & Push Generated Content to Main
+        run: |
+          git config --global user.name 'KryptoPulse AI Bot'
+          git config --global user.email 'ai-bot@kryptopulse.de'
+          git add src/data/articles.ts
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-publish AI content via Vertex AI & Google Drive [skip ci]" && git push origin main)
