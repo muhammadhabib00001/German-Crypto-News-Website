@@ -60,7 +60,6 @@ export const ARTICLES: Article[] = [
   "proCons": null,
   "faqs": [],
   "sources": []
-},
 }
 ];
 
