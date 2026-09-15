@@ -235,10 +235,8 @@ Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
           isTrending: true,
           isBreaking: false,
           canonicalUrl: `https://german-crypto-news-website.vercel.app/article/${slug}`,
-          disclaimerRequired: true,
-          statistics: generatedArticle.statistics || [],
-          tableData: generatedArticle.tableData || null,
-          proCons: generatedArticle.proCons || null,
+          ...(generatedArticle.tableData ? { tableData: generatedArticle.tableData } : {}),
+          ...(generatedArticle.proCons ? { proCons: generatedArticle.proCons } : {}),
           faqs: generatedArticle.faqs || [],
           sources: generatedArticle.sources || []
         };

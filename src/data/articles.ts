@@ -53,11 +53,8 @@ export const ARTICLES: Article[] = [
   "isFeatured": true,
   "isTrending": true,
   "isBreaking": false,
-  "canonicalUrl": "https://german-crypto-news-website.vercel.app/article/0pen-sea",
   "disclaimerRequired": true,
   "statistics": [],
-  "tableData": null,
-  "proCons": null,
   "faqs": [],
   "sources": []
 }
