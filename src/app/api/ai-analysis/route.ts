@@ -51,12 +51,29 @@ Erstelle eine professionelle, kompakte Marktanalyse auf Deutsch im JSON-Format m
 
 Wichtig: Antworte NUR im gültigen JSON-Format ohne Markdown-Codeblöcke.`;
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-3.7-flash',
-      contents: prompt,
-    });
+    const modelsToTry = ['gemini-3.7-flash', 'gemini-3.6-flash', 'gemini-3.5-flash', 'gemini-2.5-flash'];
+    let responseText = '';
 
-    const rawText = response.text || '';
+    for (const model of modelsToTry) {
+      try {
+        const res = await ai.models.generateContent({
+          model,
+          contents: prompt,
+        });
+        if (res.text) {
+          responseText = res.text;
+          break;
+        }
+      } catch (err) {
+        // Continue trying fallback models on 503 / high demand
+      }
+    }
+
+    if (!responseText) {
+      throw new Error('All Gemini models returned empty response or were busy');
+    }
+
+    const rawText = responseText;
     const cleanJson = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
     const parsedData = JSON.parse(cleanJson);
 
