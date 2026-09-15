@@ -9,7 +9,7 @@ import { Search } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: `Suchergebnisse | ${SITE_NAME}`,
-  description: 'Durchsuchen Sie alle Artikel, Marktanalysen und Nachrichten auf KryptoPulse DE.',
+  description: 'Durchsuchen Sie alle Artikel, Marktanalysen und Nachrichten auf NEWSKRYPT.',
   robots: {
     index: false,
     follow: true,

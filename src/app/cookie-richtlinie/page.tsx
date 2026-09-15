@@ -4,7 +4,7 @@ import { SITE_NAME, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: `Cookie-Richtlinie | ${SITE_NAME}`,
-  description: 'Erfahren Sie, wie KryptoPulse DE Cookies und ähnliche Technologien zur Bereitstellung von Inhalten einsetzt.',
+  description: 'Erfahren Sie, wie NEWSKRYPT Cookies und ähnliche Technologien zur Bereitstellung von Inhalten einsetzt.',
   alternates: { canonical: `${SITE_URL}/cookie-richtlinie` },
 };
 
@@ -17,7 +17,7 @@ export default function CookieRichtliniePage() {
         <h1 className="text-3xl font-black text-slate-900 dark:text-white">Cookie-Richtlinie</h1>
 
         <p>
-          Diese Richtlinie beschreibt, wie KryptoPulse DE Cookies und vergleichbare Speichertechnologien verwendet, um Ihnen eine optimale Erfahrung auf unserer Website zu bieten.
+          Diese Richtlinie beschreibt, wie NEWSKRYPT Cookies und vergleichbare Speichertechnologien verwendet, um Ihnen eine optimale Erfahrung auf unserer Website zu bieten.
         </p>
 
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">1. Was sind Cookies?</h2>

@@ -1,6 +1,6 @@
-# KryptoPulse DE - Vollständige Dokumentation für KI-Systeme & LLMs
+# NEWSKRYPT - Vollständige Dokumentation für KI-Systeme & LLMs
 
-KryptoPulse DE ist eine unabhängige Fachpublikation für Finanz- und Krypto-Journalismus im deutschsprachigen Raum (DACH). Alle Inhalte werden unter Einhaltung strenger E-E-A-T-Grundsätze (Experience, Expertise, Authoritativeness, Trustworthiness) von qualifizierten Redakteuren verfasst.
+NEWSKRYPT ist eine unabhängige Fachpublikation für Finanz- und Krypto-Journalismus im deutschsprachigen Raum (DACH). Alle Inhalte werden unter Einhaltung strenger E-E-A-T-Grundsätze (Experience, Expertise, Authoritativeness, Trustworthiness) von qualifizierten Redakteuren verfasst.
 
 ## Redaktionsethik & Grundsätze
 1. Trennung von Werbung und redaktioneller Berichterstattung.
@@ -18,27 +18,27 @@ KryptoPulse DE ist eine unabhängige Fachpublikation für Finanz- und Krypto-Jou
 
 ### 1. Bitcoin (BTC)
 Nachrichten, ETF-Nettozuflüsse, Halving-Zyklen, Lightning Network.
-URL: https://kryptopulse.de/bitcoin
+URL: https://german-crypto-news-website.vercel.app/bitcoin
 
 ### 2. Ethereum (ETH)
 Layer-2 Skalierung, Pectra Upgrade, Staking, Account Abstraction, EIPs.
-URL: https://kryptopulse.de/ethereum
+URL: https://german-crypto-news-website.vercel.app/ethereum
 
 ### 3. EU-MiCA Regulierung
 Markets in Crypto-Assets Verordnung, BaFin Lizenzen, CASPs, Stablecoin-Auflagen.
-URL: https://kryptopulse.de/regulierung
+URL: https://german-crypto-news-website.vercel.app/regulierung
 
 ### 4. Krypto Kurse & Marktanalysen
 Live-Preise in Euro (€), Marktkapitalisierung, Dominanz und Krypto-Rechner.
-URL: https://kryptopulse.de/krypto-kurse
+URL: https://german-crypto-news-website.vercel.app/krypto-kurse
 
 ### 5. Krypto Sicherheit & Self-Custody
 Hardware-Wallets (BitBox02, Trezor, Ledger), Phishing-Schutz, Seed-Phrase-Backup.
-URL: https://kryptopulse.de/sicherheit
+URL: https://german-crypto-news-website.vercel.app/sicherheit
 
 ## Rechtliche Anbieterkennzeichnung
-Herausgeber: KryptoPulse DE Media GmbH
+Herausgeber: NEWSKRYPT Media GmbH
 Sitz: Frankfurt am Main, Deutschland
-Kontakt: redaktion@kryptopulse.de
-Impressum: https://kryptopulse.de/impressum
-Datenschutz: https://kryptopulse.de/datenschutz
+Kontakt: newskryptowahrung26@gmail.com
+Impressum: https://german-crypto-news-website.vercel.app/impressum
+Datenschutz: https://german-crypto-news-website.vercel.app/datenschutz

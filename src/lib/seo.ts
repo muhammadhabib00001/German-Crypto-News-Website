@@ -1,7 +1,7 @@
 import { Article, Author, Category } from '@/types';
 
-export const SITE_NAME = 'KryptoPulse DE';
-export const SITE_URL = 'https://kryptopulse.de';
+export const SITE_NAME = 'NEWSKRYPT';
+export const SITE_URL = 'https://german-crypto-news-website.vercel.app';
 export const SITE_DESCRIPTION = 'Deutschlands führendes Fachportal für Krypto-Nachrichten, Bitcoin, Ethereum, Altcoins, DeFi, Regulierung und Marktanalysen im DACH-Raum.';
 export const DEFAULT_OG_IMAGE = 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200';
 
@@ -18,12 +18,12 @@ export function getOrganizationSchema() {
       height: 60,
     },
     sameAs: [
-      'https://x.com/kryptopulsede',
-      'https://linkedin.com/company/kryptopulsede',
+      'https://x.com/newskrypt',
+      'https://linkedin.com/company/newskrypt',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      email: 'redaktion@kryptopulse.de',
+      email: 'newskryptowahrung26@gmail.com',
       contactType: 'editorial newsroom',
       availableLanguage: ['German'],
     },

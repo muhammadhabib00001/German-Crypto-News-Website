@@ -26,7 +26,7 @@ export default function QuellenrichtliniePage() {
             </h1>
           </div>
           <p className="text-slate-700 dark:text-slate-300 text-base sm:text-lg font-medium">
-            Im dezentralen Krypto-Ökosystem kursieren täglich unzählige Gerüchte. <strong>KryptoPulse DE</strong> stützt seine Berichterstattung auf verifizierte mathematische On-Chain-Daten und amtliche Primärquellen.
+            Im dezentralen Krypto-Ökosystem kursieren täglich unzählige Gerüchte. <strong>NEWSKRYPT</strong> stützt seine Berichterstattung auf verifizierte mathematische On-Chain-Daten und amtliche Primärquellen.
           </p>
         </div>
 

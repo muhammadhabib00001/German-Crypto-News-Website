@@ -23,7 +23,7 @@ export default function EditorialOverviewPage() {
         </div>
 
         <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
-          KryptoPulse DE verpflichtet sich zu höchsten journalistischen Standards gemäß dem Pressekodex. Wir arbeiten nach dem Vier-Augen-Prinzip und unterziehen alle Artikel vor der Veröffentlichung einer strengen Faktenprüfung.
+          NEWSKRYPT verpflichtet sich zu höchsten journalistischen Standards gemäß dem Pressekodex. Wir arbeiten nach dem Vier-Augen-Prinzip und unterziehen alle Artikel vor der Veröffentlichung einer strengen Faktenprüfung.
         </p>
 
         <div className="space-y-4 pt-4 border-t border-slate-100 dark:border-slate-800">

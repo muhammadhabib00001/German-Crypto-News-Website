@@ -32,7 +32,7 @@ export async function GET() {
       (c) => `${c.name} (${c.symbol}): ${c.priceEur}€, 24h Change: ${c.change24h}%`
     ).join('; ');
 
-    const prompt = `Du bist ein führender Krypto-Finanzanalyst für KryptoPulse DE.
+    const prompt = `Du bist ein führender Krypto-Finanzanalyst für NEWSKRYPT.
 Analysiere die folgenden aktuellen Markt-Daten der Kryptowährungen:
 ${priceSummary}
 

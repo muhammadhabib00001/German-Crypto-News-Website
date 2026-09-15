@@ -8,7 +8,7 @@ import { ShieldCheck, Award, Mail, Twitter, Linkedin } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: `Redaktion & Autoren-Verzeichnis | ${SITE_NAME}`,
-  description: 'Lernen Sie das Experten-Team von KryptoPulse DE kennen: Ökonomen, zertifizierte Finanzanalysten (CFA) und Juristen für vertrauenswürdigen Krypto-Journalismus.',
+  description: 'Lernen Sie das Experten-Team von NEWSKRYPT kennen: Ökonomen, zertifizierte Finanzanalysten (CFA) und Juristen für vertrauenswürdigen Krypto-Journalismus.',
   alternates: {
     canonical: `${SITE_URL}/autoren`,
   },

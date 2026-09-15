@@ -5,7 +5,7 @@ import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: `Kontakt & Redaktion | ${SITE_NAME}`,
-  description: 'Treten Sie mit der Redaktion von KryptoPulse DE in Kontakt. Presseanfragen, Leserrückmeldungen und Korrekturhinweise.',
+  description: 'Treten Sie mit der Redaktion von NEWSKRYPT in Kontakt. Presseanfragen, Leserrückmeldungen und Korrekturhinweise.',
   alternates: { canonical: `${SITE_URL}/kontakt` },
 };
 
@@ -31,7 +31,7 @@ export default function ContactPage() {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
                 <span>
-                  <strong>KryptoPulse DE Media GmbH</strong><br />
+                  <strong>NEWSKRYPT Media GmbH</strong><br />
                   Mainzer Landstraße 180<br />
                   60327 Frankfurt am Main<br />
                   Deutschland
@@ -39,11 +39,11 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>Redaktion: <a href="mailto:redaktion@kryptopulse.de" className="text-blue-600 underline">redaktion@kryptopulse.de</a></span>
+                <span>Redaktion: <a href="mailto:newskryptowahrung26@gmail.com" className="text-blue-600 underline">newskryptowahrung26@gmail.com</a></span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>Presse: <a href="mailto:presse@kryptopulse.de" className="text-blue-600 underline">presse@kryptopulse.de</a></span>
+                <span>Presse: <a href="mailto:newskryptowahrung26@gmail.com" className="text-blue-600 underline">newskryptowahrung26@gmail.com</a></span>
               </div>
             </div>
           </div>

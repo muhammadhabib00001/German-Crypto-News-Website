@@ -4,7 +4,7 @@ import { SITE_NAME, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: `Nutzungsbedingungen | ${SITE_NAME}`,
-  description: 'Nutzungsbedingungen für die Inanspruchnahme der Angebote von KryptoPulse DE.',
+  description: 'Nutzungsbedingungen für die Inanspruchnahme der Angebote von NEWSKRYPT.',
   alternates: { canonical: `${SITE_URL}/nutzungsbedingungen` },
 };
 
@@ -18,7 +18,7 @@ export default function NutzungsbedingungenPage() {
 
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">1. Geltungsbereich</h2>
         <p>
-          Diese Nutzungsbedingungen gelten für die Verwendung der Website KryptoPulse DE und aller zugehörigen Subdomains und Unterseiten.
+          Diese Nutzungsbedingungen gelten für die Verwendung der Website NEWSKRYPT und aller zugehörigen Subdomains und Unterseiten.
         </p>
 
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">2. Haftungsausschluss für Inhalte & Anlageentscheidungen</h2>

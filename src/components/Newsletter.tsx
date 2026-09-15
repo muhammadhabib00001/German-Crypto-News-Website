@@ -32,7 +32,7 @@ export default function Newsletter() {
             <div className="p-2 bg-blue-600/30 rounded-lg">
               <Mail className="w-5 h-5 text-blue-400" />
             </div>
-            <h3 className="font-bold text-base tracking-tight">KryptoPulse Daily Newsletter</h3>
+            <h3 className="font-bold text-base tracking-tight">NEWSKRYPT Daily Newsletter</h3>
           </div>
 
           <p className="text-xs text-blue-100/90 leading-relaxed">

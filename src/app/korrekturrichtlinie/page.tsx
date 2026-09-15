@@ -26,7 +26,7 @@ export default function KorrekturrichtliniePage() {
             </h1>
           </div>
           <p className="text-slate-700 dark:text-slate-300 text-base sm:text-lg font-medium">
-            Verlässlichkeit bedeutet bei <strong>KryptoPulse DE</strong> auch, eigene Fehler offen einzugestehen und zügig zu beheben. Hier erfahren Sie, wie wir mit nachträglichen Ergänzungen und sachlichen Korrekturen umgehen.
+            Verlässlichkeit bedeutet bei <strong>NEWSKRYPT</strong> auch, eigene Fehler offen einzugestehen und zügig zu beheben. Hier erfahren Sie, wie wir mit nachträglichen Ergänzungen und sachlichen Korrekturen umgehen.
           </p>
         </div>
 
@@ -59,7 +59,7 @@ export default function KorrekturrichtliniePage() {
             3. Fehler melden & Kontakt
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300">
-            Leserinnen und Leser, die einen Fehler in unseren Berichten vermuten, können diesen jederzeit per E-Mail an <a href="mailto:redaktion@kryptopulse.de" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">redaktion@kryptopulse.de</a> melden. Jede Eingabe wird innerhalb von 24 Stunden geprüft.
+            Leserinnen und Leser, die einen Fehler in unseren Berichten vermuten, können diesen jederzeit per E-Mail an <a href="mailto:newskryptowahrung26@gmail.com" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">newskryptowahrung26@gmail.com</a> melden. Jede Eingabe wird innerhalb von 24 Stunden geprüft.
           </p>
         </div>
       </div>

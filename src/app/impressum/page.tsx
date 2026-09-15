@@ -5,7 +5,7 @@ import { Building2, User, Phone, Mail, FileText, Scale, ShieldCheck, Globe } fro
 
 export const metadata: Metadata = {
   title: `Impressum & Rechtliche Angaben | ${SITE_NAME}`,
-  description: 'Rechtliche Anbieterkennzeichnung gemäß § 5 DDG (Digitale-Dienste-Gesetz) und V.i.S.d.P. Angaben für KryptoPulse DE.',
+  description: 'Rechtliche Anbieterkennzeichnung gemäß § 5 DDG (Digitale-Dienste-Gesetz) und V.i.S.d.P. Angaben für NEWSKRYPT.',
   alternates: { canonical: `${SITE_URL}/impressum` },
 };
 
@@ -26,7 +26,7 @@ export default function ImpressumPage() {
             </h1>
           </div>
           <p className="text-slate-700 dark:text-slate-300 text-base sm:text-lg font-medium">
-            Pflichtangaben gemäß § 5 Digitale-Dienste-Gesetz (DDG) und § 18 Abs. 2 Medienstaatsvertrag (MStV) für die digitale Fachpublikation <strong>KryptoPulse DE</strong>.
+            Pflichtangaben gemäß § 5 Digitale-Dienste-Gesetz (DDG) und § 18 Abs. 2 Medienstaatsvertrag (MStV) für die digitale Fachpublikation <strong>NEWSKRYPT</strong>.
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export default function ImpressumPage() {
             Anbieterin & Betreibergesellschaft
           </h2>
           <div className="bg-slate-50 dark:bg-slate-800/60 p-5 rounded-xl border border-slate-200 dark:border-slate-700/60 space-y-2 text-sm sm:text-base">
-            <p className="font-bold text-slate-900 dark:text-white text-lg">KryptoPulse DE Media GmbH</p>
+            <p className="font-bold text-slate-900 dark:text-white text-lg">NEWSKRYPT Media GmbH</p>
             <p className="text-slate-600 dark:text-slate-300">
               Mainzer Landstraße 180<br />
               60327 Frankfurt am Main<br />
@@ -64,7 +64,7 @@ export default function ImpressumPage() {
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-300 space-y-1">
               <span className="flex items-center gap-2"><Phone className="w-4 h-4 text-slate-400" /> +49 (0) 69 1234 5678</span>
-              <span className="flex items-center gap-2"><Mail className="w-4 h-4 text-slate-400" /> <a href="mailto:redaktion@kryptopulse.de" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">redaktion@kryptopulse.de</a></span>
+              <span className="flex items-center gap-2"><Mail className="w-4 h-4 text-slate-400" /> <a href="mailto:newskryptowahrung26@gmail.com" className="text-blue-600 dark:text-blue-400 font-bold hover:underline">newskryptowahrung26@gmail.com</a></span>
             </p>
           </div>
         </div>

@@ -4,8 +4,8 @@ import { SITE_NAME, SITE_URL } from '@/lib/seo';
 import { ShieldCheck, Target, Award, Users, CheckCircle2, BookOpen, Scale, Lock } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: `Über uns - KryptoPulse DE | Unabhängiger Krypto-Journalismus`,
-  description: 'Erfahren Sie mehr über KryptoPulse DE: Unsere Mission, unsere Werte und unseren Anspruch an unabhängigen Finanzjournalismus im DACH-Raum.',
+  title: `Über uns - NEWSKRYPT | Unabhängiger Krypto-Journalismus`,
+  description: 'Erfahren Sie mehr über NEWSKRYPT: Unsere Mission, unsere Werte und unseren Anspruch an unabhängigen Finanzjournalismus im DACH-Raum.',
   alternates: { canonical: `${SITE_URL}/ueber-uns` },
 };
 
@@ -22,11 +22,11 @@ export default function AboutPage() {
               <ShieldCheck className="w-8 h-8" />
             </div>
             <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">
-              Über KryptoPulse DE
+              Über NEWSKRYPT
             </h1>
           </div>
           <p className="text-slate-700 dark:text-slate-300 text-base sm:text-lg leading-relaxed font-medium">
-            <strong>KryptoPulse DE</strong> ist eine führende, unabhängige digitale Fachpublikation für Finanznachrichten, fundamentale Marktanalysen, On-Chain-Daten und Regulierungsfragen rund um Kryptowährungen, Blockchain-Technologie und dezentrale Finanzen (DeFi) im gesamten deutschsprachigen Raum (Deutschland, Österreich, Schweiz).
+            <strong>NEWSKRYPT</strong> ist eine führende, unabhängige digitale Fachpublikation für Finanznachrichten, fundamentale Marktanalysen, On-Chain-Daten und Regulierungsfragen rund um Kryptowährungen, Blockchain-Technologie und dezentrale Finanzen (DeFi) im gesamten deutschsprachigen Raum (Deutschland, Österreich, Schweiz).
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
             Unsere Vision & Unabhängiger Anspruch
           </h2>
           <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-            In einer digitalen Finanzwelt, die zunehmend von spekulativer Hektik, unbefugter Anlageberatung und emotional aufgeladenen Schlagzeilen geprägt ist, bildet KryptoPulse DE ein verlässliches Fundament für sachorientierten Journalismus. Unser primäres Anliegen ist es, komplexe ökonomische und technische Zusammenhänge verständlich, transparent und unparteiisch aufzubereiten.
+            In einer digitalen Finanzwelt, die zunehmend von spekulativer Hektik, unbefugter Anlageberatung und emotional aufgeladenen Schlagzeilen geprägt ist, bildet NEWSKRYPT ein verlässliches Fundament für sachorientierten Journalismus. Unser primäres Anliegen ist es, komplexe ökonomische und technische Zusammenhänge verständlich, transparent und unparteiisch aufzubereiten.
           </p>
           <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
             Wir richten uns sowohl an private Investoren, die fundiertes Grundwissen und verifizierte Marktanalysen suchen, als auch an professionelle Marktteilnehmer, Entwickler und Entscheidungsträger im DACH-Raum. Wir betreiben keine Marktschreierei, sondern bewerten Entwicklungen auf Basis von Zahlen, Fakten und mathematisch überprüfbaren On-Chain-Metriken.
@@ -85,7 +85,7 @@ export default function AboutPage() {
             Der Krypto-Markt im DACH-Raum unterscheidet sich grundlegend von angelsächsischen oder asiatischen Märkten. Spezifische steuerliche Regelungen (wie die einjährige Haltedauer für Steuerfreiheit in Deutschland oder die besondere Pauschalbesteuerung in Österreich) erfordern lokales Fachwissen.
           </p>
           <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-            KryptoPulse DE liefert präzise auf den deutschsprachigen Rechts- und Steuerraum zugeschnittene Analysen, um Anlegern die rechtssichere Handhabung ihrer digitalen Vermögenswerte zu erleichtern.
+            NEWSKRYPT liefert präzise auf den deutschsprachigen Rechts- und Steuerraum zugeschnittene Analysen, um Anlegern die rechtssichere Handhabung ihrer digitalen Vermögenswerte zu erleichtern.
           </p>
         </div>
 

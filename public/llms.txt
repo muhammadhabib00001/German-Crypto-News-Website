@@ -1,37 +1,37 @@
-# KryptoPulse DE - Unabhängige Krypto Nachrichten DACH
+# NEWSKRYPT - Unabhängige Krypto Nachrichten DACH
 
-> KryptoPulse DE ist das führende deutsche Fachportal für vertrauenswürdige Berichterstattung über Bitcoin, Ethereum, Altcoins, DeFi, Web3, MiCA-Regulierung und Marktanalysen in Deutschland, Österreich und der Schweiz.
+> NEWSKRYPT ist das führende deutsche Fachportal für vertrauenswürdige Berichterstattung über Bitcoin, Ethereum, Altcoins, DeFi, Web3, MiCA-Regulierung und Marktanalysen in Deutschland, Österreich und der Schweiz.
 
 ## Hauptkategorien
-- Bitcoin: https://kryptopulse.de/bitcoin
-- Ethereum: https://kryptopulse.de/ethereum
-- Altcoins: https://kryptopulse.de/altcoins
-- Blockchain: https://kryptopulse.de/blockchain
-- DeFi: https://kryptopulse.de/defi
-- Web3: https://kryptopulse.de/web3
-- NFT: https://kryptopulse.de/nft
-- Krypto Märkte: https://kryptopulse.de/krypto-maerkte
-- Krypto Kurse: https://kryptopulse.de/krypto-kurse
-- Regulierung: https://kryptopulse.de/regulierung
-- Trading: https://kryptopulse.de/trading
-- Forschung: https://kryptopulse.de/forschung
-- Krypto-Prognosen: https://kryptopulse.de/prognosen
-- Unternehmen: https://kryptopulse.de/unternehmen
-- Krypto Sicherheit: https://kryptopulse.de/sicherheit
-- Mining: https://kryptopulse.de/mining
-- Pressemitteilungen: https://kryptopulse.de/pressemitteilungen
+- Bitcoin: https://german-crypto-news-website.vercel.app/bitcoin
+- Ethereum: https://german-crypto-news-website.vercel.app/ethereum
+- Altcoins: https://german-crypto-news-website.vercel.app/altcoins
+- Blockchain: https://german-crypto-news-website.vercel.app/blockchain
+- DeFi: https://german-crypto-news-website.vercel.app/defi
+- Web3: https://german-crypto-news-website.vercel.app/web3
+- NFT: https://german-crypto-news-website.vercel.app/nft
+- Krypto Märkte: https://german-crypto-news-website.vercel.app/krypto-maerkte
+- Krypto Kurse: https://german-crypto-news-website.vercel.app/krypto-kurse
+- Regulierung: https://german-crypto-news-website.vercel.app/regulierung
+- Trading: https://german-crypto-news-website.vercel.app/trading
+- Forschung: https://german-crypto-news-website.vercel.app/forschung
+- Krypto-Prognosen: https://german-crypto-news-website.vercel.app/prognosen
+- Unternehmen: https://german-crypto-news-website.vercel.app/unternehmen
+- Krypto Sicherheit: https://german-crypto-news-website.vercel.app/sicherheit
+- Mining: https://german-crypto-news-website.vercel.app/mining
+- Pressemitteilungen: https://german-crypto-news-website.vercel.app/pressemitteilungen
 
 ## Transparenz & E-E-A-T
-- Über uns: https://kryptopulse.de/ueber-uns
-- Redaktion & Standards: https://kryptopulse.de/redaktion
-- Autorenverzeichnis: https://kryptopulse.de/autoren
-- Impressum: https://kryptopulse.de/impressum
-- Datenschutzerklärung: https://kryptopulse.de/datenschutz
-- Redaktionelle Richtlinien: https://kryptopulse.de/redaktionelle-richtlinien
-- Korrekturrichtlinie: https://kryptopulse.de/korrekturrichtlinie
-- Quellenrichtlinie: https://kryptopulse.de/quellenrichtlinie
+- Über uns: https://german-crypto-news-website.vercel.app/ueber-uns
+- Redaktion & Standards: https://german-crypto-news-website.vercel.app/redaktion
+- Autorenverzeichnis: https://german-crypto-news-website.vercel.app/autoren
+- Impressum: https://german-crypto-news-website.vercel.app/impressum
+- Datenschutzerklärung: https://german-crypto-news-website.vercel.app/datenschutz
+- Redaktionelle Richtlinien: https://german-crypto-news-website.vercel.app/redaktionelle-richtlinien
+- Korrekturrichtlinie: https://german-crypto-news-website.vercel.app/korrekturrichtlinie
+- Quellenrichtlinie: https://german-crypto-news-website.vercel.app/quellenrichtlinie
 
 ## Feeds & Sitemaps
-- XML Sitemap: https://kryptopulse.de/sitemap.xml
-- Google News Sitemap: https://kryptopulse.de/news-sitemap.xml
-- RSS Feed: https://kryptopulse.de/rss.xml
+- XML Sitemap: https://german-crypto-news-website.vercel.app/sitemap.xml
+- Google News Sitemap: https://german-crypto-news-website.vercel.app/news-sitemap.xml
+- RSS Feed: https://german-crypto-news-website.vercel.app/rss.xml

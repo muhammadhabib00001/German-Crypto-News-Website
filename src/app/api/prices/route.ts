@@ -20,7 +20,7 @@ export async function GET() {
       {
         headers: {
           'Accept': 'application/json',
-          'User-Agent': 'KryptoPulseDE/1.0',
+          'User-Agent': 'NEWSKRYPTDE/1.0',
         },
         next: { revalidate: 15 },
       }

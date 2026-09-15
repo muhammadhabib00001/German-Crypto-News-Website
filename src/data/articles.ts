@@ -108,7 +108,7 @@ export const ARTICLES: Article[] = [
     "role": "Senior Crypto Analyst",
     "bio": "Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.",
     "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
-    "email": "s.krumm@kryptopulse.de",
+    "email": "newskryptowahrung26@gmail.com",
     "credentials": [
       "M.Sc. Finance",
       "Certified Financial Analyst"
@@ -239,7 +239,7 @@ export const ARTICLES: Article[] = [
     "role": "Senior Crypto Analyst",
     "bio": "Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.",
     "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
-    "email": "s.krumm@kryptopulse.de",
+    "email": "newskryptowahrung26@gmail.com",
     "credentials": [
       "M.Sc. Finance",
       "Certified Financial Analyst"
@@ -369,7 +369,7 @@ export const ARTICLES: Article[] = [
     "role": "Senior Crypto Analyst",
     "bio": "Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.",
     "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
-    "email": "s.krumm@kryptopulse.de",
+    "email": "newskryptowahrung26@gmail.com",
     "credentials": [
       "M.Sc. Finance",
       "Certified Financial Analyst"
@@ -505,7 +505,7 @@ export const ARTICLES: Article[] = [
     "role": "Senior Crypto Analyst",
     "bio": "Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.",
     "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
-    "email": "s.krumm@kryptopulse.de",
+    "email": "newskryptowahrung26@gmail.com",
     "credentials": [
       "M.Sc. Finance",
       "Certified Financial Analyst"

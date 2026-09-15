@@ -23,13 +23,11 @@ export default function Header({ onOpenSearch }: HeaderProps) {
       {/* Main Header Bar */}
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
-            <TrendingUp className="w-6 h-6" />
-          </div>
+        <Link href="/" className="flex items-center gap-3 group">
+          <img src="/logo.png" alt="NEWSKRYPT Logo" className="w-10 h-10 object-contain rounded-lg group-hover:scale-105 transition-transform" />
           <div>
             <span className="text-2xl font-black tracking-tight text-slate-900 dark:text-white flex items-center gap-1">
-              KRYPTO<span className="text-blue-600 dark:text-blue-500">PULSE</span>
+              NEWS<span className="text-blue-600 dark:text-blue-500">KRYPT</span>
             </span>
             <span className="text-[10px] uppercase font-bold tracking-widest text-slate-500 dark:text-slate-400 block -mt-1">
               FINANZNEWS DACH

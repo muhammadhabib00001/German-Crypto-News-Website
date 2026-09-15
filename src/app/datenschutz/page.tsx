@@ -4,7 +4,7 @@ import { SITE_NAME, SITE_URL } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: `Datenschutzerklärung | ${SITE_NAME}`,
-  description: 'Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO auf KryptoPulse DE.',
+  description: 'Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO auf NEWSKRYPT.',
   alternates: { canonical: `${SITE_URL}/datenschutz` },
 };
 
@@ -24,9 +24,9 @@ export default function DatenschutzPage() {
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">2. Verantwortliche Stelle</h2>
         <p>
           Verantwortlicher für die Datenverarbeitung auf dieser Website ist:<br />
-          KryptoPulse DE Media GmbH<br />
+          NEWSKRYPT Media GmbH<br />
           Mainzer Landstraße 180, 60327 Frankfurt am Main<br />
-          E-Mail: datenschutz@kryptopulse.de
+          E-Mail: newskryptowahrung26@gmail.com
         </p>
 
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">3. Datenerfassung auf unserer Website</h2>

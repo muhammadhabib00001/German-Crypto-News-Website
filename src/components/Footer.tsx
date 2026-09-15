@@ -10,16 +10,14 @@ export default function Footer() {
         
         {/* Brand Column */}
         <div className="lg:col-span-2 space-y-4">
-          <Link href="/" className="inline-flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-lg">
-              KP
-            </div>
+          <Link href="/" className="inline-flex items-center gap-3">
+            <img src="/logo.png" alt="NEWSKRYPT Logo" className="w-8 h-8 object-contain rounded-lg" />
             <span className="text-xl font-extrabold text-white tracking-tight">
-              KRYPTOPULSE <span className="text-blue-500">DE</span>
+              NEWS<span className="text-blue-500">KRYPT</span>
             </span>
           </Link>
           <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-            KryptoPulse DE ist das vertrauenswürdige deutsche Fachportal für unabhängige Berichterstattung über Bitcoin, Ethereum, Altcoins, DeFi, Regulierung (MiCA) und Marktanalysen in Deutschland, Österreich und der Schweiz.
+            NEWSKRYPT ist das vertrauenswürdige deutsche Fachportal für unabhängige Berichterstattung über Bitcoin, Ethereum, Altcoins, DeFi, Regulierung (MiCA) und Marktanalysen in Deutschland, Österreich und der Schweiz.
           </p>
           <div className="flex items-center gap-3 pt-2 text-slate-400">
             <a href="/rss.xml" className="hover:text-blue-400 p-2 rounded-lg bg-slate-900 border border-slate-800 transition-colors" title="RSS Feed">
@@ -87,10 +85,10 @@ export default function Footer() {
             Risikohinweis & Finanz-Disclaimer:
           </p>
           <p className="leading-relaxed">
-            Die auf KryptoPulse DE veröffentlichten Artikel, Kursprognosen, Marktanalysen und Daten dienen ausschließlich der Information und Weiterbildung und stellen keine Anlageberatung, Finanzberatung oder Kaufempfehlung dar. Der Handel mit Kryptowährungen und digitalen Vermögenswerten birgt hohe Verlustrisiken bis hin zum Totalverlust des eingesetzten Kapitals. Informieren Sie sich eigenständig und konsultieren Sie bei Bedarf einen qualifizierten Finanzberater.
+            Die auf NEWSKRYPT veröffentlichten Artikel, Kursprognosen, Marktanalysen und Daten dienen ausschließlich der Information und Weiterbildung und stellen keine Anlageberatung, Finanzberatung oder Kaufempfehlung dar. Der Handel mit Kryptowährungen und digitalen Vermögenswerten birgt hohe Verlustrisiken bis hin zum Totalverlust des eingesetzten Kapitals. Informieren Sie sich eigenständig und konsultieren Sie bei Bedarf einen qualifizierten Finanzberater.
           </p>
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-900 text-[11px]">
-            <p>&copy; {new Date().getFullYear()} KryptoPulse DE. Alle Rechte vorbehalten.</p>
+            <p>&copy; {new Date().getFullYear()} NEWSKRYPT. Alle Rechte vorbehalten.</p>
             <p className="flex items-center gap-4">
               <span>Sprache: Deutsch (de-DE)</span>
               <span>DACH Region (DE / AT / CH)</span>

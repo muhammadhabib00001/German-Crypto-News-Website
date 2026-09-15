@@ -26,7 +26,7 @@ export default function EditorialGuidelinesPage() {
             </h1>
           </div>
           <p className="text-slate-700 dark:text-slate-300 text-base sm:text-lg font-medium">
-            Bei <strong>KryptoPulse DE</strong> bildet redaktionelle Integrität das unumstößliche Fundament unserer täglichen Arbeit. Unser Ziel ist es, den vertrauenswürdigsten und fundiertesten Fachjournalismus zu Kryptowährungen und Blockchain-Technologie im deutschsprachigen Raum bereitzustellen.
+            Bei <strong>NEWSKRYPT</strong> bildet redaktionelle Integrität das unumstößliche Fundament unserer täglichen Arbeit. Unser Ziel ist es, den vertrauenswürdigsten und fundiertesten Fachjournalismus zu Kryptowährungen und Blockchain-Technologie im deutschsprachigen Raum bereitzustellen.
           </p>
         </div>
 

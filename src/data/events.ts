@@ -22,7 +22,7 @@ Schwerpunkte der Konferenz sind die praktische Umsetzung der MiCA-Verordnung im 
     featuredImage: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1200',
     speakers: [
       { name: 'Prof. Dr. Philipp Sandner', title: 'Leiter Blockchain Center', company: 'Frankfurt School' },
-      { name: 'Dr. Laura Hoffmann', title: 'LL.M. Kapitalmarktrecht', company: 'KryptoPulse DE' },
+      { name: 'Dr. Laura Hoffmann', title: 'LL.M. Kapitalmarktrecht', company: 'NEWSKRYPT' },
       { name: 'Dr. Marcus Treichel', title: 'Head of Digital Assets', company: 'Deutsche Bank' },
     ],
     topics: ['MiCA Regulierung', 'Institutional Bitcoin', 'RWA Tokenisierung', 'Digitaler Euro', 'DeFi Compliance'],
@@ -91,7 +91,7 @@ Schwerpunkte der Konferenz sind die praktische Umsetzung der MiCA-Verordnung im 
     websiteUrl: 'https://cryptovalleyconference.com',
     featuredImage: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1200',
     speakers: [
-      { name: 'Dr. Maximilian Weber', title: 'Chefredakteur', company: 'KryptoPulse DE' },
+      { name: 'Dr. Maximilian Weber', title: 'Chefredakteur', company: 'NEWSKRYPT' },
       { name: 'Katharina Geissler', title: 'FINMA Regulation Lead', company: 'FINMA Advisory' },
     ],
     topics: ['Web3 Infrastruktur', 'Schweizer Krypto-Recht', 'Smart Contract Audits', 'Staking Protocol Research'],
@@ -137,7 +137,7 @@ Schwerpunkte der Konferenz sind die praktische Umsetzung der MiCA-Verordnung im 
     websiteUrl: 'https://viennablockchainsummit.at',
     featuredImage: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1200',
     speakers: [
-      { name: 'Florian Becker', title: 'CFA & Marktanalyst', company: 'KryptoPulse DE' },
+      { name: 'Florian Becker', title: 'CFA & Marktanalyst', company: 'NEWSKRYPT' },
       { name: 'Mag. Stefan Gruber', title: 'Steuerberater Krypto-KEST', company: 'Cryptotax Austria' },
     ],
     topics: ['Krypto Steuer Österreich', 'Web3 Startups', 'DeFi Yields', 'Blockchain in der Industrie'],
