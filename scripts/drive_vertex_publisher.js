@@ -102,6 +102,20 @@ async function main() {
 
   console.log(`🚀 Processing Topic with Gemini Model: "${topicToProcess}"`);
 
+  const articlesFilePath = path.join(process.cwd(), 'src', 'data', 'articles.ts');
+  let currentFileContent = fs.existsSync(articlesFilePath) ? fs.readFileSync(articlesFilePath, 'utf8') : '';
+  
+  let existingTitlesList = [];
+  let existingSlugsList = [];
+  try {
+    const matches = currentFileContent.match(/export const ARTICLES: Article\[\] = (\[[\s\S]*?\]);/);
+    if (matches && matches[1]) {
+      const parsed = eval(matches[1]);
+      existingTitlesList = parsed.map(a => a.title);
+      existingSlugsList = parsed.map(a => a.slug);
+    }
+  } catch (e) {}
+
   // 2. AI Content Generation with Master SEO Strategy Prompt
   const prompt = `Act as a Senior SEO Content Strategist, SEO Copywriter, Semantic SEO Specialist, and Editorial Content Planner with expertise in Google Search, helpful content, search intent, topical authority, E-E-A-T, and modern SEO.
 
@@ -111,29 +125,34 @@ LANGUAGE: German (de-DE)
 ARTICLE LENGTH: 1000–1500 words
 TONE: Professional, trustworthy, informative, neutral, natural, and easy to understand.
 
+EXISTING PUBLISHED ARTICLES ON SITE (DO NOT REPEAT ANY OF THESE TITLES OR SLUGS):
+- Existing Titles: ${JSON.stringify(existingTitlesList)}
+- Existing Slugs: ${JSON.stringify(existingSlugsList)}
+
 MASTER SEO WORKFLOW INSTRUCTIONS:
-1. Conduct Phase 1 SEO & Search Intent Analysis internally (Primary Keyword, Secondary Keywords 5-10, LSI/Semantic Keywords 10-20, Long-tail Keywords, Entities, Featured Snippet target 40-60 words).
+1. Conduct Phase 1 SEO & Search Intent Analysis internally. Even if this keyword or a similar topic was processed before, you MUST generate a completely NEW, DIFFERENT perspective, DIFFERENT angle, DIFFERENT H2/H3 subheadings, DIFFERENT title, DIFFERENT meta description, and DIFFERENT URL slug.
 2. Execute Phase 2 Article Writing in German (de-DE).
 3. Ensure STRICT SEO constraints:
-   - SEO Title: EXACTLY 50 to 55 characters long.
-   - Meta Description: EXACTLY 150 to 155 characters long.
+   - SEO Title: EXACTLY 50 to 55 characters long. MUST NOT MATCH ANY EXISTING TITLE.
+   - Meta Description: EXACTLY 150 to 155 characters long. MUST BE 100% UNIQUE.
    - Word Count: STRICTLY 1000 to 1500 words in German HTML text (<p>, <h2>, <h3>, <ul>, <li>).
    - Absolutely NO '2026' anywhere in the body text.
-   - URL Slug: Create a highly descriptive, lowercase, hypen-separated German SEO slug containing the primary keyword plus relevant intent terms (e.g. 'opensea-nft-marktplatz-guide-anleitung' instead of just 'opensea').
+   - URL Slug: Create a highly descriptive, unique, lowercase, hyphen-separated German SEO slug containing the primary keyword plus unique intent terms (e.g. 'opensea-nft-ratgeber-chancen-risiken' instead of an already used slug). MUST NOT MATCH ANY EXISTING SLUG.
+   - All H2 & H3 subheadings inside the content HTML MUST be completely unique and freshly structured for this article.
    - High E-E-A-T, no keyword stuffing, natural LSI integration, populate faqs array (4-6 questions), and full Table of Contents. Do NOT write an FAQ section inside the content HTML string (the faqs array is rendered separately in the UI).
 
 You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schema below (do not include markdown code block backticks \`\`\` or intro text):
 
 {
-  "title": "Clean German Article Title",
-  "seoTitle": "EXACTLY 50-55 character long German SEO Title",
-  "metaDescription": "EXACTLY 150-155 character long German Meta Description",
-  "slug": "seo-optimized-german-url-slug (e.g. opensea-nft-marktplatz-guide-anleitung)",
+  "title": "Clean Unique German Article Title",
+  "seoTitle": "EXACTLY 50-55 character long Unique German SEO Title",
+  "metaDescription": "EXACTLY 150-155 character long Unique German Meta Description",
+  "slug": "unique-seo-optimized-german-url-slug",
   "excerpt": "Compelling 2-3 sentence German summary with opening hook",
-  "content": "<p>Opening Hook and Featured Snippet paragraph (40-60 words)...</p><h2>...</h2><p>Full 1000-1500 words German HTML body text...</p>",
+  "content": "<p>Opening Hook and Featured Snippet paragraph (40-60 words)...</p><h2>Unique H2</h2><p>Full 1000-1500 words German HTML body text...</p>",
   "toc": [
-    { "id": "section-1", "text": "Überschrift 1", "level": 2 },
-    { "id": "section-2", "text": "Überschrift 2", "level": 2 }
+    { "id": "unique-section-1", "text": "Einmalige Überschrift 1", "level": 2 },
+    { "id": "unique-section-2", "text": "Einmalige Überschrift 2", "level": 2 }
   ],
   "tags": ["Krypto", "DeFi", "${topicToProcess}"],
   "focusKeyword": "${topicToProcess}",
