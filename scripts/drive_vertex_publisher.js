@@ -102,33 +102,47 @@ async function main() {
 
   console.log(`🚀 Processing Topic with Gemini Model: "${topicToProcess}"`);
 
-  // 2. AI Content Generation (supports GEMINI_API_KEY primary & Vertex AI fallback)
-  const prompt = `Du bist ein hochrangiger deutscher Krypto- und Finanzanalyst. Erstelle einen extrem ausführlichen, professionellen Finanzartikel auf Deutsch basierend auf folgendem Ziel-Keyword: "${topicToProcess}".
+  // 2. AI Content Generation with Master SEO Strategy Prompt
+  const prompt = `Act as a Senior SEO Content Strategist, SEO Copywriter, Semantic SEO Specialist, and Editorial Content Planner with expertise in Google Search, helpful content, search intent, topical authority, E-E-A-T, and modern SEO.
 
-Striker SEO Regelkatalog:
-1. SEO Title: exakt 50-55 Zeichen.
-2. Meta Description: exakt 150-155 Zeichen.
-3. Wortanzahl des Artikels: strikt 1000 bis 1500 Wörter in Deutsch (de-DE). Zähle NUR den Text innerhalb von HTML-Tags (<p>, <h2>, <h3>, <ul>, <li>).
-4. Absolut KEIN '2026' im gesamten Text.
-5. Verwende einzigartige H2 und H3 Überschriften.
-6. Erstelle ein vollständiges Inhaltsverzeichnis (toc Array).
+TOPIC / PRIMARY KEYWORD: "${topicToProcess}"
+SEARCH INTENT: Informational
+LANGUAGE: German (de-DE)
+ARTICLE LENGTH: 1000–1500 words
+TONE: Professional, trustworthy, informative, neutral, natural, and easy to understand.
 
-Antworte AUSSCHLIESSLICH im folgenden gültigen JSON-Format (kein Markdown-Intro/Outro):
+MASTER SEO WORKFLOW INSTRUCTIONS:
+1. Conduct Phase 1 SEO & Search Intent Analysis internally (Primary Keyword, Secondary Keywords 5-10, LSI/Semantic Keywords 10-20, Long-tail Keywords, Entities, Featured Snippet target 40-60 words).
+2. Execute Phase 2 Article Writing in German (de-DE).
+3. Ensure STRICT SEO constraints:
+   - SEO Title: EXACTLY 50 to 55 characters long.
+   - Meta Description: EXACTLY 150 to 155 characters long.
+   - Word Count: STRICTLY 1000 to 1500 words in German HTML text (<p>, <h2>, <h3>, <ul>, <li>).
+   - Absolutely NO '2026' anywhere in the body text.
+   - High E-E-A-T, no keyword stuffing, natural LSI integration, FAQs section (4-6 questions), and full Table of Contents.
+
+You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schema below (do not include markdown code block backticks ``` or intro text):
 
 {
-  "title": "Titel des Artikels (z.B. OpenSea NFT Marktplatz Guide: Kaufen, Verkaufen & Gebühren)",
-  "seoTitle": "EXAKT 50 bis 55 Zeichen lange SEO-Headline",
-  "metaDescription": "EXAKT 150 bis 155 Zeichen lange Meta-Beschreibung mit Call to Action.",
+  "title": "Clean German Article Title",
+  "seoTitle": "EXACTLY 50-55 character long German SEO Title",
+  "metaDescription": "EXACTLY 150-155 character long German Meta Description",
   "slug": "${topicToProcess.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}",
-  "excerpt": "Eine professionelle 2-3 Sätze Zusammenfassung des Artikels.",
-  "content": "<h1>...</h1><h2>...</h2><p>Vollständiger 1000-1500 Wörter Artikeltext in HTML...</p>",
+  "excerpt": "Compelling 2-3 sentence German summary with opening hook",
+  "content": "<p>Opening Hook and Featured Snippet paragraph (40-60 words)...</p><h2>...</h2><p>Full 1000-1500 words German HTML body text...</p><h3>FAQs</h3>...",
   "toc": [
-    { "id": "subheading-1-slug", "text": "Überschrift 1", "level": 2 },
-    { "id": "subheading-2-slug", "text": "Überschrift 2", "level": 2 }
+    { "id": "section-1", "text": "Überschrift 1", "level": 2 },
+    { "id": "section-2", "text": "Überschrift 2", "level": 2 }
   ],
   "tags": ["Krypto", "DeFi", "${topicToProcess}"],
   "focusKeyword": "${topicToProcess}",
-  "secondaryKeywords": ["Trading", "NFT", "Sicherheit"]
+  "secondaryKeywords": ["Trading", "Analyse", "Sicherheit"],
+  "faqs": [
+    { "question": "Häufige Frage 1?", "answer": "Kurze, informative Antwort." }
+  ],
+  "sources": [
+    { "title": "Offizielle Dokumentation", "url": "https://example.com", "publisher": "Behörde/Plattform" }
+  ]
 }`;
 
   let rawText = '';
