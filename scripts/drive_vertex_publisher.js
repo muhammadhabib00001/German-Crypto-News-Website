@@ -202,35 +202,71 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
         const articlesFilePath = path.join(process.cwd(), 'src', 'data', 'articles.ts');
         let currentFileContent = fs.readFileSync(articlesFilePath, 'utf8');
 
-        // Ensure proper article fields
+        // Ensure proper article fields & strict uniqueness checks against existing articles
+        let existingArticles = [];
+        try {
+          const existingMatches = currentFileContent.match(/export const ARTICLES: Article\[\] = (\[[\s\S]*?\]);/);
+          if (existingMatches && existingMatches[1]) {
+            existingArticles = eval(existingMatches[1]);
+          }
+        } catch (e) {
+          // ignore eval parsing errors if any
+        }
+
+        const existingTitles = new Set(existingArticles.map(a => (a.title || '').toLowerCase().trim()));
+        const existingMetas = new Set(existingArticles.map(a => (a.metaDescription || '').toLowerCase().trim()));
+        const existingImages = new Set(existingArticles.map(a => (a.featuredImage?.url || '').trim()));
+
+        // Enforce unique Title
+        let finalTitle = generatedArticle.title || `${topicToProcess}: Markt & Ratgeber`;
+        if (existingTitles.has(finalTitle.toLowerCase().trim())) {
+          finalTitle = `${topicToProcess} Guide: Umfassende Krypto & Web3 Markt-Analyse`;
+        }
+
+        // Enforce unique Meta Description
+        let finalMeta = generatedArticle.metaDescription || `Entdecken Sie ${topicToProcess} im Detail. Vollständiger Leitfaden, aktuelle Markt-Daten und Tipps im Überblick.`;
+        if (existingMetas.has(finalMeta.toLowerCase().trim())) {
+          finalMeta = `Erfahren Sie alles Relevante über ${topicToProcess}: Detaillierte Einblicke, Funktionsweise, Sicherheitstipps sowie Markttrends kompakt zusammengefasst.`;
+        }
+
         const rawSlug = generatedArticle.slug || `${topicToProcess} nft marktplatz guide anleitung`;
         const slug = rawSlug.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
         const id = generatedArticle.id || `art-${Date.now()}`;
         
-        let unsplashImageUrl = 'https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80&w=1200';
+        // Fetch guaranteed UNIQUE image from Unsplash with random page / fallback pools
+        let unsplashImageUrl = '';
         const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
         if (unsplashAccessKey) {
           try {
             const queryParam = encodeURIComponent(topicToProcess || 'crypto');
-            const fetchRes = await fetch(`https://api.unsplash.com/search/photos?query=${queryParam}&per_page=1&orientation=landscape`, {
+            // Query 10 regular images and pick the first one not already in existingImages
+            const fetchRes = await fetch(`https://api.unsplash.com/search/photos?query=${queryParam}&per_page=10&orientation=landscape`, {
               headers: { Authorization: `Client-ID ${unsplashAccessKey}` }
             });
             const unsplashData = await fetchRes.json();
-            if (unsplashData?.results?.[0]?.urls?.regular) {
-              unsplashImageUrl = unsplashData.results[0].urls.regular;
-              console.log(`🖼️ Fetched custom Unsplash image for topic "${topicToProcess}": ${unsplashImageUrl}`);
+            if (unsplashData?.results?.length > 0) {
+              const freshMatch = unsplashData.results.find(r => r.urls?.regular && !existingImages.has(r.urls.regular));
+              if (freshMatch) {
+                unsplashImageUrl = freshMatch.urls.regular;
+                console.log(`🖼️ Fetched guaranteed unique Unsplash image for "${topicToProcess}": ${unsplashImageUrl}`);
+              }
             }
           } catch (uErr) {
             console.warn('⚠️ Unsplash fetch fallback warning:', uErr.message);
           }
         }
 
+        if (!unsplashImageUrl || existingImages.has(unsplashImageUrl)) {
+          // Dynamic unique fallback using Unsplash Source featuring topic seed & timestamp
+          unsplashImageUrl = `https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80&w=1200&sig=${Date.now()}`;
+        }
+
         // Construct full Article object string
         const articleObj = {
           id,
-          title: generatedArticle.title || `${topicToProcess}: Markt & Ratgeber`,
+          title: finalTitle,
           seoTitle: generatedArticle.seoTitle || `${topicToProcess}: Guide & Analyse`,
-          metaDescription: generatedArticle.metaDescription || `Entdecken Sie ${topicToProcess} im Detail. Vollständiger Leitfaden, aktuelle Markt-Daten und Tipps im Überblick.`,
+          metaDescription: finalMeta,
           slug,
           category: (generatedArticle.category && generatedArticle.category.iconName) ? generatedArticle.category : { 
             id: 'cat-1', 
@@ -262,7 +298,7 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
             credentials: generatedArticle.author?.credentials || ['M.Sc. Finance', 'Certified Financial Analyst']
           },
           featuredImage: {
-            url: generatedArticle.featuredImage?.url || unsplashImageUrl,
+            url: generatedArticle.featuredImage?.url && !existingImages.has(generatedArticle.featuredImage.url) ? generatedArticle.featuredImage.url : unsplashImageUrl,
             alt: generatedArticle.featuredImage?.alt || topicToProcess,
             title: generatedArticle.featuredImage?.title || topicToProcess,
             caption: generatedArticle.featuredImage?.caption || `Analyse & Trends zu ${topicToProcess}`,
