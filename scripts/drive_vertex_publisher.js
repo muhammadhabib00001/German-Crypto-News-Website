@@ -72,16 +72,21 @@ async function main() {
           const worksheet = workbook.Sheets[firstSheetName];
           const rows = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-          // Extract first non-empty row/cell as primary keyword topic
+          // Collect all valid keyword topics from the sheet and pick a random one
+          const validKeywords = [];
           for (const row of rows) {
             if (Array.isArray(row) && row.length > 0 && row[0]) {
               const kw = String(row[0]).trim();
-              if (kw && kw.toLowerCase() !== 'keyword' && kw.toLowerCase() !== 'keywords' && kw.toLowerCase() !== 'thema') {
-                topicToProcess = kw;
-                console.log(`🎯 Extracted Keyword Topic from Excel: "${topicToProcess}"`);
-                break;
+              if (kw && !['keyword', 'keywords', 'thema', 'topic', 'topics'].includes(kw.toLowerCase())) {
+                validKeywords.push(kw);
               }
             }
+          }
+
+          if (validKeywords.length > 0) {
+            const randomIndex = Math.floor(Math.random() * validKeywords.length);
+            topicToProcess = validKeywords[randomIndex];
+            console.log(`🎯 Picked random Keyword Topic (${randomIndex + 1}/${validKeywords.length}) from Excel: "${topicToProcess}"`);
           }
         } else if (!topicToProcess) {
           topicToProcess = file.name.replace(/\.[^/.]+$/, '');
