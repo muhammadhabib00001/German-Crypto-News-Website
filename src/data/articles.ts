@@ -11,7 +11,8 @@ export const ARTICLES: Article[] = [
     "id": "cat-1",
     "name": "DeFi",
     "slug": "defi",
-    "description": "Dezentrale Finanzen & Protokolle"
+    "description": "Dezentrale Finanzen & Protokolle",
+    "iconName": "Coins"
   },
   "tags": [
     "Krypto",
