@@ -167,6 +167,24 @@ Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
         const slug = generatedArticle.slug || topicToProcess.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
         const id = generatedArticle.id || `art-${Date.now()}`;
         
+        let unsplashImageUrl = 'https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80&w=1200';
+        const unsplashAccessKey = process.env.UNSPLASH_ACCESS_KEY;
+        if (unsplashAccessKey) {
+          try {
+            const queryParam = encodeURIComponent(topicToProcess || 'crypto');
+            const fetchRes = await fetch(`https://api.unsplash.com/search/photos?query=${queryParam}&per_page=1&orientation=landscape`, {
+              headers: { Authorization: `Client-ID ${unsplashAccessKey}` }
+            });
+            const unsplashData = await fetchRes.json();
+            if (unsplashData?.results?.[0]?.urls?.regular) {
+              unsplashImageUrl = unsplashData.results[0].urls.regular;
+              console.log(`🖼️ Fetched custom Unsplash image for topic "${topicToProcess}": ${unsplashImageUrl}`);
+            }
+          } catch (uErr) {
+            console.warn('⚠️ Unsplash fetch fallback warning:', uErr.message);
+          }
+        }
+
         // Construct full Article object string
         const articleObj = {
           id,
@@ -191,8 +209,8 @@ Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
             bio: 'Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.',
             avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200'
           },
-          featuredImage: generatedArticle.featuredImage || {
-            url: 'https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80&w=1200',
+          featuredImage: generatedArticle.featuredImage?.url ? generatedArticle.featuredImage : {
+            url: unsplashImageUrl,
             alt: topicToProcess,
             caption: `Analyse & Trends zu ${topicToProcess}`
           },
