@@ -19,7 +19,7 @@ export const AUTHORS: Author[] = [
     slug: 'sophia-schneider',
     role: 'Senior Redakteurin (DeFi & Web3)',
     bio: 'Sophia Schneider studierte Wirtschaftsinformatik in Zürich (ETH Zürich). Sie spezialisiert sich auf Smart Contract Audits, dezentrale Finanzmärkte (DeFi) und die Skalierung von Layer-1- und Layer-2-Netzwerken.',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=300',
+    avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=300',
     email: 's.schneider@kryptopulse.de',
     twitter: 'https://x.com',
     linkedin: 'https://linkedin.com',
