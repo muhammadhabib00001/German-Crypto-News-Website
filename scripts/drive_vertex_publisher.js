@@ -323,12 +323,12 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
           readTimeMinutes: generatedArticle.readTimeMinutes || 10,
           author: {
             id: generatedArticle.author?.id || 'florian-becker',
-            name: generatedArticle.author?.name || 'Florian Becker',
+            name: generatedArticle.author?.name || 'Stefan Krumm',
             slug: generatedArticle.author?.slug || 'florian-becker',
             role: generatedArticle.author?.role || 'Senior Crypto Analyst',
             bio: generatedArticle.author?.bio || 'Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.',
             avatar: generatedArticle.author?.avatar || generatedArticle.author?.avatarUrl || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300',
-            email: generatedArticle.author?.email || 'florian.becker@kryptopulse.de',
+            email: generatedArticle.author?.email || 's.krumm@kryptopulse.de',
             credentials: generatedArticle.author?.credentials || ['M.Sc. Finance', 'Certified Financial Analyst']
           },
           featuredImage: {

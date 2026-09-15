@@ -73,12 +73,12 @@ export const ARTICLES: Article[] = [
   "readTimeMinutes": 10,
   "author": {
     "id": "florian-becker",
-    "name": "Florian Becker",
+    "name": "Stefan Krumm",
     "slug": "florian-becker",
     "role": "Senior Crypto Analyst",
     "bio": "Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.",
     "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
-    "email": "florian.becker@kryptopulse.de",
+    "email": "s.krumm@kryptopulse.de",
     "credentials": [
       "M.Sc. Finance",
       "Certified Financial Analyst"
@@ -209,12 +209,12 @@ export const ARTICLES: Article[] = [
   "readTimeMinutes": 10,
   "author": {
     "id": "florian-becker",
-    "name": "Florian Becker",
+    "name": "Stefan Krumm",
     "slug": "florian-becker",
     "role": "Senior Crypto Analyst",
     "bio": "Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.",
     "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
-    "email": "florian.becker@kryptopulse.de",
+    "email": "s.krumm@kryptopulse.de",
     "credentials": [
       "M.Sc. Finance",
       "Certified Financial Analyst"
