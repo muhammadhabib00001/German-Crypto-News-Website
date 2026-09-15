@@ -221,7 +221,7 @@ export const ARTICLES: Article[] = [
     ]
   },
   "featuredImage": {
-    "url": "https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80&w=1200&sig=1789465807552",
+    "url": "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=1200",
     "alt": "0pen sea",
     "title": "0pen sea",
     "caption": "Analyse & Trends zu 0pen sea",

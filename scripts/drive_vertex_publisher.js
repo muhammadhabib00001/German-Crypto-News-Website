@@ -276,8 +276,21 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
         }
 
         if (!unsplashImageUrl || existingImages.has(unsplashImageUrl)) {
-          // Dynamic unique fallback using Unsplash Source featuring topic seed & timestamp
-          unsplashImageUrl = `https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80&w=1200&sig=${Date.now()}`;
+          // Dynamic unique fallback using a diverse pool of 10 distinct crypto/NFT/DeFi Unsplash images
+          const fallbackPool = [
+            'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=1200',
+            'https://images.unsplash.com/photo-1622979135225-d2ba269bc1bd?auto=format&fit=crop&q=80&w=1200',
+            'https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&q=80&w=1200',
+            'https://images.unsplash.com/photo-1642790106117-e829e14a795f?auto=format&fit=crop&q=80&w=1200',
+            'https://images.unsplash.com/photo-1639762681057-408e52192e55?auto=format&fit=crop&q=80&w=1200',
+            'https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80&w=1200',
+            'https://images.unsplash.com/photo-1634704784915-aacf363b021f?auto=format&fit=crop&q=80&w=1200',
+            'https://images.unsplash.com/photo-1640344776471-c88a24557b48?auto=format&fit=crop&q=80&w=1200',
+            'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&q=80&w=1200',
+            'https://images.unsplash.com/photo-1622979135240-caa6648190b6?auto=format&fit=crop&q=80&w=1200'
+          ];
+          const unusedFallback = fallbackPool.find(img => !existingImages.has(img));
+          unsplashImageUrl = unusedFallback || `${fallbackPool[Math.floor(Math.random() * fallbackPool.length)]}&sig=${Date.now()}`;
         }
 
           const categorySlug = (generatedArticle.category && generatedArticle.category.slug) ? generatedArticle.category.slug : 'defi';
