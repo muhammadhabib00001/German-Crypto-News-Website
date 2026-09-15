@@ -26,6 +26,9 @@ export const ARTICLES: Article[] = [
   ],
   "excerpt": "Ausführlicher Leitfaden und Analyse zu 0pen sea.",
   "content": "<p>Detaillierte Analyse zu 0pen sea.</p>",
+  "toc": [
+    { "id": "ueberblick", "text": "Überblick zu 0pen sea", "level": 2 }
+  ],
   "publishedAt": "2026-09-15T08:06:40.068Z",
   "updatedAt": "2026-09-15T08:06:40.068Z",
   "readTimeMinutes": 10,

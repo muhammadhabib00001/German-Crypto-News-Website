@@ -210,6 +210,7 @@ Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
           secondaryKeywords: generatedArticle.secondaryKeywords || ['Trading', 'Sicherheit'],
           excerpt: generatedArticle.excerpt || `Ausführlicher Leitfaden und Analyse zu ${topicToProcess}.`,
           content: generatedArticle.content || `<p>Detaillierte Analyse zu ${topicToProcess}.</p>`,
+          toc: generatedArticle.toc || [{ id: 'ueberblick', text: `Überblick zu ${topicToProcess}`, level: 2 }],
           publishedAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
           readTimeMinutes: generatedArticle.readTimeMinutes || 10,
