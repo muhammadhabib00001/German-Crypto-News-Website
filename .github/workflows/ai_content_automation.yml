@@ -39,9 +39,9 @@ jobs:
           ARTICLE_TOPIC: ${{ github.event.inputs.topic }}
         run: node scripts/drive_vertex_publisher.js
 
-      - name: Commit & Push Generated Content to Main
+      - name: Commit & Push Generated Content to Main (Triggers Vercel Auto-Deploy)
         run: |
           git config --global user.name 'KryptoPulse AI Bot'
           git config --global user.email 'ai-bot@kryptopulse.de'
           git add src/data/articles.ts
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-publish AI content via Vertex AI & Google Drive [skip ci]" && git push origin main)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-publish AI content via Vertex AI & Google Drive" && git push origin main)
