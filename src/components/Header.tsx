@@ -24,7 +24,7 @@ export default function Header({ onOpenSearch }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <img src="/logo.png" alt="NEWSKRYPT Logo" className="h-9 w-auto object-contain group-hover:scale-105 transition-transform" />
+          <img src="/logo.png" alt="NEWSKRYPT Logo" className="h-10 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform" />
         </Link>
 
         {/* Desktop Quick Nav Links */}
