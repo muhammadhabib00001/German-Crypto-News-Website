@@ -138,8 +138,8 @@ MASTER SEO WORKFLOW INSTRUCTIONS:
 1. Conduct Phase 1 SEO & Search Intent Analysis internally. Even if this keyword or a similar topic was processed before, you MUST generate a completely NEW, DIFFERENT perspective, DIFFERENT angle, DIFFERENT H2/H3 subheadings, DIFFERENT title, DIFFERENT meta description, and DIFFERENT URL slug.
 2. Execute Phase 2 Article Writing in German (de-DE).
 3. Ensure STRICT SEO constraints:
-   - SEO Title: EXACTLY 50 to 55 characters long. MUST NOT MATCH ANY EXISTING TITLE.
-   - Meta Description: EXACTLY 150 to 155 characters long. MUST BE 100% UNIQUE.
+   - SEO Title: EXACTLY 58 characters long. MUST NOT MATCH ANY EXISTING TITLE.
+   - Meta Description: EXACTLY 155 characters long. MUST BE 100% UNIQUE.
    - Word Count: STRICTLY 1000 to 1500 words in German HTML text (<p>, <h2>, <h3>, <ul>, <li>).
    - Absolutely NO '2026' anywhere in the body text.
    - URL Slug: Create a highly descriptive, unique, lowercase, hyphen-separated German SEO slug containing the primary keyword plus unique intent terms (e.g. 'opensea-nft-ratgeber-chancen-risiken' instead of an already used slug). MUST NOT MATCH ANY EXISTING SLUG.
@@ -150,8 +150,8 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
 
 {
   "title": "Clean Unique German Article Title",
-  "seoTitle": "EXACTLY 50-55 character long Unique German SEO Title",
-  "metaDescription": "EXACTLY 150-155 character long Unique German Meta Description",
+  "seoTitle": "EXACTLY 58 character long Unique German SEO Title",
+  "metaDescription": "EXACTLY 155 character long Unique German Meta Description",
   "slug": "unique-seo-optimized-german-url-slug",
   "excerpt": "Compelling 2-3 sentence German summary with opening hook",
   "content": "<p>Opening Hook and Featured Snippet paragraph (40-60 words)...</p><h2>Unique H2</h2><p>Full 1000-1500 words German HTML body text...</p>",

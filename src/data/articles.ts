@@ -134,9 +134,9 @@ export const ARTICLES: Article[] = [
 },
 {
   "id": "art-1789466290837",
-  "title": "Seaport-Architektur & Multi-Chain-Handel im Fach-Guide",
-  "seoTitle": "Seaport-Architektur & Multi-Chain-Handel im Fach-Guide",
-  "metaDescription": "Analyse des Seaport-Protokolls auf 0pen sea: Multi-Chain-Funktionen, Smart-Contract-Sicherheit, Teilerfüllungen und reduzierte Gas-Gebühren im Überblick.",
+  "title": "Seaport-Architektur & Multi-Chain-Handel im Fach-Ratgeber!",
+  "seoTitle": "Seaport-Architektur & Multi-Chain-Handel im Fach-Ratgeber!",
+  "metaDescription": "Analyse des Seaport-Protokolls auf 0pen sea: Multi-Chain-Funktionen, Smart-Contract-Sicherheit, Teilerfüllungen und reduzierte Gas-Gebühren im Überblick...",
   "slug": "0pen-sea-seaport-multichain-architektur-sicherheit",
   "category": {
     "id": "cat-1",
@@ -260,9 +260,9 @@ export const ARTICLES: Article[] = [
 },
 {
   "id": "art-1789465807386",
-  "title": "NFT-Marktplatz OpenSea im Praxis-Test & Ratgeber-Guide",
-  "seoTitle": "NFT-Marktplatz OpenSea im Praxis-Test & Ratgeber-Guide",
-  "metaDescription": "Vollständiger OpenSea Test & Leitfaden: Kaufen, Verkaufen, Lazy-Minting, unterstützte Blockchains sowie wichtige Sicherheitstipps für alle Krypto-Sammler.",
+  "title": "NFT-Marktplatz OpenSea im Praxis-Test: Der Ratgeber-Guide!",
+  "seoTitle": "NFT-Marktplatz OpenSea im Praxis-Test: Der Ratgeber-Guide!",
+  "metaDescription": "Vollständiger OpenSea Test & Leitfaden: Kaufen, Verkaufen, Lazy-Minting, unterstützte Blockchains sowie wichtige Sicherheitstipps für alle Krypto-Sammler.!",
   "slug": "0pen-sea-nft-marktplatz-guide",
   "category": {
     "id": "cat-1",
