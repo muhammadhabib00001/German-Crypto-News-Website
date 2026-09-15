@@ -116,7 +116,14 @@ Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
   let rawText = '';
 
   if (geminiApiKey) {
-    const modelsToTry = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-1.5-flash-latest', 'gemini-pro'];
+    const modelsToTry = [
+      'gemini-3.7-flash',
+      'gemini-2.5-flash',
+      'gemini-2.0-flash',
+      'gemini-1.5-flash',
+      'gemini-1.5-flash-latest',
+      'gemini-pro'
+    ];
     const ai = new GoogleGenAI({ apiKey: geminiApiKey });
     
     for (const m of modelsToTry) {
