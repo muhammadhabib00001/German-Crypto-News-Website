@@ -225,7 +225,7 @@ export const ARTICLES: Article[] = [
   "isFeatured": true,
   "isTrending": true,
   "isBreaking": false,
-  "canonicalUrl": "https://german-crypto-news-website.vercel.app/article/opensea-nft-marktplatz-guide-anleitung",
+  "canonicalUrl": "https://german-crypto-news-website.vercel.app/defi/opensea-nft-marktplatz-guide-anleitung",
   "faqs": [
     {
       "question": "Was ist 0pen sea?",

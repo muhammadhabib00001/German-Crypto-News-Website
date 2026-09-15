@@ -308,7 +308,7 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
           isFeatured: true,
           isTrending: true,
           isBreaking: false,
-          canonicalUrl: `https://german-crypto-news-website.vercel.app/article/${slug}`,
+          canonicalUrl: `https://german-crypto-news-website.vercel.app/${articleObj.category.slug}/${slug}`,
           ...(generatedArticle.tableData ? { tableData: generatedArticle.tableData } : {}),
           ...(generatedArticle.proCons ? { proCons: generatedArticle.proCons } : {}),
           faqs: generatedArticle.faqs || [],
