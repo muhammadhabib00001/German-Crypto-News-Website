@@ -116,39 +116,29 @@ Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
   let rawText = '';
 
   if (geminiApiKey) {
-    try {
-      const ai = new GoogleGenAI({ apiKey: geminiApiKey });
-      const resp = await ai.models.generateContent({
-        model: 'gemini-2.0-flash',
-        contents: prompt,
-      });
-      rawText = resp.text || '';
-      console.log('✨ Gemini API (Google AI Studio) Response received successfully.');
-    } catch (e) {
-      console.error('⚠️ Gemini API key call failed:', e.message);
+    const modelsToTry = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-2.0-flash-exp'];
+    const ai = new GoogleGenAI({ apiKey: geminiApiKey });
+    
+    for (const m of modelsToTry) {
+      try {
+        console.log(`🤖 Attempting Gemini model "${m}"...`);
+        const resp = await ai.models.generateContent({
+          model: m,
+          contents: prompt,
+        });
+        rawText = resp.text || '';
+        if (rawText) {
+          console.log(`✨ Gemini API (${m}) Response received successfully!`);
+          break;
+        }
+      } catch (e) {
+        console.warn(`⚠️ Model "${m}" failed:`, e.message);
+      }
     }
   }
 
-  if (!rawText && serviceAccountKeyBase64 && projectId) {
-    try {
-      const credentials = parseCredentials(serviceAccountKeyBase64);
-
-      const vertexAI = new VertexAI({
-        project: projectId,
-        location,
-        googleAuthOptions: { credentials },
-      });
-
-      const generativeModel = vertexAI.getGenerativeModel({
-        model: 'gemini-1.5-flash',
-      });
-
-      const resp = await generativeModel.generateContent(prompt);
-      rawText = resp.response?.candidates?.[0]?.content?.parts?.[0]?.text || '';
-      console.log('✨ Vertex AI Response received successfully.');
-    } catch (e) {
-      console.error('❌ Vertex AI API Call Error:', e.message);
-    }
+  if (!rawText) {
+    throw new Error('❌ AI Content Generation Failed! Check your GEMINI_API_KEY in GitHub Secrets.');
   }
 
       let generatedArticle;
