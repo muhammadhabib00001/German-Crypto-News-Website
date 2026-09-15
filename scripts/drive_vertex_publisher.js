@@ -280,6 +280,8 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
           unsplashImageUrl = `https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80&w=1200&sig=${Date.now()}`;
         }
 
+          const categorySlug = (generatedArticle.category && generatedArticle.category.slug) ? generatedArticle.category.slug : 'defi';
+
         // Construct full Article object string
         const articleObj = {
           id,
@@ -290,7 +292,7 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
           category: (generatedArticle.category && generatedArticle.category.iconName) ? generatedArticle.category : { 
             id: 'cat-1', 
             name: generatedArticle.category?.name || 'DeFi', 
-            slug: generatedArticle.category?.slug || 'defi', 
+            slug: categorySlug, 
             description: generatedArticle.category?.description || 'Dezentrale Finanzen & Protokolle',
             iconName: generatedArticle.category?.iconName || 'Coins'
           },
@@ -327,7 +329,7 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
           isFeatured: true,
           isTrending: true,
           isBreaking: false,
-          canonicalUrl: `https://german-crypto-news-website.vercel.app/${articleObj.category.slug}/${slug}`,
+          canonicalUrl: `https://german-crypto-news-website.vercel.app/${categorySlug}/${slug}`,
           ...(generatedArticle.tableData ? { tableData: generatedArticle.tableData } : {}),
           ...(generatedArticle.proCons ? { proCons: generatedArticle.proCons } : {}),
           faqs: generatedArticle.faqs || [],
