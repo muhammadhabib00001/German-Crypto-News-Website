@@ -213,18 +213,23 @@ Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
           publishedAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
           readTimeMinutes: generatedArticle.readTimeMinutes || 10,
-          author: generatedArticle.author || {
-            id: 'author-1',
-            name: 'Florian Becker',
-            slug: 'florian-becker',
-            role: 'Senior Crypto Analyst',
-            bio: 'Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.',
-            avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200'
+          author: {
+            id: generatedArticle.author?.id || 'florian-becker',
+            name: generatedArticle.author?.name || 'Florian Becker',
+            slug: generatedArticle.author?.slug || 'florian-becker',
+            role: generatedArticle.author?.role || 'Senior Crypto Analyst',
+            bio: generatedArticle.author?.bio || 'Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.',
+            avatar: generatedArticle.author?.avatar || generatedArticle.author?.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
+            email: generatedArticle.author?.email || 'florian.becker@kryptopulse.de',
+            credentials: generatedArticle.author?.credentials || ['M.Sc. Finance', 'Certified Financial Analyst']
           },
-          featuredImage: generatedArticle.featuredImage?.url ? generatedArticle.featuredImage : {
-            url: unsplashImageUrl,
-            alt: topicToProcess,
-            caption: `Analyse & Trends zu ${topicToProcess}`
+          featuredImage: {
+            url: generatedArticle.featuredImage?.url || unsplashImageUrl,
+            alt: generatedArticle.featuredImage?.alt || topicToProcess,
+            title: generatedArticle.featuredImage?.title || topicToProcess,
+            caption: generatedArticle.featuredImage?.caption || `Analyse & Trends zu ${topicToProcess}`,
+            width: generatedArticle.featuredImage?.width || 1200,
+            height: generatedArticle.featuredImage?.height || 630
           },
           isFeatured: true,
           isTrending: true,
