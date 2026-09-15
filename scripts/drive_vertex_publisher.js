@@ -327,7 +327,7 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
             slug: generatedArticle.author?.slug || 'florian-becker',
             role: generatedArticle.author?.role || 'Senior Crypto Analyst',
             bio: generatedArticle.author?.bio || 'Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.',
-            avatar: generatedArticle.author?.avatar || generatedArticle.author?.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200',
+            avatar: generatedArticle.author?.avatar || generatedArticle.author?.avatarUrl || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300',
             email: generatedArticle.author?.email || 'florian.becker@kryptopulse.de',
             credentials: generatedArticle.author?.credentials || ['M.Sc. Finance', 'Certified Financial Analyst']
           },

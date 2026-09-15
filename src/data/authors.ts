@@ -7,7 +7,7 @@ export const AUTHORS: Author[] = [
     slug: 'dr-maximilian-weber',
     role: 'Chefredakteur & Chef-Analyst',
     bio: 'Dr. Maximilian Weber promovierte in Volkswirtschaftslehre an der Goethe-Universität Frankfurt mit Schwerpunkt auf monetärer Ökonomie. Er berichtet seit 2016 über Finanzmärkte, Makroökonomie und Bitcoin-Adoption.',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300',
+    avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=300',
     email: 'm.weber@kryptopulse.de',
     twitter: 'https://x.com',
     linkedin: 'https://linkedin.com',
