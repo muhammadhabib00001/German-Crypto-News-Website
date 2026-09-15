@@ -119,6 +119,7 @@ MASTER SEO WORKFLOW INSTRUCTIONS:
    - Meta Description: EXACTLY 150 to 155 characters long.
    - Word Count: STRICTLY 1000 to 1500 words in German HTML text (<p>, <h2>, <h3>, <ul>, <li>).
    - Absolutely NO '2026' anywhere in the body text.
+   - URL Slug: Create a highly descriptive, lowercase, hypen-separated German SEO slug containing the primary keyword plus relevant intent terms (e.g. 'opensea-nft-marktplatz-guide-anleitung' instead of just 'opensea').
    - High E-E-A-T, no keyword stuffing, natural LSI integration, populate faqs array (4-6 questions), and full Table of Contents. Do NOT write an FAQ section inside the content HTML string (the faqs array is rendered separately in the UI).
 
 You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schema below (do not include markdown code block backticks \`\`\` or intro text):
@@ -127,9 +128,9 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
   "title": "Clean German Article Title",
   "seoTitle": "EXACTLY 50-55 character long German SEO Title",
   "metaDescription": "EXACTLY 150-155 character long German Meta Description",
-  "slug": "${topicToProcess.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}",
+  "slug": "seo-optimized-german-url-slug (e.g. opensea-nft-marktplatz-guide-anleitung)",
   "excerpt": "Compelling 2-3 sentence German summary with opening hook",
-  "content": "<p>Opening Hook and Featured Snippet paragraph (40-60 words)...</p>2...</h2><p>Full 1000-1500 words German HTML body text...</p>",
+  "content": "<p>Opening Hook and Featured Snippet paragraph (40-60 words)...</p><h2>...</h2><p>Full 1000-1500 words German HTML body text...</p>",
   "toc": [
     { "id": "section-1", "text": "Überschrift 1", "level": 2 },
     { "id": "section-2", "text": "Überschrift 2", "level": 2 }
@@ -202,7 +203,8 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
         let currentFileContent = fs.readFileSync(articlesFilePath, 'utf8');
 
         // Ensure proper article fields
-        const slug = generatedArticle.slug || topicToProcess.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        const rawSlug = generatedArticle.slug || `${topicToProcess} nft marktplatz guide anleitung`;
+        const slug = rawSlug.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
         const id = generatedArticle.id || `art-${Date.now()}`;
         
         let unsplashImageUrl = 'https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80&w=1200';
