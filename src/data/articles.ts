@@ -6,7 +6,7 @@ export const ARTICLES: Article[] = [
   "title": "0pen sea NFT-Marktplatz: Ein umfassender Guide zum Handel",
   "seoTitle": "0pen sea NFT-Marktplatz: NFTs sicher kaufen & handeln",
   "metaDescription": "Erfahren Sie alles über den 0pen sea Marktplatz: Funktionsweise, Gebühren, unterstützte Blockchains sowie wichtige Sicherheitstipps für den NFT-Handel.",
-  "slug": "0pen-sea",
+  "slug": "opensea-nft-marktplatz-guide-anleitung",
   "category": {
     "id": "cat-1",
     "name": "DeFi",
@@ -92,7 +92,7 @@ export const ARTICLES: Article[] = [
   "isFeatured": true,
   "isTrending": true,
   "isBreaking": false,
-  "canonicalUrl": "https://german-crypto-news-website.vercel.app/article/0pen-sea",
+  "canonicalUrl": "https://german-crypto-news-website.vercel.app/article/opensea-nft-marktplatz-guide-anleitung",
   "faqs": [
     {
       "question": "Was ist 0pen sea?",
