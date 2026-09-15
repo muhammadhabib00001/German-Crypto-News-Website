@@ -103,15 +103,33 @@ async function main() {
   console.log(`🚀 Processing Topic with Gemini Model: "${topicToProcess}"`);
 
   // 2. AI Content Generation (supports GEMINI_API_KEY primary & Vertex AI fallback)
-  const prompt = `Erstelle einen professionellen Finanzartikel auf Deutsch basierend auf folgendem Ziel-Keyword: "${topicToProcess}".
+  const prompt = `Du bist ein hochrangiger deutscher Krypto- und Finanzanalyst. Erstelle einen extrem ausführlichen, professionellen Finanzartikel auf Deutsch basierend auf folgendem Ziel-Keyword: "${topicToProcess}".
 
 Striker SEO Regelkatalog:
-- SEO Title: exakt 50-55 Zeichen.
-- Meta Description: exakt 150-155 Zeichen.
-- Wortanzahl des Artikels: exakt 1000 bis 1500 Wörter in Deutsch (de-DE).
-- Kein '2026' im Fliesstext.
-- Unique H2 & H3 Subheadings.
-Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
+1. SEO Title: exakt 50-55 Zeichen.
+2. Meta Description: exakt 150-155 Zeichen.
+3. Wortanzahl des Artikels: strikt 1000 bis 1500 Wörter in Deutsch (de-DE). Zähle NUR den Text innerhalb von HTML-Tags (<p>, <h2>, <h3>, <ul>, <li>).
+4. Absolut KEIN '2026' im gesamten Text.
+5. Verwende einzigartige H2 und H3 Überschriften.
+6. Erstelle ein vollständiges Inhaltsverzeichnis (toc Array).
+
+Antworte AUSSCHLIESSLICH im folgenden gültigen JSON-Format (kein Markdown-Intro/Outro):
+
+{
+  "title": "Titel des Artikels (z.B. OpenSea NFT Marktplatz Guide: Kaufen, Verkaufen & Gebühren)",
+  "seoTitle": "EXAKT 50 bis 55 Zeichen lange SEO-Headline",
+  "metaDescription": "EXAKT 150 bis 155 Zeichen lange Meta-Beschreibung mit Call to Action.",
+  "slug": "${topicToProcess.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}",
+  "excerpt": "Eine professionelle 2-3 Sätze Zusammenfassung des Artikels.",
+  "content": "<h1>...</h1><h2>...</h2><p>Vollständiger 1000-1500 Wörter Artikeltext in HTML...</p>",
+  "toc": [
+    { "id": "subheading-1-slug", "text": "Überschrift 1", "level": 2 },
+    { "id": "subheading-2-slug", "text": "Überschrift 2", "level": 2 }
+  ],
+  "tags": ["Krypto", "DeFi", "${topicToProcess}"],
+  "focusKeyword": "${topicToProcess}",
+  "secondaryKeywords": ["Trading", "NFT", "Sicherheit"]
+}`;
 
   let rawText = '';
 
