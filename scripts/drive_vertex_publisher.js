@@ -121,7 +121,7 @@ MASTER SEO WORKFLOW INSTRUCTIONS:
    - Absolutely NO '2026' anywhere in the body text.
    - High E-E-A-T, no keyword stuffing, natural LSI integration, FAQs section (4-6 questions), and full Table of Contents.
 
-You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schema below (do not include markdown code block backticks ``` or intro text):
+You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schema below (do not include markdown code block backticks \`\`\` or intro text):
 
 {
   "title": "Clean German Article Title",
