@@ -241,8 +241,11 @@ You MUST respond ONLY with a valid JSON object matching our KryptoPulse DE Schem
           focusKeyword: topicToProcess,
           secondaryKeywords: generatedArticle.secondaryKeywords || ['Trading', 'Sicherheit'],
           excerpt: generatedArticle.excerpt || `Ausführlicher Leitfaden und Analyse zu ${topicToProcess}.`,
-          content: (generatedArticle.content || `<p>Detaillierte Analyse zu ${topicToProcess}.</p>`).replace(/<h[23][^>]*>(?:Häufige Fragen|FAQ|Frequently Asked Questions)[\s\S]*$/i, '').trim(),
-          toc: generatedArticle.toc || [{ id: 'ueberblick', text: `Überblick zu ${topicToProcess}`, level: 2 }],
+          content: (generatedArticle.content || `<p>Detaillierte Analyse zu ${topicToProcess}.</p>`)
+            .replace(/<h[1-6][^>]*>(?:Häufige Fragen|FAQ|Frequently Asked Questions|Fragen & Antworten)[\s\S]*$/i, '')
+            .trim(),
+          toc: (generatedArticle.toc || [{ id: 'ueberblick', text: `Überblick zu ${topicToProcess}`, level: 2 }])
+            .filter((t) => !/faq|häufige fragen|fragen & antworten/i.test(t.text)),
           publishedAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
           readTimeMinutes: generatedArticle.readTimeMinutes || 10,
