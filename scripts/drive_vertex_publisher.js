@@ -118,29 +118,38 @@ Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
   if (geminiApiKey) {
     const modelsToTry = [
       'gemini-3.7-flash',
-      'gemini-2.5-flash',
-      'gemini-2.0-flash',
-      'gemini-1.5-flash',
-      'gemini-1.5-flash-latest',
-      'gemini-pro'
+      'gemini-3.6-flash',
+      'gemini-3.5-flash',
+      'gemini-2.5-flash'
     ];
     const ai = new GoogleGenAI({ apiKey: geminiApiKey });
     
     for (const m of modelsToTry) {
-      try {
-        console.log(`🤖 Attempting Gemini model "${m}"...`);
-        const resp = await ai.models.generateContent({
-          model: m,
-          contents: prompt,
-        });
-        rawText = resp.text || '';
-        if (rawText) {
-          console.log(`✨ Gemini API (${m}) Response received successfully!`);
-          break;
+      let attempts = 0;
+      while (attempts < 3) {
+        try {
+          attempts++;
+          console.log(`🤖 Attempting Gemini model "${m}" (Attempt ${attempts}/3)...`);
+          const resp = await ai.models.generateContent({
+            model: m,
+            contents: prompt,
+          });
+          rawText = resp.text || '';
+          if (rawText) {
+            console.log(`✨ Gemini API (${m}) Response received successfully!`);
+            break;
+          }
+        } catch (e) {
+          console.warn(`⚠️ Model "${m}" attempt ${attempts} note:`, e.message);
+          if (e.message?.includes('503') || e.message?.includes('high demand') || e.message?.includes('UNAVAILABLE')) {
+            console.log('⏳ Waiting 5 seconds before retrying temporary 503 high demand...');
+            await new Promise((r) => setTimeout(r, 5000));
+          } else {
+            break; // Move to next model if it's not a temporary 503
+          }
         }
-      } catch (e) {
-        console.warn(`⚠️ Model "${m}" failed:`, e.message);
       }
+      if (rawText) break;
     }
   }
 
