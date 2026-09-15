@@ -118,7 +118,84 @@ Striker SEO Regelkatalog:
 Antworte NUR im gültigen JSON Format für unser KryptoPulse DE Schema.`;
 
       const resp = await generativeModel.generateContent(prompt);
-      console.log('✨ Vertex AI Response received successfully for Excel Keyword.');
+      const rawText = resp.response?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+      console.log('✨ Vertex AI Response received successfully.');
+
+      let generatedArticle;
+      try {
+        const cleanedJson = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
+        generatedArticle = JSON.parse(cleanedJson);
+      } catch (jsonErr) {
+        console.error('⚠️ Could not parse JSON from Vertex AI, building fallback structure.');
+      }
+
+      if (generatedArticle) {
+        const articlesFilePath = path.join(process.cwd(), 'src', 'data', 'articles.ts');
+        let currentFileContent = fs.readFileSync(articlesFilePath, 'utf8');
+
+        // Ensure proper article fields
+        const slug = generatedArticle.slug || topicToProcess.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        const id = generatedArticle.id || `art-${Date.now()}`;
+        
+        // Construct full Article object string
+        const articleObj = {
+          id,
+          title: generatedArticle.title || `${topicToProcess}: Markt & Ratgeber`,
+          seoTitle: generatedArticle.seoTitle || `${topicToProcess}: Guide & Analyse`,
+          metaDescription: generatedArticle.metaDescription || `Entdecken Sie ${topicToProcess} im Detail. Vollständiger Leitfaden, aktuelle Markt-Daten und Tipps im Überblick.`,
+          slug,
+          category: generatedArticle.category || { id: 'cat-1', name: 'DeFi', slug: 'defi', description: 'Dezentrale Finanzen & Protokolle' },
+          tags: generatedArticle.tags || ['Krypto', 'DeFi', topicToProcess],
+          focusKeyword: topicToProcess,
+          secondaryKeywords: generatedArticle.secondaryKeywords || ['Trading', 'Sicherheit'],
+          excerpt: generatedArticle.excerpt || `Ausführlicher Leitfaden und Analyse zu ${topicToProcess}.`,
+          content: generatedArticle.content || `<p>Detaillierte Analyse zu ${topicToProcess}.</p>`,
+          publishedAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          readTimeMinutes: generatedArticle.readTimeMinutes || 10,
+          author: generatedArticle.author || {
+            id: 'author-1',
+            name: 'Florian Becker',
+            slug: 'florian-becker',
+            role: 'Senior Crypto Analyst',
+            bio: 'Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.',
+            avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200'
+          },
+          featuredImage: generatedArticle.featuredImage || {
+            url: 'https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?auto=format&fit=crop&q=80&w=1200',
+            alt: topicToProcess,
+            caption: `Analyse & Trends zu ${topicToProcess}`
+          },
+          isFeatured: true,
+          isTrending: true,
+          isBreaking: false,
+          canonicalUrl: `https://german-crypto-news-website.vercel.app/article/${slug}`,
+          disclaimerRequired: true,
+          statistics: generatedArticle.statistics || [],
+          tableData: generatedArticle.tableData || null,
+          proCons: generatedArticle.proCons || null,
+          faqs: generatedArticle.faqs || [],
+          sources: generatedArticle.sources || []
+        };
+
+        const newArticleTs = JSON.stringify(articleObj, null, 2);
+
+        // Inject into export const ARTICLES: Article[] = [ ... ];
+        if (currentFileContent.includes('export const ARTICLES: Article[] = [];')) {
+          currentFileContent = currentFileContent.replace(
+            'export const ARTICLES: Article[] = [];',
+            `export const ARTICLES: Article[] = [\n${newArticleTs}\n];`
+          );
+        } else if (currentFileContent.includes('export const ARTICLES: Article[] = [')) {
+          currentFileContent = currentFileContent.replace(
+            'export const ARTICLES: Article[] = [',
+            `export const ARTICLES: Article[] = [\n${newArticleTs},`
+          );
+        }
+
+        fs.writeFileSync(articlesFilePath, currentFileContent, 'utf8');
+        console.log(`🎉 Successfully wrote new article "${articleObj.title}" to src/data/articles.ts!`);
+      }
     } catch (e) {
       console.warn('⚠️ Vertex AI call execution note:', e.message);
     }
