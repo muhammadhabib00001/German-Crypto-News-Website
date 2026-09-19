@@ -2,6 +2,150 @@ import { Article } from '@/types';
 
 export const ARTICLES: Article[] = [
 {
+  "id": "art-1789848524037",
+  "title": "Bitcoins kaufen bei ING: Anleitung & Krypto-Alternativen",
+  "seoTitle": "Bitcoins kaufen bei ING: Ratgeber zu ETNs und Krypto-Börse",
+  "metaDescription": "Bitcoins kaufen bei ING: Erfahren Sie alles über Krypto-ETNs im Depot sowie den sicheren Kauf auf Krypto-Börsen über Ihr ING-Girokonto. Jetzt online lesen!",
+  "slug": "bitcoins-kaufen-ing-ratgeber-alternativen",
+  "category": {
+    "id": "cat-1",
+    "name": "DeFi",
+    "slug": "defi",
+    "description": "Dezentrale Finanzen & Protokolle",
+    "iconName": "Coins"
+  },
+  "tags": [
+    "bitcoins kaufen ing",
+    "ING-DiBa",
+    "Bitcoin ETN",
+    "Krypto Steuer",
+    "Direkt-Depot"
+  ],
+  "focusKeyword": "bitcoins kaufen ing",
+  "secondaryKeywords": [
+    "Bitcoin ETN",
+    "ING-DiBa Depot",
+    "Bison App",
+    "Krypto Steuer"
+  ],
+  "excerpt": "Sie möchten Bitcoins über Ihr ING-Konto erwerben? Erfahren Sie hier, welche Krypto-Wertpapiere im Direkt-Depot bereitstehen und wie Sie echtes Bitcoin mithilfe Ihres Girokontos einfach kaufen.",
+  "content": "<p>Wer im heutigen digitalen Zeitalter in Bitcoin investieren möchte und sein primäres Bankkonto bei der ING Deutschland (ehemals ING-DiBa) führt, stellt sich oft eine fundamentale Frage: Kann ich Bitcoins direkt über mein ING-Konto kaufen? Die Antwort lautet aktuell nein – zumindest nicht im klassischen Sinne einer direkten Krypto-Verwahrung. Die größte deutsche Direktbank bietet derzeit keine hauseigene Wallet oder den direkten Kauf physischer Kryptowährungen an. Dennoch müssen Kunden der ING keineswegs auf Investments in digitale Assets verzichten. Es gibt zwei bewährte, sichere und vollkommen legale Wege, wie Sie Ihr ING-Konto als Sprungbrett für Bitcoin-Investments nutzen können: den Kauf von börsengehandelten Wertpapieren über das Direkt-Depot oder den physischen Erwerb über regulierte Partner-Plattformen mittels Überweisung.</p><h2 id=\"status-quo\">Der Status Quo: Warum die ING keinen direkten Bitcoin-Handel anbietet</h2><p>Die ING Deutschland ist für ihre exzellente digitale Infrastruktur und niedrige Depotgebühren bekannt. Warum also zögert die Bank beim direkten Bitcoin-Kauf? Der Grund liegt in den strengen regulatorischen Auflagen in Deutschland. Um Kundengelder in Form von Kryptowährungen zu verwahren, benötigt ein Finanzinstitut eine spezielle Krypto-Verwahrlizenz der Bundesanstalt für Finanzdienstleistungsaufsicht (BaFin). Die technische Verwahrung von Private Keys (den kryptografischen Schlüsseln) unterscheidet sich drastisch vom klassischen Wertpapiergeschäft und birgt spezifische Cyber-Sicherheitsrisiken. Um diese Risiken zu minimieren und den Fokus auf das Kerngeschäft zu legen, verzichtet die ING bislang auf eine direkte Krypto-Verwahrung. Anleger müssen deshalb auf alternative Strukturen ausweichen, die je nach persönlicher Risikotoleranz und steuerlicher Strategie gewählt werden sollten.</p><h2 id=\"depot-etns\">Weg 1: Bitcoin-Wertpapiere im ING Direkt-Depot handeln</h2><p>Die einfachste Methode für traditionelle Anleger, die bereits das Direkt-Depot der ING nutzen, ist der Kauf von sogenannten Krypto-ETNs (Exchange Traded Notes) oder Krypto-ETPs (Exchange Traded Products). Diese Wertpapiere bilden den Kurs der zugrunde liegenden Kryptowährung nahezu eins zu eins ab und werden wie ganz normale Aktien oder ETFs über regulierte Börsenplätze gehandelt.</p><h3 id=\"was-sind-etns\">Was sind Krypto-ETNs und wie funktionieren sie?</h3><p>Ein Krypto-ETN ist eine rechtlich strukturierte Inhaberschuldverschreibung. Um das Kontrahentenrisiko (das Risiko eines Ausfalls des Emittenten) zu minimieren, sind moderne Bitcoin-ETNs in der Regel physisch besichert. Das bedeutet: Für jeden Euro, den Sie in den ETN investieren, kauft der Emittent (zum Beispiel VanEck, CoinShares oder 21Shares) echte Bitcoins und lagert diese bei einer lizenzierten Verwahrstelle ein. Sie partizipieren somit direkt am Kursverlauf von Bitcoin, ohne sich selbst um die technologische Verwahrung oder die Erstellung einer Krypto-Wallet kümmern zu müssen. Diese Produkte können unkompliziert über die Handelsplätze Xetra oder die Börse Frankfurt im ING-Depot gekauft werden.</p><h3 id=\"vor-nachteile-etns\">Vor- und Nachteile von Krypto-Wertpapieren bei der ING</h3><p>Der wohl größte Vorteil dieses Weges ist der Komfort. Ihr gesamtes Portfolio – bestehend aus Aktien, ETFs und Krypto-ETNs – bleibt an einem einzigen, sicheren Ort konzentriert. Sie müssen keine neuen Passwörter verwalten und sich nicht vor Hackerangriffen auf ausländische Krypto-Börsen fürchten. Zudem entfällt die steuerliche Dokumentation von Transaktionen auf verschiedenen Plattformen, da die ING die Abgeltungsteuer automatisch abführt.<br>Allerdings hat diese Bequemlichkeit ihren Preis: Es fallen jährliche Verwaltungsgebühren (die sogenannte Management Fee oder TER) an, die meist zwischen 0,5 % und 1,5 % liegen. Zudem besitzen Sie keine echten Bitcoins, was bedeutet, dass Sie die Coins nicht als Zahlungsmittel verwenden oder auf eine eigene Hardware-Wallet senden können. Auch steuerlich gibt es gravierende Unterschiede im Vergleich zum Direkterwerb.</p><h2 id=\"girokonto-krypto-boersen\">Weg 2: Echte Bitcoins kaufen über Krypto-Börsen</h2><p>Für Krypto-Puristen und strategische Langzeitanleger ist der Besitz von \"echten\" Bitcoins oft unverzichtbar. Um diesen Weg einzuschlagen, fungiert Ihr ING Girokonto als optimaler Geldgeber. Sie nutzen Ihr Bankkonto einfach, um Euro-Guthaben an eine spezialisierte, regulierte Krypto-Börse zu überweisen.</p><h3 id=\"empfehlenswerte-boersen\">Empfehlenswerte Handelsplätze mit Schnittstellen</h3><p>Da die ING eine deutsche Bank ist, empfiehlt sich die Nutzung von Krypto-Plattformen, die ebenfalls in Deutschland oder im EU-Raum reguliert sind und hohe Sicherheitsstandards garantieren:</p><ul><li><strong>Bison:</strong> Die von der Börse Stuttgart entwickelte Plattform ist ideal für Einsteiger. Die Verwahrung der Kryptowährungen erfolgt treuhänderisch durch die blockinox GmbH, eine Tochtergesellschaft der Börse Stuttgart. Einzahlungen per SEPA-Überweisung von Ihrem ING-Konto sind in der Regel innerhalb eines Werktages gebührenfrei gutgeschrieben.</li><li><strong>BSDEX:</strong> Ebenfalls ein Angebot der Börse Stuttgart, richtet sich jedoch an aktivere Trader. Die Gebühren sind hier mit 0,20 % bis 0,35 % pro Trade äußerst günstig.</li><li><strong>Bitpanda:</strong> Ein führender Broker aus Österreich mit BaFin-Lizenz, der extrem schnelle Einzahlungsmethoden anbietet.</li></ul><h3 id=\"schritt-anleitung-kauf\">Schritt-für-Schritt-Anleitung für den Kauf echter Coins</h3><p>Der Prozess lässt sich einfach in vier klaren Schritten strukturieren:</p><ol><li><strong>Registrierung & Verifikation:</strong> Erstellen Sie ein Konto bei der gewählten Krypto-Börse (z.B. Bison) und verifizieren Sie Ihre Identität per schnellem Video-Ident-Verfahren mittels Ihres Personalausweises.</li><li><strong>Geld einzahlen:</strong> Kopieren Sie die Einzahlungsdaten (IBAN und Verwendungszweck) des Krypto-Brokers und führen Sie eine Überweisung von Ihrem ING Girokonto aus. Viele Plattformen unterstützen mittlerweile Echtzeitüberweisungen, wodurch das Geld in Sekundenschnelle ankommt.</li><li><strong>Bitcoin kaufen:</strong> Sobald das Guthaben auf Ihrem Kundenkonto verbucht ist, wählen Sie das Handelspaar BTC/EUR und führen den Kauf aus.</li><li><strong>Sichere Verwahrung wählen:</strong> Lassen Sie größere Summen nicht dauerhaft auf der Börse liegen. Übertragen Sie Ihre Bitcoins auf eine physische Hardware-Wallet (Cold Wallet), um die vollständige Kontrolle über Ihre Private Keys zu übernehmen.</li></ol><h2 id=\"steuerliche-unterschiede\">Steuerliche Betrachtung: Wertpapiere vs. echte Bitcoins</h2><p>Das deutsche Steuerrecht unterscheidet strikt zwischen Wertpapieren und privaten Veräußerungsgeschäften. Wer echte Bitcoins über eine Krypto-Börse kauft und diese länger als ein Jahr (365 Tage) hält, kann die Gewinne beim späteren Verkauf komplett steuerfrei einstreichen. Dies ist einer der attraktivsten Aspekte des physischen Krypto-Kaufs in Deutschland. Liegt die Haltedauer unter einem Jahr, greift Ihr persönlicher Einkommensteuersatz, sofern die Freigrenze von 1.000 Euro pro Kalenderjahr überschritten wird.<br>Bei Bitcoin-ETNs im ING-Depot verhält es sich anders: Da es sich um Wertpapiere handelt, unterliegen sämtliche Gewinne der Abgeltungsteuer von 25 % (zzgl. Solidaritätszuschlag und ggf. Kirchensteuer). Der Vorteil hierbei ist, dass Sie Ihren jährlichen Sparer-Pauschbetrag von 1.000 Euro nutzen können und sich nicht selbst um die Steuererklärung kümmern müssen, da die ING die Versteuerung automatisch im Hintergrund abwickelt.</p><h2 id=\"sicherheit-verwahrung\">Sicherheit und Risikoanalyse für Anleger</h2><p>Die Wahl der Methode beeinflusst maßgeblich Ihr Risikoprofil. Bei der ING gelagerte Wertpapiere gelten als Sondervermögen. Im Falle einer Insolvenz der Bank sind Ihre ETN-Anteile geschützt. Das Emittentenrisiko des ETN-Herausgebers wird durch die physische Besicherung weitestgehend eliminiert, bleibt jedoch theoretisch bestehen.<br>Wenn Sie echte Bitcoins erwerben, tragen Sie die alleinige Verantwortung für die Verwahrung. Sollten Sie den Zugangsschlüssel (Seed Phrase) Ihrer privaten Wallet verlieren, gibt es keinen Kundenservice, der Ihr Passwort zurücksetzen kann. Für Anfänger bieten regulierte deutsche Plattformen wie Bison einen guten Mittelweg, da sie die Verwahrung professionell übernehmen.</p><h2 id=\"fazit-anlagestrategie\">Fazit: Welcher Krypto-Weg passt zu Ihnen?</h2><p>Ob Sie Bitcoins indirekt über das ING-Depot oder direkt über eine externe Krypto-Börse kaufen, hängt ganz von Ihren individuellen Präferenzen ab. Wenn Sie Wert auf Steuerfreiheit nach einem Jahr legen, die Blockchain-Technologie direkt nutzen möchten und bereit sind, sich mit dem Thema Wallet-Sicherheit auseinanderzusetzen, ist der Weg über eine regulierte Börse mit Ihrem ING Girokonto als Zahlungsquelle die beste Wahl. Bevorzugen Sie hingegen maximalen Komfort, eine einfache Handhabung innerhalb Ihres bestehenden Portfolios und möchten die steuerliche Administration vollständig der Bank überlassen, sind physisch besicherte Krypto-ETNs im ING Direkt-Depot die perfekte und unkomplizierte Lösung für Ihren Vermögensaufbau.</p>",
+  "toc": [
+    {
+      "id": "status-quo",
+      "text": "Der Status Quo: Warum die ING keinen direkten Bitcoin-Handel anbietet",
+      "level": 2
+    },
+    {
+      "id": "depot-etns",
+      "text": "Weg 1: Bitcoin-Wertpapiere im ING Direkt-Depot handeln",
+      "level": 2
+    },
+    {
+      "id": "was-sind-etns",
+      "text": "Was sind Krypto-ETNs und wie funktionieren sie?",
+      "level": 3
+    },
+    {
+      "id": "vor-nachteile-etns",
+      "text": "Vor- und Nachteile von Krypto-Wertpapieren bei der ING",
+      "level": 3
+    },
+    {
+      "id": "girokonto-krypto-boersen",
+      "text": "Weg 2: Echte Bitcoins kaufen über Krypto-Börsen",
+      "level": 2
+    },
+    {
+      "id": "empfehlenswerte-boersen",
+      "text": "Empfehlenswerte Handelsplätze mit Schnittstellen",
+      "level": 3
+    },
+    {
+      "id": "schritt-anleitung-kauf",
+      "text": "Schritt-für-Schritt-Anleitung für den Kauf echter Coins",
+      "level": 3
+    },
+    {
+      "id": "steuerliche-unterschiede",
+      "text": "Steuerliche Betrachtung: Wertpapiere vs. echte Bitcoins",
+      "level": 2
+    },
+    {
+      "id": "sicherheit-verwahrung",
+      "text": "Sicherheit und Risikoanalyse für Anleger",
+      "level": 2
+    },
+    {
+      "id": "fazit-anlagestrategie",
+      "text": "Fazit: Welcher Krypto-Weg passt zu Ihnen?",
+      "level": 2
+    }
+  ],
+  "publishedAt": "2026-09-19T20:08:44.605Z",
+  "updatedAt": "2026-09-19T20:08:44.605Z",
+  "readTimeMinutes": 10,
+  "author": {
+    "id": "florian-becker",
+    "name": "Stefan Krumm",
+    "slug": "florian-becker",
+    "role": "Senior Crypto Analyst",
+    "bio": "Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
+    "email": "s.krumm@kryptopulse.de",
+    "credentials": [
+      "M.Sc. Finance",
+      "Certified Financial Analyst"
+    ]
+  },
+  "featuredImage": {
+    "url": "https://images.unsplash.com/photo-1623227413711-25ee4388dae3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDY0MTEyfDB8MXxzZWFyY2h8MXx8Yml0Y29pbnMlMjBrYXVmZW4lMjBpbmd8ZW58MHwwfHx8MTc4OTg0ODUyNHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "alt": "bitcoins kaufen ing",
+    "title": "bitcoins kaufen ing",
+    "caption": "Analyse & Trends zu bitcoins kaufen ing",
+    "width": 1200,
+    "height": 630
+  },
+  "isFeatured": true,
+  "isTrending": true,
+  "isBreaking": false,
+  "canonicalUrl": "https://german-crypto-news-website.vercel.app/defi/bitcoins-kaufen-ing-ratgeber-alternativen",
+  "faqs": [
+    {
+      "question": "Kann man direkt bei der ING Bitcoins kaufen?",
+      "answer": "Nein, ein direkter Kauf von echten Bitcoins über die ING ist nicht möglich. Sie können jedoch entweder Bitcoin-Wertpapiere (ETNs) über Ihr Depot handeln oder Ihr Girokonto als Zahlungsquelle für externe, regulierte Krypto-Börsen nutzen."
+    },
+    {
+      "question": "Welche Bitcoin-ETNs sind im ING-Depot handelbar?",
+      "answer": "Im ING Direkt-Depot können Sie physisch besicherte Krypto-ETNs von etablierten Anbietern wie VanEck, 21Shares, CoinShares oder WisdomTree über inländische Börsen wie Xetra handeln."
+    },
+    {
+      "question": "Wie überweise ich Geld von der ING zu einer Krypto-Börse?",
+      "answer": "Sie können eine ganz normale SEPA-Überweisung oder, sofern von der Krypto-Börse unterstützt, eine Echtzeitüberweisung nutzen. Tragen Sie dazu einfach die IBAN des Empfängers sowie den persönlichen Verwendungszweck in Ihr ING-Online-Banking ein."
+    },
+    {
+      "question": "Sind Gewinne aus Bitcoin-Käufen bei der ING steuerfrei?",
+      "answer": "Gewinne aus echten Bitcoins (über Krypto-Börsen gekauft) sind nach einer Haltefrist von mindestens einem Jahr steuerfrei. Gewinne aus Krypto-ETNs im ING-Depot unterliegen hingegen unabhängig von der Haltedauer immer der Abgeltungsteuer von 25 %."
+    },
+    {
+      "question": "Gibt es Sparpläne auf Bitcoin bei der ING?",
+      "answer": "Ja, die ING bietet auf ausgewählte Krypto-ETNs Sparpläne an. Dadurch können Sie bereits ab kleinen Beträgen regelmäßig und automatisiert in die Wertentwicklung von Bitcoin investieren."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Krypto-Verwahrgeschäft Richtlinien",
+      "url": "https://www.bafin.de",
+      "publisher": "Bundesanstalt für Finanzdienstleistungsaufsicht (BaFin)"
+    },
+    {
+      "title": "Wertpapierhandel & Depotführung",
+      "url": "https://www.ing.de",
+      "publisher": "ING Deutschland"
+    }
+  ]
+},
+{
   "id": "art-1789812428972",
   "title": "Was ist USDT? Der Tether-Stablecoin im umfassenden Überblick",
   "seoTitle": "USDT verständlich erklärt: Der Tether-Stablecoin im Check!",
