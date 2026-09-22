@@ -2,6 +2,135 @@ import { Article } from '@/types';
 
 export const ARTICLES: Article[] = [
 {
+  "id": "art-1790053659842",
+  "title": "Bitcoin Market Cap: Berechnung, Dominanz & Bewertung im Detail",
+  "seoTitle": "Bitcoin Market Cap: Formel, BTC-Dominanz & Marktbewertung!",
+  "metaDescription": "Was ist die Bitcoin Market Cap? Alle Fakten zu Berechnung, BTC-Dominanz, Realized Cap & Marktbedeutung für Krypto-Anleger hier leicht verständlich erklärt.",
+  "slug": "bitcoin-market-cap-berechnung-dominanz-bewertung",
+  "category": {
+    "id": "cat-1",
+    "name": "DeFi",
+    "slug": "defi",
+    "description": "Dezentrale Finanzen & Protokolle",
+    "iconName": "Coins"
+  },
+  "tags": [
+    "Bitcoin",
+    "Marktkapitalisierung",
+    "bitcoin market cap",
+    "Krypto-Analyse",
+    "BTC Dominanz"
+  ],
+  "focusKeyword": "bitcoin market cap",
+  "secondaryKeywords": [
+    "Realized Cap",
+    "BTC Dominanz",
+    "Circulating Supply",
+    "Krypto Marktgröße"
+  ],
+  "excerpt": "Die Bitcoin Market Cap ist der zentrale Gradmesser für den ökonomischen Gesamtwert des Bitcoin-Netzwerks. Dieser Leitfaden erklärt die Berechnungsmechanik, vergleicht Bitcoin mit traditionellen Assets und beleuchtet fortschrittliche On-Chain-Metriken wie die Realized Cap.",
+  "content": "<p>Die <strong>Bitcoin Market Cap</strong> (deutsch: Marktkapitalisierung) ist die fundamentale Kennzahl zur Bestimmung des ökonomischen Gesamtwerts der führenden Kryptowährung. Sie berechnet sich durch die Multiplikation des aktuellen Marktpreises eines einzelnen Bitcoins mit der Anzahl der im Umlauf befindlichen Einheiten (Circulating Supply). Als primärer Gradmesser dient sie Investoren, Analysten und Medien dazu, die Marktposition von Bitcoin im Vergleich zu anderen Kryptowährungen sowie traditionellen Vermögenswerten wie Gold oder Aktienindizes einzuordnen.</p><h2>Was ist die Bitcoin Market Cap und wie wird sie berechnet?</h2><p>Die grundlegende Formel zur Ermittlung der Marktkapitalisierung von Bitcoin ist mathematisch simpel, besitzt jedoch tiefe ökonomische Implikationen:</p><p><code>Bitcoin Market Cap = Aktueller Bitcoin-Preis × Zirkulierendes Angebot (Circulating Supply)</code></p><p>Wenn beispielsweise ein Bitcoin bei 60.000 US-Dollar notiert und 19,7 Millionen Bitcoins geschürft wurden, beträgt die Bitcoin Market Cap exakt 1,182 Billionen US-Dollar. Es ist essenziell, zwischen verschiedenen Angebotsmetriken zu unterscheiden, um Missverständnisse bei der Bewertung zu vermeiden:</p><ul><li><strong>Circulating Supply:</strong> Die Anzahl der Bitcoins, die bereits durch Mining generiert wurden und sich tatsächlich im Umlauf befinden. Diese Zahl bildet die Basis für die Standard-Marktkapitalisierung.</li><li><strong>Max Supply:</strong> Das unumstößliche mathematische Limit von 21 Millionen Bitcoins, das im Code des Bitcoin-Protokolls verankert ist.</li><li><strong>Total Supply:</strong> Die Gesamtzahl der bisher erschaffenen Bitcoins abzüglich nachweislich vernichteter (geburnter) Coins.</li></ul><h3>Die Verwechslungsgefahr: Market Cap vs. Zufluss von neuem Kapital</h3><p>Ein häufiger Denkfehler von Einsteigern besteht in der Annahme, dass eine Erhöhung der Marktkapitalisierung um eine Milliarde US-Dollar bedeutet, dass auch eine Milliarde US-Dollar an frischem Geld in den Markt geflossen sein muss. Das ist nicht der Fall. Die Bitcoin Market Cap misst lediglich den Preis der letzten gehandelten Einheit multipliziert mit allen existierenden Einheiten. Durch die hohe Illiquidität von Bitcoin – viele Halter verkaufen ihre Coins über Jahre hinweg nicht – kann bereits ein vergleichsweise geringer Zufluss an Liquidität den Preis und damit die Marktkapitalisierung überproportional stark anheben. Dieser Effekt wird in der Finanzanalyse als Fiat-Multiplikator bezeichnet.</p><h2>Circulating Supply vs. Realized Cap: Die Grenzen der klassischen Marktkapitalisierung</h2><p>Obwohl die klassische Bitcoin Market Cap der weltweite Standard ist, weist sie methodische Schwächen auf. Die gravierendste Schwachstelle ist die Berücksichtigung von „verlorenen“ Bitcoins. Schätzungen von On-Chain-Analysten wie Glassnode legen nahe, dass zwischen 3 und 4 Millionen Bitcoins unwiederbringlich verloren sind – sei es durch verlorene private Schlüssel, defekte Festplatten aus den Anfangstagen oder unzugängliche Wallets wie die des pseudonymen Schöpfers Satoshi Nakamoto (ca. 1,1 Millionen BTC).</p><p>Diese verloren gegangenen Einheiten fließen weiterhin in die Circulating Supply ein, obwohl sie dem Markt dem Grunde nach entzogen sind. Um dieses Problem zu lösen, entwickelte die Datenplattform Coin Metrics die Kennzahl der <strong>Realized Market Cap</strong> (realisierte Marktkapitalisierung).</p><h3>Wie die Realized Cap ein realistischeres Bild zeichnet</h3><p>Anstatt jeden Bitcoin mit dem aktuellen Marktpreis zu multiplizieren, bewertet die Realized Cap jeden Unspent Transaction Output (UTXO) zu dem Preis, den er hatte, als er das letzte Mal auf der Blockchain bewegt wurde. Das Ergebnis ist eine Kennzahl, die den tatsächlichen Kapitalaufwand (die Aggregierte Kostenbasis) aller Marktteilnehmer widerspiegelt:</p><ul><li><strong>In Bullenmärkten:</strong> Liegt die klassische Market Cap deutlich über der Realized Cap, was auf erhebliche unrealisierte Gewinne im Netzwerk hindeutet (MVRV-Verhältnis > 1).</li><li><strong>In Bärenmärkten:</strong> Fällt die Market Cap gelegentlich unter die Realized Cap. Dies signalisiert historisch eine Kapitulationsphase, in der der Gesamtmarkt im Durchschnitt auf unrealisierten Verlusten sitzt (MVRV-Verhältnis < 1).</li></ul><h2>Bitcoin-Dominanz: Die Marktkapitalisierung im Verhältnis zum Gesamtfeld</h2><p>Ein weiterer Schlüsselbegriff im Zusammenhang mit der Bitcoin Market Cap ist die <strong>Bitcoin-Dominanz</strong> (BTC.D). Sie drückt den prozentualen Anteil der Bitcoin-Marktkapitalisierung an der gesamten Marktkapitalisierung aller existierenden Kryptowährungen aus.</p><p><code>Bitcoin-Dominanz (%) = (Bitcoin Market Cap / Gesamte Krypto-Marktkapitalisierung) × 100</code></p><p>Die Bitcoin-Dominanz ist ein unverzichtbarer Indikator für das Sentiment der Investoren und die Allokation von Risikokapital:</p><ul><li><strong>Steigende Dominanz:</strong> Investoren Umschichten Kapital aus risikoreicheren Altcoins in die relative Sicherheit von Bitcoin („Flight to Quality“) oder Bitcoin führt eine allgemeine Markt-Rallye an.</li><li><strong>Sinkende Dominanz:</strong> Anleger weisen eine höhere Risikobereitschaft auf und investieren vermehrt in Altcoins, Ethereum oder Dezentralisierte Finanzanwendungen (DeFi). Dies wird in der Krypto-Community häufig als „Altcoin Season“ bezeichnet.</li></ul><p>In den frühen Jahren von Bitcoin lag die Dominanz nahezu durchgehend bei über 95 Prozent. Mit dem Aufkommen von Ethereum, Smart-Contract-Plattformen und Stablecoins hat sich der Markt diversifiziert. Dennoch bleibt Bitcoin mit einer Dominanz, die sich historisch meist zwischen 40 und 70 Prozent bewegt, der unangefochtene Marktführer und Taktgeber des gesamten Sektors.</p><h2>Bitcoin Market Cap im Vergleich zu traditionellen Vermögenswerten</h2><p>Um die Größenordnung der Bitcoin Market Cap richtig einzuordnen, ziehen Makroökonomen Vergleiche zu etablierten Anlageklassen und globalen Großkonzernen heran. Bitcoin wird aufgrund seiner digitalen Knappheit (Halvings, 21-Millionen-Grenze) zunehmend als „Digitales Gold“ wahrgenommen.</p><h3>Vergleich mit Gold und Aktienmonopolisten</h3><p>Die Marktkapitalisierung von physischem Gold wird auf etwa 15 bis 18 Billionen US-Dollar geschätzt. Erreicht die Bitcoin Market Cap die Marke von 1 Billion US-Dollar, entspricht dies rund 6 bis 7 Prozent des gesamten oberirdisch geförderten Goldwertes. Für institutionelle Anleger verdeutlicht dieser Vergleich das Wachstumspotenzial, falls Bitcoin als globaler Wertspeicher weiter Marktanteile von Gold übernimmt.</p><p>Auch im Vergleich mit den wertvollsten börsennotierten Unternehmen der Welt (wie Microsoft, Apple oder Nvidia, die jeweils Marktkapitalisierungen zwischen 2,5 und 3,5 Billionen US-Dollar aufweisen) zeigt sich die Reife von Bitcoin. Eine Erreichung der Billionen-Dollar-Grenze katapultiert das dezentrale Netzwerk in die Reihen der weltgrößten Vermögenswerte – ohne dass ein Vorstand oder ein zentrales Unternehmen dahintersteht.</p><h2>Welche Faktoren beeinflussen die Bitcoin Market Cap nachhaltig?</h2><p>Die Entwicklung der Marktkapitalisierung unterliegt dynamischen Einflüssen, die sowohl aus dem Bitcoin-Netzwerk selbst stammen als auch aus dem globalen Makroumfeld wirken:</p><ul><li><strong>Halving-Zyklen:</strong> Etwa alle vier Jahre halbiert sich die Belohnung für Miner (Block Subsidy). Dieser angebotsseitige Schock verringert den Verkaufsdruck der Miner und führte historisch mittelfristig zu Preissteigerungen, die die Market Cap nach oben trieben.</li><li><strong>Institutionalisierung & Spot-ETFs:</strong> Die Zulassung von physisch gedeckten Bitcoin ETFs ermöglicht traditionellen Pensionskassen, Vermögensverwaltern und Family Offices den Zugang zu Bitcoin. Kontinuierliche Kapitalzuflüsse über diese Vehikel erhöhen das zirkulierende Angebot in festen Händen und stützen die Marktkapitalisierung.</li><li><strong>Globale Geldmenge (M2) und Zinspolitik:</strong> Als valides Absicherungsinstrument gegen Währungsabwertung korreliert die Bitcoin Market Cap langfristig positiv mit der Ausweitung der globalen Fiat-Geldmengen. Sinkende Leitzinsen der Zentralbanken erhöhen die Liquidität auf den Märkten und begünstigen knappe Sachwerte wie Bitcoin.</li><li><strong>Regulatorische Klarheit:</strong> Gesetzliche Rahmenbedingungen (wie MiCA in Europa) schaffen Rechtssicherheit für Finanzdienstleister. Transparente Regeln reduzieren das Risikoabschlagselement bei der Bewertung von Kryptowährungen.</li></ul><h2>Fazit: Warum die Marktkapitalisierung eine Schlüsselmetrik bleibt</h2><p>Die <strong>Bitcoin Market Cap</strong> ist weit mehr als nur eine imposante Zahl in Kursportalen. Sie liefert die theoretische und praktische Grundlage zur Bewertung des gesamten Netzwerks, ermöglicht den direkten Vergleich mit traditionellen Finanzmarkt-Assets und bildet über die Bitcoin-Dominanz die Struktur des gesamten Krypto-Ökosystems ab.</p><p>Für eine fundierte Analyse sollten professionelle Anleger die klassische Marktkapitalisierung stets in Kombination mit erweiterten Metriken wie der Realized Cap, dem MVRV-Verhältnis und dem liquiden Angebot betrachten. Auf diese Weise lassen sich Überhitzungsphasen sowie historische Unterbewertungen im Markt frühzeitig identifizieren.</p>",
+  "toc": [
+    {
+      "id": "was-ist-die-bitcoin-market-cap-und-wie-wird-sie-berechnet",
+      "text": "Was ist die Bitcoin Market Cap und wie wird sie berechnet?",
+      "level": 2
+    },
+    {
+      "id": "circulating-supply-vs-realized-cap-die-grenzen-der-klassischen-marktkapitalisierung",
+      "text": "Circulating Supply vs. Realized Cap: Die Grenzen der klassischen Marktkapitalisierung",
+      "level": 2
+    },
+    {
+      "id": "bitcoin-dominanz-die-marktkapitalisierung-im-verhaeltnis-zum-gesamtfeld",
+      "text": "Bitcoin-Dominanz: Die Marktkapitalisierung im Verhältnis zum Gesamtfeld",
+      "level": 2
+    },
+    {
+      "id": "bitcoin-market-cap-im-vergleich-zu-traditionellen-vermoegenswerten",
+      "text": "Bitcoin Market Cap im Vergleich zu traditionellen Vermögenswerten",
+      "level": 2
+    },
+    {
+      "id": "welche-faktoren-beeinflussen-die-bitcoin-market-cap-nachhaltig",
+      "text": "Welche Faktoren beeinflussen die Bitcoin Market Cap nachhaltig?",
+      "level": 2
+    },
+    {
+      "id": "fazit-warum-die-marktkapitalisierung-eine-schluesselmetrik-bleibt",
+      "text": "Fazit: Warum die Marktkapitalisierung eine Schlüsselmetrik bleibt",
+      "level": 2
+    }
+  ],
+  "publishedAt": "2026-09-22T05:07:40.306Z",
+  "updatedAt": "2026-09-22T05:07:40.306Z",
+  "readTimeMinutes": 10,
+  "author": {
+    "id": "florian-becker",
+    "name": "Stefan Krumm",
+    "slug": "florian-becker",
+    "role": "Senior Crypto Analyst",
+    "bio": "Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
+    "email": "s.krumm@kryptopulse.de",
+    "credentials": [
+      "M.Sc. Finance",
+      "Certified Financial Analyst"
+    ]
+  },
+  "featuredImage": {
+    "url": "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDY0MTEyfDB8MXxzZWFyY2h8MXx8Yml0Y29pbiUyMG1hcmtldCUyMGNhcHxlbnwwfDB8fHwxNzkwMDUzNjYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "alt": "bitcoin market cap",
+    "title": "bitcoin market cap",
+    "caption": "Analyse & Trends zu bitcoin market cap",
+    "width": 1200,
+    "height": 630
+  },
+  "isFeatured": true,
+  "isTrending": true,
+  "isBreaking": false,
+  "canonicalUrl": "https://german-crypto-news-website.vercel.app/defi/bitcoin-market-cap-berechnung-dominanz-bewertung",
+  "faqs": [
+    {
+      "question": "Wie unterscheidet sich die Market Cap von der Fully Diluted Valuation (FDV)?",
+      "answer": "Die Market Cap berechnet sich auf Basis der bereits geschürften Bitcoins im Umlauf (Circulating Supply). Die Fully Diluted Valuation (FDV) multipliziert den aktuellen Preis hingegen mit dem maximalen Angebot von 21 Millionen Bitcoins."
+    },
+    {
+      "question": "Warum ist die Realized Cap bei Bitcoin genauer als die normale Market Cap?",
+      "answer": "Die Realized Cap bewertet jeden Bitcoin zu dem Kurs, an dem er zuletzt auf der Blockchain bewegt wurde. Dadurch werden verloren gegangene oder seit Jahren inaktive Bitcoins nicht mit dem aktuellen Höchstpreis gewichtet, was ein realistischeres Bild des investierten Kapitals liefert."
+    },
+    {
+      "question": "Was bedeutet eine steigende Bitcoin-Dominanz für den Krypto-Markt?",
+      "answer": "Eine steigende Bitcoin-Dominanz zeigt, dass Bitcoin im Vergleich zu Altcoins stärker nachgefragt wird. Kapital fließt primär in BTC, was häufig in unsicheren Marktphasen oder zu Beginn neuer Bullenmärkte zu beobachten ist."
+    },
+    {
+      "question": "Bedeutet ein Anstieg der Market Cap um 1 Milliarde Dollar, dass 1 Milliarde Dollar investiert wurden?",
+      "answer": "Nein. Die Marktkapitalisierung ist nur eine rechnerische Größe aus Preis mal Umlaufsmenge. Aufgrund von Illiquidität kann bereits ein echter Geldzufluss von wenigen Millionen Dollar die Marktkapitalisierung um eine Milliarde Dollar steigen lassen."
+    },
+    {
+      "question": "Wie viel Prozent der physischen Gold-Marktkapitalisierung hat Bitcoin erreicht?",
+      "answer": "Bei einer Marktkapitalisierung von etwa 1 bis 1,2 Billionen US-Dollar entspricht der Gesamtwert von Bitcoin rund 6 bis 8 Prozent des weltweiten Goldbestandes."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Glassnode Insights - On-Chain Market Analysis",
+      "url": "https://insights.glassnode.com",
+      "publisher": "Glassnode"
+    },
+    {
+      "title": "CoinMetrics - Crypto Asset Research & Metrics",
+      "url": "https://coinmetrics.io",
+      "publisher": "Coin Metrics"
+    },
+    {
+      "title": "Bitcoin Developer Documentation - Supply Mechanics",
+      "url": "https://bitcoin.org/en/developer-documentation",
+      "publisher": "Bitcoin.org"
+    }
+  ]
+},
+{
   "id": "art-1790035827287",
   "title": "Bitoci: Was hinter dem Krypto-Tippfehler steckt und wie Sie sich schützen",
   "seoTitle": "Bitoci gesucht? Tippfehler, Sicherheit & Bitcoin-Guides DE",
