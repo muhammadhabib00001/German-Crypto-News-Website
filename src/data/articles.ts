@@ -2,6 +2,141 @@ import { Article } from '@/types';
 
 export const ARTICLES: Article[] = [
 {
+  "id": "art-1790140147202",
+  "title": "Marktkapitalisierung bei Krypto: Berechnung, FDV & Risikodynamik",
+  "seoTitle": "Marktkapitalisierung Krypto: Kennzahl, FDV & Risiko-Guides",
+  "metaDescription": "Die Marktkapitalisierung im Krypto-Markt erklärt: Formel, Circulating Supply, FDV, Marktordnung und Risikobewertung für strategische Investoren und Trader.",
+  "slug": "marktkapitalisierung-krypto-berechnung-fdv-bewertung",
+  "category": {
+    "id": "cat-1",
+    "name": "DeFi",
+    "slug": "defi",
+    "description": "Dezentrale Finanzen & Protokolle",
+    "iconName": "Coins"
+  },
+  "tags": [
+    "Marktkapitalisierung",
+    "marktkapitalisierung krypto",
+    "FDV",
+    "Tokenomics",
+    "Krypto-Analyse"
+  ],
+  "focusKeyword": "marktkapitalisierung krypto",
+  "secondaryKeywords": [
+    "Circulating Supply",
+    "Fully Diluted Valuation",
+    "Krypto-Bewertung",
+    "Bitcoin Dominanz"
+  ],
+  "excerpt": "Die Marktkapitalisierung gilt im Segment der digitalen Assets als zentrale Metrik zur relativen Bewertung von Projekten. Erfahren Sie, wie sich die Umlaufsmenge vom Fully Diluted Value unterscheidet und welche Fallstricke bei der Analyse von Krypto-Marktkapitalisierungen zu beachten sind.",
+  "content": "<p>Die <strong>Marktkapitalisierung im Krypto-Bereich</strong> stellt die fundamentale Kennzahl dar, um den Gesamtwert eines digitalen Vermögenswerts zu beziffern und Projekte im Marktgefüge miteinander zu vergleichen. Im Gegensatz zu traditionellen Aktiengesellschaften erfordert die Bewertung von Kryptowährungen jedoch ein tiefes Verständnis von Tokenomics, Emissionsplänen und Liquiditätsstrukturen.</p>\n\n<h2 id=\"grundlagen-und-berechnung\">Grundlagen: Wie wird die Krypto-Marktkapitalisierung berechnet?</h2>\n<p>Die grundlegende Formel zur Ermittlung der Marktkapitalisierung einer Kryptowährung erscheint auf den ersten Blick simpel. Sie berechnet sich aus dem Produkt des aktuellen Marktpreises einer einzelnen Token-Einheit und der Anzahl der im Umlauf befindlichen Einheiten:</p>\n<p><code>Marktkapitalisierung = Aktueller Token-Preis × Umlaufmenge (Circulating Supply)</code></p>\n<p>Diese einfache Multiplikation birgt jedoch erhebliche begriffliche Nuancen, die bei der Analyse differenziert betrachtet werden müssen:</p>\n<ul>\n  <li><strong>Circulating Supply (Umlaufmenge):</strong> Die Anzahl der Token, die aktuell öffentlich verfügbar sind und im Markt zirkulieren. Staking-Lockups oder temporär gesperrte Adressen können diese Zahl beeinflussen.</li>\n  <li><strong>Total Supply (Gesamtmenge):</strong> Die Gesamtanzahl der bereits erzeugten Token abzüglich aller vernichteten Einheiten (Burn-Mechanismen).</li>\n  <li><strong>Max Supply (Maximalmenge):</strong> Die mathematisch oder im Protokollcode festgelegte Höchstgrenze an Token, die jemals existieren können (beispielsweise 21 Millionen bei Bitcoin).</li>\n</ul>\n\n<h2 id=\"fdv-vs-circulating-market-cap\">Fully Diluted Valuation (FDV) im Vergleich zur Umlaufs-Marktkapitalisierung</h2>\n<p>Ein häufig unterschätztes Risiko bei der Evaluation von Krypto-Projekten ist die Vernachlässigung der sogenannten <strong>Fully Diluted Valuation (FDV)</strong>. Die FDV berechnet die theoretische Marktkapitalisierung, wenn alle jemals vorgesehenen Token vollständig emittiert und im Umlauf wären:</p>\n<p><code>FDV = Aktueller Token-Preis × Maximalmenge (Max Supply)</code></p>\n<p>Ein eklatantes Missverhältnis zwischen der aktuellen Marktkapitalisierung und der FDV deutet auf ein hohes rechnerisches Inflationsrisiko hin. Wenn beispielsweise lediglich 10 Prozent der maximalen Token-Menge freigegeben sind, führt das künftige Aufschalten verbleibender Kontingente (durch Investor-Vesting, Team-Freigaben oder Mining/Staking-Rewards) zu einem konstanten Verkaufsdruck auf den Markt.</p>\n\n<h3 id=\"token-unlocks-und-vesting-risiken\">Einfluss von Token-Unlocks auf die Marktstabilität</h3>\n<p>Projekte mit einer geringen Umlaufsquote bei gleichzeitig hoher FDV verlangen von Investoren erhöhte Vorsicht. Werden geplante Token-Unlocks durchgeführt, vergrößert sich das Angebot rasch. Bleibt die Nachfrage nicht proportional im selben Ausmaß bestehen, sinkt der Preis pro Einheit zwangsläufig, um das Marktgleichgewicht aufrechtzuerhalten.</p>\n\n<h2 id=\"kategorisierung-der-krypto-assets\">Krypto-Kategorisierung nach Marktkapitalisierungs-Klassen</h2>\n<p>Analysten unterteilen den Krypto-Markt primär in vier Segmentklassen, um das jeweilige Risikoprofil und die erwartbare Volatilität einzuordnen:</p>\n<ul>\n  <li><strong>Large-Caps (über 10 Milliarden USD):</strong> Das Fundament des Marktes, angeführt von etablierten Netzwerken wie Bitcoin und Ethereum. Diese Assets weisen in der Regel die höchste Liquidität, etablierte Derivatemärkte und verhältnismäßig geringere Schwankungsintensitäten auf.</li>\n  <li><strong>Mid-Caps (1 bis 10 Milliarden USD):</strong> Etablierte Alternative Coins (Altcoins) und führende Layer-1- oder Layer-2-Projekte. Sie bieten höheres Wachstumspotenzial, gehen jedoch mit gesteigerter Volatilität einher.</li>\n  <li><strong>Small-Caps (100 Millionen bis 1 Milliarde USD):</strong> Spezialisierte Nischenprojekte, DeFi-Protokolle oder jüngere Infrastruktur-Tokens. Sie weisen eine deutlich reduzierte Marktliquidität auf.</li>  <li><strong>Micro-Caps (unter 100 Millionen USD):</strong> Hochspekulative Anlagen. Bereits geringe Ordervolumina können hier massive Kursausschläge in beide Richtungen auslösen.</li>\n</ul>\n\n<h2 id=\"liquiditaet-und-papier-marktkapitalisierung\">Die Täuschung der \"Papier-Marktkapitalisierung\": Rolle der Liquidität</h2>\n<p>Ein zentrales Missverständnis im Umgang mit der Marktkapitalisierung von Kryptowährungen ist die Gleichsetzung von Marktkapitalisierung und eingezahltem Kapital. Ein Projekt mit einer Marktkapitalisierung von 1 Milliarde US-Dollar bedeutet keineswegs, dass 1 Milliarde US-Dollar in das System geflossen sind.</p>\n<p>Die Marktkapitalisierung spiegelt lediglich den Preis der <em>zuletzt gehandelten Einheit</em> multipliziert mit der Umlaufmenge wider. Wenn ein neu geschaffener Token mit einer Gesamtmenge von 1 Milliarde Einheiten für 1 US-Dollar einmalig den Besitzer wechselt, beträgt die errechnete Marktkapitalisierung rein rechnerisch 1 Milliarde US-Dollar – selbst wenn das tatsächliche Orderbuch nur eine Liquidität von wenige tausend Dollar aufweist.</p>\n\n<h3 id=\"slippage-und-orderbuch-tiefe\">Slippage und Orderbuch-Tiefe als Qualitätskriterien</h3>\n<p>Um die Aussagekraft der Marktkapitalisierung realistisch einzuschätzen, müssen Trader die <strong>Orderbuch-Tiefe</strong> und die zu erwartende <em>Slippage</em> (Preisabweichung bei Ausführung großer Aufträge) analysieren. Nur bei ausreichend tiefen Handelsbüchern auf verlässlichen Börsen besitzt die ausgewiesene Marktkapitalisierung echte ökonomische Substanz.</p>\n\n<h2 id=\"strukturelle-grenzen-der-metrik\">Grenzen und Verfälschungen bei Krypto-Marktkapitalisierungen</h2>\n<p>Bei der Erhebung und Interpretation der Daten stoßen gängige Krypto-Aggregatoren auf spezifische methodische Hürden:</p>\n<ul>\n  <li><strong>Verlorene und inaktive Coins:</strong> Schätzungen gehen davon aus, dass Millionen von Bitcoins aufgrund verlorener Private Keys oder unzugänglicher Wallets unwiederbringlich dem Markt entzogen sind. Sie fließen Dennoch vollständig in die offizielle Marktkapitalisierung ein.</li>\n  <li><strong>Gesperrte Assets in DeFi & Staking:</strong> In Smart Contracts gebundene Token sind temporär dem freien Handel entzogen, verbleiben aber meist im mathematischen Circulating Supply.</li>\n  <li><strong>Wash Trading:</strong> Künstlich generiertes Handelsvolumen auf unregulierten Handelsplätzen kann Preise manipulieren und somit die Marktkapitalisierung künstlich aufblähen.</li>\n</ul>\n\n<h2 id=\"strategische-anwendung-im-portfolio-management\">Strategische Anwendung für die Portfolio-Strukturierung</h2>\n<p>Verantwortungsbewusste Marktteilnehmer nutzen die Marktkapitalisierung nicht als isolierten Kaufindikator, sondern als Orientierungsrahmen für das Risikomanagement:</p>\n<p>Eine klassische Allokationsstrategie teilt das Gesamtportfolio anhand von Marktkapitalisierungsgrenzen auf. Das Kernportfolio besteht typischerweise zu einem großen Prozentsatz aus hochkapitalisierten Werten (Large-Caps), um das Gesamtrisiko zu begrenzen, während kleinere Positionen in Mid- oder Small-Caps als Wachstumsbeschleuniger dienen.</p>\n<p>Zudem dient das Verhältnis zwischen der Bitcoin-Dominanz (Anteil der Bitcoin-Marktkapitalisierung am Gesamtkrypto-Markt) und der Altcoin-Marktkapitalisierung als makroökonomischer Indikator für Marktzyklen und die Umschichtung von Risikokapital.</p>",
+  "toc": [
+    {
+      "id": "grundlagen-und-berechnung",
+      "text": "Grundlagen: Wie wird die Krypto-Marktkapitalisierung berechnet?",
+      "level": 2
+    },
+    {
+      "id": "fdv-vs-circulating-market-cap",
+      "text": "Fully Diluted Valuation (FDV) im Vergleich zur Umlaufs-Marktkapitalisierung",
+      "level": 2
+    },
+    {
+      "id": "token-unlocks-und-vesting-risiken",
+      "text": "Einfluss von Token-Unlocks auf die Marktstabilität",
+      "level": 3
+    },
+    {
+      "id": "kategorisierung-der-krypto-assets",
+      "text": "Krypto-Kategorisierung nach Marktkapitalisierungs-Klassen",
+      "level": 2
+    },
+    {
+      "id": "liquiditaet-und-papier-marktkapitalisierung",
+      "text": "Die Täuschung der \"Papier-Marktkapitalisierung\": Rolle der Liquidität",
+      "level": 2
+    },
+    {
+      "id": "slippage-und-orderbuch-tiefe",
+      "text": "Slippage und Orderbuch-Tiefe als Qualitätskriterien",
+      "level": 3
+    },
+    {
+      "id": "strukturelle-grenzen-der-metrik",
+      "text": "Grenzen und Verfälschungen bei Krypto-Marktkapitalisierungen",
+      "level": 2
+    },
+    {
+      "id": "strategische-anwendung-im-portfolio-management",
+      "text": "Strategische Anwendung für die Portfolio-Strukturierung",
+      "level": 2
+    }
+  ],
+  "publishedAt": "2026-09-23T05:09:07.703Z",
+  "updatedAt": "2026-09-23T05:09:07.703Z",
+  "readTimeMinutes": 10,
+  "author": {
+    "id": "florian-becker",
+    "name": "Stefan Krumm",
+    "slug": "florian-becker",
+    "role": "Senior Crypto Analyst",
+    "bio": "Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
+    "email": "s.krumm@kryptopulse.de",
+    "credentials": [
+      "M.Sc. Finance",
+      "Certified Financial Analyst"
+    ]
+  },
+  "featuredImage": {
+    "url": "https://images.unsplash.com/photo-1634704784915-aacf363b021f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDY0MTEyfDB8MXxzZWFyY2h8MXx8bWFya3RrYXBpdGFsaXNpZXJ1bmclMjBrcnlwdG98ZW58MHwwfHx8MTc5MDE0MDE0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    "alt": "marktkapitalisierung krypto",
+    "title": "marktkapitalisierung krypto",
+    "caption": "Analyse & Trends zu marktkapitalisierung krypto",
+    "width": 1200,
+    "height": 630
+  },
+  "isFeatured": true,
+  "isTrending": true,
+  "isBreaking": false,
+  "canonicalUrl": "https://german-crypto-news-website.vercel.app/defi/marktkapitalisierung-krypto-berechnung-fdv-bewertung",
+  "faqs": [
+    {
+      "question": "Was bedeutet Marktkapitalisierung bei Kryptowährungen?",
+      "answer": "Die Marktkapitalisierung ist der rechnerische Gesamtwert aller sich im Umlauf befindlichen Einheiten einer Kryptowährung. Sie berechnet sich aus dem aktuellen Marktpreis multipliziert mit der Umlaufmenge (Circulating Supply)."
+    },
+    {
+      "question": "Was ist der Unterschied zwischen Circulating Supply und Fully Diluted Valuation (FDV)?",
+      "answer": "Die normale Marktkapitalisierung berücksichtigt nur die aktuell frei handelbaren Token (Circulating Supply). Die Fully Diluted Valuation (FDV) berechnet den potenziellen Gesamtwert, wenn alle jemals vorgesehenen Token (Max Supply) im Umlauf wären."
+    },
+    {
+      "question": "Warum ist eine hohe Marktkapitalisierung kein Garant für hohe Liquidität?",
+      "answer": "Die Marktkapitalisierung basiert rein auf dem letzten gehandelten Preis. Wenn das Orderbuch sehr dünn ist, kann bereits wenig Handelsvolumen den Preis verfälschen, ohne dass echte Marktliquidität für größere Verkäufe vorhanden ist."
+    },
+    {
+      "question": "Wie fließen verlorene Bitcoins in die Marktkapitalisierung ein?",
+      "answer": "Verlorene Bitcoins verbleiben in der Blockchain-Datenstruktur und werden von Datenportalen weiterhin der Umlaufmenge zugerechnet, obwohl sie dem aktiven Markt dauerhaft entzogen sind."
+    }
+  ],
+  "sources": [
+    {
+      "title": "CoinGecko Methodology: Crypto Market Cap Calculation",
+      "url": "https://www.coingecko.com",
+      "publisher": "CoinGecko Analytics"
+    },
+    {
+      "title": "CoinMarketCap Data Standards & Supply Definitions",
+      "url": "https://coinmarketcap.com",
+      "publisher": "CoinMarketCap"
+    },
+    {
+      "title": "BaFin: Hinweisschreiben zu Krypto-Assets und Risikobewertung",
+      "url": "https://www.bafin.de",
+      "publisher": "Bundesanstalt für Finanzdienstleistungsaufsicht"
+    }
+  ]
+},
+{
   "id": "art-1790071731623",
   "title": "Solana Blockchain: Die Hochleistungs-Infrastruktur im Detail",
   "seoTitle": "Solana Blockchain: Technologie, Proof of History und dApps",
