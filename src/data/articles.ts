@@ -2,6 +2,123 @@ import { Article } from '@/types';
 
 export const ARTICLES: Article[] = [
 {
+  "id": "art-1794506123785",
+  "title": "êth im Suchfokus: Sonderzeichen-Typo, Ethereum & Web3-Sicherheit",
+  "seoTitle": "êth im Suchfokus: Ethereum-Typo, Token & Krypto-Sicherheit",
+  "metaDescription": "Was bedeutet êth? Analyse des Sonderzeichen-Tippfehlers für ETH, Ethereum-Grundlagen, Token-Nutzen und wichtige Schutzmaßnahmen gegen Krypto-Typosquatting.",
+  "slug": "eth-sonderzeichen-suchfehler-ethereum-sicherheit",
+  "category": {
+    "id": "cat-1",
+    "name": "DeFi",
+    "slug": "defi",
+    "description": "Dezentrale Finanzen & Protokolle",
+    "iconName": "Coins"
+  },
+  "tags": [
+    "êth",
+    "Ethereum",
+    "ETH",
+    "Krypto-Sicherheit",
+    "Web3"
+  ],
+  "focusKeyword": "êth",
+  "secondaryKeywords": [
+    "Ethereum",
+    "Ether",
+    "Typosquatting",
+    "Krypto Sicherheit",
+    "Phishing",
+    "Web3 Navigation"
+  ],
+  "excerpt": "Wer nach 'êth' sucht, stößt meist durch versehentliche Sonderzeichen-Eingaben oder Tastaturlayout-Wechsel auf diesen Begriff. Dieser Leitfaden beleuchtet die technischen Hintergründe des Suchphänomens, erläutert die Grundlagen des Ethereum-Netzwerks und zeigt auf, wie Sie sich im Web3 vor Phishing-Fallen schützen.",
+  "content": "<p>Der Suchbegriff <strong>êth</strong> taucht regelmäßig in den Abfragestatistiken von Suchmaschinen auf. Auf den ersten Blick wirkt die Schreibweise mit dem Zirkumflex-Akzent („ê“) ungewöhnlich, doch in der Praxis handelt es sich fast ausnahmslos um eine fehlerhafte Eingabe des Kürzels <strong>ETH</strong> – dem Ticker-Symbol der zweitgrößten Kryptowährung der Welt, Ether. In der dynamischen Welt von Web3 und Krypto-Assets gewinnen solche Suchabweichungen jedoch eine besondere Relevanz, da Cyberkriminelle gezielt nach fehlerhaften Eingaben suchen, um präparierte Phishing-Seiten aufzubauen.</p><h2>Ursachen der Suchanfrage: Wie das Sonderzeichen „ê“ in êth entsteht</h2><p>Die Entstehung der Eingabe êth lässt sich primär durch technische und sprachliche Faktoren bei der Digitaltastatur-Nutzung erklären. Insbesondere auf mobilen Endgeräten wie Smartphones und Tablets führt das längere Gedrückthalten der Taste „e“ zur Einblendung von Sonderzeichen-Varianten. Wird eine Eingabe übereilt getätigt, wählt das System fälschlicherweise das Buchstabe-Akzent-Gespann „ê“ aus, anstatt ein einfaches „e“ zu registrieren.</p><p>Ein weiterer häufiger Grund liegt in internationalen Tastaturlayouts. Sprachregionen wie das Französische, Portugiesische oder Vietnamesische nutzen den Zirkumflex standardmäßig im Alphabet. Beim Wechsel zwischen verschiedenen Eingabesprachen – beispielsweise beim Verfassen einer E-Mail in einer Fremdsprache und der anschließenden Recherche nach Krypto-Kursen – bleibt das Tastaturlayout oft unbemerkt verstellt. Zudem führen optische Zeichenerkennungen (OCR) bei der Digitalisierung gedruckter Dokumente gelegentlich zu Fehlinterpretationen stilisierter Schriftarten, wodurch aus dem Schriftzug ETH die Variante êth wird.</p><h2>Gefahren durch Typosquatting: Sicherheitsrisiken bei Akzent-Suchanfragen</h2><p>Suchfehler im Krypto-Bereich bergen stets ein erhöhtes Sicherheitsrisiko. Unter dem Fachbegriff <strong>Typosquatting</strong> registrieren Angreifer gezielt Domain-Namen, die gängigen Tippfehlern bekannter Plattformen, Börsen oder Token-Ticker entsprechen. Die Eingabe von êth bildet hierbei ein attraktives Ziel für Cyberkriminelle, da sogenannte IDN-Domains (Internationalized Domain Names) die Verwendung von Sonderzeichen wie „ê“ im Webressourcen-Namen erlauben.</p><ul><li><strong>Homograph-Attacken:</strong> Angreifer registrieren Webadressen mit visuellen Ähnlichkeiten. Ein Domainname wie <code>êth-wallet.com</code> unterscheidet sich optisch kaum vom Original, steuert jedoch einen fremden Server an.</li><li><strong>Falsche Krypto-Börsen:</strong> Über gefälschte Benutzeroberflächen versuchen Phishing-Seiten, sensible Login-Daten, Passwörter oder private Schlüssel (Private Keys) abzugreifen.</li><li><strong>Befallene Dezentrale Apps (dApps):</strong> Wer über eine fehlerhafte Suchanfrage auf eine präparierte Web3-Anwendung gerät und seine Krypto-Wallet verbindet, riskiert die ungewollte Autorisierung von Transaktionen, die zum Totalverlust der hinterlegten Ether führen kann.</li></ul><p>Aus diesem Grund ist es essenziell, bei der Eingabe von Suchbegriffen mit Sonderzeichen erhöhte Aufmerksamkeit walten zu lassen und niemals ungeprüft auf gesponserte Suchergebnisse zu klicken, die solche Schreibweisen beinhalten.</p><h2>Das Fundament hinter ETH: Rolle und Funktion im Ethereum-Netzwerk</h2><p>Wer nach êth sucht, möchte in den allermeisten Fällen Informationen über <strong>ETH (Ether)</strong> und die zugrunde liegende Ethereum-Blockchain abrufen. Ethereum unterscheidet sich grundlegend von Netzwerken wie Bitcoin, da es nicht primär als reines Peer-to-Peer-Zahlungssystem konzipiert wurde, sondern als dezentrale Plattform für Smart Contracts und dezentrale Anwendungen (dApps).</p><p>Ether (ETH) nimmt in diesem Ökosystem mehrere zentrale Rollen ein:</p><h3>1. Gas-Gebühren für Transaktionen</h3><p>Jede Interaktion auf der Ethereum-Blockchain – ob das Versenden von Token, das Interagieren mit DeFi-Protokollen oder das Prägen von NFTs – erfordert Rechenkapazität. Die Aufwendungen dafür werden in Form von „Gas“ abgerechnet und müssen zwingend in ETH bezahlt werden. Dies verleiht dem Token eine intrinsische, stetige Nachfrage innerhalb des Netzwerks.</p><h3>2. Proof-of-Stake Konsensmechanismus</h3><p>Seit der Umstellung des Netzwerks auf den Proof-of-Stake-Konsens (PoS) sichern Validatoren das Ethereum-Netzwerk ab, indem sie ETH als Sicherheit (Staking) hinterlegen. Im Gegenzug für die Bereitstellung von Rechenleistung und die Validierung von Blöcken erhalten Staker Belohnungen in Form von neu erzeugten Ether-Einheiten sowie Transaktionsgebühren.</p><h3>3. Sicherheit und Dezentralisierung</h3><p>ETH dient als ökonomisches Schutzschild des gesamten Ökosystems. Ein potenzieller Angreifer müsste einen gigantischen Teil des weltweiten gestakten ETH-Bestands kontrollieren, um das Netzwerk zu manipulieren. Dies macht Angriffe wirtschaftlich unrentabel und sorgt für die hohe Stabilität des Protokolls.</p><h2>Navigationssicherheit im Web3: So schützen Sie sich vor Phishing-Fallen</h2><p>Um Fehllenkungen durch Eingabefehler wie êth konsequent zu vermeiden, sollten Krypto-Anleger und Web3-Nutzer strikte Sicherheitsroutinen im digitalen Alltag verankern. Die Anwendung bewährter Sicherheitsstandards schützt sowohl private Schlüssel als auch das investierte Kapital.</p><h3>Direkte Lesezeichen nutzen</h3><p>Vertrauenswürdige Krypto-Börsen, Wallet-Schnittstellen, Block-Explorer und Kursportale sollten stets als Lesezeichen (Bookmarks) im Webbrowser abgespeichert werden. Der direkte Aufruf über das Lesezeichen eliminiert das Risiko, über eine fehlerhafte Suchmaschineneingabe auf eine Typosquatting-Website zu geraten.</p><h3>Prüfung von Domain-Namen und Zertifikaten</h3><p>Vor der Eingabe von Zugangsdaten oder der Verknüpfung einer Hardware-Wallet muss die Webadresse in der Browserleiste exakt kontrolliert werden. Achten Sie darauf, ob Sonderzeichen wie „ê“ unbeabsichtigt im Domainnamen auftauchen. Echte, etablierte Krypto-Dienste nutzen in der Regel Standard-ASCII-Zeichen ohne Akzente.</p><h3>Einsatz von Hardware-Wallets</h3><p>Für die Verwahrung größerer ETH-Beträge ist die Nutzung einer Hardware-Wallet dringend zu empfehlen. Da private Schlüssel das physische Gerät niemals verlassen und jede Transaktion manuell auf dem Display des Geräts bestätigt werden muss, bieten Hardware-Wallets effektiven Schutz – selbst wenn ein Nutzer versehentlich eine gefälschte Website aufruft.</p><h2>Fazit: êth als Tippfehler verstehen und sicher im Ökosystem agieren</h2><p>Die Suchanfrage <strong>êth</strong> ist ein klassisches Beispiel für ein linguistisches und technisches Phänomen bei der Nutzung digitaler Tastaturen. Während hinter der Absicht der Nutzer der Wunsch steht, aktuelle Daten, Kurse oder Informationen über Ethereum (ETH) abzurufen, birgt die versehentliche Verwendung des Sonderzeichens potenzielle Risiken durch Cyberkriminelle.</p><p>Durch ein geschärftes Bewusstsein für Typosquatting, die Nutzung von Browser-Lesezeichen und ein grundlegendes Verständnis der Funktionsweise des ETH-Tokens bewegen sich Anleger sicher und souverän im stetig wachsenden Ökosystem der dezentralen Finanzen.</p>",
+  "toc": [
+    {
+      "id": "ursachen-der-suchanfrage-sonderzeichen-eth",
+      "text": "Ursachen der Suchanfrage: Wie das Sonderzeichen „ê“ in êth entsteht",
+      "level": 2
+    },
+    {
+      "id": "gefehren-durch-typosquatting-und-homograph-attacken",
+      "text": "Gefahren durch Typosquatting: Sicherheitsrisiken bei Akzent-Suchanfragen",
+      "level": 2
+    },
+    {
+      "id": "das-fundament-hinter-eth-rolle-im-ethereum-netzwerk",
+      "text": "Das Fundament hinter ETH: Rolle und Funktion im Ethereum-Netzwerk",
+      "level": 2
+    },
+    {
+      "id": "navigationssicherheit-im-web3-schutz-vor-phishing",
+      "text": "Navigationssicherheit im Web3: So schützen Sie sich vor Phishing-Fallen",
+      "level": 2
+    },
+    {
+      "id": "fazit-eth-tippfehler-erkennen-und-sicher-navigieren",
+      "text": "Fazit: êth als Tippfehler verstehen und sicher im Ökosystem agieren",
+      "level": 2
+    }
+  ],
+  "publishedAt": "2026-11-12T17:55:24.424Z",
+  "updatedAt": "2026-11-12T17:55:24.424Z",
+  "readTimeMinutes": 10,
+  "author": {
+    "id": "florian-becker",
+    "name": "Stefan Krumm",
+    "slug": "florian-becker",
+    "role": "Senior Crypto Analyst",
+    "bio": "Spezialist für Finanzmärkte, Blockchain-Technologie und Krypto-Asset-Bewertung.",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
+    "email": "s.krumm@kryptopulse.de",
+    "credentials": [
+      "M.Sc. Finance",
+      "Certified Financial Analyst"
+    ]
+  },
+  "featuredImage": {
+    "url": "https://images.unsplash.com/photo-1631015248879-8896f6389b2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMDY0MTEyfDB8MXxzZWFyY2h8MXx8JUMzJUFBdGh8ZW58MHwwfHx8MTc5NDUwNjEyNHww&ixlib=rb-4.1.0&q=80&w=1080",
+    "alt": "êth",
+    "title": "êth",
+    "caption": "Analyse & Trends zu êth",
+    "width": 1200,
+    "height": 630
+  },
+  "isFeatured": true,
+  "isTrending": true,
+  "isBreaking": false,
+  "canonicalUrl": "https://german-crypto-news-website.vercel.app/defi/eth-sonderzeichen-suchfehler-ethereum-sicherheit",
+  "faqs": [
+    {
+      "question": "Was bedeutet der Suchbegriff êth?",
+      "answer": "Der Begriff êth entsteht in der Regel durch einen Tippfehler auf mobilen oder internationalen Tastaturen bei der Eingabe des Krypto-Kürzels ETH (Ether/Ethereum)."
+    },
+    {
+      "question": "Besteht ein Sicherheitsrisiko, wenn ich nach êth suche?",
+      "answer": "Ja. Kriminelle nutzen solche Tippfehler (Typosquatting), um gefälschte Websites oder Phishing-Domains mit Sonderzeichen einzurichten. Achten Sie stets auf die korrekte Webadresse."
+    },
+    {
+      "question": "Wofür wird das echte Kürzel ETH im Netzwerk benötigt?",
+      "answer": "ETH (Ether) ist die native Kryptowährung des Ethereum-Netzwerks. Es wird für die Bezahlung von Transaktionsgebühren (Gas), zur Absicherung des Netzwerks via Staking und als Wertaufbewahrungsmittel verwendet."
+    },
+    {
+      "question": "Wie schütze ich mich am besten vor Phishing bei Krypto-Suchanfragen?",
+      "answer": "Speichern Sie wichtige Krypto-Börsen und Wallets als Browser-Lesezeichen, überprüfen Sie die Adressleiste sorgfältig auf Sonderzeichen und nutzen Sie eine Hardware-Wallet."
+    }
+  ],
+  "sources": [
+    {
+      "title": "Offizielle Ethereum Stiftung",
+      "url": "https://ethereum.org/de/",
+      "publisher": "Ethereum Foundation"
+    },
+    {
+      "title": "BSI – Gefährdung durch Phishing & Typosquatting",
+      "url": "https://www.bsi.bund.de",
+      "publisher": "Bundesamt für Sicherheit in der Informationstechnik"
+    }
+  ]
+},
+{
   "id": "art-1794460057181",
   "title": "Bitcoin Pizza: Die historische Geschichte des ersten Krypto-Kaufs",
   "seoTitle": "Bitcoin Pizza Day: Geschichte & Symbolik des ersten Kaufes",
